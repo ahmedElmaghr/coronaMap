@@ -3,13 +3,15 @@ import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/mediaFrancais/CoronaMapView";
 import countries from "./../data/countries.tsv"
 import * as d3 from "d3"
+import PieChart from "../../Components/widet/PieChart";
 class MediaFrancaisContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       worldData: [],
       jsonData: [],
-      countries: []
+      countries: [],
+      pieVisiblity: "hidden"
     };
   }
 
@@ -29,33 +31,72 @@ class MediaFrancaisContainer extends Component {
       });
     });
 
-    d3.tsv(countries).then((response,error)=>{
-      console.log("tsv",response);
+    d3.tsv(countries).then((response, error) => {
       this.setState({
-        countries : response
+        countries: response
       })
     })
   }
 
   render() {
-    var mediaFrancaisView = this.constructView()
-    return (
-      <div>
-        {mediaFrancaisView}
-      </div>
-    );
+    const { worldData, jsonData, countries } = this.state;
+    if (jsonData.length != 0) {
 
+      return (
+        <div>
+          <CoronaMapView
+            worldData={worldData}
+            jsonData={jsonData}
+            activated={true}
+            countries={countries}
+            click={(d) => {
+              this.click(d)
+            }}
+            onmouseout={
+              (d) => {
+                this.onmouseout(d)
+              }
+            }
+          ></CoronaMapView>
+          <PieChart
+            visibility={this.state.pieVisiblity}
+            data={[5, 2, 7, 1, 1, 3, 4, 9]}
+            x={50}
+            y={50}
+          ></PieChart>
+        </div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+
+  click = (d) => {
+    console.log(d)
+    this.setState({
+      pieVisiblity: "visible"
+      
+    })
+  }
+
+  onmouseout = () => {
+    console.log("onmouseout")
+    this.setState({
+      pieVisiblity: "hidden"
+    })
   }
 
   constructView = () => {
-    const { worldData, jsonData,countries} = this.state;
-    if(jsonData.length!=0){
-     return (
+    const { worldData, jsonData, countries } = this.state;
+    if (jsonData.length != 0) {
+      return (
         <CoronaMapView
           worldData={worldData}
           jsonData={jsonData}
           activated={true}
-          countries = {countries}
+          countries={countries}
         ></CoronaMapView>
       );
     }

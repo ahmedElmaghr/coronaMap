@@ -3,6 +3,7 @@ import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
 import { StringUtils } from "../../Utils/StringUtils.js";
 import "./CoronaMapViewCss.css";
+import DataHelper from "../../Utils/DataHelper.js";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
@@ -41,7 +42,6 @@ export default class CoronaMapView extends PureComponent {
 
   mergeMorrocanSahara = g => {
     //merge Morocco
-    console.log("mergeMorrocanSahara", this.props.jsonData)
     var jsonData = this.props.jsonData;
     //Moroccan Sahara id = 732
     //Morocco id = 504
@@ -63,16 +63,11 @@ export default class CoronaMapView extends PureComponent {
   };
 
   render() {
-
-    this.initMarkersAndLinks();
-    const medias_francais = this.props.media_filtred;
-    const relations_medias_francais = this.props.relations_filtered;
+    const data = this.props.countries;
     const { worldData } = this.props;
-    if (this.props.activated) {
-      if (worldData.length > 0) {
-        this.drawMediaAndConnexions(medias_francais, relations_medias_francais);
-        this.showMarkersOnFirstOrder();
-      }
+    if (this.props.activated && worldData.length > 0) {
+      this.initMarkersAndLinks();
+      this.drawCircles(data);
     }
     return <div></div>;
   }
@@ -82,18 +77,13 @@ export default class CoronaMapView extends PureComponent {
     d3.selectAll(".paths").remove();
   };
 
-  showMarkersOnFirstOrder = () => {
-    d3.select(".markers").raise();
-  };
   //Create the world map
-  drawMediaAndConnexions = (medias_francais, relations_medias_francais) => {
+  drawCircles = (data) => {
     var gGlobal = d3.select("#gWrapper");
     //Draw Medias
-    this.drawMediaPosition(gGlobal);
-    //Draw connexions
-    //this.drawCnx(gGlobal, relations_medias_francais);
+    this.drawMediaPosition(gGlobal, data);
     //add zoom
-    this.addZoom(gGlobal);
+    //this.addZoom(gGlobal);
   };
 
   //Draw svg wrapper for map
@@ -103,7 +93,7 @@ export default class CoronaMapView extends PureComponent {
     var divGlobal = body
       .append("div")
       .attr("id", "map")
-      .attr("class","body");
+      .attr("class", "body");
     //Construct SVG
     var svg = divGlobal
       .append("svg")
@@ -139,7 +129,7 @@ export default class CoronaMapView extends PureComponent {
         .attr("className", "country")
         //.attr("fill", (d, i) => this.color(worldData, d, i))
         .attr(
-          "fill",`rgba(173,216,230 ,1)`)
+          "fill", `rgba(173,216,230 ,1)`)
         .attr("stroke", this.borderColor)
         .attr("stroke-width", 0.05);
       return g;
@@ -147,26 +137,28 @@ export default class CoronaMapView extends PureComponent {
   };
 
   //Add Markers Function
-  drawMediaPosition = (node) => {
+  drawMediaPosition = (node, data2) => {
+    let temp = DataHelper.constructData(data2);
+    console.log("temp", temp);
     //const { relations_medias_francais } = this.props;
     let casablanca = {
       longitude: 42.5063, latitude: 1.5218
     }
-    
+
     let azerbaijan = {
       longitude: 40.143105, latitude: 47.576927
     }
 
     let data = [
-      {ville:casablanca, case : 1},
-      {ville:azerbaijan, case : 1800},
-      
+      { ville: casablanca, case: 1 },
+      { ville: azerbaijan, case: 1800 },
+
     ]
 
     var markers = node.append("g").attr("class", "markers");
     markers
       .selectAll("circle")
-      .data(data) 
+      .data(data2)
       .enter()
       .append("circle")
       .attr("key", d => `marker-${d.id}`)
@@ -178,37 +170,34 @@ export default class CoronaMapView extends PureComponent {
       })
       .attr("r", d => {
         return (
-          d.case/100 > 1 ? d.case/100 : 1
+          d.case / 100
         );
       })
       .attr("fill", 'rgba(204, 110, 110,0.6)')
       .attr("stroke", "#FFFFFF")
       .attr("stroke-width", 0.1)
       .attr("class", "marker")
+      .on("click", (d) => { console.log("hhh") })
+      //.on("mouseout", ()=>{this.props.onmouseout()})
       .append("title")
-      .text(d => this.circleOnHover(d));
 
     return markers;
   };
 
   getCx = (d) => {
-    console.log(d)
     if (StringUtils.isNotEmpty(d)) {
-      var x = d.ville.latitude;
-      var y = d.ville.longitude;
-      console.log("x",x); 
-      console.log("y",y);
-      
+      var x = d.latitude;
+      var y = d.longitude;
+
       var coordinate = [x, y];
-      console.log(coordinate)
       return this.projection()(coordinate)[0];
     }
   };
 
   getCy = (d) => {
     if (StringUtils.isNotEmpty(d)) {
-     var x = d.ville.latitude;
-     var y = d.ville.longitude;
+      var x = d.latitude;
+      var y = d.longitude;
       var coordinate = [x, y];
       return this.projection()(coordinate)[1];
     }
@@ -392,6 +381,7 @@ export default class CoronaMapView extends PureComponent {
 
   //Events handlers
   circleOnHover = event => {
+    console.log(event)
     return event.countryName;
   };
 
