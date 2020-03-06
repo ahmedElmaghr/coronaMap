@@ -18,7 +18,7 @@ export default class CoronaMapView extends PureComponent {
     y: -40
   };
   viewBox = "0 0 800 450";
-  borderColor = "red";
+  borderColor = "blue";
 
   constructor(props) {
     super(props);
@@ -59,7 +59,7 @@ export default class CoronaMapView extends PureComponent {
       .attr("d", d => this.calculatePath(d))
       .attr("stroke", this.borderColor)
       .attr("stroke-width", 0.05)
-      .attr("fill", `rgba(255,228,228,1)`);
+      .attr("fill", `#9ecce6`);
   };
 
   render() {
@@ -91,12 +91,8 @@ export default class CoronaMapView extends PureComponent {
   drawSvgWrapper() {
     //Construct Body
     var body = d3.select("body");
-    var divGlobal = body
-      .append("div")
-      .attr("id", "map")
-      .attr("class", "body");
     //Construct SVG
-    var svg = divGlobal
+    var svg = body
       .append("svg")
       .attr("id", "content")
       .attr("width", this.width)
@@ -128,15 +124,15 @@ export default class CoronaMapView extends PureComponent {
         .attr("key", i => `path-${i}`)
         .attr("d", d => this.calculatePath(d))
         .attr("className", "country")
-        //.attr("fill", (d, i) => this.color(worldData, d, i))
         .attr("fill", (d) => {
           return this.markDesease(d)
         })
         .attr("stroke", this.borderColor)
         .attr("stroke-width", 0.05)
-        .on("click", (d) => {
-          console.log(d.properties.name);
-        })
+        // .on("click", (d) => {
+        //   this.props.click(d);
+        //   console.log(d);
+        // })
 
       return g;
     }
@@ -159,7 +155,6 @@ export default class CoronaMapView extends PureComponent {
   }
   //Get country color range rgba(255,255,255)
   getCountryColor = (totalCases) => {
-    var opacity = 1
 
     if (0 < totalCases &&  totalCases<= 100) {
       return '#9ecce6'
@@ -172,6 +167,7 @@ export default class CoronaMapView extends PureComponent {
     }else if(1000 <= totalCases &&  totalCases< 5000) {
       return '#82adbe'
     }else if(5000 <= totalCases &&  totalCases< 100000) {
+      return 'darkslateblue'
     }
     else{
     }
@@ -184,7 +180,7 @@ export default class CoronaMapView extends PureComponent {
     var markers = node.append("g").attr("class", "markers");
     markers
       .selectAll("circle")
-      .data(data.filter(d => d.case != 0))
+      .data(data.filter(d => d.stat.TotalCases != 0))
       .enter()
       .append("circle")
       .attr("key", d => `marker-${d.id}`)
@@ -199,35 +195,38 @@ export default class CoronaMapView extends PureComponent {
 
       })
       .attr("fill", 'rgba(255, 0, 0,0.5)')
-      .attr("stroke", "white")
+      .attr("stroke", "red")
       .attr("stroke-width", 0.5)
       .attr("class", "marker")
+      .on("click", (d) => {
+        this.props.click(d);
+      })
       .append("title")
-      .text((d) => { return `country : ${d.ville.data.name} cases : ${d.case}` })
+      .text((d) => { return `country : ${d.data.name} cases : ${d.stat.TotalCases}` })
 
     return markers;
   };
 
   getRadius = (d) => {
     let rayon = 0;
-    let cases = d.case;
+    let cases = d.stat.TotalCases;
     /* [0,5] px*/
-    if (0 < d.case &&  d.case<= 100) {
+    if (0 < cases &&  cases<= 100) {
       let r = (cases / 100) * 4
       rayon = r;
-    } else if(100 < d.case &&  d.case< 200) {
+    } else if(100 < cases &&  cases< 200) {
       let r = (cases / 200) * 5
       rayon = r;
-    }else if(200 < d.case &&  d.case< 500) {
+    }else if(200 < cases &&  cases< 500) {
       let r = (cases / 500) * 7
       rayon = r;
-    }else if(500 < d.case &&  d.case< 2000) {
+    }else if(500 < cases &&  cases< 2000) {
       let r = (cases / 2000) * 17
       rayon = r;
-    }else if(2000 <= d.case &&  d.case< 5000) {
+    }else if(2000 <= cases &&  cases< 5000) {
       let r = (cases / 5000) * 15
       rayon = r;
-    }else if(5000 <= d.case &&  d.case< 100000) {
+    }else if(5000 <= cases &&  cases< 100000) {
       let r = (cases / 100000) * 30
       rayon = r;
     }
@@ -239,8 +238,8 @@ export default class CoronaMapView extends PureComponent {
 
   getCx = (d) => {
     if (StringUtils.isNotEmpty(d)) {
-      var x = d.ville.latitude;
-      var y = d.ville.longitude;
+      var x = d.coordinate.latitude;
+      var y = d.coordinate.longitude;
 
       var coordinate = [x, y];
       return this.projection()(coordinate)[0];
@@ -249,8 +248,8 @@ export default class CoronaMapView extends PureComponent {
 
   getCy = (d) => {
     if (StringUtils.isNotEmpty(d)) {
-      var x = d.ville.latitude;
-      var y = d.ville.longitude;
+      var x = d.coordinate.latitude;
+      var y = d.coordinate.longitude;
       var coordinate = [x, y];
       return this.projection()(coordinate)[1];
     }

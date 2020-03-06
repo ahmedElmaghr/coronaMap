@@ -12,7 +12,7 @@ class Container extends Component {
       worldData: [],
       jsonData: [],
       countries: [],
-      covid19 : covid19,
+      covid19: covid19,
       pieVisiblity: "hidden"
     };
   }
@@ -53,7 +53,7 @@ class Container extends Component {
             countries={countries}
             covid19={covid19}
             click={(d) => {
-              this.click(d)
+              this.showPie(d)
             }}
             onmouseout={
               (d) => {
@@ -63,7 +63,8 @@ class Container extends Component {
           ></CoronaMapView>
           <PieChart
             visibility={this.state.pieVisiblity}
-            data={[5, 2, 7, 1, 1, 3, 4, 9]}
+            data={this.getData(this.state.stat)}
+            stat={this.state.stat}
             x={50}
             y={50}
           ></PieChart>
@@ -76,10 +77,20 @@ class Container extends Component {
     }
   }
 
-  click = (d) => {
+  getData = (data) => {
+    console.log("pie data", data)
+    if (data) {
+      return [data.ActiveCases, data.TotalRecovered,data.TotalDeaths];
+    }else{
+      return [0];
+    }
+  }
+
+  showPie = (d) => {
+    console.log(d);
     this.setState({
-      pieVisiblity: "visible"
-      
+      pieVisiblity: "visible",
+      stat: d.stat
     })
   }
 

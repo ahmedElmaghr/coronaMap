@@ -1,17 +1,17 @@
 
-const constructData = (data, covid19) => {
+const constructData = (pays, statCovid19) => {
     var result = [];
 
-    data.forEach((d) => {
-        var ville = {
-            data : d,
+    pays.forEach((d) => {
+        var coordinate = {
             longitude: d.longitude,
             latitude: d.latitude
         };
 
         var object = {
-            ville,
-            case: getCase(d, covid19)
+            coordinate,
+            data : d,
+            stat: getStatByPays(d, statCovid19)
         }
         result.push(object);
     })
@@ -19,13 +19,13 @@ const constructData = (data, covid19) => {
     return result;
 }
 
-const getCase = (d, covid19) => {
+const getStatByPays = (d, covid19) => {
     let variable = covid19.data.filter(word => {
         return word.Country == d.name
     })
     let countryData = variable[0];
     if (countryData) {
-        return countryData.TotalCases
+        return countryData
     } else {
         return 0
     }
