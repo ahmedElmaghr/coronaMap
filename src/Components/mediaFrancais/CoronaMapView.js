@@ -134,10 +134,10 @@ export default class CoronaMapView extends PureComponent {
         })
         .attr("stroke", this.borderColor)
         .attr("stroke-width", 0.05)
-        .on("click",(d)=>{
+        .on("click", (d) => {
           console.log(d.properties.name);
         })
-        
+
       return g;
     }
   };
@@ -160,34 +160,22 @@ export default class CoronaMapView extends PureComponent {
   //Get country color range rgba(255,255,255)
   getCountryColor = (totalCases) => {
     var opacity = 1
-    if (totalCases > 10000) {
-      //rgb(199,21,133)
-      return `rgba(105,23,64,${opacity})`
-    } else if (totalCases > 5000) {
-      return `rgba(144,10,77,${opacity})`
-    } else if (totalCases > 3000) {
-      return `rgba(162,14,88,${opacity})`
-    } else if (totalCases > 1000) {
-      return `rgba(188,11,100,${opacity})`
-    } else if (totalCases > 500) {
-      return `rgba(199,21,133,${opacity})`
+
+    if (0 < totalCases &&  totalCases<= 100) {
+      return '#9ecce6'
+    } else if(100 < totalCases &&  totalCases< 200) {
+      return '#4c9bc4'
+    }else if(200 < totalCases &&  totalCases< 500) {
+      return '#b8d4e0'
+    }else if(500 < totalCases &&  totalCases< 1000) {
+      return '#96bbd5'
+    }else if(1000 <= totalCases &&  totalCases< 5000) {
+      return '#82adbe'
+    }else if(5000 <= totalCases &&  totalCases< 100000) {
     }
-    else if (totalCases > 200) {
-      return `rgba(219,112,147,${opacity})`
-    }    else if (totalCases > 80) {
-      return `rgba(255,20,147,${opacity})`
-    }    else if (totalCases > 50) {
-      //rgb(255,105,180)
-      return `rgba(255,105,180,${opacity})`
-    }else if (totalCases > 30) {
-      //rgb(255,182,193)
-      return `rgba(255,182,193,${opacity})`
-    }else if (totalCases > 10) {
-      //rgb(255,192,203)
-      return `rgba(255,192,203,${opacity})`
-    }else {
-      return `rgba(255,228,228,${opacity})`
+    else{
     }
+    
 
   }
   //Add Markers Function
@@ -206,13 +194,13 @@ export default class CoronaMapView extends PureComponent {
       .attr("cy", d => {
         return this.getCy(d);
       })
-      .attr("r", d => { 
+      .attr("r", d => {
         return this.getRadius(d);
-      
-       })
-      .attr("fill", 'rgba(0, 0, 0,0.25)')
-      .attr("stroke", "#FFFFFF")
-      .attr("stroke-width", 1)
+
+      })
+      .attr("fill", 'rgba(255, 0, 0,0.5)')
+      .attr("stroke", "white")
+      .attr("stroke-width", 0.5)
       .attr("class", "marker")
       .append("title")
       .text((d) => { return `country : ${d.ville.data.name} cases : ${d.case}` })
@@ -220,37 +208,33 @@ export default class CoronaMapView extends PureComponent {
     return markers;
   };
 
-  getRadius = (d)=>{
+  getRadius = (d) => {
     let rayon = 0;
-        if(d.case>10000){
-          let r = (d.case / 4000) ;
-          rayon = r;
-        }
-        else if(d.case>6000){
-          let r = (d.case / 1000) ;
-          rayon = r;
-        } else if(d.case>3000){
-          let r = (d.case / 500) ;
-          rayon = r;
-        } else if(d.case>2000){
-          let r = (d.case / 400) ;
-          rayon = r;
-        }else if(d.case>1000){
-          let r = (d.case / 300) ;
-          rayon = r;
-        }else if(d.case>600){
-          let r = (d.case / 100) ;
-          rayon = r;
-        }
-        else if(d.case>100){
-          let r = d.case/100 ;
-          rayon =r;
-        }
-        else{
-        let r = d.case/10 ;
-        rayon =r;
-      }
-      return rayon;
+    let cases = d.case;
+    /* [0,5] px*/
+    if (0 < d.case &&  d.case<= 100) {
+      let r = (cases / 100) * 4
+      rayon = r;
+    } else if(100 < d.case &&  d.case< 200) {
+      let r = (cases / 200) * 5
+      rayon = r;
+    }else if(200 < d.case &&  d.case< 500) {
+      let r = (cases / 500) * 7
+      rayon = r;
+    }else if(500 < d.case &&  d.case< 2000) {
+      let r = (cases / 2000) * 17
+      rayon = r;
+    }else if(2000 <= d.case &&  d.case< 5000) {
+      let r = (cases / 5000) * 15
+      rayon = r;
+    }else if(5000 <= d.case &&  d.case< 100000) {
+      let r = (cases / 100000) * 30
+      rayon = r;
+    }
+    else{
+      rayon = 0;
+    }
+    return rayon;
   }
 
   getCx = (d) => {
