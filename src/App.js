@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MediaFrancaisContainer from "./MediaFrancais/container/MediaFrancaisContainer";
+import Container from "./MediaFrancais/container/Container";
 
 
 
@@ -11,7 +11,7 @@ export default class App extends Component {
 
                  render() { 
                    return(  
-                   <MediaFrancaisContainer></MediaFrancaisContainer>               
+                   <Container></Container>               
                    )
                 }                
                } 

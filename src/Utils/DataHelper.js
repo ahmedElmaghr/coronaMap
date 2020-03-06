@@ -1,22 +1,33 @@
 
-const constructData = (data) => {
-    console.log("data", data);
-    var dataMap = [];
-    dataMap = data.reduce(function (map, node) {
-        var name = node.name;
-        var coordinate = {
-            longitude: node.longitude,
-            latitude: node.latitude
-        };
-        map[name] = {
-            coordinate,
-            case : node.case
-        };
-        return map;
-    }, []);
+const constructData = (data, covid19) => {
+    var result = [];
 
-    return dataMap;
+    data.forEach((d) => {
+        var ville = {
+            data : d,
+            longitude: d.longitude,
+            latitude: d.latitude
+        };
+
+        var object = {
+            ville,
+            case: getCase(d, covid19)
+        }
+        result.push(object);
+    })
+
+    return result;
 }
 
-
+const getCase = (d, covid19) => {
+    let variable = covid19.data.filter(word => {
+        return word.Country == d.name
+    })
+    let countryData = variable[0];
+    if (countryData) {
+        return countryData.TotalCases
+    } else {
+        return 0
+    }
+}
 export default { constructData };

@@ -26,7 +26,7 @@ export default class PieChart extends PureComponent {
         let x = this.props.x;
         let y = this.props.y;
         return (
-            <svg width="100%" height="100%" className="piechart">
+            <svg width="100%" height="100%" className="piechart" style ={{visibility : this.props.visibility}}> 
                     <Pie x={x} y={y} radius={radius} data={this.props.data} />
                 </svg>
         );

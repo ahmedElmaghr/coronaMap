@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/mediaFrancais/CoronaMapView";
 import countries from "./../data/countries.tsv"
+import covid19 from "./../data/covid19.json"
 import * as d3 from "d3"
 import PieChart from "../../Components/widet/PieChart";
-class MediaFrancaisContainer extends Component {
+class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
       worldData: [],
       jsonData: [],
       countries: [],
+      covid19 : covid19,
       pieVisiblity: "hidden"
     };
   }
@@ -49,6 +51,7 @@ class MediaFrancaisContainer extends Component {
             jsonData={jsonData}
             activated={true}
             countries={countries}
+            covid19={covid19}
             click={(d) => {
               this.click(d)
             }}
@@ -74,7 +77,6 @@ class MediaFrancaisContainer extends Component {
   }
 
   click = (d) => {
-    console.log(d)
     this.setState({
       pieVisiblity: "visible"
       
@@ -82,7 +84,6 @@ class MediaFrancaisContainer extends Component {
   }
 
   onmouseout = () => {
-    console.log("onmouseout")
     this.setState({
       pieVisiblity: "hidden"
     })
@@ -105,4 +106,4 @@ class MediaFrancaisContainer extends Component {
 
 }
 
-export default MediaFrancaisContainer;
+export default Container;
