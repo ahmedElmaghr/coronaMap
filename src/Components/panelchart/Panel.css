@@ -1,0 +1,62 @@
+.mapboxgl-popup {
+    z-index: 30;
+    position: absolute; 
+    display: flex;
+    will-change: transform;
+    pointer-events: none;
+     font: 120px/20px Helvetica Neue,Arial,Helvetica,sans-serif; 
+    text-align: center;
+    width: 20%; 
+    transition: 1s;
+    /* bottom:10px; */
+}
+.mapboxgl-popup-anchor-bottom, 
+.mapboxgl-popup-anchor-bottom-left, 
+.mapboxgl-popup-anchor-bottom-right {
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+.mapboxgl-popup-anchor-bottom 
+.mapboxgl-popup-tip {
+    border-top-color: rgba(255,255,255,.9);
+    align-self: center;
+    border-bottom: none;
+}
+.mapboxgl-popup-tip {
+    border: 11px solid transparent;
+    width: 0;
+    height: 0;
+    z-index: 1;
+}
+.mapboxgl-popup-content {
+    border-radius: 6px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 30px 90px -20px rgba(0,0,0,.3);
+    padding: 0;
+    pointer-events: auto;
+}
+.maphub-popup-inner.maphub-popup-text {
+    margin: 15px 0;
+}
+.maphub-popup-inner {
+    position: relative;
+}
+.ps {
+    overflow: hidden!important;
+    overflow-anchor: none;
+    touch-action: auto;
+}
+.nicetext {
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+.nice-font-family, .nicetext {
+    font-family: latoregular,sans-serif;
+    font-weight: 400;
+}
+.nicetext :last-child {
+    margin-bottom: 0;
+}

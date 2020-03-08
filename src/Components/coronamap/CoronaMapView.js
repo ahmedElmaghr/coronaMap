@@ -7,17 +7,20 @@ import DataHelper from "../../Utils/DataHelper.js";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
+  opacity = .8;
+  opacityHover = 1;
+  otherOpacityOnHover = .8;
 
   width = "100%";
   height = "100%";
-  scale = 250;
+  scale = 350;
   lastX = 0;
   lastY = 0;
   origin = {
     x: 55,
     y: -40
   };
-  viewBox = "0 0 800 450";
+  viewBox = "0 0 800 350";
   borderColor = "blue";
 
   constructor(props) {
@@ -84,16 +87,19 @@ export default class CoronaMapView extends PureComponent {
     //Draw Medias
     this.drawMediaPosition(gGlobal, countries, covid19);
     //add zoom
-    this.addZoom(gGlobal);
+    //this.addZoom(gGlobal);
   };
 
   //Draw svg wrapper for map
   drawSvgWrapper() {
     //Construct Body
-    var body = d3.select("body");
+    var body = d3.select("#root")
+
     //Construct SVG
     var svg = body
+      .append("div")
       .append("svg")
+      .attr("class", "svg")
       .attr("id", "content")
       .attr("width", this.width)
       .attr("height", this.height)
@@ -129,10 +135,6 @@ export default class CoronaMapView extends PureComponent {
         })
         .attr("stroke", this.borderColor)
         .attr("stroke-width", 0.05)
-        // .on("click", (d) => {
-        //   this.props.click(d);
-        //   console.log(d);
-        // })
 
       return g;
     }
@@ -140,10 +142,7 @@ export default class CoronaMapView extends PureComponent {
 
   //Color land 
   markDesease = (d) => {
-    console.log("codiv19", this.props.covid19)
-    console.log(d.properties.name)
     let elt = this.props.covid19.data.filter((e) => { return e.Country == d.properties.name })
-    console.log("elt", elt)
     if (elt[0]) {
       let totalCases = elt[0].TotalCases;
       //let red = this.getCountryColor(totalCases);
@@ -156,22 +155,22 @@ export default class CoronaMapView extends PureComponent {
   //Get country color range rgba(255,255,255)
   getCountryColor = (totalCases) => {
 
-    if (0 < totalCases &&  totalCases<= 100) {
+    if (0 < totalCases && totalCases <= 100) {
       return '#9ecce6'
-    } else if(100 < totalCases &&  totalCases< 200) {
+    } else if (100 < totalCases && totalCases < 200) {
       return '#4c9bc4'
-    }else if(200 < totalCases &&  totalCases< 500) {
+    } else if (200 < totalCases && totalCases < 500) {
       return '#b8d4e0'
-    }else if(500 < totalCases &&  totalCases< 1000) {
+    } else if (500 < totalCases && totalCases < 1000) {
       return '#96bbd5'
-    }else if(1000 <= totalCases &&  totalCases< 5000) {
+    } else if (1000 <= totalCases && totalCases < 5000) {
       return '#82adbe'
-    }else if(5000 <= totalCases &&  totalCases< 100000) {
+    } else if (5000 <= totalCases && totalCases < 100000) {
       return 'darkslateblue'
     }
-    else{
+    else {
     }
-    
+
 
   }
   //Add Markers Function
@@ -183,6 +182,13 @@ export default class CoronaMapView extends PureComponent {
       .data(data.filter(d => d.stat.TotalCases != 0))
       .enter()
       .append("circle")
+      .on('click', (d,i)=> {
+        console.log("click",d,i)
+            this.props.click(d);
+      })
+      .on('mouseenter',(d)=>{
+        console.log("mouse enter",d)
+      })
       .attr("key", d => `marker-${d.id}`)
       .attr("cx", d => {
         return this.getCx(d);
@@ -194,43 +200,42 @@ export default class CoronaMapView extends PureComponent {
         return this.getRadius(d);
 
       })
-      .attr("fill", 'rgba(255, 0, 0,0.5)')
-      .attr("stroke", "red")
-      .attr("stroke-width", 0.5)
       .attr("class", "marker")
-      .on("click", (d) => {
-        this.props.click(d);
-      })
       .append("title")
       .text((d) => { return `country : ${d.data.name} cases : ${d.stat.TotalCases}` })
 
     return markers;
   };
 
+  handleMouseOut = () => {
+    console.log("mouse out")
+    d3.select("#panelStat")
+      .style("visibility", "hidden");
+  }
   getRadius = (d) => {
     let rayon = 0;
     let cases = d.stat.TotalCases;
     /* [0,5] px*/
-    if (0 < cases &&  cases<= 100) {
+    if (0 < cases && cases <= 100) {
       let r = (cases / 100) * 4
       rayon = r;
-    } else if(100 < cases &&  cases< 200) {
+    } else if (100 < cases && cases < 200) {
       let r = (cases / 200) * 5
       rayon = r;
-    }else if(200 < cases &&  cases< 500) {
+    } else if (200 < cases && cases < 500) {
       let r = (cases / 500) * 7
       rayon = r;
-    }else if(500 < cases &&  cases< 2000) {
+    } else if (500 < cases && cases < 2000) {
       let r = (cases / 2000) * 17
       rayon = r;
-    }else if(2000 <= cases &&  cases< 5000) {
+    } else if (2000 <= cases && cases < 5000) {
       let r = (cases / 5000) * 15
       rayon = r;
-    }else if(5000 <= cases &&  cases< 100000) {
+    } else if (5000 <= cases && cases < 100000) {
       let r = (cases / 100000) * 30
       rayon = r;
     }
-    else{
+    else {
       rayon = 0;
     }
     return rayon;
@@ -431,13 +436,7 @@ export default class CoronaMapView extends PureComponent {
     svg.attr("transform", transform);
   };
 
-  //Events handlers
-  circleOnHover = event => {
-    return event.countryName;
-  };
 
-  circleOnClick = event => {
-  };
 
   //Projection and path calculator
   projection() {

@@ -15,7 +15,7 @@ export default class Pie extends React.Component {
       // https://github.com/d3/d3/wiki/Pie-Layout
       let pie = d3.pie();
       return (
-        <g transform={`translate(${x}, ${y})`}>
+        <g transform={`translate(${x}, ${y})`} className="piechart">
           {/* Render a slice for each data point */}
           {pie(data).map(this.renderSlice)}
         </g>

@@ -7,17 +7,13 @@ export default class PieChart extends PureComponent {
         super(props);
     }
 
-    //return (
-    // <div className="piechart" style ={{visibility : this.props.visibility}}>
-    //     Test
-    // </div>
-
     render() {
-
+        
+        console.log("render PieChart")
         // For a real world project, use something like
         // https://github.com/digidem/react-dimensions
-        let width = 120;
-        let height = 120;
+        let width = window.screen.width * 0.15;
+        let height = window.screen.height * 0.15;
         let minViewportSize = Math.min(width, height);
         // This sets the radius of the pie chart to fit within
         // the current window size, with some additional padding
@@ -26,7 +22,7 @@ export default class PieChart extends PureComponent {
         let x = this.props.x;
         let y = this.props.y;
         return (
-            <svg width="100%" height="100%" className="piechart" style ={{visibility : this.props.visibility}}> 
+                <svg id="pieStat" viewBox="0 0 800 100" className="piechart" style={{ visibility: this.props.visibility }}>
                     <Pie x={x} y={y} radius={radius} data={this.props.data} />
                 </svg>
         );
