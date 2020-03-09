@@ -1,11 +1,12 @@
+import * as d3 from "d3";
 import React, { Component } from "react";
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/coronamap/CoronaMapView";
+import Panel from "../../Components/panelchart/Panel";
 import countries from "./../data/countries.tsv";
 import covid19 from "./../data/covid19.json";
-import * as d3 from "d3";
-import Panel from "../../Components/panelchart/Panel";
-import PieChart from "../../Components/piechart/PieChart";
+import countries110 from "./../../../src/countries-110m.json";
+
 class Container extends Component {
   constructor(props) {
     super(props);
@@ -19,20 +20,14 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-10m.json"
-    ).then(response => {
-      if (response.status !== 200) {
-        console.log(`There was a problem: ${response.status}`);
-        return;
-      }
-      response.json().then(worldData => {
+
+      let worldData = countries110;
+
         this.setState({
           worldData: feature(worldData, worldData.objects.countries).features,
           jsonData: worldData
         });
-      });
-    });
+
 
     d3.tsv(countries).then((response, error) => {
       this.setState({

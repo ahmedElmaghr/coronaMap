@@ -52,7 +52,7 @@ export default class Panel extends React.Component {
                   </p>
                   <p
                     style={{
-                      color: "orange",
+                      color: "red",
                       borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
                       borderRadius: 6 + "px"
