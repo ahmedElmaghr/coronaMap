@@ -9,7 +9,6 @@ export default class PieChart extends PureComponent {
 
     render() {
         
-        console.log("render PieChart")
         // For a real world project, use something like
         // https://github.com/digidem/react-dimensions
         let width = window.screen.width * 0.15;

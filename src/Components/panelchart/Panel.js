@@ -6,22 +6,23 @@ export default class Panel extends React.Component {
   }
 
   render() {
-    let { stat, visibility, x, y } = this.props;
+    let { stat, visibility,opacity,zIndex, x, y } = this.props;
     return (
       <div >
         <div id="panelStat"
           class="mapboxgl-popup mapboxgl-popup-anchor-bottom"
-          style={{ top: x+'px', left: y+'px', visibility: visibility }}
+          style={{ top: x + 'px', left: y + 'px', opacity: opacity ,zIndex: zIndex}}
         >
-          <div class="mapboxgl-popup-tip"></div>
-          <div class="mapboxgl-popup-content">
+          <div className="mapboxgl-popup-tip"></div>
+          <div className="mapboxgl-popup-content">
             <div
-              class="maphub-popup-inner maphub-popup-text ps"
+              className="maphub-popup-inner maphub-popup-text ps"
               style={{ maxHeight: 411 + "px", maxWidth: 840 + "px" }}
             >
-              <div class="nicetext">
+              <span className="closePanel" onClick={()=>{this.props.closePanel()}}>X</span>
+              <div className="nicetext">  
                 <div>
-                  <div class="nicetext-title">
+                  <div className="nicetext-title">
                     <h1>
                       <span>{stat ? stat.Country : ""}</span>
                     </h1>
@@ -36,8 +37,8 @@ export default class Panel extends React.Component {
                       borderRadius: 6 + "px"
                     }}
                   >
-                    Active cases :{" "}
-                    {stat && stat.ActiveCases ? stat.ActiveCases : "0"}
+                    Total cases :{" "}
+                    {stat && stat.TotalCases ? stat.TotalCases : "0"}
                   </p>
                   <p
                     style={{
@@ -62,33 +63,33 @@ export default class Panel extends React.Component {
                   </p>
                 </div>
               </div>
-              <div class="ps__rail-x" style={{ left: 0 + "px", top: 0 + "px" }}>
+              <div className="ps__rail-x" style={{ left: 0 + "px", top: 0 + "px" }}>
                 <div
-                  class="ps__thumb-x"
-                  tabindex="0"
+                  className="ps__thumb-x"
+                  tabIndex="0"
                   style={{ left: 0 + "px", width: 0 + "px" }}
                 ></div>
               </div>
               <div
-                class="ps__rail-y"
+                className="ps__rail-y"
                 style={{ top: 0 + "px", right: 0 + "px" }}
               >
                 <div
-                  class="ps__thumb-y"
-                  tabindex="0"
+                  className="ps__thumb-y"
+                  tabIndex="0"
                   style={{ top: 0 + "px", height: 0 + "px" }}
                 ></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 
   getData = data => {
     if (data) {
-      return [data.ActiveCases, data.TotalDeaths, data.TotalRecovered];
+      return [data.TotalCases, data.TotalDeaths, data.TotalRecovered];
     } else {
       return [0];
     }

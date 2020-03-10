@@ -60,3 +60,11 @@
 .nicetext :last-child {
     margin-bottom: 0;
 }
+.closePanel{
+    cursor: pointer;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    right: 8px;
+    z-index : 10;
+}

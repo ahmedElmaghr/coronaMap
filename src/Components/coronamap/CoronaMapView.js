@@ -87,7 +87,7 @@ export default class CoronaMapView extends PureComponent {
     //Draw Medias
     this.drawMediaPosition(gGlobal, countries, covid19);
     //add zoom
-    //this.addZoom(gGlobal);
+    this.addZoom(gGlobal);
   };
 
   //Draw svg wrapper for map
@@ -111,7 +111,8 @@ export default class CoronaMapView extends PureComponent {
         "," +
         this.height / 2 +
         ")"
-      );
+      )
+      ;
     //Draw G for map
     return svg;
   }
@@ -142,10 +143,13 @@ export default class CoronaMapView extends PureComponent {
 
   //Color land 
   markDesease = (d) => {
-    let elt = this.props.covid19.data.filter((e) => { return e.Country == d.properties.name })
+    let elt = this.props.covid19.data.filter((e) => {
+      let countryTrimmed = e.Country ? e.Country.trim() : "";
+
+      return countryTrimmed == d.properties.name
+    })
     if (elt[0]) {
       let totalCases = elt[0].TotalCases;
-      //let red = this.getCountryColor(totalCases);
       return this.getCountryColor(totalCases);
 
     } else {
@@ -165,29 +169,28 @@ export default class CoronaMapView extends PureComponent {
       return '#96bbd5'
     } else if (1000 <= totalCases && totalCases < 5000) {
       return '#82adbe'
-    } else if (5000 <= totalCases && totalCases < 100000) {
+    } else if (5000 <= totalCases && totalCases < 15000) {
       return 'darkslateblue'
+    } else if (15000 <= totalCases && totalCases < 100000) {
+      return 'darkred'
     }
-    else {
-    }
-
 
   }
   //Add Markers Function
   drawMediaPosition = (node, countries, covid19) => {
     let data = DataHelper.constructData(countries, covid19);
-    var markers = node.append("g").attr("class", "markers");
+    var markers = node.append("g")
+      .attr("id", "markers")
+      .attr("class", "markers");
     markers
       .selectAll("circle")
       .data(data.filter(d => d.stat.TotalCases != 0))
       .enter()
       .append("circle")
-      .on('click', (d,i)=> {
-        console.log("click",d,i)
-            this.props.click(d);
+      .on('click', (d, i) => {
+        this.props.click(d);
       })
-      .on('mouseenter',(d)=>{
-        console.log("mouse enter",d)
+      .on('mouseenter', (d) => {
       })
       .attr("key", d => `marker-${d.id}`)
       .attr("cx", d => {
@@ -208,7 +211,6 @@ export default class CoronaMapView extends PureComponent {
   };
 
   handleMouseOut = () => {
-    console.log("mouse out")
     d3.select("#panelStat")
       .style("visibility", "hidden");
   }
@@ -231,8 +233,11 @@ export default class CoronaMapView extends PureComponent {
     } else if (2000 <= cases && cases < 5000) {
       let r = (cases / 5000) * 15
       rayon = r;
-    } else if (5000 <= cases && cases < 100000) {
-      let r = (cases / 100000) * 30
+    } else if (5000 <= cases && cases < 11000) {
+      let r = (cases / 15000) * 30
+      rayon = r;
+    } else if (11000 <= cases && cases < 100000) {
+      let r = (cases / 100000) * 35
       rayon = r;
     }
     else {

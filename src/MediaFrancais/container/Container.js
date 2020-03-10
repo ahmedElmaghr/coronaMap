@@ -5,6 +5,7 @@ import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
 import countries from "./../data/countries.tsv";
 import covid19 from "./../data/covid19.json";
+import PieChart from "./../../Components/piechart/PieChart"
 import countries110 from "./../../../src/countries-110m.json";
 
 class Container extends Component {
@@ -15,7 +16,9 @@ class Container extends Component {
       jsonData: [],
       countries: [],
       covid19: covid19,
-      pieVisiblity: "hidden"
+      pieVisiblity: "hidden",
+      opacity:0
+
     };
   }
 
@@ -50,21 +53,22 @@ class Container extends Component {
             click={d => {
               this.displayDashBoard(d);
             }}
-            onmouseout={() => this.onmouseout()}
           ></CoronaMapView>
           <Panel
-            visibility={this.state.pieVisiblity}
+            opacity={this.state.opacity}
+            zIndex={this.state.panelZindex}
             stat={this.state.stat}
+            closePanel={()=>{this.closePanelDetails()}}
             x={this.state.x}
             y={this.state.y}
           ></Panel>
-           {/* <PieChart
+            {/* <PieChart
             visibility={this.state.pieVisiblity}
             data={this.getData(this.state.stat)}
             stat={this.state.stat}
             x={50}
             y={50}
-          ></PieChart> */}
+          ></PieChart>  */}
         </div>
       );
     } else {
@@ -86,19 +90,19 @@ class Container extends Component {
     let paneStaHeight =panelStatDim.height;
     console.log("panel stat -------------->",paneStaWidth,paneStaHeight)
     this.setState({
-      pieVisiblity: "visible",
+      opacity:1,
+      panelZindex:10,
       stat: d.stat,
       y: d3.event.pageX - (paneStaWidth/2) ,
       x: d3.event.pageY - paneStaHeight
     });
   };
-
-  onmouseout = () => {
-    console.log("mouseout");
+  closePanelDetails = ()=>{
     this.setState({
-      pieVisiblity: "hidden"
+      opacity:0,
+      panelZindex:-1
     });
-  };
+  }
 
   constructView = () => {
     const { worldData, jsonData, countries } = this.state;
