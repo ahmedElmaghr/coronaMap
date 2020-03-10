@@ -182,9 +182,15 @@ export default class CoronaMapView extends PureComponent {
     var markers = node.append("g")
       .attr("id", "markers")
       .attr("class", "markers");
+      let dataFiltered = data.filter(d => (d.stat !=0 && d.stat.TotalCases != 0))
+      dataFiltered.sort((e1,e2)=>{
+        return e2.stat.TotalCases - e1.stat.TotalCases
+        // console.log("e1",e1,e1.stat.TotalCases)
+        // console.log("e2",e2,e2.stat.TotalCases)
+      })
     markers
       .selectAll("circle")
-      .data(data.filter(d => d.stat.TotalCases != 0))
+      .data(dataFiltered)
       .enter()
       .append("circle")
       .on('click', (d, i) => {
@@ -240,10 +246,7 @@ export default class CoronaMapView extends PureComponent {
       let r = (cases / 100000) * 35
       rayon = r;
     }
-    else {
-      rayon = 0;
-    }
-    return rayon;
+    return (rayon<1 && rayon >0) ? 1 : rayon;
   }
 
   getCx = (d) => {

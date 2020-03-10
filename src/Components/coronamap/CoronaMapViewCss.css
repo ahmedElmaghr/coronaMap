@@ -8,7 +8,7 @@ html, body { margin:0; padding:0; overflow:hidden }
 .marker{
   fill: rgba(255, 0, 0,0.5);
   stroke: white;
-  stroke-width: 1.5 ;
+  stroke-width: 0.5 ;
   cursor: pointer;
 
 }
