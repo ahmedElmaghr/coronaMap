@@ -196,8 +196,9 @@ export default class CoronaMapView extends PureComponent {
       .on('click', (d, i) => {
         this.props.click(d);
       })
-      .on('mouseenter', (d) => {
-      })
+      // .on("mouseout",()=>{
+      //   this.props.closePanel();
+      // })
       .attr("key", d => `marker-${d.id}`)
       .attr("cx", d => {
         return this.getCx(d);
@@ -216,14 +217,9 @@ export default class CoronaMapView extends PureComponent {
     return markers;
   };
 
-  handleMouseOut = () => {
-    d3.select("#panelStat")
-      .style("visibility", "hidden");
-  }
   getRadius = (d) => {
     let rayon = 0;
     let cases = d.stat.TotalCases;
-    /* [0,5] px*/
     if (0 < cases && cases <= 100) {
       let r = (cases / 100) * 4
       rayon = r;

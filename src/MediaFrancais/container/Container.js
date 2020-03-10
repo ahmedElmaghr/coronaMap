@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
@@ -22,8 +23,8 @@ class Container extends Component {
     };
   }
 
-  componentDidMount() {
 
+  componentDidMount() {
       let worldData = countries110;
 
         this.setState({
@@ -48,6 +49,7 @@ class Container extends Component {
             worldData={worldData}
             jsonData={jsonData}
             activated={true}
+            closePanel={()=>{this.closePanelDetails()}}
             countries={countries}
             covid19={covid19}
             click={d => {
@@ -88,7 +90,6 @@ class Container extends Component {
     let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
     let paneStaWidth =panelStatDim.width;
     let paneStaHeight =panelStatDim.height;
-    console.log("panel stat -------------->",paneStaWidth,paneStaHeight)
     this.setState({
       opacity:1,
       panelZindex:10,

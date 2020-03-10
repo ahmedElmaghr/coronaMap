@@ -4,11 +4,34 @@ export default class Panel extends React.Component {
   constructor(props) {
     super(props);
   }
+  
+  componentWillMount(){
+    document.addEventListener("click",this.handleClick,false)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("click",this.handleClick,false)
+  }
+
+  handleClick=(e)=>{
+    if(this.node.contains(e.target)){
+      console.log("click inside Panel")
+      return;
+    }
+    this.handleClickOutside(e)
+  }
+
+  handleClickOutside=(e)=>{
+    console.log("click outside Panel",e.target.tagName);
+    if(e.target.tagName!="circle"){
+      this.props.closePanel();
+    }
+  }
 
   render() {
-    let { stat, visibility,opacity,zIndex, x, y } = this.props;
+    let { stat, opacity,zIndex, x, y } = this.props;
     return (
-      <div >
+      <div ref={node => this.node=node}>
         <div id="panelStat"
           class="mapboxgl-popup mapboxgl-popup-anchor-bottom"
           style={{ top: x + 'px', left: y + 'px', opacity: opacity ,zIndex: zIndex}}
