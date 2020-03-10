@@ -7,7 +7,7 @@
      font: 120px/20px Helvetica Neue,Arial,Helvetica,sans-serif; 
     text-align: center;
     width: 20%; 
-    transition: 1s;
+    transition: 0.3s;
     /* bottom:10px; */
 }
 .mapboxgl-popup-anchor-bottom, 
