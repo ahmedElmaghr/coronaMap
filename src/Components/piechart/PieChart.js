@@ -18,10 +18,9 @@ export default class PieChart extends PureComponent {
         // the current window size, with some additional padding
         let radius = (minViewportSize * .9) / 2;
         // Centers the pie chart
-        let x = this.props.x;
-        let y = this.props.y;
+        const {x,y,opacity,zIndex} = this.props;
         return (
-                <svg id="pieStat" viewBox="0 0 800 100" className="piechart" style={{ visibility: this.props.visibility }}>
+                <svg id="pieStat" viewBox="-50 -50 1000 250" className="piechart" style={{ opacity: opacity ,zIndex: zIndex}}>
                     <Pie x={x} y={y} radius={radius} data={this.props.data} />
                 </svg>
         );

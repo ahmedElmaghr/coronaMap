@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
+import DataHelper from "../../Utils/DataHelper.js";
 import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
 import covid19 from "./../data/covid19.json";
-import DataHelper from "../../Utils/DataHelper.js";
+import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
 
 class Container extends Component {
   constructor(props) {
@@ -16,8 +17,9 @@ class Container extends Component {
       jsonData: [],
       countries: [],
       covid19: covid19,
-      pieVisiblity: "hidden",
-      panelOpacity: 0
+      pieOpacity: 0,
+      panelOpacity: 0,
+      checkToggleBTn: false,
 
     };
   }
@@ -40,13 +42,14 @@ class Container extends Component {
   }
 
   render() {
-    const { worldData, jsonData, countries } = this.state;
+    const { worldData, jsonData, countries,panelOpacity} = this.state;
     if (jsonData.length != 0) {
       return (
         <div>
           <CoronaMapView
             worldData={worldData}
             jsonData={jsonData}
+            regionVisible = {this.state.checkToggleBTn}
             closePanel={() => { this.closePanelDetails() }}
             countries={countries}
             covid19={covid19}
@@ -55,22 +58,28 @@ class Container extends Component {
             }}
             clickOnCountry={(d) => { this.clickOnCountry(d) }
             }
-          ></CoronaMapView>
+          />
+          <ToggleBtn
+            checked={this.state.checkToggleBTn}
+            click={() => this.switchToggleBtn()}
+          />
           <Panel
-            opacity={this.state.panelOpacity}
+            opacity={panelOpacity}
             zIndex={this.state.panelZindex}
             stat={this.state.stat}
             closePanel={() => { this.closePanelDetails() }}
             x={this.state.x}
             y={this.state.y}
-          ></Panel>
+          />
+
           {/* <PieChart
-            visibility={this.state.pieVisiblity}
+            opacity={this.state.pieOpacity}
+            zIndex = {this.state.pieZindex}
             data={this.getData(this.state.stat)}
             stat={this.state.stat}
             x={50}
             y={50}
-          ></PieChart>  */}
+          ></PieChart> */}
         </div>
       );
     } else {
@@ -85,23 +94,27 @@ class Container extends Component {
       return [0];
     }
   };
+
   clickOnCountry = d => {
     console.log("d", d);
     let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
     let paneStaWidth = panelStatDim.width;
     let paneStaHeight = panelStatDim.height;
     let stat = {};
-    if(d){
-    stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);;
-    }else{
-      stat = DataHelper.getStatByPays({ name: "Morocco"}, covid19);;
+    if (d) {
+      stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);;
+    } else {
+      stat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);;
     }
-    console.log("stat", stat);
     if (stat.TotalCases > 0) {
+      console.log("stat", stat);
+
       this.setState(
         {
           panelOpacity: 1,
-          panelZindex: 10,
+          // pieOpacity: 1,
+          // pieZindex: 1,
+          panelZindex: 1,
           stat: stat,
           y: d3.event.pageX - (paneStaWidth / 2),
           x: d3.event.pageY - paneStaHeight
@@ -126,12 +139,12 @@ class Container extends Component {
   };
 
   sendSvgToBackground = () => {
-    d3.selectAll("#gWrapper")
+    d3.selectAll("#worldMap")
       .style("opacity", 0.7);
   }
 
   sendSvgToFrontPage = () => {
-    d3.selectAll("#gWrapper")
+    d3.selectAll("#worldMap")
       .style("opacity", 1);
   }
 
@@ -156,6 +169,14 @@ class Container extends Component {
     }
     return <div></div>;
   };
+
+  switchToggleBtn = () => {
+    this.setState((currentState) => ({
+      checkToggleBTn: !currentState.checkToggleBTn,
+      mapopacity:0.5
+    }));
+
+  }
 }
 
 export default Container;

@@ -22,7 +22,7 @@ export default class Panel extends React.Component {
   }
 
   handleClickOutside=(e)=>{
-    if(e.target.tagName!="path"){
+    if(e.target.tagName!="path" && e.target.tagName!="circle"){
       this.props.closePanel();
     }
   }

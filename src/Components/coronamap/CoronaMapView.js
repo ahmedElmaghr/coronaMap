@@ -63,12 +63,10 @@ export default class CoronaMapView extends PureComponent {
   };
 
   render() {
-    const countries = this.props.countries;
-    const covid19 = this.props.covid19;
-    const { worldData } = this.props;
-    if (worldData.length > 0) {
-      // this.initMarkersAndLinks();
-      // this.drawCircles(countries, covid19);
+    const { worldData, regionVisible,countries,covid19 } = this.props;
+    this.initMarkersAndLinks();
+    if (worldData.length > 0 && regionVisible) {
+      this.drawCircles(countries, covid19);
     }
     return <div></div>;
   }
@@ -85,7 +83,7 @@ export default class CoronaMapView extends PureComponent {
     this.drawZoneDesease(gGlobal, countries, covid19);
     this.drawDimondPrincess(gGlobal, countries, covid19);
     //add zoom
-    this.addZoom(gGlobal);
+    // this.addZoom(gGlobal);
   };
 
   //Draw svg wrapper for map
@@ -135,9 +133,9 @@ export default class CoronaMapView extends PureComponent {
         .on("click", (d) => {
           this.props.clickOnCountry(d);
         })
-        // .on("mouseout",()=>{
-        //   this.props.closePanel();
-        // })
+      // .on("mouseout",()=>{
+      //   this.props.closePanel();
+      // })
       return g;
     }
 
@@ -300,7 +298,7 @@ export default class CoronaMapView extends PureComponent {
   zoomed = svg => {
     var transform = d3.event.transform;
 
-    svg.selectAll("path").attr("transform", transform);
+    svg.selectAll("path,circle").attr("transform", transform);
     // svg.selectAll("circle").attr("transform", transform);
 
   };
@@ -312,7 +310,7 @@ export default class CoronaMapView extends PureComponent {
     var geoMercator = d3
       .geoMercator()
       .scale(100)
-      .translate([800 / 2, 450 / 2]);
+      .translate([800 / 2, 350 / 2]);
 
     var projection2 = d3
       .geoOrthographic()

@@ -6,16 +6,16 @@ html, body { margin:0; padding:0; overflow:hidden }
   position:fixed; top:0; bottom:0; left:0; right:0.
 }
 .marker{
-  fill: rgba(255, 0, 0,0.5);
-  stroke: white;
+  fill: rgba(255, 0, 0);
+  stroke: whitesmoke;
   stroke-width: 0.5 ;
   cursor: pointer;
 
 }
-.marker:hover { 
+/* .marker:hover { 
   stroke: red;
 
-}
+} */
 .country{
   stroke : blue;
   stroke-width: 0.1;
