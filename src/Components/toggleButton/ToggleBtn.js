@@ -1,6 +1,5 @@
 import React from "react";
 import "./ToggleBtn.css";
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 export default class ToggleBtn extends React.Component {
   constructor(props) {
