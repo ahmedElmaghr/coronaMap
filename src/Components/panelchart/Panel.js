@@ -22,8 +22,7 @@ export default class Panel extends React.Component {
   }
 
   handleClickOutside=(e)=>{
-    console.log("click outside Panel",e.target.tagName);
-    if(e.target.tagName!="circle"){
+    if(e.target.tagName!="path"){
       this.props.closePanel();
     }
   }
@@ -33,7 +32,7 @@ export default class Panel extends React.Component {
     return (
       <div ref={node => this.node=node}>
         <div id="panelStat"
-          class="mapboxgl-popup mapboxgl-popup-anchor-bottom"
+          className="mapboxgl-popup mapboxgl-popup-anchor-bottom"
           style={{ top: x + 'px', left: y + 'px', opacity: opacity ,zIndex: zIndex}}
         >
           <div className="mapboxgl-popup-tip"></div>
@@ -46,7 +45,7 @@ export default class Panel extends React.Component {
               <div className="nicetext">  
                 <div>
                   <div className="nicetext-title">
-                    <h1>
+                    <h1 style = {{fontWeight:"700"}}>
                       <span>{stat ? stat.Country : ""}</span>
                     </h1>
                   </div>
@@ -76,7 +75,7 @@ export default class Panel extends React.Component {
                   </p>
                   <p
                     style={{
-                      color: "red",
+                      color: "black",
                       borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
                       borderRadius: 6 + "px"

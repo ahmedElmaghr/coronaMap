@@ -1,13 +1,12 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
+import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
 import covid19 from "./../data/covid19.json";
-import PieChart from "./../../Components/piechart/PieChart"
-import countries110 from "./../../../src/countries-110m.json";
+import DataHelper from "../../Utils/DataHelper.js";
 
 class Container extends Component {
   constructor(props) {
@@ -18,19 +17,19 @@ class Container extends Component {
       countries: [],
       covid19: covid19,
       pieVisiblity: "hidden",
-      panelOpacity:0
+      panelOpacity: 0
 
     };
   }
 
 
   componentDidMount() {
-      let worldData = countries110;
+    let worldData = countries110;
 
-        this.setState({
-          worldData: feature(worldData, worldData.objects.countries).features,
-          jsonData: worldData
-        });
+    this.setState({
+      worldData: feature(worldData, worldData.objects.countries).features,
+      jsonData: worldData
+    });
 
 
     d3.tsv(countries).then((response, error) => {
@@ -48,22 +47,24 @@ class Container extends Component {
           <CoronaMapView
             worldData={worldData}
             jsonData={jsonData}
-            closePanel={()=>{this.closePanelDetails()}}
+            closePanel={() => { this.closePanelDetails() }}
             countries={countries}
             covid19={covid19}
-            click={d => {
-              this.displayDashBoard(d);
+            clickOnCircle={d => {
+              this.clickOnCircle(d);
             }}
+            clickOnCountry={(d) => { this.clickOnCountry(d) }
+            }
           ></CoronaMapView>
           <Panel
             opacity={this.state.panelOpacity}
             zIndex={this.state.panelZindex}
             stat={this.state.stat}
-            closePanel={()=>{this.closePanelDetails()}}
+            closePanel={() => { this.closePanelDetails() }}
             x={this.state.x}
             y={this.state.y}
           ></Panel>
-            {/* <PieChart
+          {/* <PieChart
             visibility={this.state.pieVisiblity}
             data={this.getData(this.state.stat)}
             stat={this.state.stat}
@@ -84,35 +85,60 @@ class Container extends Component {
       return [0];
     }
   };
-
-  displayDashBoard = d => {
+  clickOnCountry = d => {
+    console.log("d", d);
     let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
-    let paneStaWidth =panelStatDim.width;
-    let paneStaHeight =panelStatDim.height;
+    let paneStaWidth = panelStatDim.width;
+    let paneStaHeight = panelStatDim.height;
+    let stat = {};
+    if(d){
+    stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);;
+    }else{
+      stat = DataHelper.getStatByPays({ name: "Morocco"}, covid19);;
+    }
+    console.log("stat", stat);
+    if (stat.TotalCases > 0) {
+      this.setState(
+        {
+          panelOpacity: 1,
+          panelZindex: 10,
+          stat: stat,
+          y: d3.event.pageX - (paneStaWidth / 2),
+          x: d3.event.pageY - paneStaHeight
+        }
+      );
+      this.sendSvgToBackground();
+    }
+  }
+
+  clickOnCircle = d => {
+    let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
+    let paneStaWidth = panelStatDim.width;
+    let paneStaHeight = panelStatDim.height;
     this.setState({
-      panelOpacity:1,
-      panelZindex:10,
+      panelOpacity: 1,
+      panelZindex: 10,
       stat: d.stat,
-      y: d3.event.pageX - (paneStaWidth/2) ,
+      y: d3.event.pageX - (paneStaWidth / 2),
       x: d3.event.pageY - paneStaHeight
     });
     this.sendSvgToBackground();
   };
 
-  sendSvgToBackground =() =>{
+  sendSvgToBackground = () => {
     d3.selectAll("#gWrapper")
-    .style("opacity",0.7);
+      .style("opacity", 0.7);
   }
 
-  sendSvgToFrontPage =() =>{
+  sendSvgToFrontPage = () => {
     d3.selectAll("#gWrapper")
-    .style("opacity",1);
+      .style("opacity", 1);
   }
 
-  closePanelDetails = ()=>{
+  closePanelDetails = () => {
     this.setState({
-      panelOpacity:0,
-      panelZindex:-1
+      panelOpacity: 0,
+      panelZindex: -1
     });
     this.sendSvgToFrontPage();
   }

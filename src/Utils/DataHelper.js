@@ -33,4 +33,4 @@ const getStatByPays = (d, covid19) => {
         return 0
     }
 }
-export default { constructData };
+export default { constructData,getStatByPays};
