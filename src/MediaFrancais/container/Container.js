@@ -59,10 +59,10 @@ class Container extends Component {
             clickOnCountry={(d) => { this.clickOnCountry(d) }
             }
           />
-          <ToggleBtn
+          {/* <ToggleBtn
             checked={this.state.checkToggleBTn}
             click={() => this.switchToggleBtn()}
-          />
+          /> */}
           <Panel
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
