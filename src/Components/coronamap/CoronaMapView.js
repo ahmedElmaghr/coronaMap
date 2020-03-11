@@ -7,9 +7,6 @@ import DataHelper from "../../Utils/DataHelper.js";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
-  opacity = .8;
-  opacityHover = 1;
-  otherOpacityOnHover = .8;
 
   width = "100%";
   height = "100%";
@@ -69,7 +66,7 @@ export default class CoronaMapView extends PureComponent {
     const countries = this.props.countries;
     const covid19 = this.props.covid19;
     const { worldData } = this.props;
-    if (this.props.activated && worldData.length > 0) {
+    if (worldData.length > 0) {
       this.initMarkersAndLinks();
       this.drawCircles(countries, covid19);
     }

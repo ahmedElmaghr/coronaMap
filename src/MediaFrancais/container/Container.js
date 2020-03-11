@@ -18,7 +18,7 @@ class Container extends Component {
       countries: [],
       covid19: covid19,
       pieVisiblity: "hidden",
-      opacity:0
+      panelOpacity:0
 
     };
   }
@@ -48,7 +48,6 @@ class Container extends Component {
           <CoronaMapView
             worldData={worldData}
             jsonData={jsonData}
-            activated={true}
             closePanel={()=>{this.closePanelDetails()}}
             countries={countries}
             covid19={covid19}
@@ -57,7 +56,7 @@ class Container extends Component {
             }}
           ></CoronaMapView>
           <Panel
-            opacity={this.state.opacity}
+            opacity={this.state.panelOpacity}
             zIndex={this.state.panelZindex}
             stat={this.state.stat}
             closePanel={()=>{this.closePanelDetails()}}
@@ -91,18 +90,31 @@ class Container extends Component {
     let paneStaWidth =panelStatDim.width;
     let paneStaHeight =panelStatDim.height;
     this.setState({
-      opacity:1,
+      panelOpacity:1,
       panelZindex:10,
       stat: d.stat,
       y: d3.event.pageX - (paneStaWidth/2) ,
       x: d3.event.pageY - paneStaHeight
     });
+    this.sendSvgToBackground();
   };
+
+  sendSvgToBackground =() =>{
+    d3.selectAll("#gWrapper")
+    .style("opacity",0.7);
+  }
+
+  sendSvgToFrontPage =() =>{
+    d3.selectAll("#gWrapper")
+    .style("opacity",1);
+  }
+
   closePanelDetails = ()=>{
     this.setState({
-      opacity:0,
+      panelOpacity:0,
       panelZindex:-1
     });
+    this.sendSvgToFrontPage();
   }
 
   constructView = () => {
@@ -112,7 +124,6 @@ class Container extends Component {
         <CoronaMapView
           worldData={worldData}
           jsonData={jsonData}
-          activated={true}
           countries={countries}
         ></CoronaMapView>
       );
