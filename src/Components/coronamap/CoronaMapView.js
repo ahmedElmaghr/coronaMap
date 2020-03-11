@@ -127,10 +127,10 @@ export default class CoronaMapView extends PureComponent {
         .append("path")
         .attr("key", i => `path-${i}`)
         .attr("d", d => this.calculatePath(d))
-        .attr("className", "country")
-        .attr("fill", (d) => {
-          return this.markDesease(d)
-        })
+        .attr("class", "country")
+        // .attr("fill", (d) => {
+        //   return this.markDesease(d)
+        // })
         .attr("stroke", this.borderColor)
         .attr("stroke-width", 0.05)
 
