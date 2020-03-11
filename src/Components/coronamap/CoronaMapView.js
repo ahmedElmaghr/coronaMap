@@ -1,9 +1,9 @@
 import * as d3 from "d3";
 import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
+import DataHelper from "../../Utils/DataHelper.js";
 import { StringUtils } from "../../Utils/StringUtils.js";
 import "./CoronaMapViewCss.css";
-import DataHelper from "../../Utils/DataHelper.js";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
@@ -55,7 +55,7 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `#9ecce6`)
+      .attr("fill", `rgb(218, 218, 97)`)
       .on("click", (d) => {
         console.log("Welcome to morocco <3", d)
         this.props.clickOnCountry()
@@ -63,7 +63,7 @@ export default class CoronaMapView extends PureComponent {
   };
 
   render() {
-    const { worldData, regionVisible,countries,covid19 } = this.props;
+    const { worldData, regionVisible, countries, covid19 } = this.props;
     this.initMarkersAndLinks();
     if (worldData.length > 0 && regionVisible) {
       this.drawCircles(countries, covid19);
@@ -161,19 +161,19 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (totalCases) => {
 
     if (0 < totalCases && totalCases <= 100) {
-      return '#9ecce6'
-    } else if (100 < totalCases && totalCases < 200) {
-      return '#4c9bc4'
-    } else if (200 < totalCases && totalCases < 500) {
-      return '#b8d4e0'
-    } else if (500 < totalCases && totalCases < 1000) {
-      return '#96bbd5'
+      return 'rgb(218, 218, 97)'
+    } else if (100 <= totalCases && totalCases < 200) {
+      return 'rgb(211, 167, 101)'
+    } else if (200 <= totalCases && totalCases < 500) {
+      return 'rgb(192, 143, 69)'
+    } else if (500 <= totalCases && totalCases < 1000) {
+      return 'rgb(206, 130, 80)'
     } else if (1000 <= totalCases && totalCases < 5000) {
-      return '#82adbe'
+      return 'rgb(187, 111, 61)'
     } else if (5000 <= totalCases && totalCases < 15000) {
-      return 'darkslateblue'
+      return 'rgb(150, 51, 51)'
     } else if (15000 <= totalCases && totalCases < 100000) {
-      return 'darkred'
+      return 'rgb(145, 10, 10)'
     }
 
   }
@@ -236,13 +236,13 @@ export default class CoronaMapView extends PureComponent {
     if (0 < cases && cases <= 100) {
       let r = (cases / 100) * 4
       rayon = r;
-    } else if (100 < cases && cases < 200) {
+    } else if (100 <= cases && cases < 200) {
       let r = (cases / 200) * 5
       rayon = r;
-    } else if (200 < cases && cases < 500) {
+    } else if (200 <= cases && cases < 500) {
       let r = (cases / 500) * 7
       rayon = r;
-    } else if (500 < cases && cases < 2000) {
+    } else if (500 <= cases && cases < 2000) {
       let r = (cases / 2000) * 17
       rayon = r;
     } else if (2000 <= cases && cases < 5000) {

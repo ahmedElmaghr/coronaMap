@@ -1,5 +1,7 @@
 import React from "react";
 import "./Panel.css";
+import { StringUtils } from "../../Utils/StringUtils";
+
 export default class Panel extends React.Component {
   constructor(props) {
     super(props);
@@ -81,7 +83,7 @@ export default class Panel extends React.Component {
                       borderRadius: 6 + "px"
                     }}
                   >
-                    Deaths : {stat && stat.TotalDeaths ? stat.TotalDeaths : "0"}
+                    Deaths : {(stat && StringUtils.isNotEmpty(stat.TotalDeaths)) ? stat.TotalDeaths : "0"}
                   </p>
                 </div>
               </div>
