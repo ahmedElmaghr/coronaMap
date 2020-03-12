@@ -10,7 +10,7 @@ export default class CoronaMapView extends PureComponent {
 
   width = "100%";
   height = "100%";
-  viewBox = `0 0 800 350`;
+  viewBox = `0 0 800 400`;
   borderColor = "blue";
 
   constructor(props) {
@@ -310,7 +310,7 @@ export default class CoronaMapView extends PureComponent {
     var geoMercator = d3
       .geoMercator()
       .scale(100)
-      .translate([800 / 2, 350 / 2]);
+      .translate([800 / 2, 550 / 2]);
 
     var projection2 = d3
       .geoOrthographic()
