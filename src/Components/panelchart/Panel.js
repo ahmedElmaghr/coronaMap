@@ -55,17 +55,6 @@ export default class Panel extends React.Component {
                 <div>
                   <p
                     style={{
-                      color: "blue",
-                      borderTop: "solid 1px",
-                      margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
-                    }}
-                  >
-                    Total cases :{" "}
-                    {stat && stat.TotalCases ? stat.TotalCases : "0"}
-                  </p>
-                  <p
-                    style={{
                       color: "green",
                       borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
@@ -77,13 +66,47 @@ export default class Panel extends React.Component {
                   </p>
                   <p
                     style={{
+                      color: "red",
+                      borderTop: "solid 1px",
+                      margin: "2px 2px 2px 2px",
+                      borderRadius: 6 + "px"
+                    }}
+                  >
+                    New cases:{" "}
+                    {(stat && StringUtils.isNotEmpty(stat.NewCases)) ? stat.NewCases : "0"}
+
+                  </p>
+                  <p
+                    style={{
                       color: "black",
                       borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
                       borderRadius: 6 + "px"
                     }}
                   >
-                    Deaths : {(stat && StringUtils.isNotEmpty(stat.TotalDeaths)) ? stat.TotalDeaths : "0"}
+                    New deaths :{" "}
+                    {(stat && StringUtils.isNotEmpty(stat.NewDeaths)) ? stat.NewDeaths : "0"}
+                  </p>
+                  <p
+                    style={{
+                      color: "black",
+                      borderTop: "solid 1px",
+                      margin: "2px 2px 2px 2px",
+                      borderRadius: 6 + "px"
+                    }}
+                  >
+                    Total deaths : {(stat && StringUtils.isNotEmpty(stat.TotalDeaths)) ? stat.TotalDeaths : "0"}
+                  </p>
+                  <p
+                    style={{
+                      color: "blue",
+                      borderTop: "solid 1px",
+                      margin: "2px 2px 2px 2px",
+                      borderRadius: 6 + "px"
+                    }}
+                  >
+                    Total cases :{" "}
+                    {stat && stat.TotalCases ? stat.TotalCases : "0"}
                   </p>
                 </div>
               </div>
