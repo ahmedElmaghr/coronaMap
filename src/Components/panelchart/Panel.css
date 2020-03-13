@@ -48,8 +48,13 @@
     overflow-anchor: none;
     touch-action: auto;
 }
+.nicetext-title{
+    font-weight : 700;
+    font-size: 15px;
+    color: rgb(60, 60, 124);
+}
 .nicetext {
-    font-size: 16px;
+    font-size: 10px;
     line-height: 1.6;
     overflow-wrap: break-word;
 }

@@ -5,7 +5,7 @@ html, body { margin:0; padding:0; overflow:hidden }
   background-color:azure;
 }
 .marker{
-  fill: rgb(218, 218, 97);
+  fill: rgba(223, 27, 27, 0.7);
   stroke: whitesmoke;
   stroke-width: 0.5 ;
   cursor: pointer;

@@ -47,9 +47,7 @@ export default class Panel extends React.Component {
               <div className="nicetext">  
                 <div>
                   <div className="nicetext-title">
-                    <h1 style = {{fontWeight:"700"}}>
                       <span>{stat ? stat.Country : ""}</span>
-                    </h1>
                   </div>
                 </div>
                 <div>

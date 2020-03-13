@@ -12,7 +12,6 @@ export default class CoronaMapView extends PureComponent {
   height = "100%";
   viewBox = `0 0 800 400`;
   borderColor = "blue";
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +30,7 @@ export default class CoronaMapView extends PureComponent {
       var g = this.drawMap(gGlobal, this.props.worldData);
       //Merge morrocan sahara
       this.mergeMorrocanSahara(g);
+      //
       //add zoom
       var wrapper = d3.select("#content");
       this.addZoom(wrapper);
@@ -65,7 +65,7 @@ export default class CoronaMapView extends PureComponent {
   render() {
     const { worldData, regionVisible, countries, covid19 } = this.props;
     this.initMarkersAndLinks();
-    if (worldData.length > 0 && regionVisible) {
+    if (worldData.length > 0 && regionVisible ) {
       this.drawCircles(countries, covid19);
     }
     return <div></div>;
@@ -78,6 +78,7 @@ export default class CoronaMapView extends PureComponent {
 
   //Create the world map
   drawCircles = (countries, covid19) => {
+    console.log("call draw circle",countries,covid19)
     var gGlobal = d3.selectAll("#gWrapper");
     //Draw Medias
     this.drawZoneDesease(gGlobal, countries, covid19);
@@ -115,6 +116,7 @@ export default class CoronaMapView extends PureComponent {
 
   //Draw the world Map
   drawMap = (node, worldData) => {
+    console.log("call drawMap")
     if (!this.state.isMapLoaded) {
       var g = node
         .append("g")
