@@ -1,9 +1,8 @@
 html, body { margin:0; padding:0; overflow:hidden }
 .svg{
-  border-style:ridge;
+  border-style:dashed;
   /*background-color: rgb(86, 77, 100);*/
   background-color:azure;
-  position:fixed; top:0; bottom:0; left:0; right:0.
 }
 .marker{
   fill: rgb(218, 218, 97);
