@@ -42,7 +42,7 @@ class Container extends Component {
   }
 
   render() {
-    const { worldData, jsonData, countries,panelOpacity} = this.state;
+    const { worldData, jsonData, countries,panelOpacity,circleLoaded} = this.state;
     if (jsonData.length != 0) {
       return (
         <div>
@@ -56,13 +56,12 @@ class Container extends Component {
             clickOnCircle={d => {
               this.clickOnCircle(d);
             }}
-            clickOnCountry={(d) => { this.clickOnCountry(d) }
-            }
+            clickOnCountry={(d) => { this.clickOnCountry(d) }}
           />
-          {/* <ToggleBtn
+          <ToggleBtn
             checked={this.state.checkToggleBTn}
             click={() => this.switchToggleBtn()}
-          /> */}
+          />
           <Panel
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
