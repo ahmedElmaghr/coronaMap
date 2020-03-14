@@ -61,7 +61,8 @@ class Container extends Component {
       covid19={covid19}
       clickOnCircle={d => {
         this.clickOnCircle(d);
-      }}
+      }
+    }
       />
     }
     if (jsonData.length != 0) {

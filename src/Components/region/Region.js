@@ -7,18 +7,22 @@ class Region extends Component {
 
     componentWillUnmount() {
         console.log("Region : componentWillUnmount ")
-        d3.selectAll("#markers").remove()
+        d3.selectAll("#markers").style("opacity",0);
+        
     }
 
     render() {
         console.log("Regin : call render ")
         const { countries, covid19 } = this.props;
         this.drawCircles(countries, covid19);
+        //add zoom
+        
         return (
             ""
         );
     }
 
+    
     shouldComponentUpdate(nextProps, nextState) {
         console.log("Region shouldComponentUpdate")
         console.log("nextProps", nextProps)
@@ -36,6 +40,8 @@ class Region extends Component {
             //Draw Medias
             this.drawZoneDesease(gGlobal, countries, covid19);
             this.drawDimondPrincess(gGlobal, countries, covid19);
+        }else{
+            markers.style("opacity",1)
         }
     };
 
@@ -98,25 +104,25 @@ class Region extends Component {
         let rayon = 0;
         let cases = d.stat.TotalCases;
         if (0 < cases && cases <= 100) {
-            let r = (cases / 100) * 4
+            let r = (cases / 100) * 2
             rayon = r;
         } else if (100 <= cases && cases < 200) {
-            let r = (cases / 200) * 5
+            let r = (cases / 200) * 4
             rayon = r;
         } else if (200 <= cases && cases < 500) {
-            let r = (cases / 500) * 7
+            let r = (cases / 500) * 5
             rayon = r;
         } else if (500 <= cases && cases < 2000) {
-            let r = (cases / 2000) * 17
+            let r = (cases / 2000) * 7
             rayon = r;
         } else if (2000 <= cases && cases < 5000) {
-            let r = (cases / 5000) * 15
+            let r = (cases / 5000) * 10
             rayon = r;
-        } else if (5000 <= cases && cases < 11000) {
-            let r = (cases / 15000) * 30
+        } else if (5000 <= cases && cases < 30000) {
+            let r = (cases / 30000) * 30
             rayon = r;
-        } else if (11000 <= cases && cases < 100000) {
-            let r = (cases / 100000) * 35
+        } else if (30000 <= cases && cases < 100000) {
+            let r = (cases / 100000) * 40
             rayon = r;
         }
         return (rayon < 1 && rayon > 0) ? 1 : rayon;
@@ -151,26 +157,25 @@ class Region extends Component {
         }
     };
 
-    //Projection and path calculator
-    projection() {
-        var geoMercator = d3
-            .geoMercator()
-            .scale(100)
-            .translate([800 / 2, 550 / 2]);
+//Projection and path calculator
+projection() {
+    var geoMercator = d3
+        .geoMercator()
+        .scale(100)
+        .translate([800 / 2, 550 / 2]);
 
-        var projection2 = d3
-            .geoOrthographic()
-            .scale(300)
-            .precision(0.1);
-        var projection3 = d3
-            .geoConicEqualArea()
-            .scale(150)
-            .center([0, 33])
-            //.translate([width / 2, height / 2])
-            .precision(0.3);
-        return geoMercator;
-    }
-
+    var projection2 = d3
+        .geoOrthographic()
+        .scale(300)
+        .precision(0.1);
+    var projection3 = d3
+        .geoConicEqualArea()
+        .scale(150)
+        .center([0, 33])
+        //.translate([width / 2, height / 2])
+        .precision(0.3);
+    return geoMercator;
+}        
 }
 
 export default Region;
