@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import { feature } from "topojson-client";
 import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
+import Region from "../../Components/region/Region";
+import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
 import DataHelper from "../../Utils/DataHelper.js";
 import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
 import covid19 from "./../data/covid19.json";
-import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
 
 class Container extends Component {
   constructor(props) {
@@ -41,23 +42,40 @@ class Container extends Component {
     });
   }
 
+  shouldComponentUpdate(nextProps,nextState){
+    console.log("shouldComponentUpdate Container")
+    console.log("Container this props",this.props)
+    console.log("Container nextProps",nextProps)
+    return true;
+  }
   render() {
+    console.log("call Container render")
     const { worldData, jsonData, countries,panelOpacity,circleLoaded} = this.state;
+
+    let region = "";
+
+    if(this.state.checkToggleBTn){
+      region = <Region
+      worldData={worldData}
+      countries={countries}
+      covid19={covid19}
+      clickOnCircle={d => {
+        this.clickOnCircle(d);
+      }}
+      />
+    }
     if (jsonData.length != 0) {
       return (
         <div>
           <CoronaMapView
             worldData={worldData}
             jsonData={jsonData}
-            regionVisible = {this.state.checkToggleBTn}
             closePanel={() => { this.closePanelDetails() }}
             countries={countries}
             covid19={covid19}
-            clickOnCircle={d => {
-              this.clickOnCircle(d);
-            }}
             clickOnCountry={(d) => { this.clickOnCountry(d) }}
           />
+         {region}
           <ToggleBtn
             checked={this.state.checkToggleBTn}
             click={() => this.switchToggleBtn()}
@@ -105,7 +123,7 @@ class Container extends Component {
     } else {
       stat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);;
     }
-    if (stat.TotalCases > 0) {
+    // if (stat.TotalCases > 0) {
       console.log("stat", stat);
 
       this.setState(
@@ -120,7 +138,7 @@ class Container extends Component {
         }
       );
       this.sendSvgToBackground();
-    }
+    // }
   }
 
   clickOnCircle = d => {

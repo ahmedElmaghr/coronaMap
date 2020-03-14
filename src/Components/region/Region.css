@@ -1,0 +1,11 @@
+.marker{
+    fill: rgba(223, 27, 27, 0.7);
+    stroke: whitesmoke;
+    stroke-width: 0.5 ;
+    cursor: pointer;
+  
+  }
+  /* .marker:hover { 
+    stroke: red;
+  
+  } */

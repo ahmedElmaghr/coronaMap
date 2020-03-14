@@ -4,17 +4,7 @@ html, body { margin:0; padding:0; overflow:hidden }
   /*background-color: rgb(86, 77, 100);*/
   background-color:azure;
 }
-.marker{
-  fill: rgba(223, 27, 27, 0.7);
-  stroke: whitesmoke;
-  stroke-width: 0.5 ;
-  cursor: pointer;
 
-}
-/* .marker:hover { 
-  stroke: red;
-
-} */
 .country{
   stroke : blue;
   stroke-width: 0.1;

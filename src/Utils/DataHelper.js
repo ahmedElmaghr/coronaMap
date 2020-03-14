@@ -9,9 +9,9 @@ const constructData = (pays, statCovid19) => {
         };
 
         var object = {
-            id : i,
+            id: i,
             coordinate,
-            data : d,
+            data: d,
             stat: getStatByPays(d, statCovid19)
         }
         result.push(object);
@@ -23,14 +23,16 @@ const constructData = (pays, statCovid19) => {
 
 const getStatByPays = (d, covid19) => {
     let variable = covid19.data.filter(word => {
-        let countryTrimmed = word.Country? word.Country.trim() : "";
+        let countryTrimmed = word.Country ? word.Country.trim() : "";
         return countryTrimmed == d.name
     })
     let countryData = variable[0];
     if (countryData) {
         return countryData
     } else {
-        return 0
+        return {
+            Country: d.name
+        };
     }
 }
-export default { constructData,getStatByPays};
+export default { constructData, getStatByPays };

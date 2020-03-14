@@ -16,12 +16,13 @@ export default class CoronaMapView extends PureComponent {
     super(props);
     this.state = {
       medias_francais: [],
-      isMapLoaded: false
     };
   }
 
+  
 
   componentWillMount() {
+    console.log("componentWillMount")
     if (this.props.jsonData.length != 0) {
       //Draw svg Wrapper
       var svg = this.drawSvgWrapper();
@@ -37,6 +38,14 @@ export default class CoronaMapView extends PureComponent {
     }
   }
 
+  shouldComponentUpdate(nextProps,nextState){
+    console.log("shouldComponentUpdate CoronaMapView")
+    console.log("CoronaMapView nextProps",nextProps)
+    console.log("CoronaMapView nextProps",nextState)
+
+
+    return true;
+  }
   mergeMorrocanSahara = g => {
     //merge Morocco
     var jsonData = this.props.jsonData;
@@ -63,12 +72,7 @@ export default class CoronaMapView extends PureComponent {
   };
 
   render() {
-    const { worldData, regionVisible, countries, covid19 } = this.props;
-    this.initMarkersAndLinks();
-    if (worldData.length > 0 && regionVisible ) {
-      this.drawCircles(countries, covid19);
-    }
-    return <div></div>;
+    return "";
   }
 
   initMarkersAndLinks = () => {
@@ -78,13 +82,10 @@ export default class CoronaMapView extends PureComponent {
 
   //Create the world map
   drawCircles = (countries, covid19) => {
-    console.log("call draw circle",countries,covid19)
     var gGlobal = d3.selectAll("#gWrapper");
     //Draw Medias
     this.drawZoneDesease(gGlobal, countries, covid19);
     this.drawDimondPrincess(gGlobal, countries, covid19);
-    //add zoom
-    // this.addZoom(gGlobal);
   };
 
   //Draw svg wrapper for map
@@ -117,7 +118,6 @@ export default class CoronaMapView extends PureComponent {
   //Draw the world Map
   drawMap = (node, worldData) => {
     console.log("call drawMap")
-    if (!this.state.isMapLoaded) {
       var g = node
         .append("g")
         .attr("id", "worldMap")
@@ -139,7 +139,6 @@ export default class CoronaMapView extends PureComponent {
       //   this.props.closePanel();
       // })
       return g;
-    }
 
   };
 
@@ -183,8 +182,6 @@ export default class CoronaMapView extends PureComponent {
   drawDimondPrincess = (node, countries, covid19) => {
     let dimondPrincess = countries.filter((e) => { return e.country == "DP" });
     let statDP = DataHelper.getStatByPays({ name: "Diamond Princess" }, covid19);
-    console.log("dimondPrincess", dimondPrincess)
-    console.log("statDP", statDP)
 
   }
 
@@ -217,6 +214,11 @@ export default class CoronaMapView extends PureComponent {
       .attr("class", "marker")
       .append("title")
       .text((d) => { return `country : ${d.data.name} cases : ${d.stat.TotalCases}` })
+
+      // markers.call(d3.zoom().on("zoom", () => {
+      //   this.props.closePanel();
+      //   this.zoomed(markers)
+      // }));
 
     return markers;
   };
@@ -308,7 +310,7 @@ export default class CoronaMapView extends PureComponent {
 
 
   //Projection and path calculator
-  projection() {
+  projection = () =>{
     var geoMercator = d3
       .geoMercator()
       .scale(100)
