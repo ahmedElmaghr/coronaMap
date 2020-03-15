@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import * as d3 from "d3";
+import { Component } from 'react';
 import DataHelper from "../../Utils/DataHelper.js";
 import { StringUtils } from "../../Utils/StringUtils.js";
 import "./Region.css";
@@ -9,8 +9,6 @@ class Region extends Component {
         console.log("Region : componentWillUnmount ")
         d3.selectAll("#markers")
         .attr("visibility","hidden")
-        // style("opacity",0);
-        
     }
 
     render() {
@@ -24,16 +22,6 @@ class Region extends Component {
         );
     }
 
-    
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log("Region shouldComponentUpdate")
-    //     console.log("nextProps", nextProps)
-    //     console.log("nextState", nextState)
-    //     if (nextProps.covid19) {
-    //         return false;
-    //     }
-    //     return true;
-    // }
     //Create the world map
     drawCircles = (countries, covid19) => {
         let markers = d3.selectAll("#markers")

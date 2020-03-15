@@ -1,4 +1,5 @@
 import React from "react";
+import * as d3 from "d3"
 import "./ToggleBtn.css";
 
 export default class ToggleBtn extends React.Component {
@@ -7,8 +8,13 @@ export default class ToggleBtn extends React.Component {
   }
 
   render() {
+    let svgMap = d3.selectAll('#content').node().getBoundingClientRect();
+
     var style = {
-      zIndex: 1
+      zIndex: 1,
+      position : "absolute",
+      top: svgMap.height - 24,
+      right : '50%'
     }
     const { checked } = this.props;
     return (

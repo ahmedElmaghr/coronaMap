@@ -15,7 +15,7 @@ html, body { margin:0; padding:0; overflow:hidden }
   stroke: orangered;
 }
 
-#legend {
+/* #legend {
   border: 1px solid silver;
   border-top: 0;
 }
@@ -31,4 +31,4 @@ html, body { margin:0; padding:0; overflow:hidden }
 .legend-key line {
   stroke: #000;
   shape-rendering: crispEdges;
-}
+} */

@@ -1,9 +1,8 @@
 import * as d3 from "d3";
 import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
-import DataHelper from "../../Utils/DataHelper.js";
-import { StringUtils } from "../../Utils/StringUtils.js";
 import "./CoronaMapViewCss.css";
+import Legend from "./Legend.js";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
@@ -72,7 +71,9 @@ export default class CoronaMapView extends PureComponent {
   };
 
   render() {
-    return "";
+    return (
+      <Legend></Legend>
+    );
   }
 
   initMarkersAndLinks = () => {
