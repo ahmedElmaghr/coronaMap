@@ -166,7 +166,7 @@
           "type": "Polygon",
           "arcs": [[-133, 134]],
           "id": "214",
-          "properties": { "name": "Dominican Rep." }
+          "properties": { "name": "Dominican Republic" }
         },
         {
           "type": "MultiPolygon",
@@ -497,7 +497,7 @@
           "type": "Polygon",
           "arcs": [[-108, 308, -286, -129, -121, 309]],
           "id": "140",
-          "properties": { "name": "Central African Rep." }
+          "properties": { "name": "Central African Republic" }
         },
         {
           "type": "Polygon",
@@ -1160,7 +1160,7 @@
           "type": "Polygon",
           "arcs": [[-496, 586, 587]],
           "id": "070",
-          "properties": { "name": "Bosnia and Herz." }
+          "properties": { "name": "Bosnia and Herzegovina" }
         },
         {
           "type": "Polygon",

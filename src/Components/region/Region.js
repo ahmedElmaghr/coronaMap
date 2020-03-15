@@ -25,15 +25,15 @@ class Region extends Component {
     }
 
     
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("Region shouldComponentUpdate")
-        console.log("nextProps", nextProps)
-        console.log("nextState", nextState)
-        if (nextProps.covid19) {
-            return false;
-        }
-        return true;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log("Region shouldComponentUpdate")
+    //     console.log("nextProps", nextProps)
+    //     console.log("nextState", nextState)
+    //     if (nextProps.covid19) {
+    //         return false;
+    //     }
+    //     return true;
+    // }
     //Create the world map
     drawCircles = (countries, covid19) => {
         let markers = d3.selectAll("#markers")
