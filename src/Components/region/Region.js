@@ -7,7 +7,9 @@ class Region extends Component {
 
     componentWillUnmount() {
         console.log("Region : componentWillUnmount ")
-        d3.selectAll("#markers").style("opacity",0);
+        d3.selectAll("#markers")
+        .attr("visibility","hidden")
+        // style("opacity",0);
         
     }
 
@@ -41,7 +43,9 @@ class Region extends Component {
             this.drawZoneDesease(gGlobal, countries, covid19);
             this.drawDimondPrincess(gGlobal, countries, covid19);
         }else{
-            markers.style("opacity",1)
+            markers
+            .attr("visibility","visible")
+            // .attr("z-index",10)
         }
     };
 
@@ -58,6 +62,7 @@ class Region extends Component {
             .attr("id", "markers")
             .attr("class", "markers");
         let dataFiltered = this.filterCountriesByDesease(data);
+        console.log("dataFiltered",dataFiltered)
         markers
             .selectAll("circle")
             .data(dataFiltered)
@@ -94,10 +99,10 @@ class Region extends Component {
             (d.stat != 0 && d.stat.TotalCases != 0)
             && (d.data.country != "DP")
         )
-        dataFiltered.sort((e1, e2) => {
+        return dataFiltered.sort((e1, e2) => {
             return e2.stat.TotalCases - e1.stat.TotalCases
         })
-        return dataFiltered;
+        // return dataFiltered;
     }
 
     getRadius = (d) => {
