@@ -1,8 +1,8 @@
 html, body { margin:0; padding:0; overflow:hidden }
 .svg{
   border-style:dashed;
-  /*background-color: rgb(86, 77, 100);*/
   background-color:azure;
+  position:fixed; top:0; bottom:0; left:0; right:0
 }
 
 .country{
@@ -14,21 +14,3 @@ html, body { margin:0; padding:0; overflow:hidden }
   stroke-width: 0.5;
   stroke: orangered;
 }
-
-/* #legend {
-  border: 1px solid silver;
-  border-top: 0;
-}
-
-.legend-key path {
-  display: none;
-}
-
-.legend-key text {
-  font-size: 1rem;
-}
-
-.legend-key line {
-  stroke: #000;
-  shape-rendering: crispEdges;
-} */

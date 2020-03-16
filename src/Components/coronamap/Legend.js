@@ -30,7 +30,7 @@ export default class Legend extends Component {
   render() {
     let svgMap = d3.selectAll('#content').node().getBoundingClientRect();
     return (
-      <div className="legend" style = {{height:'20%',width:'20%',top : svgMap.height-130}}>
+      <div className="legend" style = {{height:'30%',width:'25%',top : svgMap.height*0.60,zIndex:1}}>
         <svg  id = "legend" style = {{height:'100%',width:'100%'}}/>
       </div>
     );
