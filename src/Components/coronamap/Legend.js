@@ -15,8 +15,8 @@ export default class Legend extends Component {
     svg.append("circle").attr("cx",10).attr("cy",130).attr("r", 6).style("fill", "rgb(150, 51, 51)")
     svg.append("circle").attr("cx",10).attr("cy",150).attr("r", 6).style("fill", "rgb(145, 10, 10)")
 
-    svg.append("text").attr("x", 30).attr("y", 10).text("No cases has been declared").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 30).text("Lowwer than 100").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 10).text("No declared cases").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 30).text("Lower than 100").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 50).text("Between 100 - 200").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 70).text("Between 200 - 500").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 90).text("Between 500 - 1000").style("font-size", "15px").attr("alignment-baseline","middle")
@@ -30,7 +30,7 @@ export default class Legend extends Component {
   render() {
     let svgMap = d3.selectAll('#content').node().getBoundingClientRect();
     return (
-      <div className="legend" style = {{height:'20%',width:'20%',top : svgMap.height*0.65}}>
+      <div className="legend" style = {{height:'20%',width:'20%',top : svgMap.height-130}}>
         <svg  id = "legend" style = {{height:'100%',width:'100%'}}/>
       </div>
     );

@@ -671,13 +671,13 @@
           "type": "MultiPolygon",
           "arcs": [[[386, 386, 386]], [[-147, 387, 388, 389, 390]]],
           "id": "408",
-          "properties": { "name": "North Korea" }
+          "properties": { "name": "N. Korea" }
         },
         {
           "type": "Polygon",
           "arcs": [[-389, 391]],
           "id": "410",
-          "properties": { "name": "South Korea" }
+          "properties": { "name": "S. Korea" }
         },
         {
           "type": "Polygon",
