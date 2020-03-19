@@ -83,39 +83,43 @@ class Region extends Component {
     };
 
     filterCountriesByDesease = (data) => {
+        console.log("dataaaa",data)
         let dataFiltered = data.filter(d =>
-            (d.stat != 0 && d.stat.TotalCases != 0)
+            (d.stat != null && d.stat.TotalDeaths != 0 && d.stat.TotalDeaths!=null)
             && (d.data.country != "DP")
         )
-        return dataFiltered.sort((e1, e2) => {
-            return e2.stat.TotalCases - e1.stat.TotalCases
+        console.log("dataFiltered",dataFiltered)
+        var t =  dataFiltered.sort((e1, e2) => {
+            console.log("e1",e1)
+            console.log("e2",e2)
+            return e2.stat.TotalDeaths - e1.stat.TotalDeaths
         })
-        // return dataFiltered;
+        return t;
     }
 
     getRadius = (d) => {
         let rayon = 0;
-        let cases = d.stat.TotalCases;
-        if (0 < cases && cases <= 100) {
-            let r = (cases / 100) * 2
+        let cases = d.stat.TotalDeaths;
+        if (0 < cases && cases <= 10) {
+            let r = (cases / 10) * 2
+            rayon = r;
+        } else if (10 <= cases && cases < 100) {
+            let r = (cases / 100) * 4
             rayon = r;
         } else if (100 <= cases && cases < 200) {
-            let r = (cases / 200) * 4
+            let r = (cases / 200) * 5
             rayon = r;
         } else if (200 <= cases && cases < 500) {
-            let r = (cases / 500) * 5
+            let r = (cases / 500) * 7
             rayon = r;
-        } else if (500 <= cases && cases < 2000) {
-            let r = (cases / 2000) * 7
+        } else if (500 <= cases && cases < 1000) {
+            let r = (cases / 1000) * 10
+            rayon = r;
+        } else if (1000 <= cases && cases < 2000) {
+            let r = (cases / 2000) * 30
             rayon = r;
         } else if (2000 <= cases && cases < 5000) {
-            let r = (cases / 5000) * 10
-            rayon = r;
-        } else if (5000 <= cases && cases < 30000) {
-            let r = (cases / 30000) * 30
-            rayon = r;
-        } else if (30000 <= cases && cases < 100000) {
-            let r = (cases / 100000) * 40
+            let r = (cases / 5000) * 40
             rayon = r;
         }
         return (rayon < 1 && rayon > 0) ? 1 : rayon;
