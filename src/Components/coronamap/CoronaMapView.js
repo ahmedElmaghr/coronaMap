@@ -197,12 +197,13 @@ export default class CoronaMapView extends PureComponent {
   projection = () =>{
     var geoMercator = d3
       .geoMercator()
-      .scale(100)
+      .center([0,25])
+      .scale(500)
       .translate([800 / 2, 550 / 2]);
 
     var projection2 = d3
       .geoOrthographic()
-      .scale(300)
+      .scale(100)
       .precision(0.1);
     var projection3 = d3
       .geoConicEqualArea()
