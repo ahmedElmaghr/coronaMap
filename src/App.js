@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import Card from "./Components/card/Card";
-import Container from "./MediaFrancais/container/Container";
-import covid19 from "./MediaFrancais/data/covid19.json";
-import PieChart from "./Components/piechart/PieChart";
+import Card from "./components/card/Card";
+import Container from "./coronadash/container/Container";
+import covid19 from "./coronadash/data/covid19.json";
+import PieChart from "./components/piechart/PieChart";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     console.log("App render");

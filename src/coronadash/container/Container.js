@@ -1,11 +1,11 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
 import { feature } from "topojson-client";
-import CoronaMapView from "../../Components/coronamap/CoronaMapView";
-import Panel from "../../Components/panelchart/Panel";
-import Region from "../../Components/region/Region";
-import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
-import DataHelper from "../../Utils/DataHelper.js";
+import CoronaMapView from "../../components/coronamap/CoronaMapView";
+import Panel from "../../components/panelchart/Panel";
+import Region from "../../components/region/Region";
+import ToggleBtn from "../../components/toggleButton/ToggleBtn";
+import DataHelper from "../../utils/DataHelper.js";
 import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
 

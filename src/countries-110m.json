@@ -461,7 +461,7 @@
           "type": "Polygon",
           "arcs": [[-270, 296, -295, 297, 298, 299]],
           "id": "384",
-          "properties": { "name": "Côte d'Ivoire" }
+          "properties": { "name": "Ivory Coast" }
         },
         {
           "type": "Polygon",
@@ -1142,7 +1142,7 @@
         {
           "type": "Polygon",
           "arcs": [[-115, -581, -583, 583]],
-          "properties": { "name": "Somaliland" }
+          "properties": { "name": "Somalia" }
         },
         {
           "type": "Polygon",

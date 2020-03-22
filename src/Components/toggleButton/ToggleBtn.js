@@ -1,15 +1,10 @@
 import React from "react";
-import * as d3 from "d3"
 import "./ToggleBtn.css";
 
 
 export default class ToggleBtn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-    let svgMap = d3.selectAll('#content').node().getBoundingClientRect();
 
     var style = {
       zIndex: 1,

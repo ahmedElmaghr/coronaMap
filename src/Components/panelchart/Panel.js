@@ -1,11 +1,8 @@
 import React from "react";
 import "./Panel.css";
-import { StringUtils } from "../../Utils/StringUtils";
+import { StringUtils } from "../../utils/StringUtils";
 
 export default class Panel extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   componentWillMount(){
     document.addEventListener("click",this.handleClick,false)
@@ -24,7 +21,7 @@ export default class Panel extends React.Component {
   }
 
   handleClickOutside=(e)=>{
-    if(e.target.tagName!="path" && e.target.tagName!="circle"){
+    if(e.target.tagName!=="path" && e.target.tagName!=="circle"){
       this.props.closePanel();
     }
   }

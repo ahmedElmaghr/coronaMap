@@ -22,7 +22,7 @@ export default class CoronaMapView extends PureComponent {
 
   componentWillMount() {
     console.log("componentWillMount")
-    if (this.props.jsonData.length != 0) {
+    if (this.props.jsonData.length !== 0) {
       //Draw svg Wrapper
       var svg = this.drawSvgWrapper();
       var gGlobal = svg.append("g").attr("id", "gWrapper");
@@ -166,8 +166,8 @@ export default class CoronaMapView extends PureComponent {
 
   filterCountriesByDesease = (data) => {
     let dataFiltered = data.filter(d =>
-      (d.stat != 0 && d.stat.TotalCases != 0)
-      && (d.data.country != "DP")
+      (d.stat !== 0 && d.stat.TotalCases !== 0)
+      && (d.data.country !== "DP")
     )
     dataFiltered.sort((e1, e2) => {
       return e2.stat.TotalCases - e1.stat.TotalCases
@@ -206,9 +206,9 @@ export default class CoronaMapView extends PureComponent {
       .precision(0.1);
     var projection3 = d3
       .geoConicEqualArea()
-      .scale(150)
-      .center([0, 33])
-      //.translate([width / 2, height / 2])
+      .scale(100)
+      // .center([0, 33])
+      .translate([800 / 2, 550 / 2])
       .precision(0.3);
     return geoMercator;
   }

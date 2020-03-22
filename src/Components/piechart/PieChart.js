@@ -3,9 +3,6 @@ import './PieChart.css'
 import Pie from './Pie'
 export default class PieChart extends PureComponent {
 
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         
