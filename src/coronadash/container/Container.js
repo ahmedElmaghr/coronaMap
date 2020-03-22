@@ -5,7 +5,7 @@ import CoronaMapView from "../../Components/coronamap/CoronaMapView";
 import Panel from "../../Components/panelchart/Panel";
 import Region from "../../Components/region/Region";
 import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
-import DataHelper from "../../utils/DataHelper.js";
+import DataHelper from "../../Utils/DataHelper.js";
 import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
 

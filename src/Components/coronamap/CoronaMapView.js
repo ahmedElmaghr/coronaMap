@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
-import StringUtils from "../../utils/StringUtils";
+import StringUtils from "../../Utils/StringUtils";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
