@@ -1,11 +1,11 @@
 .marker{
-    fill: rgba(59, 55, 55, 0.7);
+    fill: rgba(0, 0, 0, 0.5);
     stroke: whitesmoke;
     stroke-width: 0.5 ;
     cursor: pointer;
   
   }
   .marker:hover { 
-    stroke: red;
-  
+    stroke: rgb(255, 255, 255);
+    fill: rgba(128, 35, 35, 0.5);
   }

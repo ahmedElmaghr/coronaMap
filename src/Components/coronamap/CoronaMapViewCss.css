@@ -2,7 +2,8 @@ html, body { margin:0; padding:0; overflow:hidden }
 .svg{
   border-style:dashed;
   background-color:azure;
-  position:fixed; top:0; bottom:0; left:0; right:0
+  /* position:fixed; top:0; bottom:0; left:0; right:0 */
+  position: relative;
 }
 
 .country{
@@ -12,5 +13,5 @@ html, body { margin:0; padding:0; overflow:hidden }
 }
 .country:hover{
   stroke-width: 0.5;
-  stroke: orangered;
+  stroke: black;
 }

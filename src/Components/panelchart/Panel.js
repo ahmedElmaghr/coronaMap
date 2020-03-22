@@ -35,7 +35,7 @@ export default class Panel extends React.Component {
       <div ref={node => this.node=node}>
         <div id="panelStat"
           className="mapboxgl-popup mapboxgl-popup-anchor-bottom"
-          style={{ top: x + 'px', left: y + 'px', opacity: opacity ,zIndex: zIndex}}
+          style={{ top: y + 'px', left: x + 'px', opacity: opacity ,zIndex: zIndex}}
         >
           <div className="mapboxgl-popup-tip"></div>
           <div className="mapboxgl-popup-content">

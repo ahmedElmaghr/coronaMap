@@ -2,6 +2,7 @@ import React from "react";
 import * as d3 from "d3"
 import "./ToggleBtn.css";
 
+
 export default class ToggleBtn extends React.Component {
   constructor(props) {
     super(props);
@@ -13,8 +14,8 @@ export default class ToggleBtn extends React.Component {
     var style = {
       zIndex: 1,
       position : "absolute",
-      top: svgMap.height - 24,
-      right : '50%'
+      top: 0,
+      right : '2%'
     }
     const { checked } = this.props;
     return (
@@ -28,7 +29,7 @@ export default class ToggleBtn extends React.Component {
             this.props.click()
           }}
         />
-        <label class="custom-control-label" for="customSwitch1">Show region</label>
+        <label class="custom-control-label" style ={{color:'red',fontWeight:'bold'}}for="customSwitch1">mark deaths</label>
       </div>
       // <div>
       //   <button className="button">button</button>

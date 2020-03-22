@@ -8,7 +8,6 @@ import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
 import DataHelper from "../../Utils/DataHelper.js";
 import countries110 from "./../../../src/countries-110m.json";
 import countries from "./../data/countries.tsv";
-import covid19 from "./../data/covid19.json";
 
 class Container extends Component {
   constructor(props) {
@@ -17,14 +16,11 @@ class Container extends Component {
       worldData: [],
       jsonData: [],
       countries: [],
-      covid19: covid19,
       pieOpacity: 0,
       panelOpacity: 0,
-      checkToggleBTn: false,
-
+      checkToggleBTn: false
     };
   }
-
 
   componentDidMount() {
     let worldData = countries110;
@@ -34,7 +30,6 @@ class Container extends Component {
       jsonData: worldData
     });
 
-
     d3.tsv(countries).then((response, error) => {
       this.setState({
         countries: response
@@ -42,28 +37,29 @@ class Container extends Component {
     });
   }
 
-  shouldComponentUpdate(nextProps,nextState){
-    console.log("shouldComponentUpdate Container")
-    console.log("Container this props",this.props)
-    console.log("Container nextProps",nextProps)
-    return true;
-  }
   render() {
-    console.log("call Container render")
-    const { worldData, jsonData, countries,panelOpacity,circleLoaded} = this.state;
-
+    console.log("call Container render");
+    const {
+      worldData,
+      jsonData,
+      countries,
+      panelOpacity,
+      circleLoaded
+    } = this.state;
+    const { covid19 } = this.props;
     let region = "";
 
-    if(this.state.checkToggleBTn){
-      region = <Region
-      worldData={worldData}
-      countries={countries}
-      covid19={covid19}
-      clickOnCircle={d => {
-        this.clickOnCircle(d);
-      }
-    }
-      />
+    if (this.state.checkToggleBTn) {
+      region = (
+        <Region
+          worldData={worldData}
+          countries={countries}
+          covid19={covid19}
+          clickOnCircle={d => {
+            this.clickOnCircle(d);
+          }}
+        />
+      );
     }
     if (jsonData.length != 0) {
       return (
@@ -71,12 +67,16 @@ class Container extends Component {
           <CoronaMapView
             worldData={worldData}
             jsonData={jsonData}
-            closePanel={() => { this.closePanelDetails() }}
+            closePanel={() => {
+              this.closePanelDetails();
+            }}
             countries={countries}
             covid19={covid19}
-            clickOnCountry={(d) => { this.clickOnCountry(d) }}
+            clickOnCountry={d => {
+              this.clickOnCountry(d);
+            }}
           />
-         {region}
+          {region}
           <ToggleBtn
             checked={this.state.checkToggleBTn}
             click={() => this.switchToggleBtn()}
@@ -85,7 +85,9 @@ class Container extends Component {
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
             stat={this.state.stat}
-            closePanel={() => { this.closePanelDetails() }}
+            closePanel={() => {
+              this.closePanelDetails();
+            }}
             x={this.state.x}
             y={this.state.y}
           />
@@ -114,57 +116,54 @@ class Container extends Component {
   };
 
   clickOnCountry = d => {
-    console.log("d", d);
-    let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
-    let paneStaWidth = panelStatDim.width;
-    let paneStaHeight = panelStatDim.height;
+    
+
     let stat = {};
+    let covid19 = this.props.covid19;
     if (d) {
-      stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);;
+      stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);
     } else {
-      stat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);;
+      stat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);
     }
-    // if (stat.TotalCases > 0) {
-      console.log("stat", stat);
+    let position = this.getPositionPanel();
+    this.setState({
+      panelOpacity: 1,
+      panelZindex: 1,
+      stat: stat,
+      x: position.x,
+      y: position.y 
+    });
+    this.sendSvgToBackground();
+  };
 
-      this.setState(
-        {
-          panelOpacity: 1,
-          // pieOpacity: 1,
-          // pieZindex: 1,
-          panelZindex: 1,
-          stat: stat,
-          y: d3.event.pageX - (paneStaWidth / 2),
-          x: d3.event.pageY - paneStaHeight
-        }
-      );
-      this.sendSvgToBackground();
-    // }
+  getPositionPanel = ()=>{
+    let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
+    let leftsideDim = d3.selectAll("#leftside").node().getBoundingClientRect();
+    let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
+    let x = d3.event.pageX - leftsideDim.width - (panelStatDim.width / 2) - 15
+    let y = d3.event.pageY - panelStatDim.height -headerDim.height;
+    return {x,y}
   }
-
   clickOnCircle = d => {
-    let panelStatDim = d3.selectAll('#panelStat').node().getBoundingClientRect();
-    let paneStaWidth = panelStatDim.width;
-    let paneStaHeight = panelStatDim.height;
+    
+    let positionPanel = this.getPositionPanel();
     this.setState({
       panelOpacity: 1,
       panelZindex: 10,
       stat: d.stat,
-      y: d3.event.pageX - (paneStaWidth / 2),
-      x: d3.event.pageY - paneStaHeight
+      x: positionPanel.x,
+      y: positionPanel.y
     });
     this.sendSvgToBackground();
   };
 
   sendSvgToBackground = () => {
-    d3.selectAll("#worldMap")
-      .style("opacity", 0.7);
-  }
+    d3.selectAll("#worldMap").style("opacity", 0.7);
+  };
 
   sendSvgToFrontPage = () => {
-    d3.selectAll("#worldMap")
-      .style("opacity", 1);
-  }
+    d3.selectAll("#worldMap").style("opacity", 1);
+  };
 
   closePanelDetails = () => {
     this.setState({
@@ -172,7 +171,7 @@ class Container extends Component {
       panelZindex: -1
     });
     this.sendSvgToFrontPage();
-  }
+  };
 
   constructView = () => {
     const { worldData, jsonData, countries } = this.state;
@@ -189,13 +188,13 @@ class Container extends Component {
   };
 
   switchToggleBtn = () => {
-    this.setState((currentState) => ({
+    this.setState(currentState => ({
       checkToggleBTn: !currentState.checkToggleBTn,
-      mapopacity:0.5
+      mapopacity: 0.5
     }));
 
     // d3.selectAll("path").attr("fill","cyan")
-  }
+  };
 }
 
 export default Container;

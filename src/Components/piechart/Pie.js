@@ -28,7 +28,22 @@ export default class Pie extends React.Component {
         <Slice key={i}
                outerRadius={this.props.radius}
                value={value}
-               fill={this.colorScale(i)} />
+               fill={this.getColor(i)} />
       );
     }
+
+    getColor = (i)=>{
+      switch(i){
+        case 0 :
+          // blue
+          return 'rgb(38,75,150)';
+        case 1:
+          // green
+          return 'rgb(39,179,118)';
+        case 2:
+          //red
+          return 'rgb(191,33,47)';
+      }
+    }
+
   }

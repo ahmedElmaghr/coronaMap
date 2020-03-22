@@ -85,16 +85,15 @@ export default class CoronaMapView extends PureComponent {
   //Draw svg wrapper for map
   drawSvgWrapper() {
     //Construct Body
-    var body = d3.select("#root")
-
+    var body = d3.select("#mapWW")
+    console.log("scrren height", window.screen.height);
     //Construct SVG
     var svg = body
-      .append("div")
       .append("svg")
       .attr("class", "svg")
       .attr("id", "content")
       .attr("width", this.width)
-      .attr("height", this.height)
+      // .attr("height", window.screen.height +'px')
       .attr("viewBox", this.viewBox)
       ;
     return svg;
@@ -159,7 +158,7 @@ export default class CoronaMapView extends PureComponent {
     } else if (5000 <= totalCases && totalCases < 30000) {
       return 'rgb(150, 51, 51)'
     } else if (15000 <= totalCases && totalCases < 100000) {
-      return 'rgb(145, 10, 10)'
+      return 'rgb(43, 2, 2)'
     }
 
   }
@@ -197,8 +196,8 @@ export default class CoronaMapView extends PureComponent {
   projection = () =>{
     var geoMercator = d3
       .geoMercator()
-      .center([0,25])
-      .scale(500)
+      // .center([0,25])
+      .scale(100)
       .translate([800 / 2, 550 / 2]);
 
     var projection2 = d3
