@@ -22,7 +22,7 @@ const constructData = (pays, statCovid19) => {
 }
 
 const getStatByPays = (d, covid19) => {
-    let variable = covid19.data.filter(word => {
+    let variable = covid19.filter(word => {
         let countryTrimmed = word.Country ? word.Country.trim() : "";
         return countryTrimmed === d.name
     })

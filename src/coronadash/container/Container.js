@@ -61,7 +61,7 @@ class Container extends Component {
         />
       );
     }
-    if (jsonData.length != 0) {
+    if (jsonData.length != 0 && covid19) {
       return (
         <div>
           <CoronaMapView

@@ -8,10 +8,10 @@ export default class Card extends Component {
 
   render() {
     const covid19 = this.props.covid19;
-    let data = covid19.data;
+    let data = covid19;
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
-      totalStatistics = data[data.length - 1];
+      totalStatistics = data[(data.length + 1)/2 ];
     }
     let totalConfirmed = totalStatistics.TotalCases;
     let recovered = totalStatistics.TotalRecovered;

@@ -19,7 +19,7 @@ soup = BeautifulSoup(website_url,'lxml')
 # In[3]:
 
 
-My_table = soup.find('table',{'id':'main_table_countries'})
+My_table = soup.find('table',{'id':'main_table_countries_today'})
 body = soup.find('tbody')
 
 #In[4]
@@ -41,11 +41,11 @@ df = pd.DataFrame(l, columns=["Country", "TotalCases", "NewCases", "TotalDeaths"
 
 
 df = df.iloc[1:]
-df
+# df
 
 
 # In[7]:
 
 
-df.to_excel("results_coronavirus.xlsx") 
+df.to_csv("results_coronavirus.csv") 
 

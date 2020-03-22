@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { Component } from "react";
 import DataHelper from "../../utils/DataHelper.js";
-import { StringUtils } from "../../utils/StringUtils.js";
+import  StringUtils from "../../utils/StringUtils.js";
 import "./Region.css";
 class Region extends Component {
   componentWillUnmount() {
@@ -94,8 +94,6 @@ class Region extends Component {
     );
     console.log("dataFiltered", dataFiltered);
     var t = dataFiltered.sort((e1, e2) => {
-      console.log("e1", e1);
-      console.log("e2", e2);
       return e2.stat.TotalDeaths - e1.stat.TotalDeaths;
     });
     return t;
@@ -103,7 +101,8 @@ class Region extends Component {
 
   getRadius = d => {
     let rayon = 0;
-    let cases = d.stat.TotalDeaths;
+    let cases =StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
+    console.log("cases",cases)
     if (0 < cases && cases <= 10) {
       let r = (cases / 10) * 2;
       rayon = r;

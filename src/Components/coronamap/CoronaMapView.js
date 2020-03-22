@@ -3,6 +3,7 @@ import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
+import StringUtils from "../../utils/StringUtils";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
@@ -13,9 +14,6 @@ export default class CoronaMapView extends PureComponent {
   borderColor = "blue";
   constructor(props) {
     super(props);
-    this.state = {
-      medias_francais: [],
-    };
   }
 
   
@@ -128,13 +126,13 @@ export default class CoronaMapView extends PureComponent {
 
   //Color land 
   markDesease = (d) => {
-    let elt = this.props.covid19.data.filter((e) => {
+    let elt = this.props.covid19.filter((e) => {
       let countryTrimmed = e.Country ? e.Country.trim() : "";
 
       return countryTrimmed == d.properties.name
     })
     if (elt[0]) {
-      let totalCases = elt[0].TotalCases;
+      let totalCases = StringUtils.deleteSpecialChar(elt[0].TotalCases);
       return this.getCountryColor(totalCases);
 
     } else {
