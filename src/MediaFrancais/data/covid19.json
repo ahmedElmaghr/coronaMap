@@ -2,8 +2,1561 @@
     "data": [
         {
             "Country": "China",
+            "TotalCases": "81054",
+            "NewCases": "46",
+            "TotalDeaths": "3261",
+            "NewDeaths": "6",
+            "ActiveCases": "72440",
+            "TotalRecovered": "5353",
+            "SeriousCritical": "1845",
+            "Cases/1M pop": "56"
+        },
+        {
+            "Country": "Italy",
+            "TotalCases": "53578",
+            "TotalDeaths": "4825",
+            "ActiveCases": "6072",
+            "TotalRecovered": "42681",
+            "SeriousCritical": "2857",
+            "Cases/1M pop": "886"
+        },
+        {
+            "Country": "Spain",
+            "TotalCases": "28572",
+            "NewCases": "3076",
+            "TotalDeaths": "1381",
+            "ActiveCases": "2125",
+            "TotalRecovered": "25066",
+            "SeriousCritical": "1612",
+            "Cases/1M pop": "611"
+        },
+        {
+            "Country": "USA",
+            "TotalCases": "26900",
+            "NewCases": "2693",
+            "TotalDeaths": "348                                ",
+            "NewDeaths": "46",
+            "ActiveCases": "178",
+            "TotalRecovered": "26374",
+            "SeriousCritical": "708",
+            "Cases/1M pop": "81"
+        },
+        {
+            "Country": "Germany",
+            "TotalCases": "22364",
+            "TotalDeaths": "84                                ",
+            "ActiveCases": "209",
+            "TotalRecovered": "22071",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "267"
+        },
+        {
+            "Country": "Iran",
+            "TotalCases": "21638",
+            "NewCases": "1028",
+            "TotalDeaths": "1685",
+            "NewDeaths": "129",
+            "ActiveCases": "7635",
+            "TotalRecovered": "12318",
+            "Cases/1M pop": "258"
+        },
+        {
+            "Country": "France",
+            "TotalCases": "14459",
+            "TotalDeaths": "562                                ",
+            "ActiveCases": "1587",
+            "TotalRecovered": "12310",
+            "SeriousCritical": "1525",
+            "Cases/1M pop": "222"
+        },
+        {
+            "Country": "S. Korea",
+            "TotalCases": "8897",
+            "NewCases": "98",
+            "TotalDeaths": "104                                ",
+            "NewDeaths": "2",
+            "ActiveCases": "2909",
+            "TotalRecovered": "5884",
+            "SeriousCritical": "59",
+            "Cases/1M pop": "174"
+        },
+        {
+            "Country": "Switzerland",
+            "TotalCases": "7225",
+            "NewCases": "362",
+            "TotalDeaths": "80                                ",
+            "ActiveCases": "131",
+            "TotalRecovered": "7014",
+            "SeriousCritical": "141",
+            "Cases/1M pop": "835"
+        },
+        {
+            "Country": "UK",
+            "TotalCases": "5018",
+            "TotalDeaths": "233                                ",
+            "ActiveCases": "93",
+            "TotalRecovered": "4692",
+            "SeriousCritical": "20",
+            "Cases/1M pop": "74"
+        },
+        {
+            "Country": "Netherlands",
+            "TotalCases": "3631",
+            "TotalDeaths": "136                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "3493",
+            "SeriousCritical": "354",
+            "Cases/1M pop": "212"
+        },
+        {
+            "Country": "Austria",
+            "TotalCases": "3024",
+            "NewCases": "32",
+            "TotalDeaths": "8                                ",
+            "ActiveCases": "9",
+            "TotalRecovered": "3007",
+            "SeriousCritical": "15",
+            "Cases/1M pop": "336"
+        },
+        {
+            "Country": "Belgium",
+            "TotalCases": "2815",
+            "TotalDeaths": "67                                ",
+            "ActiveCases": "263",
+            "TotalRecovered": "2485",
+            "SeriousCritical": "288",
+            "Cases/1M pop": "243"
+        },
+        {
+            "Country": "Norway",
+            "TotalCases": "2219",
+            "NewCases": "55",
+            "TotalDeaths": "7                                ",
+            "ActiveCases": "6",
+            "TotalRecovered": "2206",
+            "SeriousCritical": "28",
+            "Cases/1M pop": "409"
+        },
+        {
+            "Country": "Sweden",
+            "TotalCases": "1770",
+            "TotalDeaths": "20                                ",
+            "ActiveCases": "16",
+            "TotalRecovered": "1734",
+            "SeriousCritical": "71",
+            "Cases/1M pop": "175"
+        },
+        {
+            "Country": "Canada",
+            "TotalCases": "1328",
+            "TotalDeaths": "19                                ",
+            "ActiveCases": "14",
+            "TotalRecovered": "1295",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "35"
+        },
+        {
+            "Country": "Denmark",
+            "TotalCases": "1326",
+            "TotalDeaths": "13                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "1312",
+            "SeriousCritical": "42",
+            "Cases/1M pop": "229"
+        },
+        {
+            "Country": "Australia",
+            "TotalCases": "1286",
+            "NewCases": "214",
+            "TotalDeaths": "7                                ",
+            "ActiveCases": "46",
+            "TotalRecovered": "1233",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "50"
+        },
+        {
+            "Country": "Portugal",
+            "TotalCases": "1280",
+            "TotalDeaths": "12                                ",
+            "ActiveCases": "5",
+            "TotalRecovered": "1263",
+            "SeriousCritical": "26",
+            "Cases/1M pop": "126"
+        },
+        {
+            "Country": "Malaysia",
+            "TotalCases": "1183",
+            "TotalDeaths": "9                                ",
+            "NewDeaths": "1",
+            "ActiveCases": "114",
+            "TotalRecovered": "1060",
+            "SeriousCritical": "26",
+            "Cases/1M pop": "37"
+        },
+        {
+            "Country": "Brazil",
+            "TotalCases": "1178",
+            "TotalDeaths": "18                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "1158",
+            "SeriousCritical": "18",
+            "Cases/1M pop": "6"
+        },
+        {
+            "Country": "Japan",
+            "TotalCases": "1054",
+            "TotalDeaths": "36                                ",
+            "ActiveCases": "215",
+            "TotalRecovered": "803",
+            "SeriousCritical": "55",
+            "Cases/1M pop": "8"
+        },
+        {
+            "Country": "Czechia",
+            "TotalCases": "995",
+            "TotalDeaths": " ",
+            "ActiveCases": "6",
+            "TotalRecovered": "989",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "93"
+        },
+        {
+            "Country": "Turkey",
+            "TotalCases": "947",
+            "TotalDeaths": "21                                ",
+            "TotalRecovered": "926",
+            "Cases/1M pop": "11"
+        },
+        {
+            "Country": "Israel",
+            "TotalCases": "883",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "36",
+            "TotalRecovered": "846",
+            "SeriousCritical": "15",
+            "Cases/1M pop": "102"
+        },
+        {
+            "Country": "Ireland",
+            "TotalCases": "785",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "5",
+            "TotalRecovered": "777",
+            "SeriousCritical": "13",
+            "Cases/1M pop": "159"
+        },
+        {
+            "Country": "Diamond Princess",
+            "TotalCases": "712",
+            "TotalDeaths": "8                                ",
+            "ActiveCases": "567",
+            "TotalRecovered": "137",
+            "SeriousCritical": "15"
+        },
+        {
+            "Country": "Luxembourg",
+            "TotalCases": "670",
+            "TotalDeaths": "8                                ",
+            "ActiveCases": "6",
+            "TotalRecovered": "656",
+            "SeriousCritical": "3",
+            "Cases/1M pop": "1070"
+        },
+        {
+            "Country": "Pakistan",
+            "TotalCases": "645",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "13",
+            "TotalRecovered": "629",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Thailand",
+            "TotalCases": "599",
+            "NewCases": "188",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "44",
+            "TotalRecovered": "554",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "9"
+        },
+        {
+            "Country": "Finland",
+            "TotalCases": "594",
+            "NewCases": "71",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "10",
+            "TotalRecovered": "583",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "107"
+        },
+        {
+            "Country": "Iceland",
+            "TotalCases": "568",
+            "NewCases": "95",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "5",
+            "TotalRecovered": "562",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "1665"
+        },
+        {
+            "Country": "Chile",
+            "TotalCases": "537",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "8",
+            "TotalRecovered": "528",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "28"
+        },
+        {
+            "Country": "Poland",
+            "TotalCases": "536",
+            "TotalDeaths": "5                                ",
+            "ActiveCases": "13",
+            "TotalRecovered": "518",
+            "SeriousCritical": "3",
+            "Cases/1M pop": "14"
+        },
+        {
+            "Country": "Ecuador",
+            "TotalCases": "532",
+            "TotalDeaths": "7                                ",
+            "ActiveCases": "3",
+            "TotalRecovered": "522",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "30"
+        },
+        {
+            "Country": "Greece",
+            "TotalCases": "530",
+            "TotalDeaths": "13                                ",
+            "ActiveCases": "19",
+            "TotalRecovered": "498",
+            "SeriousCritical": "18",
+            "Cases/1M pop": "51"
+        },
+        {
+            "Country": "Qatar",
+            "TotalCases": "481",
+            "TotalDeaths": " ",
+            "ActiveCases": "27",
+            "TotalRecovered": "454",
+            "SeriousCritical": "6",
+            "Cases/1M pop": "167"
+        },
+        {
+            "Country": "Indonesia",
+            "TotalCases": "450",
+            "TotalDeaths": "38                                ",
+            "ActiveCases": "20",
+            "TotalRecovered": "392",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Romania",
+            "TotalCases": "433",
+            "NewCases": "66",
+            "TotalDeaths": "2                                ",
+            "NewDeaths": "2",
+            "ActiveCases": "64",
+            "TotalRecovered": "367",
+            "SeriousCritical": "14",
+            "Cases/1M pop": "23"
+        },
+        {
+            "Country": "Singapore",
+            "TotalCases": "432",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "140",
+            "TotalRecovered": "290",
+            "SeriousCritical": "14",
+            "Cases/1M pop": "74"
+        },
+        {
+            "Country": "Saudi Arabia",
+            "TotalCases": "392",
+            "TotalDeaths": " ",
+            "ActiveCases": "16",
+            "TotalRecovered": "376",
+            "Cases/1M pop": "11"
+        },
+        {
+            "Country": "Slovenia",
+            "TotalCases": "383",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "382",
+            "SeriousCritical": "12",
+            "Cases/1M pop": "184"
+        },
+        {
+            "Country": "Philippines",
+            "TotalCases": "380",
+            "NewCases": "73",
+            "TotalDeaths": "25                                ",
+            "NewDeaths": "6",
+            "ActiveCases": "15",
+            "TotalRecovered": "340",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "India",
+            "TotalCases": "332",
+            "TotalDeaths": "5                                ",
+            "ActiveCases": "24",
+            "TotalRecovered": "303",
+            "Cases/1M pop": "0.2"
+        },
+        {
+            "Country": "Bahrain",
+            "TotalCases": "332",
+            "NewCases": "22",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "149",
+            "TotalRecovered": "182",
+            "SeriousCritical": "4",
+            "Cases/1M pop": "195"
+        },
+        {
+            "Country": "Peru",
+            "TotalCases": "318",
+            "TotalDeaths": "5                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "312",
+            "SeriousCritical": "5",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Russia",
+            "TotalCases": "306",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "16",
+            "TotalRecovered": "289",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Estonia",
+            "TotalCases": "306",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "304",
+            "Cases/1M pop": "231"
+        },
+        {
+            "Country": "Egypt",
+            "TotalCases": "294",
+            "TotalDeaths": "10                                ",
+            "ActiveCases": "42",
+            "TotalRecovered": "242",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Hong Kong",
+            "TotalCases": "274",
+            "TotalDeaths": "4                                ",
+            "ActiveCases": "100",
+            "TotalRecovered": "170",
+            "SeriousCritical": "4",
+            "Cases/1M pop": "37"
+        },
+        {
+            "Country": "Mexico",
+            "TotalCases": "251",
+            "NewCases": "48",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "4",
+            "TotalRecovered": "245",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Panama",
+            "TotalCases": "245",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "241",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "57"
+        },
+        {
+            "Country": "South Africa",
+            "TotalCases": "240",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "238",
+            "Cases/1M pop": "4"
+        },
+        {
+            "Country": "Lebanon",
+            "TotalCases": "230",
+            "TotalDeaths": "4                                ",
+            "ActiveCases": "8",
+            "TotalRecovered": "218",
+            "SeriousCritical": "4",
+            "Cases/1M pop": "34"
+        },
+        {
+            "Country": "Argentina",
+            "TotalCases": "225",
+            "NewCases": "67",
+            "TotalDeaths": "4                                ",
+            "ActiveCases": "27",
+            "TotalRecovered": "194",
+            "Cases/1M pop": "5"
+        },
+        {
+            "Country": "Iraq",
+            "TotalCases": "214",
+            "TotalDeaths": "17                                ",
+            "ActiveCases": "51",
+            "TotalRecovered": "146",
+            "Cases/1M pop": "5"
+        },
+        {
+            "Country": "Colombia",
+            "TotalCases": "210",
+            "NewCases": "14",
+            "TotalDeaths": "1                                ",
+            "NewDeaths": "1",
+            "ActiveCases": "3",
+            "TotalRecovered": "206",
+            "Cases/1M pop": "4"
+        },
+        {
+            "Country": "Croatia",
+            "TotalCases": "206",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "5",
+            "TotalRecovered": "200",
+            "Cases/1M pop": "50"
+        },
+        {
+            "Country": "Armenia",
+            "TotalCases": "190",
+            "NewCases": "30",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "188",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "64"
+        },
+        {
+            "Country": "Serbia",
+            "TotalCases": "188",
+            "NewCases": "17",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "185",
+            "SeriousCritical": "4",
+            "Cases/1M pop": "22"
+        },
+        {
+            "Country": "Kuwait",
+            "TotalCases": "188",
+            "NewCases": "12",
+            "TotalDeaths": " ",
+            "ActiveCases": "27",
+            "TotalRecovered": "161",
+            "SeriousCritical": "5",
+            "Cases/1M pop": "44"
+        },
+        {
+            "Country": "Slovakia",
+            "TotalCases": "178",
+            "TotalDeaths": " ",
+            "ActiveCases": "7",
+            "TotalRecovered": "171",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "33"
+        },
+        {
+            "Country": "Bulgaria",
+            "TotalCases": "171",
+            "NewCases": "8",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "3",
+            "TotalRecovered": "165",
+            "SeriousCritical": "3",
+            "Cases/1M pop": "25"
+        },
+        {
+            "Country": "San Marino",
+            "TotalCases": "160",
+            "TotalDeaths": "20                                ",
+            "ActiveCases": "4",
+            "TotalRecovered": "136",
+            "SeriousCritical": "12",
+            "Cases/1M pop": "4715"
+        },
+        {
+            "Country": "Taiwan",
+            "TotalCases": "153",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "28",
+            "TotalRecovered": "123",
+            "Cases/1M pop": "6"
+        },
+        {
+            "Country": "UAE",
+            "TotalCases": "153",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "38",
+            "TotalRecovered": "113",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "15"
+        },
+        {
+            "Country": "Algeria",
+            "TotalCases": "139",
+            "TotalDeaths": "15                                ",
+            "ActiveCases": "65",
+            "TotalRecovered": "59",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Uruguay",
+            "TotalCases": "135",
+            "NewCases": "25",
+            "TotalDeaths": " ",
+            "TotalRecovered": "135",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "39"
+        },
+        {
+            "Country": "Hungary",
+            "TotalCases": "131",
+            "NewCases": "28",
+            "TotalDeaths": "6                                ",
+            "NewDeaths": "2",
+            "ActiveCases": "16",
+            "TotalRecovered": "109",
+            "SeriousCritical": "6",
+            "Cases/1M pop": "14"
+        },
+        {
+            "Country": "Latvia",
+            "TotalCases": "124",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "123",
+            "Cases/1M pop": "66"
+        },
+        {
+            "Country": "Costa Rica",
+            "TotalCases": "117",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "113",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "23"
+        },
+        {
+            "Country": "Dominican Republic",
+            "TotalCases": "112",
+            "TotalDeaths": "3                                ",
+            "TotalRecovered": "109",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Lithuania",
+            "TotalCases": "105",
+            "NewCases": "6",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "103",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "39"
+        },
+        {
+            "Country": "Morocco",
+            "TotalCases": "104",
+            "NewCases": "8",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "3",
+            "TotalRecovered": "98",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Jordan",
+            "TotalCases": "100",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "99",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Vietnam",
+            "TotalCases": "94",
+            "TotalDeaths": " ",
+            "ActiveCases": "17",
+            "TotalRecovered": "77",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "1.0"
+        },
+        {
+            "Country": "Bosnia and Herzegovina",
+            "TotalCases": "93",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "90",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "28"
+        },
+        {
+            "Country": "Faeroe Islands",
+            "TotalCases": "92",
+            "TotalDeaths": " ",
+            "ActiveCases": "3",
+            "TotalRecovered": "89",
+            "Cases/1M pop": "1883"
+        },
+        {
+            "Country": "Andorra",
+            "TotalCases": "88",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "87",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "1139"
+        },
+        {
+            "Country": "North Macedonia",
+            "TotalCases": "85",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "84",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "41"
+        },
+        {
+            "Country": "Cyprus",
+            "TotalCases": "84",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "3",
+            "TotalRecovered": "80",
+            "SeriousCritical": "3",
+            "Cases/1M pop": "70"
+        },
+        {
+            "Country": "Brunei ",
+            "TotalCases": "83",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "82",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "190"
+        },
+        {
+            "Country": "Moldova",
+            "TotalCases": "80",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "78",
+            "SeriousCritical": "3",
+            "Cases/1M pop": "20"
+        },
+        {
+            "Country": "Sri Lanka",
+            "TotalCases": "77",
+            "TotalDeaths": " ",
+            "ActiveCases": "3",
+            "TotalRecovered": "74",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "4"
+        },
+        {
+            "Country": "Albania",
+            "TotalCases": "76",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "72",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "26"
+        },
+        {
+            "Country": "Belarus",
+            "TotalCases": "76",
+            "TotalDeaths": " ",
+            "ActiveCases": "15",
+            "TotalRecovered": "61",
+            "Cases/1M pop": "8"
+        },
+        {
+            "Country": "Malta",
+            "TotalCases": "73",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "71",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "165"
+        },
+        {
+            "Country": "Venezuela",
+            "TotalCases": "70",
+            "TotalDeaths": " ",
+            "ActiveCases": "15",
+            "TotalRecovered": "55",
+            "SeriousCritical": "2",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "New Zealand",
+            "TotalCases": "66",
+            "NewCases": "14",
+            "TotalDeaths": " ",
+            "TotalRecovered": "66",
+            "Cases/1M pop": "14"
+        },
+        {
+            "Country": "Burkina Faso",
+            "TotalCases": "64",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "5",
+            "TotalRecovered": "56",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Tunisia",
+            "TotalCases": "60",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "58",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "5"
+        },
+        {
+            "Country": "Guadeloupe",
+            "TotalCases": "56",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "55",
+            "SeriousCritical": "4",
+            "Cases/1M pop": "140"
+        },
+        {
+            "Country": "Senegal",
+            "TotalCases": "56",
+            "TotalDeaths": " ",
+            "ActiveCases": "5",
+            "TotalRecovered": "51",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Georgia",
+            "TotalCases": "54",
+            "NewCases": "5",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "53",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "14"
+        },
+        {
+            "Country": "Kazakhstan",
+            "TotalCases": "54",
+            "TotalDeaths": " ",
+            "TotalRecovered": "54",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Azerbaijan",
+            "TotalCases": "53",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "11",
+            "TotalRecovered": "41",
+            "Cases/1M pop": "5"
+        },
+        {
+            "Country": "Cambodia",
+            "TotalCases": "53",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "51",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Palestine",
+            "TotalCases": "53",
+            "TotalDeaths": " ",
+            "ActiveCases": "17",
+            "TotalRecovered": "36",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Oman",
+            "TotalCases": "52",
+            "TotalDeaths": " ",
+            "ActiveCases": "13",
+            "TotalRecovered": "39",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Trinidad and Tobago",
+            "TotalCases": "49",
+            "TotalDeaths": " ",
+            "TotalRecovered": "49",
+            "Cases/1M pop": "35"
+        },
+        {
+            "Country": "Ukraine",
+            "TotalCases": "47",
+            "TotalDeaths": "3                                ",
+            "ActiveCases": "1",
+            "TotalRecovered": "43",
+            "Cases/1M pop": "1"
+        },
+        {
+            "Country": "Réunion",
+            "TotalCases": "47",
+            "TotalDeaths": " ",
+            "TotalRecovered": "47",
+            "Cases/1M pop": "52"
+        },
+        {
+            "Country": "Uzbekistan",
+            "TotalCases": "42",
+            "NewCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "42",
+            "Cases/1M pop": "1"
+        },
+        {
+            "Country": "Cameroon",
+            "TotalCases": "40",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "38",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Martinique",
+            "TotalCases": "37",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "36",
+            "SeriousCritical": "7",
+            "Cases/1M pop": "99"
+        },
+        {
+            "Country": "Liechtenstein",
+            "TotalCases": "37",
+            "TotalDeaths": " ",
+            "TotalRecovered": "37",
+            "Cases/1M pop": "970"
+        },
+        {
+            "Country": "Channel Islands",
+            "TotalCases": "32",
+            "TotalDeaths": " ",
+            "TotalRecovered": "32",
+            "Cases/1M pop": "184"
+        },
+        {
+            "Country": "Honduras",
+            "TotalCases": "26",
+            "NewCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "26",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Bangladesh",
+            "TotalCases": "24",
+            "TotalDeaths": "2                                ",
+            "ActiveCases": "3",
+            "TotalRecovered": "19",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "Afghanistan",
+            "TotalCases": "24",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "23",
+            "Cases/1M pop": "0.6"
+        },
+        {
+            "Country": "DRC",
+            "TotalCases": "23",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "22",
+            "Cases/1M pop": "0.3"
+        },
+        {
+            "Country": "Paraguay",
+            "TotalCases": "22",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "21",
+            "SeriousCritical": "1",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Nigeria",
+            "TotalCases": "22",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "21",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "Cuba",
+            "TotalCases": "21",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "20",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Ghana",
+            "TotalCases": "21",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "20",
+            "Cases/1M pop": "0.7"
+        },
+        {
+            "Country": "Puerto Rico",
+            "TotalCases": "21",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "20",
+            "Cases/1M pop": "7"
+        },
+        {
+            "Country": "Jamaica",
+            "TotalCases": "19",
+            "TotalDeaths": "1                                ",
+            "ActiveCases": "2",
+            "TotalRecovered": "16",
+            "Cases/1M pop": "6"
+        },
+        {
+            "Country": "Macao",
+            "TotalCases": "19",
+            "TotalDeaths": " ",
+            "ActiveCases": "10",
+            "TotalRecovered": "9",
+            "Cases/1M pop": "29"
+        },
+        {
+            "Country": "Bolivia",
+            "TotalCases": "19",
+            "TotalDeaths": " ",
+            "TotalRecovered": "19",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Guyana",
+            "TotalCases": "18",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "17",
+            "Cases/1M pop": "23"
+        },
+        {
+            "Country": "Monaco",
+            "TotalCases": "18",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "17",
+            "Cases/1M pop": "459"
+        },
+        {
+            "Country": "French Guiana",
+            "TotalCases": "18",
+            "TotalDeaths": " ",
+            "TotalRecovered": "18",
+            "Cases/1M pop": "60"
+        },
+        {
+            "Country": "Guatemala",
+            "TotalCases": "17",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "16",
+            "Cases/1M pop": "0.9"
+        },
+        {
+            "Country": "Rwanda",
+            "TotalCases": "17",
+            "TotalDeaths": " ",
+            "TotalRecovered": "17",
+            "Cases/1M pop": "1"
+        },
+        {
+            "Country": "Montenegro",
+            "TotalCases": "16",
+            "TotalDeaths": " ",
+            "TotalRecovered": "16",
+            "Cases/1M pop": "25"
+        },
+        {
+            "Country": "Togo",
+            "TotalCases": "16",
+            "TotalDeaths": " ",
+            "TotalRecovered": "16",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "French Polynesia",
+            "TotalCases": "15",
+            "TotalDeaths": " ",
+            "TotalRecovered": "15",
+            "Cases/1M pop": "53"
+        },
+        {
+            "Country": "Guam",
+            "TotalCases": "15",
+            "TotalDeaths": " ",
+            "TotalRecovered": "15",
+            "Cases/1M pop": "89"
+        },
+        {
+            "Country": "Mauritius",
+            "TotalCases": "14",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "13",
+            "Cases/1M pop": "11"
+        },
+        {
+            "Country": "Barbados",
+            "TotalCases": "14",
+            "TotalDeaths": " ",
+            "TotalRecovered": "14",
+            "Cases/1M pop": "49"
+        },
+        {
+            "Country": "Ivory Coast",
+            "TotalCases": "14",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "13",
+            "Cases/1M pop": "0.5"
+        },
+        {
+            "Country": "Kyrgyzstan",
+            "TotalCases": "14",
+            "TotalDeaths": " ",
+            "TotalRecovered": "14",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Maldives",
+            "TotalCases": "13",
+            "TotalDeaths": " ",
+            "ActiveCases": "3",
+            "TotalRecovered": "10",
+            "Cases/1M pop": "24"
+        },
+        {
+            "Country": "Mayotte",
+            "TotalCases": "11",
+            "TotalDeaths": " ",
+            "TotalRecovered": "11",
+            "Cases/1M pop": "40"
+        },
+        {
+            "Country": "Gibraltar",
+            "TotalCases": "10",
+            "TotalDeaths": " ",
+            "ActiveCases": "2",
+            "TotalRecovered": "8",
+            "Cases/1M pop": "297"
+        },
+        {
+            "Country": "Mongolia",
+            "TotalCases": "10",
+            "TotalDeaths": " ",
+            "TotalRecovered": "10",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Ethiopia",
+            "TotalCases": "9",
+            "TotalDeaths": " ",
+            "TotalRecovered": "9",
+            "Cases/1M pop": "0.08"
+        },
+        {
+            "Country": "Aruba",
+            "TotalCases": "8",
+            "NewCases": "3",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "7",
+            "Cases/1M pop": "75"
+        },
+        {
+            "Country": "Kenya",
+            "TotalCases": "7",
+            "TotalDeaths": " ",
+            "TotalRecovered": "7",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "Seychelles",
+            "TotalCases": "7",
+            "TotalDeaths": " ",
+            "TotalRecovered": "7",
+            "Cases/1M pop": "71"
+        },
+        {
+            "Country": "Equatorial Guinea",
+            "TotalCases": "6",
+            "TotalDeaths": " ",
+            "TotalRecovered": "6",
+            "Cases/1M pop": "4"
+        },
+        {
+            "Country": "Tanzania",
+            "TotalCases": "6",
+            "TotalDeaths": " ",
+            "TotalRecovered": "6",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "U.S. Virgin Islands",
+            "TotalCases": "6",
+            "TotalDeaths": " ",
+            "TotalRecovered": "6",
+            "Cases/1M pop": "57"
+        },
+        {
+            "Country": "Gabon",
+            "TotalCases": "5",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "4",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Saint Martin",
+            "TotalCases": "5",
+            "TotalDeaths": " ",
+            "TotalRecovered": "5",
+            "Cases/1M pop": "129"
+        },
+        {
+            "Country": "Suriname",
+            "TotalCases": "5",
+            "TotalDeaths": " ",
+            "TotalRecovered": "5",
+            "Cases/1M pop": "9"
+        },
+        {
+            "Country": "Bahamas",
+            "TotalCases": "4",
+            "TotalDeaths": " ",
+            "TotalRecovered": "4",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "New Caledonia",
+            "TotalCases": "4",
+            "TotalDeaths": " ",
+            "TotalRecovered": "4",
+            "Cases/1M pop": "14"
+        },
+        {
+            "Country": "Eswatini",
+            "TotalCases": "4",
+            "NewCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "4",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Cayman Islands",
+            "TotalCases": "3",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "46"
+        },
+        {
+            "Country": "Curaçao",
+            "TotalCases": "3",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "18"
+        },
+        {
+            "Country": "Cabo Verde",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "5"
+        },
+        {
+            "Country": "CAR",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.6"
+        },
+        {
+            "Country": "Congo",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.5"
+        },
+        {
+            "Country": "El Salvador",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.5"
+        },
+        {
+            "Country": "Liberia",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.6"
+        },
+        {
+            "Country": "Madagascar",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "Namibia",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "1"
+        },
+        {
+            "Country": "St. Barth",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "304"
+        },
+        {
+            "Country": "Zimbabwe",
+            "TotalCases": "3",
+            "TotalDeaths": " ",
+            "TotalRecovered": "3",
+            "Cases/1M pop": "0.2"
+        },
+        {
+            "Country": "Sudan",
+            "TotalCases": "2",
+            "TotalDeaths": "1                                ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.05"
+        },
+        {
+            "Country": "Angola",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.06"
+        },
+        {
+            "Country": "Benin",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.2"
+        },
+        {
+            "Country": "Bermuda",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "32"
+        },
+        {
+            "Country": "Bhutan",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "3"
+        },
+        {
+            "Country": "Fiji",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "2"
+        },
+        {
+            "Country": "Greenland",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "35"
+        },
+        {
+            "Country": "Guinea",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.2"
+        },
+        {
+            "Country": "Haiti",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.2"
+        },
+        {
+            "Country": "Isle of Man",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "24"
+        },
+        {
+            "Country": "Mauritania",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.4"
+        },
+        {
+            "Country": "Nicaragua",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.3"
+        },
+        {
+            "Country": "Saint Lucia",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "11"
+        },
+        {
+            "Country": "Zambia",
+            "TotalCases": "2",
+            "TotalDeaths": " ",
+            "TotalRecovered": "2",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "Nepal",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "ActiveCases": "1",
+            "TotalRecovered": "0",
+            "Cases/1M pop": "0.03"
+        },
+        {
+            "Country": "Antigua and Barbuda",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "10"
+        },
+        {
+            "Country": "Chad",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.06"
+        },
+        {
+            "Country": "Djibouti",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "1"
+        },
+        {
+            "Country": "Eritrea",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.3"
+        },
+        {
+            "Country": "Gambia",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.4"
+        },
+        {
+            "Country": "Vatican City",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "1248"
+        },
+        {
+            "Country": "Montserrat",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "200"
+        },
+        {
+            "Country": "Niger",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.04"
+        },
+        {
+            "Country": "Papua New Guinea",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.1"
+        },
+        {
+            "Country": "St. Vincent Grenadines",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "9"
+        },
+        {
+            "Country": "Sint Maarten",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "23"
+        },
+        {
+            "Country": "Somalia",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.06"
+        },
+        {
+            "Country": "Timor-Leste",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.8"
+        },
+        {
+            "Country": "Uganda",
+            "TotalCases": "1",
+            "TotalDeaths": " ",
+            "TotalRecovered": "1",
+            "Cases/1M pop": "0.02"
+        },
+        {
+            "Country": "Total:",
+            "TotalCases": "313400",
+            "NewCases": "8410",
+            "TotalDeaths": "13202",
+            "NewDeaths": "195",
+            "ActiveCases": "95874",
+            "TotalRecovered": "204324",
+            "SeriousCritical": "9943",
+            "Cases/1M pop": "40.2"
+        },
+        {
+            "Country": "China",
             "TotalCases": "81008",
+            "NewCases": "41",
             "TotalDeaths": "3255",
+            "NewDeaths": "7",
             "ActiveCases": "71740",
             "TotalRecovered": "6013",
             "SeriousCritical": "1927",
@@ -21,26 +1574,26 @@
             "Cases/1M pop": "886"
         },
         {
-            "Country": "USA",
-            "TotalCases": "26111",
-            "NewCases": "6728",
-            "TotalDeaths": "324                                ",
-            "NewDeaths": "68",
-            "ActiveCases": "176",
-            "TotalRecovered": "25611",
-            "SeriousCritical": "64",
-            "Cases/1M pop": "79"
-        },
-        {
             "Country": "Spain",
             "TotalCases": "25496",
             "NewCases": "3925",
-            "TotalDeaths": "1378",
-            "NewDeaths": "285",
+            "TotalDeaths": "1381",
+            "NewDeaths": "288",
             "ActiveCases": "2125",
-            "TotalRecovered": "21993",
+            "TotalRecovered": "21990",
             "SeriousCritical": "1612",
             "Cases/1M pop": "545"
+        },
+        {
+            "Country": "USA",
+            "TotalCases": "24207",
+            "NewCases": "4824",
+            "TotalDeaths": "302                                ",
+            "NewDeaths": "46",
+            "ActiveCases": "176",
+            "TotalRecovered": "23729",
+            "SeriousCritical": "637",
+            "Cases/1M pop": "73"
         },
         {
             "Country": "Germany",
@@ -508,13 +2061,13 @@
         },
         {
             "Country": "Hong Kong",
-            "TotalCases": "273",
-            "NewCases": "17",
+            "TotalCases": "274",
+            "NewCases": "18",
             "TotalDeaths": "4                                ",
-            "ActiveCases": "98",
-            "TotalRecovered": "171",
+            "ActiveCases": "100",
+            "TotalRecovered": "170",
             "SeriousCritical": "4",
-            "Cases/1M pop": "36"
+            "Cases/1M pop": "37"
         },
         {
             "Country": "Panama",
@@ -1127,8 +2680,9 @@
             "Country": "Puerto Rico",
             "TotalCases": "21",
             "NewCases": "7",
-            "TotalDeaths": " ",
-            "TotalRecovered": "21",
+            "TotalDeaths": "1                                ",
+            "NewDeaths": "1",
+            "TotalRecovered": "20",
             "Cases/1M pop": "7"
         },
         {
@@ -1138,6 +2692,15 @@
             "ActiveCases": "2",
             "TotalRecovered": "16",
             "Cases/1M pop": "6"
+        },
+        {
+            "Country": "Macao",
+            "TotalCases": "19",
+            "NewCases": "2",
+            "TotalDeaths": " ",
+            "ActiveCases": "10",
+            "TotalRecovered": "9",
+            "Cases/1M pop": "29"
         },
         {
             "Country": "Bolivia",
@@ -1154,15 +2717,6 @@
             "TotalDeaths": "1                                ",
             "TotalRecovered": "17",
             "Cases/1M pop": "23"
-        },
-        {
-            "Country": "Macao",
-            "TotalCases": "18",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "ActiveCases": "10",
-            "TotalRecovered": "8",
-            "Cases/1M pop": "28"
         },
         {
             "Country": "Monaco",
@@ -1683,1677 +3237,14 @@
         },
         {
             "Country": "Total:",
-            "TotalCases": "306892",
-            "NewCases": "31295",
-            "TotalDeaths": "13025",
-            "NewDeaths": "1638",
-            "ActiveCases": "94798",
-            "TotalRecovered": "199069",
-            "SeriousCritical": "9382",
-            "Cases/1M pop": "39.4"
-        },
-        {
-            "Country": "China",
-            "TotalCases": "81008",
-            "NewCases": "41",
-            "TotalDeaths": "3255",
-            "NewDeaths": "7",
-            "ActiveCases": "71740",
-            "TotalRecovered": "6013",
-            "SeriousCritical": "1927",
-            "Cases/1M pop": "56"
-        },
-        {
-            "Country": "Italy",
-            "TotalCases": "47021",
-            "NewCases": "5986",
-            "TotalDeaths": "4032",
-            "NewDeaths": "627",
-            "ActiveCases": "5129",
-            "TotalRecovered": "37860",
-            "SeriousCritical": "2655",
-            "Cases/1M pop": "778"
-        },
-        {
-            "Country": "Spain",
-            "TotalCases": "21571",
-            "NewCases": "3494",
-            "TotalDeaths": "1093",
-            "NewDeaths": "262",
-            "ActiveCases": "1588",
-            "TotalRecovered": "18890",
-            "SeriousCritical": "939",
-            "Cases/1M pop": "461"
-        },
-        {
-            "Country": "Germany",
-            "TotalCases": "19848",
-            "NewCases": "4528",
-            "TotalDeaths": "68                                ",
-            "NewDeaths": "24",
-            "ActiveCases": "180",
-            "TotalRecovered": "19600",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "237"
-        },
-        {
-            "Country": "Iran",
-            "TotalCases": "19644",
-            "NewCases": "1237",
-            "TotalDeaths": "1433",
-            "NewDeaths": "149",
-            "ActiveCases": "6745",
-            "TotalRecovered": "11466",
-            "Cases/1M pop": "234"
-        },
-        {
-            "Country": "USA",
-            "TotalCases": "19383",
-            "NewCases": "5594",
-            "TotalDeaths": "256                                ",
-            "NewDeaths": "49",
-            "ActiveCases": "147",
-            "TotalRecovered": "18980",
-            "SeriousCritical": "64",
-            "Cases/1M pop": "59"
-        },
-        {
-            "Country": "France",
-            "TotalCases": "12612",
-            "NewCases": "1617",
-            "TotalDeaths": "450                                ",
-            "NewDeaths": "78",
-            "ActiveCases": "1587",
-            "TotalRecovered": "10575",
-            "SeriousCritical": "1297",
-            "Cases/1M pop": "193"
-        },
-        {
-            "Country": "S. Korea",
-            "TotalCases": "8652",
-            "NewCases": "87",
-            "TotalDeaths": "94                                ",
-            "NewDeaths": "3",
-            "ActiveCases": "2233",
-            "TotalRecovered": "6325",
-            "SeriousCritical": "59",
-            "Cases/1M pop": "169"
-        },
-        {
-            "Country": "Switzerland",
-            "TotalCases": "5615",
-            "NewCases": "1393",
-            "TotalDeaths": "56                                ",
-            "NewDeaths": "13",
-            "ActiveCases": "15",
-            "TotalRecovered": "5544",
-            "SeriousCritical": "141",
-            "Cases/1M pop": "649"
-        },
-        {
-            "Country": "UK",
-            "TotalCases": "3983",
-            "NewCases": "714",
-            "TotalDeaths": "177                                ",
-            "NewDeaths": "33",
-            "ActiveCases": "65",
-            "TotalRecovered": "3741",
-            "SeriousCritical": "20",
-            "Cases/1M pop": "59"
-        },
-        {
-            "Country": "Netherlands",
-            "TotalCases": "2994",
-            "NewCases": "534",
-            "TotalDeaths": "106                                ",
-            "NewDeaths": "30",
-            "ActiveCases": "2",
-            "TotalRecovered": "2886",
-            "SeriousCritical": "210",
-            "Cases/1M pop": "175"
-        },
-        {
-            "Country": "Austria",
-            "TotalCases": "2649",
-            "NewCases": "470",
-            "TotalDeaths": "6                                ",
-            "ActiveCases": "9",
-            "TotalRecovered": "2634",
-            "SeriousCritical": "14",
-            "Cases/1M pop": "294"
-        },
-        {
-            "Country": "Belgium",
-            "TotalCases": "2257",
-            "NewCases": "462",
-            "TotalDeaths": "37                                ",
-            "NewDeaths": "16",
-            "ActiveCases": "204",
-            "TotalRecovered": "2016",
-            "SeriousCritical": "164",
-            "Cases/1M pop": "195"
-        },
-        {
-            "Country": "Norway",
-            "TotalCases": "1959",
-            "NewCases": "169",
-            "TotalDeaths": "7                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "1951",
-            "SeriousCritical": "27",
-            "Cases/1M pop": "361"
-        },
-        {
-            "Country": "Sweden",
-            "TotalCases": "1639",
-            "NewCases": "200",
-            "TotalDeaths": "16                                ",
-            "NewDeaths": "5",
-            "ActiveCases": "16",
-            "TotalRecovered": "1607",
-            "SeriousCritical": "21",
-            "Cases/1M pop": "162"
-        },
-        {
-            "Country": "Denmark",
-            "TotalCases": "1255",
-            "NewCases": "104",
-            "TotalDeaths": "9                                ",
-            "NewDeaths": "3",
-            "ActiveCases": "1",
-            "TotalRecovered": "1245",
-            "SeriousCritical": "37",
-            "Cases/1M pop": "217"
-        },
-        {
-            "Country": "Canada",
-            "TotalCases": "1087",
-            "NewCases": "214",
-            "TotalDeaths": "12                                ",
-            "ActiveCases": "14",
-            "TotalRecovered": "1061",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "29"
-        },
-        {
-            "Country": "Malaysia",
-            "TotalCases": "1030",
-            "NewCases": "130",
-            "TotalDeaths": "3                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "87",
-            "TotalRecovered": "940",
-            "SeriousCritical": "26",
-            "Cases/1M pop": "32"
-        },
-        {
-            "Country": "Portugal",
-            "TotalCases": "1020",
-            "NewCases": "234",
-            "TotalDeaths": "6                                ",
-            "NewDeaths": "2",
-            "ActiveCases": "5",
-            "TotalRecovered": "1009",
-            "SeriousCritical": "26",
-            "Cases/1M pop": "100"
-        },
-        {
-            "Country": "Japan",
-            "TotalCases": "1007",
-            "NewCases": "64",
-            "TotalDeaths": "35                                ",
-            "NewDeaths": "2",
-            "ActiveCases": "215",
-            "TotalRecovered": "757",
-            "SeriousCritical": "50",
-            "Cases/1M pop": "8"
-        },
-        {
-            "Country": "Brazil",
-            "TotalCases": "970",
-            "NewCases": "330",
-            "TotalDeaths": "11                                ",
-            "NewDeaths": "4",
-            "ActiveCases": "2",
-            "TotalRecovered": "957",
-            "SeriousCritical": "18",
-            "Cases/1M pop": "5"
-        },
-        {
-            "Country": "Australia",
-            "TotalCases": "928",
-            "NewCases": "172",
-            "TotalDeaths": "7                                ",
-            "ActiveCases": "46",
-            "TotalRecovered": "875",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "36"
-        },
-        {
-            "Country": "Czechia",
-            "TotalCases": "833",
-            "NewCases": "139",
-            "TotalDeaths": " ",
-            "ActiveCases": "4",
-            "TotalRecovered": "829",
-            "SeriousCritical": "6",
-            "Cases/1M pop": "78"
-        },
-        {
-            "Country": "Diamond Princess",
-            "TotalCases": "712",
-            "TotalDeaths": "8                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "567",
-            "TotalRecovered": "137",
-            "SeriousCritical": "15"
-        },
-        {
-            "Country": "Israel",
-            "TotalCases": "705",
-            "NewCases": "28",
-            "TotalDeaths": "1                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "15",
-            "TotalRecovered": "689",
-            "SeriousCritical": "10",
-            "Cases/1M pop": "81"
-        },
-        {
-            "Country": "Ireland",
-            "TotalCases": "683",
-            "NewCases": "126",
-            "TotalDeaths": "3                                ",
-            "ActiveCases": "5",
-            "TotalRecovered": "675",
-            "SeriousCritical": "6",
-            "Cases/1M pop": "138"
-        },
-        {
-            "Country": "Turkey",
-            "TotalCases": "670",
-            "NewCases": "311",
-            "TotalDeaths": "9                                ",
-            "NewDeaths": "5",
-            "TotalRecovered": "661",
-            "Cases/1M pop": "8"
-        },
-        {
-            "Country": "Pakistan",
-            "TotalCases": "501",
-            "NewCases": "47",
-            "TotalDeaths": "3                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "13",
-            "TotalRecovered": "485",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Greece",
-            "TotalCases": "495",
-            "NewCases": "31",
-            "TotalDeaths": "10                                ",
-            "NewDeaths": "4",
-            "ActiveCases": "19",
-            "TotalRecovered": "466",
-            "SeriousCritical": "20",
-            "Cases/1M pop": "47"
-        },
-        {
-            "Country": "Luxembourg",
-            "TotalCases": "484",
-            "NewCases": "149",
-            "TotalDeaths": "5                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "6",
-            "TotalRecovered": "473",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "773"
-        },
-        {
-            "Country": "Qatar",
-            "TotalCases": "470",
-            "NewCases": "10",
-            "TotalDeaths": " ",
-            "ActiveCases": "10",
-            "TotalRecovered": "460",
-            "SeriousCritical": "6",
-            "Cases/1M pop": "163"
-        },
-        {
-            "Country": "Finland",
-            "TotalCases": "450",
-            "NewCases": "50",
-            "TotalDeaths": " ",
-            "ActiveCases": "10",
-            "TotalRecovered": "440",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "81"
-        },
-        {
-            "Country": "Chile",
-            "TotalCases": "434",
-            "NewCases": "92",
-            "TotalDeaths": " ",
-            "ActiveCases": "6",
-            "TotalRecovered": "428",
-            "SeriousCritical": "7",
-            "Cases/1M pop": "23"
-        },
-        {
-            "Country": "Ecuador",
-            "TotalCases": "426",
-            "NewCases": "166",
-            "TotalDeaths": "7                                ",
-            "NewDeaths": "4",
-            "ActiveCases": "3",
-            "TotalRecovered": "416",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "24"
-        },
-        {
-            "Country": "Poland",
-            "TotalCases": "425",
-            "NewCases": "70",
-            "TotalDeaths": "5                                ",
-            "ActiveCases": "13",
-            "TotalRecovered": "407",
-            "SeriousCritical": "3",
-            "Cases/1M pop": "11"
-        },
-        {
-            "Country": "Iceland",
-            "TotalCases": "409",
-            "NewCases": "79",
-            "TotalDeaths": " ",
-            "ActiveCases": "5",
-            "TotalRecovered": "404",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "1199"
-        },
-        {
-            "Country": "Singapore",
-            "TotalCases": "385",
-            "NewCases": "40",
-            "TotalDeaths": " ",
-            "ActiveCases": "131",
-            "TotalRecovered": "254",
-            "SeriousCritical": "14",
-            "Cases/1M pop": "66"
-        },
-        {
-            "Country": "Indonesia",
-            "TotalCases": "369",
-            "NewCases": "60",
-            "TotalDeaths": "32                                ",
-            "NewDeaths": "7",
-            "ActiveCases": "17",
-            "TotalRecovered": "320",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Saudi Arabia",
-            "TotalCases": "344",
-            "NewCases": "70",
-            "TotalDeaths": " ",
-            "ActiveCases": "8",
-            "TotalRecovered": "336",
-            "Cases/1M pop": "10"
-        },
-        {
-            "Country": "Slovenia",
-            "TotalCases": "341",
-            "NewCases": "22",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "340",
-            "SeriousCritical": "9",
-            "Cases/1M pop": "164"
-        },
-        {
-            "Country": "Thailand",
-            "TotalCases": "322",
-            "NewCases": "50",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "42",
-            "TotalRecovered": "279",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "5"
-        },
-        {
-            "Country": "Romania",
-            "TotalCases": "308",
-            "NewCases": "31",
-            "TotalDeaths": " ",
-            "ActiveCases": "31",
-            "TotalRecovered": "277",
-            "SeriousCritical": "11",
-            "Cases/1M pop": "16"
-        },
-        {
-            "Country": "Bahrain",
-            "TotalCases": "298",
-            "NewCases": "19",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "125",
-            "TotalRecovered": "172",
-            "SeriousCritical": "4",
-            "Cases/1M pop": "175"
-        },
-        {
-            "Country": "Egypt",
-            "TotalCases": "285",
-            "NewCases": "29",
-            "TotalDeaths": "8                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "42",
-            "TotalRecovered": "235",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Estonia",
-            "TotalCases": "283",
-            "NewCases": "16",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "282",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "213"
-        },
-        {
-            "Country": "Peru",
-            "TotalCases": "263",
-            "NewCases": "29",
-            "TotalDeaths": "4                                ",
-            "NewDeaths": "3",
-            "ActiveCases": "1",
-            "TotalRecovered": "258",
-            "SeriousCritical": "5",
-            "Cases/1M pop": "8"
-        },
-        {
-            "Country": "Hong Kong",
-            "TotalCases": "256",
-            "NewCases": "48",
-            "TotalDeaths": "4                                ",
-            "ActiveCases": "98",
-            "TotalRecovered": "154",
-            "SeriousCritical": "4",
-            "Cases/1M pop": "34"
-        },
-        {
-            "Country": "Russia",
-            "TotalCases": "253",
-            "NewCases": "54",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "12",
-            "TotalRecovered": "240",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "India",
-            "TotalCases": "249",
-            "NewCases": "55",
-            "TotalDeaths": "5                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "23",
-            "TotalRecovered": "221",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Philippines",
-            "TotalCases": "230",
-            "NewCases": "13",
-            "TotalDeaths": "18                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "8",
-            "TotalRecovered": "204",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Iraq",
-            "TotalCases": "208",
-            "NewCases": "16",
-            "TotalDeaths": "17                                ",
-            "NewDeaths": "4",
-            "ActiveCases": "49",
-            "TotalRecovered": "142",
-            "Cases/1M pop": "5"
-        },
-        {
-            "Country": "South Africa",
-            "TotalCases": "202",
-            "NewCases": "52",
-            "TotalDeaths": " ",
-            "TotalRecovered": "202",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Panama",
-            "TotalCases": "200",
-            "NewCases": "63",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "198",
-            "SeriousCritical": "7",
-            "Cases/1M pop": "46"
-        },
-        {
-            "Country": "Lebanon",
-            "TotalCases": "177",
-            "NewCases": "20",
-            "TotalDeaths": "4                                ",
-            "ActiveCases": "4",
-            "TotalRecovered": "169",
-            "SeriousCritical": "3",
-            "Cases/1M pop": "26"
-        },
-        {
-            "Country": "Mexico",
-            "TotalCases": "164",
-            "NewCases": "46",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "4",
-            "TotalRecovered": "159",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Kuwait",
-            "TotalCases": "159",
-            "NewCases": "11",
-            "TotalDeaths": " ",
-            "ActiveCases": "22",
-            "TotalRecovered": "137",
-            "SeriousCritical": "5",
-            "Cases/1M pop": "37"
-        },
-        {
-            "Country": "Argentina",
-            "TotalCases": "158",
-            "NewCases": "30",
-            "TotalDeaths": "3                                ",
-            "ActiveCases": "3",
-            "TotalRecovered": "152",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "San Marino",
-            "TotalCases": "151",
-            "NewCases": "7",
-            "TotalDeaths": "14                                ",
-            "ActiveCases": "4",
-            "TotalRecovered": "133",
-            "SeriousCritical": "12",
-            "Cases/1M pop": "4450"
-        },
-        {
-            "Country": "Colombia",
-            "TotalCases": "145",
-            "NewCases": "37",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "144",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "UAE",
-            "TotalCases": "140",
-            "TotalDeaths": "2                                ",
-            "NewDeaths": "2",
-            "ActiveCases": "31",
-            "TotalRecovered": "107",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "14"
-        },
-        {
-            "Country": "Slovakia",
-            "TotalCases": "137",
-            "NewCases": "13",
-            "TotalDeaths": " ",
-            "TotalRecovered": "137",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "25"
-        },
-        {
-            "Country": "Armenia",
-            "TotalCases": "136",
-            "NewCases": "14",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "135",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "46"
-        },
-        {
-            "Country": "Taiwan",
-            "TotalCases": "135",
-            "NewCases": "27",
-            "TotalDeaths": "2                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "28",
-            "TotalRecovered": "105",
-            "Cases/1M pop": "6"
-        },
-        {
-            "Country": "Serbia",
-            "TotalCases": "135",
-            "NewCases": "32",
-            "TotalDeaths": "1                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "2",
-            "TotalRecovered": "132",
-            "SeriousCritical": "4",
-            "Cases/1M pop": "15"
-        },
-        {
-            "Country": "Croatia",
-            "TotalCases": "130",
-            "NewCases": "20",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "5",
-            "TotalRecovered": "124",
-            "Cases/1M pop": "32"
-        },
-        {
-            "Country": "Bulgaria",
-            "TotalCases": "127",
-            "NewCases": "20",
-            "TotalDeaths": "3                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "123",
-            "Cases/1M pop": "18"
-        },
-        {
-            "Country": "Costa Rica",
-            "TotalCases": "113",
-            "NewCases": "26",
-            "TotalDeaths": "2                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "2",
-            "TotalRecovered": "109",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "22"
-        },
-        {
-            "Country": "Latvia",
-            "TotalCases": "111",
-            "NewCases": "25",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "110",
-            "Cases/1M pop": "59"
-        },
-        {
-            "Country": "Uruguay",
-            "TotalCases": "110",
-            "NewCases": "31",
-            "TotalDeaths": " ",
-            "TotalRecovered": "110",
-            "Cases/1M pop": "32"
-        },
-        {
-            "Country": "Algeria",
-            "TotalCases": "94",
-            "NewCases": "4",
-            "TotalDeaths": "11                                ",
-            "NewDeaths": "2",
-            "ActiveCases": "32",
-            "TotalRecovered": "51",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Vietnam",
-            "TotalCases": "91",
-            "NewCases": "6",
-            "TotalDeaths": " ",
-            "ActiveCases": "17",
-            "TotalRecovered": "74",
-            "Cases/1M pop": "0.9"
-        },
-        {
-            "Country": "Bosnia and Herzegovina",
-            "TotalCases": "89",
-            "NewCases": "25",
-            "TotalDeaths": " ",
-            "ActiveCases": "2",
-            "TotalRecovered": "87",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "27"
-        },
-        {
-            "Country": "Morocco",
-            "TotalCases": "86",
-            "NewCases": "23",
-            "TotalDeaths": "3                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "2",
-            "TotalRecovered": "81",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Hungary",
-            "TotalCases": "85",
-            "NewCases": "12",
-            "TotalDeaths": "4                                ",
-            "NewDeaths": "3",
-            "ActiveCases": "7",
-            "TotalRecovered": "74",
-            "SeriousCritical": "6",
-            "Cases/1M pop": "9"
-        },
-        {
-            "Country": "Jordan",
-            "TotalCases": "84",
-            "NewCases": "15",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "83",
-            "Cases/1M pop": "8"
-        },
-        {
-            "Country": "Faeroe Islands",
-            "TotalCases": "80",
-            "NewCases": "8",
-            "TotalDeaths": " ",
-            "ActiveCases": "3",
-            "TotalRecovered": "77",
-            "Cases/1M pop": "1637"
-        },
-        {
-            "Country": "Brunei ",
-            "TotalCases": "78",
-            "NewCases": "5",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "77",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "178"
-        },
-        {
-            "Country": "North Macedonia",
-            "TotalCases": "76",
-            "NewCases": "26",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "75",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "36"
-        },
-        {
-            "Country": "Andorra",
-            "TotalCases": "75",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "74",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "971"
-        },
-        {
-            "Country": "Cyprus",
-            "TotalCases": "75",
-            "NewCases": "8",
-            "TotalDeaths": " ",
-            "TotalRecovered": "75",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "62"
-        },
-        {
-            "Country": "Sri Lanka",
-            "TotalCases": "73",
-            "NewCases": "13",
-            "TotalDeaths": " ",
-            "ActiveCases": "3",
-            "TotalRecovered": "70",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Dominican Republic",
-            "TotalCases": "72",
-            "NewCases": "38",
-            "TotalDeaths": "2                                ",
-            "TotalRecovered": "70",
-            "Cases/1M pop": "7"
-        },
-        {
-            "Country": "Albania",
-            "TotalCases": "70",
-            "NewCases": "6",
-            "TotalDeaths": "2                                ",
-            "ActiveCases": "2",
-            "TotalRecovered": "66",
-            "SeriousCritical": "2",
-            "Cases/1M pop": "24"
-        },
-        {
-            "Country": "Lithuania",
-            "TotalCases": "69",
-            "NewCases": "21",
-            "TotalDeaths": "1                                ",
-            "NewDeaths": "1",
-            "ActiveCases": "1",
-            "TotalRecovered": "67",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "25"
-        },
-        {
-            "Country": "Belarus",
-            "TotalCases": "69",
-            "NewCases": "18",
-            "TotalDeaths": " ",
-            "ActiveCases": "15",
-            "TotalRecovered": "54",
-            "Cases/1M pop": "7"
-        },
-        {
-            "Country": "Moldova",
-            "TotalCases": "66",
-            "NewCases": "17",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "64",
-            "SeriousCritical": "3",
-            "Cases/1M pop": "16"
-        },
-        {
-            "Country": "Venezuela",
-            "TotalCases": "65",
-            "NewCases": "23",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "64",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Malta",
-            "TotalCases": "64",
-            "NewCases": "11",
-            "TotalDeaths": " ",
-            "ActiveCases": "2",
-            "TotalRecovered": "62",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "145"
-        },
-        {
-            "Country": "Tunisia",
-            "TotalCases": "54",
-            "NewCases": "15",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "52",
-            "SeriousCritical": "7",
-            "Cases/1M pop": "5"
-        },
-        {
-            "Country": "Kazakhstan",
-            "TotalCases": "52",
-            "NewCases": "8",
-            "TotalDeaths": " ",
-            "TotalRecovered": "52",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "New Zealand",
-            "TotalCases": "52",
-            "NewCases": "24",
-            "TotalDeaths": " ",
-            "TotalRecovered": "52",
-            "Cases/1M pop": "11"
-        },
-        {
-            "Country": "Guadeloupe",
-            "TotalCases": "51",
-            "NewCases": "18",
-            "TotalDeaths": "1                                ",
-            "NewDeaths": "1",
-            "TotalRecovered": "50",
-            "SeriousCritical": "4",
-            "Cases/1M pop": "127"
-        },
-        {
-            "Country": "Cambodia",
-            "TotalCases": "51",
-            "NewCases": "14",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "50",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Oman",
-            "TotalCases": "48",
-            "TotalDeaths": " ",
-            "ActiveCases": "13",
-            "TotalRecovered": "35",
-            "Cases/1M pop": "9"
-        },
-        {
-            "Country": "Palestine",
-            "TotalCases": "48",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "ActiveCases": "17",
-            "TotalRecovered": "31",
-            "Cases/1M pop": "9"
-        },
-        {
-            "Country": "Senegal",
-            "TotalCases": "47",
-            "NewCases": "11",
-            "TotalDeaths": " ",
-            "ActiveCases": "5",
-            "TotalRecovered": "42",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Azerbaijan",
-            "TotalCases": "44",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "7",
-            "TotalRecovered": "36",
-            "Cases/1M pop": "4"
-        },
-        {
-            "Country": "Georgia",
-            "TotalCases": "44",
-            "NewCases": "4",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "43",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "11"
-        },
-        {
-            "Country": "Ukraine",
-            "TotalCases": "41",
-            "NewCases": "15",
-            "TotalDeaths": "3                                ",
-            "ActiveCases": "1",
-            "TotalRecovered": "37",
-            "Cases/1M pop": "0.9"
-        },
-        {
-            "Country": "Burkina Faso",
-            "TotalCases": "40",
-            "NewCases": "7",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "4",
-            "TotalRecovered": "35",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Réunion",
-            "TotalCases": "38",
-            "NewCases": "10",
-            "TotalDeaths": " ",
-            "TotalRecovered": "38",
-            "Cases/1M pop": "42"
-        },
-        {
-            "Country": "Uzbekistan",
-            "TotalCases": "33",
-            "NewCases": "10",
-            "TotalDeaths": " ",
-            "TotalRecovered": "33",
-            "Cases/1M pop": "1.0"
-        },
-        {
-            "Country": "Martinique",
-            "TotalCases": "32",
-            "NewCases": "9",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "31",
-            "SeriousCritical": "7",
-            "Cases/1M pop": "85"
-        },
-        {
-            "Country": "Liechtenstein",
-            "TotalCases": "28",
-            "TotalDeaths": " ",
-            "TotalRecovered": "28",
-            "Cases/1M pop": "734"
-        },
-        {
-            "Country": "Cameroon",
-            "TotalCases": "27",
-            "NewCases": "14",
-            "TotalDeaths": " ",
-            "ActiveCases": "2",
-            "TotalRecovered": "25",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Afghanistan",
-            "TotalCases": "24",
-            "NewCases": "2",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "23",
-            "Cases/1M pop": "0.6"
-        },
-        {
-            "Country": "Honduras",
-            "TotalCases": "24",
-            "NewCases": "12",
-            "TotalDeaths": " ",
-            "TotalRecovered": "24",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Cuba",
-            "TotalCases": "21",
-            "NewCases": "10",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "20",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Bangladesh",
-            "TotalCases": "20",
-            "NewCases": "2",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "3",
-            "TotalRecovered": "16",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "Jamaica",
-            "TotalCases": "19",
-            "NewCases": "4",
-            "TotalDeaths": "1                                ",
-            "ActiveCases": "2",
-            "TotalRecovered": "16",
-            "Cases/1M pop": "6"
-        },
-        {
-            "Country": "DRC",
-            "TotalCases": "18",
-            "NewCases": "4",
-            "TotalDeaths": " ",
-            "TotalRecovered": "18",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Paraguay",
-            "TotalCases": "18",
-            "NewCases": "5",
-            "TotalDeaths": " ",
-            "TotalRecovered": "18",
-            "SeriousCritical": "1",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Macao",
-            "TotalCases": "17",
-            "TotalDeaths": " ",
-            "ActiveCases": "10",
-            "TotalRecovered": "7",
-            "Cases/1M pop": "26"
-        },
-        {
-            "Country": "Rwanda",
-            "TotalCases": "17",
-            "NewCases": "6",
-            "TotalDeaths": " ",
-            "TotalRecovered": "17",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Bolivia",
-            "TotalCases": "16",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "16",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Ghana",
-            "TotalCases": "16",
-            "NewCases": "5",
-            "TotalDeaths": " ",
-            "TotalRecovered": "16",
-            "Cases/1M pop": "0.5"
-        },
-        {
-            "Country": "Guyana",
-            "TotalCases": "15",
-            "NewCases": "10",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "14",
-            "Cases/1M pop": "19"
-        },
-        {
-            "Country": "French Guiana",
-            "TotalCases": "15",
-            "TotalDeaths": " ",
-            "TotalRecovered": "15",
-            "Cases/1M pop": "50"
-        },
-        {
-            "Country": "Guam",
-            "TotalCases": "14",
-            "NewCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "14",
-            "Cases/1M pop": "83"
-        },
-        {
-            "Country": "Montenegro",
-            "TotalCases": "14",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "14",
-            "Cases/1M pop": "22"
-        },
-        {
-            "Country": "Puerto Rico",
-            "TotalCases": "14",
-            "NewCases": "8",
-            "TotalDeaths": " ",
-            "TotalRecovered": "14",
-            "Cases/1M pop": "5"
-        },
-        {
-            "Country": "Maldives",
-            "TotalCases": "13",
-            "TotalDeaths": " ",
-            "ActiveCases": "2",
-            "TotalRecovered": "11",
-            "Cases/1M pop": "24"
-        },
-        {
-            "Country": "Guatemala",
-            "TotalCases": "12",
-            "NewCases": "3",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "11",
-            "Cases/1M pop": "0.7"
-        },
-        {
-            "Country": "Nigeria",
-            "TotalCases": "12",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "11",
-            "Cases/1M pop": "0.06"
-        },
-        {
-            "Country": "Channel Islands",
-            "TotalCases": "12",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "12",
-            "Cases/1M pop": "69"
-        },
-        {
-            "Country": "Mauritius",
-            "TotalCases": "12",
-            "NewCases": "5",
-            "TotalDeaths": " ",
-            "TotalRecovered": "12",
-            "Cases/1M pop": "9"
-        },
-        {
-            "Country": "Monaco",
-            "TotalCases": "11",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "11",
-            "Cases/1M pop": "280"
-        },
-        {
-            "Country": "French Polynesia",
-            "TotalCases": "11",
-            "NewCases": "5",
-            "TotalDeaths": " ",
-            "TotalRecovered": "11",
-            "Cases/1M pop": "39"
-        },
-        {
-            "Country": "Gibraltar",
-            "TotalCases": "10",
-            "TotalDeaths": " ",
-            "ActiveCases": "2",
-            "TotalRecovered": "8",
-            "Cases/1M pop": "297"
-        },
-        {
-            "Country": "Ivory Coast",
-            "TotalCases": "9",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "8",
-            "Cases/1M pop": "0.3"
-        },
-        {
-            "Country": "Ethiopia",
-            "TotalCases": "9",
-            "NewCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "9",
-            "Cases/1M pop": "0.08"
-        },
-        {
-            "Country": "Togo",
-            "TotalCases": "9",
-            "NewCases": "8",
-            "TotalDeaths": " ",
-            "TotalRecovered": "9",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Trinidad and Tobago",
-            "TotalCases": "9",
-            "TotalDeaths": " ",
-            "TotalRecovered": "9",
-            "Cases/1M pop": "6"
-        },
-        {
-            "Country": "Kenya",
-            "TotalCases": "7",
-            "TotalDeaths": " ",
-            "TotalRecovered": "7",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "Mayotte",
-            "TotalCases": "7",
-            "NewCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "7",
-            "Cases/1M pop": "26"
-        },
-        {
-            "Country": "Seychelles",
-            "TotalCases": "7",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "7",
-            "Cases/1M pop": "71"
-        },
-        {
-            "Country": "Barbados",
-            "TotalCases": "6",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "6",
-            "Cases/1M pop": "21"
-        },
-        {
-            "Country": "Equatorial Guinea",
-            "TotalCases": "6",
-            "TotalDeaths": " ",
-            "TotalRecovered": "6",
-            "Cases/1M pop": "4"
-        },
-        {
-            "Country": "Kyrgyzstan",
-            "TotalCases": "6",
-            "NewCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "6",
-            "Cases/1M pop": "0.9"
-        },
-        {
-            "Country": "Mongolia",
-            "TotalCases": "6",
-            "TotalDeaths": " ",
-            "TotalRecovered": "6",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Tanzania",
-            "TotalCases": "6",
-            "TotalDeaths": " ",
-            "TotalRecovered": "6",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "Aruba",
-            "TotalCases": "5",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "4",
-            "Cases/1M pop": "47"
-        },
-        {
-            "Country": "Gabon",
-            "TotalCases": "4",
-            "NewCases": "1",
-            "TotalDeaths": "1                                ",
-            "NewDeaths": "1",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Bahamas",
-            "TotalCases": "4",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "4",
-            "Cases/1M pop": "10"
-        },
-        {
-            "Country": "Saint Martin",
-            "TotalCases": "4",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "4",
-            "Cases/1M pop": "103"
-        },
-        {
-            "Country": "Suriname",
-            "TotalCases": "4",
-            "NewCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "4",
-            "Cases/1M pop": "7"
-        },
-        {
-            "Country": "Cayman Islands",
-            "TotalCases": "3",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "46"
-        },
-        {
-            "Country": "Curaçao",
-            "TotalCases": "3",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "18"
-        },
-        {
-            "Country": "CAR",
-            "TotalCases": "3",
-            "NewCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "0.6"
-        },
-        {
-            "Country": "Congo",
-            "TotalCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "0.5"
-        },
-        {
-            "Country": "Madagascar",
-            "TotalCases": "3",
-            "NewCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "Namibia",
-            "TotalCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "St. Barth",
-            "TotalCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "304"
-        },
-        {
-            "Country": "U.S. Virgin Islands",
-            "TotalCases": "3",
-            "TotalDeaths": " ",
-            "TotalRecovered": "3",
-            "Cases/1M pop": "29"
-        },
-        {
-            "Country": "Sudan",
-            "TotalCases": "2",
-            "TotalDeaths": "1                                ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.05"
-        },
-        {
-            "Country": "Benin",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Bermuda",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "32"
-        },
-        {
-            "Country": "Bhutan",
-            "TotalCases": "2",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "3"
-        },
-        {
-            "Country": "Greenland",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "35"
-        },
-        {
-            "Country": "Guinea",
-            "TotalCases": "2",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Haiti",
-            "TotalCases": "2",
-            "NewCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Isle of Man",
-            "TotalCases": "2",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "24"
-        },
-        {
-            "Country": "Liberia",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.4"
-        },
-        {
-            "Country": "Mauritania",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.4"
-        },
-        {
-            "Country": "New Caledonia",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "7"
-        },
-        {
-            "Country": "Nicaragua",
-            "TotalCases": "2",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.3"
-        },
-        {
-            "Country": "Saint Lucia",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "11"
-        },
-        {
-            "Country": "Zambia",
-            "TotalCases": "2",
-            "TotalDeaths": " ",
-            "TotalRecovered": "2",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "Nepal",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "ActiveCases": "1",
-            "TotalRecovered": "0",
-            "Cases/1M pop": "0.03"
-        },
-        {
-            "Country": "Angola",
-            "TotalCases": "1",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.03"
-        },
-        {
-            "Country": "Antigua and Barbuda",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "10"
-        },
-        {
-            "Country": "Cabo Verde",
-            "TotalCases": "1",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "2"
-        },
-        {
-            "Country": "Chad",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.06"
-        },
-        {
-            "Country": "Djibouti",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "El Salvador",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.2"
-        },
-        {
-            "Country": "Fiji",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "1"
-        },
-        {
-            "Country": "Gambia",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.4"
-        },
-        {
-            "Country": "Vatican City",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "1248"
-        },
-        {
-            "Country": "Montserrat",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "200"
-        },
-        {
-            "Country": "Niger",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.04"
-        },
-        {
-            "Country": "Papua New Guinea",
-            "TotalCases": "1",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.1"
-        },
-        {
-            "Country": "St. Vincent Grenadines",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "9"
-        },
-        {
-            "Country": "Sint Maarten",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "23"
-        },
-        {
-            "Country": "Somalia",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.06"
-        },
-        {
-            "Country": "Eswatini",
-            "TotalCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.9"
-        },
-        {
-            "Country": "Zimbabwe",
-            "TotalCases": "1",
-            "NewCases": "1",
-            "TotalDeaths": " ",
-            "TotalRecovered": "1",
-            "Cases/1M pop": "0.07"
-        },
-        {
-            "Country": "Total:",
-            "TotalCases": "275597",
-            "NewCases": "30664",
-            "TotalDeaths": "11387",
-            "NewDeaths": "1356",
-            "ActiveCases": "91573",
-            "TotalRecovered": "172637",
-            "SeriousCritical": "7911",
-            "Cases/1M pop": "35.4"
+            "TotalCases": "304990",
+            "NewCases": "29434",
+            "TotalDeaths": "13007",
+            "NewDeaths": "1627",
+            "ActiveCases": "94800",
+            "TotalRecovered": "197183",
+            "SeriousCritical": "9955",
+            "Cases/1M pop": "39.1"
         }
     ]
 }

@@ -46,7 +46,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="footer">
-        Last update : 22 March 2020, 01:46 CET
+        Last update : 22 March 2020, 12:32 CET
         <br></br>
         <i class="fa fa-github-square" aria-hidden="true"></i>
           <a href="https://github.com/ahmedElmaghr/coronaMap.git" className="github-link" style={{color : 'white'}}> github repository</a>
