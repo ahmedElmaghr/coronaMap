@@ -44,6 +44,17 @@ export default class App extends Component {
     
   }
   render() {
+    var currentdate = new Date(); 
+var lastupdate = "Last update: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + ", "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds() + " CET";
+                
+
+                // Last update : 22 March 2020, 12:32 CET
+                console.log("datetime",lastupdate,currentdate);
     if(!this.state.isLoaded){
       return ""
     }
@@ -81,7 +92,8 @@ export default class App extends Component {
           </div>
         </div>
         <div className="footer">
-          Last update : 22 March 2020, 12:32 CET
+          
+          {lastupdate}
           <br></br>
           <i class="fa fa-github-square" aria-hidden="true"></i>
           <a
