@@ -1,1 +1,2 @@
-* */1 * * * python3 scraping_coronavirus.py && npm run build --path /var/OCP/repos/coronaMap
+*/5 * * * * . python3 scraping_coronavirus.py >> scraping.log && npm run build --path /var/OCP/repos/coronaMap >> buildCron.log
+
