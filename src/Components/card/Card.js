@@ -11,7 +11,9 @@ export default class Card extends Component {
     let data = covid19;
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
-      totalStatistics = data[(data.length + 1)/2 ];
+      //FIXME : refactor this code
+      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
+      console.log("total statistic position", totalStatistics)
     }
     let totalConfirmed = totalStatistics.TotalCases;
     let recovered = totalStatistics.TotalRecovered;
