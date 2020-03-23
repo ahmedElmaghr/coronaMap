@@ -34,13 +34,13 @@ export default class Pie extends React.Component {
 
     getColor = (i)=>{
       switch(i){
-        case 0 :
-          // blue
-          return 'rgb(38,75,150)';
+        case 2 :
+          // black
+          return 'rgb(0, 0, 0)';
         case 1:
           // green
-          return 'rgb(39,179,118)';
-        case 2:
+          return 'darkgreen';
+        case 0:
           //red
           return 'rgb(191,33,47)';
       }

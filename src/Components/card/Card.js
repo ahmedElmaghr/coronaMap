@@ -13,7 +13,6 @@ export default class Card extends Component {
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
       totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
-      console.log("total statistic position", totalStatistics)
     }
     let totalConfirmed = totalStatistics.TotalCases;
     let recovered = totalStatistics.TotalRecovered;
@@ -22,16 +21,16 @@ export default class Card extends Component {
     return (
       <div style={{ marginLeft: 10 + "px" }}>
         <div className="card">
-          <div className="black-title">Total Confirmed</div>
-          <div className="black-content">{totalConfirmed}</div>
+          <div className="red-title">Total Confirmed</div>
+          <div className="red-content">{totalConfirmed}</div>
         </div>
         <div className="card">
           <div className="green-title">Recovered</div>
           <div className="green-content">{recovered}</div>
         </div>
         <div className="card">
-          <div className="red-title">Total Deaths</div>
-          <div className="red-content">{totalDeaths}</div>
+          <div className="black-title">Total Deaths</div>
+          <div className="black-content">{totalDeaths}</div>
         </div>
       </div>
     );

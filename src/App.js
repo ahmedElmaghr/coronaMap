@@ -6,56 +6,57 @@ import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
 // import covid19 from "./coronadash/data/covid19.json";
 import data from './scrapping/results_coronavirus.csv';
+import StringUtils from "./Utils/StringUtils";
 
 export default class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
-    this.state ={
-      dataset : {},
-      isLoaded:false
+    this.state = {
+      dataset: {},
+      isLoaded: false
     }
   }
   componentDidMount() {
     d3.csv(data)
-      .then((data) =>{
-        console.log("data",data)
+      .then((data) => {
+        console.log("data", data)
         this.setState({
-          dataset:data,
-          isLoaded:true
+          dataset: data,
+          isLoaded: true
         })
       })
-      .catch((err)=> {
+      .catch((err) => {
         throw err;
       });
   }
 
-  readData = ()=>{
+  readData = () => {
     d3.csv(data)
-    .then((data) =>{
-      console.log("data",data)
-      this.setState({
-        dataset:data
+      .then((data) => {
+        console.log("data", data)
+        this.setState({
+          dataset: data
+        })
       })
-    })
-    .catch(function(err) {
-      throw err;
-    });
-    
+      .catch(function (err) {
+        throw err;
+      });
+
   }
   render() {
-    var currentdate = new Date(); 
-var lastupdate = "Last update: " + currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + ", "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds() + " CET";
-                
+    var currentdate = new Date();
+    var lastupdate = "Last update: " + currentdate.getDate() + "/"
+      + (currentdate.getMonth() + 1) + "/"
+      + currentdate.getFullYear() + ", "
+      + currentdate.getHours() + ":"
+      + currentdate.getMinutes() + ":"
+      + currentdate.getSeconds() + " CET";
 
-                // Last update : 22 March 2020, 12:32 CET
-                console.log("datetime",lastupdate,currentdate);
-    if(!this.state.isLoaded){
+
+    // Last update : 22 March 2020, 12:32 CET
+    console.log("datetime", lastupdate, currentdate);
+    if (!this.state.isLoaded) {
       return ""
     }
     return (
@@ -92,7 +93,7 @@ var lastupdate = "Last update: " + currentdate.getDate() + "/"
           </div>
         </div>
         <div className="footer">
-          
+
           {lastupdate}
           <br></br>
           <i class="fa fa-github-square" aria-hidden="true"></i>
@@ -111,7 +112,10 @@ var lastupdate = "Last update: " + currentdate.getDate() + "/"
 
   getPieData = data => {
     if (data) {
-      return [data.TotalCases, data.TotalRecovered, data.TotalDeaths];
+      let totalCases = StringUtils.deleteSpecialChar(data.TotalCases)
+      let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered)
+      let totalDeaths = StringUtils.deleteSpecialChar(data.TotalDeaths)
+      return [totalCases, totalRecovered, totalDeaths];
     } else {
       return [0];
     }
@@ -120,7 +124,9 @@ var lastupdate = "Last update: " + currentdate.getDate() + "/"
   getGlobalStat = data => {
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
-      totalStatistics = data[data.length/2 - 1];
+      //FIXME : refactor this code
+      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
+      console.log("total statistic position", totalStatistics)
     }
     return totalStatistics;
   };
