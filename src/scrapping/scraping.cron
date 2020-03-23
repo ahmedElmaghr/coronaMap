@@ -1,2 +1,2 @@
-*/5 * * * * . python3 scraping_coronavirus.py >> scraping.log && npm run build --path /var/OCP/repos/coronaMap >> buildCron.log
-
+MAILTO=elmaghraoui.ahmed@gmail.com
+*/5 * * * * . python3 scraping_coronavirus.py &>buildCron.log && npm run build --path /var/OCP/repos/coronaMap 
