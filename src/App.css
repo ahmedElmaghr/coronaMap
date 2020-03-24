@@ -23,3 +23,8 @@
 .github-link:hover{
   color : darkblue !important
 }
+.cards{
+  text-align: center;
+  margin: 0 auto;
+  display: table;
+}

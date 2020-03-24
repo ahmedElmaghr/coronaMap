@@ -7,7 +7,7 @@ export default class PieChart extends PureComponent {
     render() {
         
         // For a real world project, use something like
-        let width = window.screen.width * 0.15;
+        let width = window.screen.width * 0.1;
         let height = window.screen.height * 0.15;
         let minViewportSize = Math.min(width, height);
         // This sets the radius of the pie chart to fit within

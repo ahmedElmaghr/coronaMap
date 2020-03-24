@@ -73,7 +73,7 @@ export default class App extends Component {
               height: window.screen.height + "px"
             }}
           >
-            <div className="row">
+            <div className="row cards">
               <Card covid19={this.state.dataset}></Card>
             </div>
             <div className="row statistics">
