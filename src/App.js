@@ -5,59 +5,64 @@ import Card from "./Components/card/Card";
 import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
 // import covid19 from "./coronadash/data/covid19.json";
-import data from './scrapping/results_coronavirus.csv';
+import data from "./scrapping/results_coronavirus.csv";
 import StringUtils from "./Utils/StringUtils";
 
 export default class App extends Component {
-
   constructor() {
     super();
     this.state = {
       dataset: {},
       isLoaded: false
-    }
+    };
   }
   componentDidMount() {
     d3.csv(data)
-      .then((data) => {
-        console.log("data", data)
+      .then(data => {
+        console.log("data", data);
         this.setState({
           dataset: data,
           isLoaded: true
-        })
+        });
       })
-      .catch((err) => {
+      .catch(err => {
         throw err;
       });
   }
 
   readData = () => {
     d3.csv(data)
-      .then((data) => {
-        console.log("data", data)
+      .then(data => {
+        console.log("data", data);
         this.setState({
           dataset: data
-        })
+        });
       })
-      .catch(function (err) {
+      .catch(function(err) {
         throw err;
       });
-
-  }
+  };
   render() {
     var currentdate = new Date();
-    var lastupdate = "Last update: " + currentdate.getDate() + "/"
-      + (currentdate.getMonth() + 1) + "/"
-      + currentdate.getFullYear() + ", "
-      + currentdate.getHours() + ":"
-      + currentdate.getMinutes() + ":"
-      + currentdate.getSeconds() + " CET";
-
+    var lastupdate =
+      "Last update: " +
+      currentdate.getDate() +
+      "/" +
+      (currentdate.getMonth() + 1) +
+      "/" +
+      currentdate.getFullYear() +
+      ", " +
+      currentdate.getHours() +
+      ":" +
+      currentdate.getMinutes() +
+      ":" +
+      currentdate.getSeconds() +
+      " CET";
 
     // Last update : 22 March 2020, 12:32 CET
     console.log("datetime", lastupdate, currentdate);
     if (!this.state.isLoaded) {
-      return ""
+      return "";
     }
     return (
       <div className="container-fluid" style={{ overflow: "auto" }}>
@@ -76,11 +81,20 @@ export default class App extends Component {
             <div className="row cards">
               <Card covid19={this.state.dataset}></Card>
             </div>
-            <div className="row statistics">
+            <div
+              className="row statistics"
+              style={{
+                resize: "horizontal",
+                overflow: "hidden",
+                width: "auto",
+                height: "auto"
+              }}
+            >
               <PieChart
                 opacity={1}
                 zIndex={1}
-                data={this.getPieData(this.getGlobalStat(this.state.dataset))}
+                data={this.getGlobalStat(this.state.dataset)}
+                // data={this.getPieData(this.getGlobalStat(this.state.dataset))}
                 x={85}
                 y={100}
               ></PieChart>
@@ -93,7 +107,6 @@ export default class App extends Component {
           </div>
         </div>
         <div className="footer">
-
           {lastupdate}
           <br></br>
           <i class="fa fa-github-square" aria-hidden="true"></i>
@@ -111,11 +124,12 @@ export default class App extends Component {
   }
 
   getPieData = data => {
+    console.log("App data",data)
     if (data) {
-      let totalCases = StringUtils.deleteSpecialChar(data.TotalCases)
-      let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered)
-      let totalDeaths = StringUtils.deleteSpecialChar(data.TotalDeaths)
-      return [totalCases, totalRecovered, totalDeaths];
+      let totalCases = StringUtils.deleteSpecialChar(data.TotalCases);
+      let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered);
+      let totalDeaths = StringUtils.deleteSpecialChar(data.TotalDeaths);
+      return [totalRecovered,totalCases, totalDeaths];
     } else {
       return [0];
     }
@@ -125,8 +139,10 @@ export default class App extends Component {
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
-      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
-      console.log("total statistic position", totalStatistics)
+      totalStatistics = data.filter(elt => {
+        return elt.Country == "Total:";
+      })[0];
+      console.log("total statistic position", totalStatistics);
     }
     return totalStatistics;
   };

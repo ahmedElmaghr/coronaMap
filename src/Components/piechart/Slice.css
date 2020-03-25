@@ -10,9 +10,9 @@
 }
 .tooltip-donut {
   position: absolute;
-  /* border: solid; */
   color: white;
   border-radius: 5px;
   z-index: 1;
   background-color: rgba(66, 141, 163, 0.9);
+  white-space:nowrap;
 }

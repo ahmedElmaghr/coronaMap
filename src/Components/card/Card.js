@@ -15,22 +15,27 @@ export default class Card extends Component {
       totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
     }
     let totalConfirmed = totalStatistics.TotalCases;
+    let activeCases = totalStatistics.ActiveCases;
     let recovered = totalStatistics.TotalRecovered;
     let totalDeaths = totalStatistics.TotalDeaths;
 
     return (
       <div style={{ marginLeft: 10 + "px" }}>
         <div className="card">
-          <div className="red-title">Total Confirmed</div>
-          <div className="red-content">{totalConfirmed}</div>
+          <div className="black-title">Total Confirmed</div>
+          <div className="black-content">{totalConfirmed}</div>
+        </div>
+        <div className="card">
+          <div className="orange-title">Active cases</div>
+          <div className="orange-content">{activeCases}</div>
         </div>
         <div className="card">
           <div className="green-title">Recovered</div>
           <div className="green-content">{recovered}</div>
         </div>
         <div className="card">
-          <div className="black-title">Total Deaths</div>
-          <div className="black-content">{totalDeaths}</div>
+          <div className="red-title">Total Deaths</div>
+          <div className="red-content">{totalDeaths}</div>
         </div>
       </div>
     );
