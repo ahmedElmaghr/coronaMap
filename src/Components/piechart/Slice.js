@@ -10,8 +10,6 @@ export default class Slice extends React.Component {
   }
 
   componentDidMount = () => {
-    // console.log("Slice cpmonentDidMount");
-    // var svgPie = d3.selectAll("#pieStat");
     d3.select("#leftside")
       .append("div")
       .attr("id", "tooltip")
@@ -19,8 +17,8 @@ export default class Slice extends React.Component {
       .style("opacity", 0);
   };
   render() {
-    let { value, fill, innerRadius = 0, outerRadius } = this.props;
-    console.log("Slice render",value);
+    let { element, fill, innerRadius = 0, outerRadius } = this.props;
+    console.log("Slice this element",element)
     // https://github.com/d3/d3/wiki/SVG-Shapes#arc
     let arc = d3
       .arc()
@@ -36,11 +34,11 @@ export default class Slice extends React.Component {
 
     return (
       <path
-        d={arc2(value)}
+        d={arc2(element)}
         fill={fill}
         className="slice"
         onMouseMove={e => {
-          this.props.onMouseMove(e, value);
+          this.props.onMouseMove(e, element);
         }}
         onMouseOut={() => {
           this.onMouseOut();
@@ -52,7 +50,6 @@ export default class Slice extends React.Component {
 
 
   onMouseOut = () => {
-    console.log("mouse out");
     d3.select("#tooltip").style("opacity", 0);
   };
 }

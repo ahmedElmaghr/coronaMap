@@ -1,13 +1,17 @@
-import React, { PureComponent } from "react";
-import "./PieChart.css";
-import Pie from "./Pie";
-import StringUtils from "./../../Utils/StringUtils";
 import * as d3 from "d3";
+import React, { PureComponent } from "react";
+import Pie from "./Pie";
+import "./PieChart.css";
+import StringUtils from "./../../Utils/StringUtils";
 export default class PieChart extends PureComponent {
-    constructor(props){
-        super(props)
-        const sum = 0;
-    }
+  sum = 0;
+  constructor(props) {
+    super(props);
+    this.sum = parseInt(
+      StringUtils.deleteSpecialChar(this.props.data.TotalCases),
+      10
+    );
+  }
   render() {
     // For a real world project, use something like
     let width = window.screen.width * 0.1;
@@ -20,11 +24,8 @@ export default class PieChart extends PureComponent {
     const { x, y } = this.props;
     //
     var data = this.props.data;
-    var sliceDatas = this.getSliceDatas(data);
-    var pieLegendData = this.getPieLegend(data);
     //
-    var totalCases = StringUtils.deleteSpecialChar(data.TotalCases);
-    this.sum = parseInt(totalCases, 10);
+
     return (
       <div className="piechart">
         <svg
@@ -39,42 +40,29 @@ export default class PieChart extends PureComponent {
             x={x}
             y={y}
             radius={radius}
-            data={sliceDatas}
-            pieLegendData={pieLegendData}
-            onMouseMove={(event, value,i) => this.onMouseMove(event, value,i)}
+            data={data}
+            onMouseMove={(event, value, i) => this.onMouseMove(event, value, i)}
           />
         </svg>
       </div>
     );
   }
 
-  onMouseMove = (event, value,i) => {
-    var data = this.props.data;
-    var pieLegendData = this.getPieLegend(data);
-    console.log("mouse over", value.data,i);
-    var percent = (value.data / this.sum) * 100;
+  onMouseMove = (event, element) => {
+    console.log("value", element);
+    var percent = (element.data.value / this.sum) * 100;
     var percentRounded = Math.round(percent * 10) / 10;
-    var legend = pieLegendData[i];
+    this.updateTooltip(event,element,percentRounded)
+  };
+
+  updateTooltip = (event,element,percentRounded) => {
     d3.select("#tooltip")
-      .text(legend +" " + percentRounded + " %")
+      .text(element.data.label + " " + percentRounded + " %")
       .transition()
       .duration("40")
       .style("opacity", 1)
-      .style("z-index",5)
-      .style("left", event.pageX +10 + "px")
+      .style("z-index", 5)
+      .style("left", event.pageX + 10 + "px")
       .style("top", event.pageY - 70 + "px");
-  };
-  //Array of slice data
-  getSliceDatas = data => {
-    var sliceData;
-    let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered);
-    let totalDeaths = StringUtils.deleteSpecialChar(data.TotalDeaths);
-    let activeCases = StringUtils.deleteSpecialChar(data.ActiveCases);
-    sliceData = [activeCases,totalRecovered, totalDeaths];
-    return sliceData;
-  };
-
-  getPieLegend = data => {
-    return  [ "Recovered","Active cases", "Total Deaths"];
   };
 }

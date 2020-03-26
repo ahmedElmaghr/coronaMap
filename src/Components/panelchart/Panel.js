@@ -14,7 +14,6 @@ export default class Panel extends React.Component {
 
   handleClick=(e)=>{
     if(this.node.contains(e.target)){
-      console.log("click inside Panel")
       return;
     }
     this.handleClickOutside(e)

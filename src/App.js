@@ -19,7 +19,6 @@ export default class App extends Component {
   componentDidMount() {
     d3.csv(data)
       .then(data => {
-        console.log("data", data);
         this.setState({
           dataset: data,
           isLoaded: true
@@ -33,7 +32,6 @@ export default class App extends Component {
   readData = () => {
     d3.csv(data)
       .then(data => {
-        console.log("data", data);
         this.setState({
           dataset: data
         });
@@ -60,7 +58,6 @@ export default class App extends Component {
       " CET";
 
     // Last update : 22 March 2020, 12:32 CET
-    console.log("datetime", lastupdate, currentdate);
     if (!this.state.isLoaded) {
       return "";
     }
@@ -124,7 +121,6 @@ export default class App extends Component {
   }
 
   getPieData = data => {
-    console.log("App data",data)
     if (data) {
       let totalCases = StringUtils.deleteSpecialChar(data.TotalCases);
       let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered);
@@ -142,7 +138,6 @@ export default class App extends Component {
       totalStatistics = data.filter(elt => {
         return elt.Country == "Total:";
       })[0];
-      console.log("total statistic position", totalStatistics);
     }
     return totalStatistics;
   };

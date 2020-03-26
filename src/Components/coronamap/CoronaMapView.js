@@ -19,7 +19,6 @@ export default class CoronaMapView extends PureComponent {
   
 
   componentWillMount() {
-    console.log("componentWillMount")
     if (this.props.jsonData.length != 0) {
       //Draw svg Wrapper
       var svg = this.drawSvgWrapper();
@@ -35,14 +34,6 @@ export default class CoronaMapView extends PureComponent {
     }
   }
 
-  shouldComponentUpdate(nextProps,nextState){
-    console.log("shouldComponentUpdate CoronaMapView")
-    console.log("CoronaMapView nextProps",nextProps)
-    console.log("CoronaMapView nextProps",nextState)
-
-
-    return true;
-  }
   mergeMorrocanSahara = g => {
     //merge Morocco
     var jsonData = this.props.jsonData;
@@ -55,7 +46,6 @@ export default class CoronaMapView extends PureComponent {
       d => d.id == 732
     );
     var toBeMerged = [morocco[0], morrocanSahara[0]];
-    console.log("toBeMerged", toBeMerged)
     //
     g.append("path")
       .datum(merge(jsonData, toBeMerged))
@@ -63,7 +53,6 @@ export default class CoronaMapView extends PureComponent {
       .attr("d", d => this.calculatePath(d))
       .attr("fill", `rgb(211, 167, 101)`)
       .on("click", (d) => {
-        console.log("Welcome to morocco <3", d)
         this.props.clickOnCountry()
       })
   };
@@ -84,7 +73,6 @@ export default class CoronaMapView extends PureComponent {
   drawSvgWrapper() {
     //Construct Body
     var body = d3.select("#mapWW")
-    console.log("scrren height", window.screen.height);
     //Construct SVG
     var svg = body
       .append("svg")
@@ -99,7 +87,6 @@ export default class CoronaMapView extends PureComponent {
 
   //Draw the world Map
   drawMap = (node, worldData) => {
-    console.log("call drawMap")
       var g = node
         .append("g")
         .attr("id", "worldMap")

@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import React from "react";
 import Slice from "./Slice";
-import PieLegend from "./PieLegend";
+import StringUtils from "./../../Utils/StringUtils";
 export default class Pie extends React.Component {
   constructor(props) {
     super(props);
@@ -9,46 +9,61 @@ export default class Pie extends React.Component {
   }
 
   render() {
-    let { x, y, data, pieLegendData } = this.props;
-
+    let { x, y, data } = this.props;
+    //
+    var sliceDatas = this.getSliceDatas(data);
     // https://github.com/d3/d3/wiki/Pie-Layout
-    let pie = d3.pie();
-    console.log("test101",data,pie(data))
+    let pie = d3.pie().value(d => {
+      return d.value;
+    });
     return (
       <g transform={`translate(${x}, ${y})`} className="piechart">
         {/* Render a slice for each data point */}
-        {pie(data).map((d, i) => {
-          console.log("123",data,i)
+        {pie(sliceDatas).map((d, i) => {
+          console.log("d,i", d, i);
           return this.renderSlice(d, i);
         })}
-        <PieLegend pieLegendData={pieLegendData}></PieLegend>
       </g>
     );
   }
+  //Array of slice data
+  getSliceDatas = data => {
+    var sliceData;
+    let totalRecovered = parseInt(
+      StringUtils.deleteSpecialChar(data.TotalRecovered),
+      10
+    );
+    let totalDeaths = parseInt(
+      StringUtils.deleteSpecialChar(data.TotalDeaths),
+      10
+    );
+    let activeCases = parseInt(
+      StringUtils.deleteSpecialChar(data.ActiveCases),
+      10
+    );
+    sliceData = [
+      {
+        label: "Active cases",
+        value: activeCases,
+        color: "rgb(201, 93, 22)"
+      },
+      { label: "Total recovered", value: totalRecovered, color: "darkgreen" },
+      { label: "Total deaths", value: totalDeaths, color: "rgb(197, 23, 23)" }
+    ];
+    return sliceData;
+  };
 
   renderSlice = (element, i) => {
-    console.log("renderSlice",element,i)
     return (
       <Slice
         key={i}
         outerRadius={this.props.radius}
         innerRadius={this.props.radius / 3}
-        value={element}
-        fill={this.getColor(i,element)}
+        element={element}
+        fill={element.data.color}
         onMouseMove={(event, value) => this.props.onMouseMove(event, value, i)}
       />
     );
   };
 
-  getColor = (i,element) => {
-    console.log(i,element)
-    switch (i) {
-      case 0:
-        return " rgb(201, 93, 22)";
-      case 1:
-        return "darkgreen";
-      case 2:
-        return "rgb(197, 23, 23)";
-    }
-  };
 }

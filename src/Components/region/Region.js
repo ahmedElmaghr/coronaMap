@@ -5,12 +5,10 @@ import  StringUtils from "../../Utils/StringUtils.js";
 import "./Region.css";
 class Region extends Component {
   componentWillUnmount() {
-    console.log("Region : componentWillUnmount ");
     d3.selectAll("#markers").attr("visibility", "hidden");
   }
 
   render() {
-    console.log("Regin : call render ");
     const { countries, covid19 } = this.props;
     this.drawCircles(countries, covid19);
     //add zoom
@@ -50,7 +48,6 @@ class Region extends Component {
       .attr("id", "markers")
       .attr("class", "markers");
     let dataFiltered = this.filterCountriesByDesease(data);
-    console.log("dataFiltered", dataFiltered);
     markers
       .selectAll("circle")
       .data(dataFiltered)
@@ -84,7 +81,6 @@ class Region extends Component {
   };
 
   filterCountriesByDesease = data => {
-    console.log("dataaaa", data);
     let dataFiltered = data.filter(
       d =>
         d.stat != null &&
@@ -92,7 +88,6 @@ class Region extends Component {
         d.stat.TotalDeaths != null &&
         d.data.country != "DP"
     );
-    console.log("dataFiltered", dataFiltered);
     var t = dataFiltered.sort((e1, e2) => {
       return e2.stat.TotalDeaths - e1.stat.TotalDeaths;
     });
@@ -102,7 +97,6 @@ class Region extends Component {
   getRadius = d => {
     let rayon = 0;
     let cases =StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
-    console.log("cases",cases)
     if (0 < cases && cases <= 10) {
       let r = (cases / 10) * 2;
       rayon = r;

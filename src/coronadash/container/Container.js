@@ -38,7 +38,6 @@ class Container extends Component {
   }
 
   render() {
-    console.log("call Container render");
     const {
       worldData,
       jsonData,
@@ -109,7 +108,6 @@ class Container extends Component {
 
   getData = data => {
     if (data) {
-      console.log("data",data);
       return [data.ActiveCases, data.TotalDeaths, data.TotalRecovered];
     } else {
       return [0];
