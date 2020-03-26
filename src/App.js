@@ -64,7 +64,7 @@ export default class App extends Component {
     return (
       <div className="container-fluid" style={{ overflow: "auto",height:window.screen.height  }}>
         <div id="header" className="row">
-          <div className="header">Corona virus 2019 worldwide</div>
+          <div className="header">covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i></div>
         </div>
         <div className="row">
           <div id="leftside"
