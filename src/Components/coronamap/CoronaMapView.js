@@ -149,17 +149,6 @@ export default class CoronaMapView extends PureComponent {
   }
 
 
-  filterCountriesByDesease = (data) => {
-    let dataFiltered = data.filter(d =>
-      (d.stat != 0 && d.stat.TotalCases != 0)
-      && (d.data.country != "DP")
-    )
-    dataFiltered.sort((e1, e2) => {
-      return e2.stat.TotalCases - e1.stat.TotalCases
-    })
-    return dataFiltered;
-  }
-
 
   //Add zoom
   addZoom = svg => {

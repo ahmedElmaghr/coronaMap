@@ -64,7 +64,7 @@ class Region extends Component {
         return this.getCy(d);
       })
       .attr("r", d => {
-        return this.getRadius(d);
+        return this.getRadius(d)*0.05+'rem';
       })
       .attr("class", "marker")
       .append("title")
@@ -89,7 +89,10 @@ class Region extends Component {
         d.data.country != "DP"
     );
     var t = dataFiltered.sort((e1, e2) => {
-      return e2.stat.TotalDeaths - e1.stat.TotalDeaths;
+      console.log("sort",e1,e2)
+      var totalDeath1Int = parseInt(StringUtils.deleteSpecialChar(e1.stat.TotalDeaths),10)
+      var totalDeath2Int = parseInt(StringUtils.deleteSpecialChar(e2.stat.TotalDeaths),10)
+      return totalDeath2Int - totalDeath1Int;
     });
     return t;
   };
@@ -117,6 +120,9 @@ class Region extends Component {
       rayon = r;
     } else if (2000 <= cases && cases < 5000) {
       let r = (cases / 5000) * 40;
+      rayon = r;
+    }else if (5000 <= cases && cases < 15000) {
+      let r = (cases / 5000) * 45;
       rayon = r;
     }
     return rayon < 1 && rayon > 0 ? 1 : rayon;
