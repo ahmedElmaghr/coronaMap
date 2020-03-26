@@ -2,7 +2,20 @@
     margin-top: 1px;
     margin-right: 2px;
     position:absolute;
-    top:0;
+    bottom:0;
     right:0;
     z-index: 1;
+}
+.markdeath{
+    z-index: 1;
+    position: absolute;
+    bottom: 0px;
+    right: 2%;
+    border: solid #16272f;
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #16272f;
+    margin: 4px;
+    box-shadow: 0 -5px 6px 0 rgba(0, 0, 0, 0.5), 0 17px 46px 0 rgba(0, 0, 0, 0.19);
 }

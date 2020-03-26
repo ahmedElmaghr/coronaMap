@@ -7,10 +7,7 @@ export default class PieChart extends PureComponent {
   sum = 0;
   constructor(props) {
     super(props);
-    this.sum = parseInt(
-      StringUtils.deleteSpecialChar(this.props.data.TotalCases),
-      10
-    );
+
   }
   render() {
     // For a real world project, use something like
@@ -25,7 +22,7 @@ export default class PieChart extends PureComponent {
     //
     var data = this.props.data;
     //
-
+    var countryClicked = this.props.countryClicked;
     return (
       <div className="piechart">
         <svg
@@ -40,7 +37,7 @@ export default class PieChart extends PureComponent {
             x={x}
             y={y}
             radius={radius}
-            data={data}
+            data={countryClicked ? countryClicked : data}
             onMouseMove={(event, value, i) => this.onMouseMove(event, value, i)}
           />
         </svg>
@@ -50,12 +47,25 @@ export default class PieChart extends PureComponent {
 
   onMouseMove = (event, element) => {
     console.log("value", element);
-    var percent = (element.data.value / this.sum) * 100;
+    var sum;
+    if (this.props.countryClicked) {
+      sum = parseInt(
+        StringUtils.deleteSpecialChar(this.props.countryClicked.TotalCases),
+        10
+      );
+    } else {
+      sum = parseInt(
+        StringUtils.deleteSpecialChar(this.props.data.TotalCases),
+        10
+      );
+    }
+
+    var percent = (element.data.value / sum) * 100;
     var percentRounded = Math.round(percent * 10) / 10;
-    this.updateTooltip(event,element,percentRounded)
+    this.updateTooltip(event, element, percentRounded);
   };
 
-  updateTooltip = (event,element,percentRounded) => {
+  updateTooltip = (event, element, percentRounded) => {
     d3.select("#tooltip")
       .text(element.data.label + " " + percentRounded + " %")
       .transition()

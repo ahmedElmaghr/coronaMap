@@ -6,15 +6,9 @@ export default class ToggleBtn extends React.Component {
 
   render() {
 
-    var style = {
-      zIndex: 1,
-      position : "absolute",
-      top: 0,
-      right : '2%'
-    }
     const { checked } = this.props;
     return (
-      <div class="custom-control custom-switch" style={style}>
+      <div class="custom-control custom-switch markdeath" >
         <input
           type="checkbox"
           class="custom-control-input"
@@ -24,7 +18,7 @@ export default class ToggleBtn extends React.Component {
             this.props.click()
           }}
         />
-        <label class="custom-control-label" style ={{color:'red',fontWeight:'bold'}}for="customSwitch1">mark deaths</label>
+        <label class="custom-control-label" style ={{color:'white',fontWeight:'bold',fontFamily:'courier'}}for="customSwitch1">Mark deaths</label>
       </div>
       // <div>
       //   <button className="button">button</button>

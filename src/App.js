@@ -62,21 +62,20 @@ export default class App extends Component {
       return "";
     }
     return (
-      <div className="container-fluid" style={{ overflow: "auto" }}>
+      <div className="container-fluid" style={{ overflow: "auto",height:window.screen.height  }}>
         <div id="header" className="row">
           <div className="header">Corona virus 2019 worldwide</div>
         </div>
         <div className="row">
-          <div
-            id="leftside"
-            className="col-sm-2"
+          <div id="leftside"
+            className="col-2"
             style={{
               paddingRight: 0 + "px",
               height: window.screen.height + "px"
             }}
           >
             <div className="row cards">
-              <Card covid19={this.state.dataset}></Card>
+              <Card covid19={this.state.dataset} countryClicked ={this.state.countryClicked}></Card>
             </div>
             <div
               className="row statistics"
@@ -91,21 +90,22 @@ export default class App extends Component {
                 opacity={1}
                 zIndex={1}
                 data={this.getGlobalStat(this.state.dataset)}
+                countryClicked ={this.state.countryClicked}
                 // data={this.getPieData(this.getGlobalStat(this.state.dataset))}
                 x={85}
                 y={100}
               ></PieChart>
             </div>
           </div>
-          <div className="col" style={{ height: window.screen.height + "px" }}>
+          <div className="col-10" style={{ height: window.screen.height + "px" }}>
             <div id="mapWW" className="col">
-              <Container covid19={this.state.dataset}></Container>
+              <Container covid19={this.state.dataset} onclick = {(d)=>this.onclickCountry(d)}></Container>
             </div>
           </div>
         </div>
         <div className="footer">
-          {lastupdate}
-          <br></br>
+          {/* {lastupdate}
+          <br></br> */}
           <i class="fa fa-github-square" aria-hidden="true"></i>
           <a
             href="https://github.com/ahmedElmaghr/coronaMap.git"
@@ -118,6 +118,24 @@ export default class App extends Component {
         </div>
       </div>
     );
+  }
+
+  onclickCountry = (d)=>{
+    var dataset = this.state.dataset;
+    var countryFiltered;
+    if(!d){
+      countryFiltered = dataset.filter((elt)=>{
+        return elt.Country =="Morocco";
+      })
+    }else{
+      countryFiltered = dataset.filter((elt)=>{
+        return elt.Country == d.properties.name;
+      })
+    }
+    console.log(countryFiltered[0]);
+    this.setState({
+      countryClicked : countryFiltered[0]
+    })
   }
 
   getPieData = data => {

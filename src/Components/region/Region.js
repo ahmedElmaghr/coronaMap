@@ -162,8 +162,8 @@ class Region extends Component {
     var geoMercator = d3
       .geoMercator()
       // .center([0, 25])
-      .scale(100)
-      .translate([800 / 2, 550 / 2]);
+      .scale(200)
+      .translate([800 / 2, 650 / 2]);
 
     var projection2 = d3
       .geoOrthographic()

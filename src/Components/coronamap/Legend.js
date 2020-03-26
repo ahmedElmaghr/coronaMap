@@ -6,18 +6,14 @@ export default class Legend extends Component {
   componentDidMount() {
     var svg = d3.select("#legend")
     // Handmade legend
-    svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "rgb(218, 218, 97)")
-    // svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "rgb(211, 167, 101)")
-    // svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "rgb(192, 143, 69)")
-    svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "rgb(206, 130, 80)")
-    svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "rgb(187, 111, 61)")
-    svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "rgb(150, 51, 51)")
-    svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "rgb(43, 2, 2)")
+    svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "#71c7ec")
+    svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "#65b3d4")
+    svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "#5a9fbc")
+    svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#4f8ba5")
+    svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "#386376")
     svg.append("circle").attr("cx",10).attr("cy",130).attr("r", 6).style("fill", "rgba(218, 223, 225, 1)")
 
     svg.append("text").attr("x", 30).attr("y", 30).text("< 100").style("font-size", "15px").attr("alignment-baseline","middle")
-    // svg.append("text").attr("x", 30).attr("y", 50).text("Between 100 - 200").style("font-size", "15px").attr("alignment-baseline","middle")
-    // svg.append("text").attr("x", 30).attr("y", 70).text("Between 200 - 500").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 50).text("100 - 1K").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 70).text("1K - 5K").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 30).attr("y", 90).text("5K - 30K").style("font-size", "15px").attr("alignment-baseline","middle")

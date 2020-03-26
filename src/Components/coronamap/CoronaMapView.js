@@ -51,7 +51,7 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `rgb(211, 167, 101)`)
+      .attr("fill", `#65b3d4`)
       .on("click", (d) => {
         this.props.clickOnCountry()
       })
@@ -131,19 +131,19 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (totalCases) => {
 
     if (0 < totalCases && totalCases <= 100) {
-      return 'rgb(218, 218, 97)'
+      return '#71c7ec'
     } else if (100 <= totalCases && totalCases < 200) {
-      return 'rgb(211, 167, 101)'
+      return '#65b3d4'
     } else if (200 <= totalCases && totalCases < 500) {
-      return 'rgb(192, 143, 69)'
+      return '#5a9fbc'
     } else if (500 <= totalCases && totalCases < 1000) {
-      return 'rgb(206, 130, 80)'
+      return '#4f8ba5'
     } else if (1000 <= totalCases && totalCases < 5000) {
-      return 'rgb(187, 111, 61)'
+      return '#43778d'
     } else if (5000 <= totalCases && totalCases < 30000) {
-      return 'rgb(150, 51, 51)'
+      return '#386376'
     } else if (15000 <= totalCases && totalCases < 100000) {
-      return 'rgb(43, 2, 2)'
+      return '#16272f'
     }
 
   }
@@ -171,8 +171,8 @@ export default class CoronaMapView extends PureComponent {
     var geoMercator = d3
       .geoMercator()
       // .center([0,25])
-      .scale(100)
-      .translate([800 / 2, 550 / 2]);
+      .scale(200)
+      .translate([800 / 2, 650 / 2]);
 
     var projection2 = d3
       .geoOrthographic()

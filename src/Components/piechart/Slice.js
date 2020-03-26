@@ -10,11 +10,14 @@ export default class Slice extends React.Component {
   }
 
   componentDidMount = () => {
+    // d3.selectAll("#piePath")
+    // .transition().duration(100);
     d3.select("#leftside")
       .append("div")
       .attr("id", "tooltip")
       .attr("class", "tooltip-donut")
       .style("opacity", 0);
+
   };
   render() {
     let { element, fill, innerRadius = 0, outerRadius } = this.props;
@@ -29,11 +32,13 @@ export default class Slice extends React.Component {
       .innerRadius(innerRadius)
       .outerRadius(outerRadius)
       .padAngle(0.02)
-      .padRadius(100)
-      .cornerRadius(4);
+      .padRadius(50)
+      .cornerRadius(2);
 
     return (
       <path
+        id="piePath"
+        style={{transitionDuration: 250+'ms'}}
         d={arc2(element)}
         fill={fill}
         className="slice"
