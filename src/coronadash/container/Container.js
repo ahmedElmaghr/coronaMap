@@ -171,6 +171,7 @@ class Container extends Component {
       panelZindex: -1
     });
     this.sendSvgToFrontPage();
+    this.props.initGlobalStat();
   };
 
   constructView = () => {

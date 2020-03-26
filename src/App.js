@@ -62,12 +62,18 @@ export default class App extends Component {
       return "";
     }
     return (
-      <div className="container-fluid" style={{ overflow: "auto",height:window.screen.height  }}>
+      <div
+        className="container-fluid"
+        style={{ overflow: "auto", height: window.screen.height }}
+      >
         <div id="header" className="row">
-          <div className="header">covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i></div>
+          <div className="header">
+            covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i>
+          </div>
         </div>
         <div className="row">
-          <div id="leftside"
+          <div
+            id="leftside"
             className="col-2"
             style={{
               paddingRight: 0 + "px",
@@ -75,7 +81,10 @@ export default class App extends Component {
             }}
           >
             <div className="row cards">
-              <Card covid19={this.state.dataset} countryClicked ={this.state.countryClicked}></Card>
+              <Card
+                covid19={this.state.dataset}
+                countryClicked={this.state.countryClicked}
+              ></Card>
             </div>
             <div
               className="row statistics"
@@ -90,16 +99,23 @@ export default class App extends Component {
                 opacity={1}
                 zIndex={1}
                 data={this.getGlobalStat(this.state.dataset)}
-                countryClicked ={this.state.countryClicked}
+                countryClicked={this.state.countryClicked}
                 // data={this.getPieData(this.getGlobalStat(this.state.dataset))}
                 x={85}
                 y={100}
               ></PieChart>
             </div>
           </div>
-          <div className="col-10" style={{ height: window.screen.height + "px" }}>
+          <div
+            className="col-10"
+            style={{ height: window.screen.height + "px" }}
+          >
             <div id="mapWW" className="col">
-              <Container covid19={this.state.dataset} onclick = {(d)=>this.onclickCountry(d)}></Container>
+              <Container
+                covid19={this.state.dataset}
+                onclick={d => this.onclickCountry(d)}
+                initGlobalStat={()=>{this.initGlobalStat()}}
+              ></Container>
             </div>
           </div>
         </div>
@@ -159,4 +175,11 @@ export default class App extends Component {
     }
     return totalStatistics;
   };
+
+  initGlobalStat = ()=>{
+    console.log("init global stat")
+    this.setState({
+      countryClicked : undefined
+    })
+  }
 }
