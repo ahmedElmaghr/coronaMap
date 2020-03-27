@@ -125,7 +125,7 @@ class Region extends Component {
       let r = (cases / 5000) * 45;
       rayon = r;
     }
-    return rayon < 1 && rayon > 0 ? 1 : rayon;
+    return rayon < 1 && rayon > 0 ? 2 : rayon;
   };
 
   getCx = d => {
@@ -162,7 +162,7 @@ class Region extends Component {
     var geoMercator = d3
       .geoMercator()
       // .center([0, 25])
-      .scale(200)
+      .scale(130)
       .translate([800 / 2, 650 / 2]);
 
     var projection2 = d3

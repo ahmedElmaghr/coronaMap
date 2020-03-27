@@ -18,7 +18,8 @@ class Container extends Component {
       countries: [],
       pieOpacity: 0,
       panelOpacity: 0,
-      checkToggleBTn: false
+      checkToggleBTn: false,
+      checkZoneDesease: false
     };
   }
 
@@ -46,10 +47,21 @@ class Container extends Component {
       circleLoaded
     } = this.state;
     const { covid19 } = this.props;
-    let region = "";
+    let zoneDeaths = "";
 
     if (this.state.checkToggleBTn) {
-      region = (
+      zoneDeaths = (
+        <Region
+          worldData={worldData}
+          countries={countries}
+          covid19={covid19}
+          clickOnCircle={d => {
+            this.clickOnCircle(d);
+          }}
+        />
+      );
+    }else if (this.state.checkToggleBTn) {
+      zoneDeaths = (
         <Region
           worldData={worldData}
           countries={countries}
@@ -75,10 +87,14 @@ class Container extends Component {
               this.clickOnCountry(d);
             }}
           />
-          {region}
+          {zoneDeaths}
           <ToggleBtn
             checked={this.state.checkToggleBTn}
             click={() => this.switchToggleBtn()}
+          />
+          <ToggleBtn
+            checked={this.state.checkZoneDesease}
+            click={() => this.switchZoneDesease()}
           />
           <Panel
             opacity={panelOpacity}
@@ -191,6 +207,15 @@ class Container extends Component {
   switchToggleBtn = () => {
     this.setState(currentState => ({
       checkToggleBTn: !currentState.checkToggleBTn,
+      mapopacity: 0.5
+    }));
+
+    // d3.selectAll("path").attr("fill","cyan")
+  };
+
+  switchZoneDesease = () => {
+    this.setState(currentState => ({
+      checkZoneDesease: !currentState.checkZoneDesease,
       mapopacity: 0.5
     }));
 

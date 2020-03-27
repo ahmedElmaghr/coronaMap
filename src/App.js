@@ -7,6 +7,8 @@ import Container from "./coronadash/container/Container";
 // import covid19 from "./coronadash/data/covid19.json";
 import data from "./scrapping/results_coronavirus.csv";
 import StringUtils from "./Utils/StringUtils";
+import Table from "./Components/table/TableComponent";
+import TableComponent from "./Components/table/TableComponent";
 
 export default class App extends Component {
   constructor() {
@@ -117,6 +119,7 @@ export default class App extends Component {
                 initGlobalStat={()=>{this.initGlobalStat()}}
               ></Container>
             </div>
+            <TableComponent></TableComponent>
           </div>
         </div>
         <div className="footer">
