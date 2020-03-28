@@ -1,32 +1,42 @@
 import * as d3 from "d3";
 import { Component } from "react";
 import DataHelper from "../../Utils/DataHelper.js";
-import  StringUtils from "../../Utils/StringUtils.js";
+import StringUtils from "../../Utils/StringUtils.js";
 import "./Region.css";
 class Region extends Component {
+
   componentWillUnmount() {
-    d3.selectAll("#markers").attr("visibility", "hidden");
+    d3.selectAll("#markersDeaths,#markersDesease").attr("visibility", "hidden");
   }
 
   render() {
-    const { countries, covid19 } = this.props;
-    this.drawCircles(countries, covid19);
+
+    const { countries, covid19, context } = this.props;
+    console.log("call render region",context)
+    this.drawCircles(countries, covid19, context);
     //add zoom
 
     return "";
   }
 
   //Create the world map
-  drawCircles = (countries, covid19) => {
-    let markers = d3.selectAll("#markers");
+  drawCircles = (countries, covid19, context) => {
+    let markers ;
+    if(context.checkZoneDesease){
+      markers = d3.selectAll("#markersDesease");
+      d3.selectAll("#markersDeaths").attr("visibility", "hidden");
+    }
+    if(context.checkToggleBTn){
+      markers = d3.selectAll("#markersDeaths");
+      d3.selectAll("#markersDesease").attr("visibility", "hidden");
+    }
     if (markers.empty()) {
       var gGlobal = d3.select("#gWrapper");
       //Draw Medias
-      this.drawZoneDesease(gGlobal, countries, covid19);
+      this.drawZoneByContext(gGlobal, countries, covid19, context);
       this.drawDimondPrincess(gGlobal, countries, covid19);
     } else {
       markers.attr("visibility", "visible");
-      // .attr("z-index",10)
     }
   };
 
@@ -41,78 +51,144 @@ class Region extends Component {
   };
 
   //Add Markers Function
-  drawZoneDesease = (node, countries, covid19) => {
+  drawZoneByContext = (node, countries, covid19, context) => {
+    console.log("drawZoneByContext")
     let data = DataHelper.constructData(countries, covid19);
-    var markers = node
-      .append("g")
-      .attr("id", "markers")
-      .attr("class", "markers");
-    let dataFiltered = this.filterCountriesByDesease(data);
-    markers
-      .selectAll("circle")
-      .data(dataFiltered)
-      .enter()
-      .append("circle")
-      .on("click", (d, i) => {
-        this.props.clickOnCircle(d);
-      })
-      .attr("key", d => `marker-${d.id}`)
-      .attr("cx", d => {
-        return this.getCx(d);
-      })
-      .attr("cy", d => {
-        return this.getCy(d);
-      })
-      .attr("r", d => {
-        return this.getRadius(d)*0.05+'rem';
-      })
-      .attr("class", "marker")
-      .append("title")
-      .text(d => {
-        return `country : ${d.data.name} cases : ${d.stat.TotalCases}`;
-      });
-
-    // markers.call(d3.zoom().on("zoom", () => {
-    //   this.props.closePanel();
-    //   this.zoomed(markers)
-    // }));
-
+    var markers;
+    let dataFiltered = this.filterCountriesByContext(data, context);
+    console.log("dataFiltered", context, dataFiltered);
+    if (dataFiltered) {
+      markers = node
+        .append("g")
+        .attr("id", this.getMarkerId(context))
+      markers
+        .selectAll("circle")
+        .data(dataFiltered)
+        .enter()
+        .append("circle")
+        .on("click", (d, i) => {
+          this.props.clickOnCircle(d);
+        })
+        .attr("key", d => `marker-${d.id}`)
+        .attr("cx", d => {
+          return this.getCx(d);
+        })
+        .attr("cy", d => {
+          return this.getCy(d);
+        })
+        .attr("r", d => {
+          return this.getRadius(d, context)  + "px";
+        })
+        .attr("class", this.getClassByContext(context))
+        .append("title")
+        .text(d => {
+          return `country : ${d.data.name} cases : ${d.stat.TotalCases}`;
+        });
+    }
     return markers;
   };
 
-  filterCountriesByDesease = data => {
-    let dataFiltered = data.filter(
-      d =>
-        d.stat != null &&
-        d.stat.TotalDeaths != 0 &&
-        d.stat.TotalDeaths != null &&
-        d.data.country != "DP"
-    );
-    var t = dataFiltered.sort((e1, e2) => {
-      console.log("sort",e1,e2)
-      var totalDeath1Int = parseInt(StringUtils.deleteSpecialChar(e1.stat.TotalDeaths),10)
-      var totalDeath2Int = parseInt(StringUtils.deleteSpecialChar(e2.stat.TotalDeaths),10)
-      return totalDeath2Int - totalDeath1Int;
-    });
-    return t;
+  getClassByContext = (context)=>{
+    if(context.checkToggleBTn){
+      return "marker-black"
+    }else if(context.checkZoneDesease){
+      return "marker-red"
+    }
+    
+  }
+
+  getMarkerId = (context)=>{
+    if(context.checkToggleBTn){
+      return "markersDeaths"
+    }else if(context.checkZoneDesease){
+      return "markersDesease"
+    }
+    
+  }
+
+  filterCountriesByContext = (data, context) => {
+    let dataFiltered;
+    let dataSorted;
+    if (context.checkToggleBTn) {
+      dataFiltered = data.filter(
+        d =>
+          d.stat != null &&
+          d.stat.TotalDeaths != 0 &&
+          d.stat.TotalDeaths != null &&
+          d.data.country != "DP"
+      );
+      dataSorted = dataFiltered.sort((e1, e2) => {
+        var totalDeath1Int = parseInt(
+          StringUtils.deleteSpecialChar(e1.stat.TotalDeaths),
+          10
+        );
+        var totalDeath2Int = parseInt(
+          StringUtils.deleteSpecialChar(e2.stat.TotalDeaths),
+          10
+        );
+        return totalDeath2Int - totalDeath1Int;
+      });
+    } else if (context.checkZoneDesease) {
+      dataFiltered = data.filter(
+        d =>
+          d.stat != null &&
+          d.stat.ActiveCases != 0 &&
+          d.stat.ActiveCases != null &&
+          d.data.country != "DP"
+      );
+      dataSorted = dataFiltered.sort((e1, e2) => {
+        var activeCase1Int = parseInt(
+          StringUtils.deleteSpecialChar(e1.stat.ActiveCases),
+          10
+        );
+        var activeCase2Int = parseInt(
+          StringUtils.deleteSpecialChar(e2.stat.ActiveCases),
+          10
+        );
+        return activeCase2Int - activeCase1Int;
+      });
+    }
+
+    return dataSorted;
   };
 
-  getRadius = d => {
+  getRadius = (d, context) => {
+
+    let cases;
+    if (context.checkToggleBTn) {
+      cases = StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
+      return this.getRadiusDeath(cases)
+    } else if (context.checkZoneDesease) {
+      cases = StringUtils.deleteSpecialChar(d.stat.ActiveCases);
+      console.log(d.stat.Country,cases)
+      return this.getRadiusCases(cases)
+    }
+  };
+  getRadiusCases = (cases)=>{
     let rayon = 0;
-    let cases =StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
-    if (0 < cases && cases <= 10) {
-      let r = (cases / 10) * 2;
+    if (0 <= cases && cases < 1000) {
+      let r = (cases / 1000) * 5;
       rayon = r;
-    } else if (10 <= cases && cases < 100) {
-      let r = (cases / 100) * 4;
+    } else if (1000 <= cases && cases < 5000) {
+      let r = (cases / 5000) * 10;
       rayon = r;
-    } else if (100 <= cases && cases < 200) {
-      let r = (cases / 200) * 5;
+    } else if (5000 <= cases && cases < 10000) {
+      let r = (cases / 10000) * 20;
       rayon = r;
-    } else if (200 <= cases && cases < 500) {
-      let r = (cases / 500) * 7;
+    } else if (10000 <= cases && cases < 60000) {
+      let r = (cases / 50000) * 50;
       rayon = r;
-    } else if (500 <= cases && cases < 1000) {
+    }else if (60000 <= cases && cases < 100000) {
+      let r = (cases / 100000) * 60;
+      rayon = r;
+    }
+    
+    return rayon < 1 && rayon > 0 ? 2 : rayon;
+  }
+  
+  getRadiusDeath = (cases)=>{
+    let rayon = 0;
+    if (0 <= cases && cases < 1000) {
       let r = (cases / 1000) * 10;
       rayon = r;
     } else if (1000 <= cases && cases < 2000) {
@@ -121,13 +197,13 @@ class Region extends Component {
     } else if (2000 <= cases && cases < 5000) {
       let r = (cases / 5000) * 40;
       rayon = r;
-    }else if (5000 <= cases && cases < 15000) {
+    } else if (5000 <= cases && cases < 15000) {
       let r = (cases / 5000) * 45;
       rayon = r;
     }
+    
     return rayon < 1 && rayon > 0 ? 2 : rayon;
-  };
-
+  }
   getCx = d => {
     if (StringUtils.isNotEmpty(d)) {
       var x = d.coordinate.latitude;

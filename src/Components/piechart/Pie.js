@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import React from "react";
-import Slice from "./Slice";
 import StringUtils from "./../../Utils/StringUtils";
+import Slice from "./Slice";
 export default class Pie extends React.Component {
   constructor(props) {
     super(props);
@@ -16,11 +16,15 @@ export default class Pie extends React.Component {
     let pie = d3.pie().value(d => {
       return d.value;
     });
+    var leftside = document.getElementById('leftside');
+
+    
+
     return (
-      <g transform={`translate(50, 50)`} className="piechart">
+      //leftside
+      <g transform={`translate(0, 0)`} className="piechart">
         {/* Render a slice for each data point */}
         {pie(sliceDatas).map((d, i) => {
-          console.log("d,i", d, i);
           return this.renderSlice(d, i);
         })}
       </g>

@@ -4,25 +4,42 @@ import "./ToggleBtn.css";
 
 export default class ToggleBtn extends React.Component {
 
-  render() {
+  constructor(){
+    super();
+  }
 
-    const { checked } = this.props;
+  render() {
+    const { checked,context,type } = this.props;
     return (
-      <div class="custom-control custom-switch markdeath" >
+      <div
+        class="custom-control custom-switch markdeath"
+        style={this.styling(this.props.up)}
+      >
         <input
           type="checkbox"
           class="custom-control-input"
-          id="customSwitch1"
+          id={this.props.id}
           checked={checked}
           onClick={() => {
-            this.props.click()
+              this.props.click();
           }}
         />
-        <label class="custom-control-label" style ={{color:'white',fontWeight:'bold',fontFamily:'courier'}}for="customSwitch1">Mark deaths</label>
+        <label
+          class="custom-control-label"
+          style={{ color: "white", fontWeight: "bold", fontFamily: "courier" }}
+          for={this.props.id}
+        >
+          {this.props.name}
+        </label>
       </div>
-      // <div>
-      //   <button className="button">button</button>
-      // </div>
-    )
+    );
+  }
+
+  styling = (bool)=>{
+    var styleZoneCase;
+    if(bool){
+      styleZoneCase ={marginBottom:'40px',backgroundColor:"brown",border : "solid brown"};
+    }
+    return styleZoneCase;
   }
 }

@@ -21,7 +21,6 @@ export default class Slice extends React.Component {
   };
   render() {
     let { element, fill, innerRadius = 0, outerRadius } = this.props;
-    console.log("Slice this element",element)
     // https://github.com/d3/d3/wiki/SVG-Shapes#arc
     let arc = d3
       .arc()

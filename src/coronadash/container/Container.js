@@ -18,8 +18,11 @@ class Container extends Component {
       countries: [],
       pieOpacity: 0,
       panelOpacity: 0,
-      checkToggleBTn: false,
-      checkZoneDesease: false
+
+      context: {
+        checkToggleBTn: false,
+        checkZoneDesease: false
+      }
     };
   }
 
@@ -44,25 +47,16 @@ class Container extends Component {
       jsonData,
       countries,
       panelOpacity,
-      circleLoaded
+      context
     } = this.state;
     const { covid19 } = this.props;
     let zoneDeaths = "";
 
-    if (this.state.checkToggleBTn) {
+    if (context && (context.checkToggleBTn || context.checkZoneDesease)) {
+      console.log("Region checkToggleBTn")
       zoneDeaths = (
         <Region
-          worldData={worldData}
-          countries={countries}
-          covid19={covid19}
-          clickOnCircle={d => {
-            this.clickOnCircle(d);
-          }}
-        />
-      );
-    }else if (this.state.checkToggleBTn) {
-      zoneDeaths = (
-        <Region
+          context = {context}
           worldData={worldData}
           countries={countries}
           covid19={covid19}
@@ -72,6 +66,20 @@ class Container extends Component {
         />
       );
     }
+    // else if (context.checkZoneDesease) {
+    //   console.log("Region checkZoneDesease")
+    //   zoneDeaths = (
+    //     <Region
+    //       context = {context}
+    //       worldData={worldData}
+    //       countries={countries}
+    //       covid19={covid19}
+    //       clickOnCircle={d => {
+    //         this.clickOnCircle(d);
+    //       }}
+    //     />
+    //   );
+    // }
     if (jsonData.length != 0 && covid19) {
       return (
         <div>
@@ -89,11 +97,18 @@ class Container extends Component {
           />
           {zoneDeaths}
           <ToggleBtn
-            checked={this.state.checkToggleBTn}
+            name="Zone Deaths"
+            id="deaths"
+            context={this.state.context}
+            checked={this.state.context.checkToggleBTn}
             click={() => this.switchToggleBtn()}
           />
           <ToggleBtn
-            checked={this.state.checkZoneDesease}
+            up ={true}
+            id="desease"
+            name="Active cases"
+            context={this.state.context}
+            checked={this.state.context.checkZoneDesease}
             click={() => this.switchZoneDesease()}
           />
           <Panel
@@ -106,15 +121,6 @@ class Container extends Component {
             x={this.state.x}
             y={this.state.y}
           />
-
-          {/* <PieChart
-            opacity={this.state.pieOpacity}
-            zIndex = {this.state.pieZindex}
-            data={this.getData(this.state.stat)}
-            stat={this.state.stat}
-            x={50}
-            y={50}
-          ></PieChart> */}
         </div>
       );
     } else {
@@ -205,8 +211,14 @@ class Container extends Component {
   };
 
   switchToggleBtn = () => {
+    console.log("call switchToggleBtn")
+
     this.setState(currentState => ({
-      checkToggleBTn: !currentState.checkToggleBTn,
+      // checkToggleBTn: !currentState.checkToggleBTn,
+      context :{
+        checkToggleBTn: !currentState.context.checkToggleBTn,
+        checkZoneDesease: false
+      },
       mapopacity: 0.5
     }));
 
@@ -214,8 +226,15 @@ class Container extends Component {
   };
 
   switchZoneDesease = () => {
+    console.log("call switchZoneDesease")
+    var context = this.state.context;
+    // if(context.checkToggleBTn)
     this.setState(currentState => ({
-      checkZoneDesease: !currentState.checkZoneDesease,
+      // checkZoneDesease: !currentState.checkZoneDesease,
+      context :{
+        checkToggleBTn: false,
+        checkZoneDesease: !currentState.context.checkZoneDesease
+      },
       mapopacity: 0.5
     }));
 

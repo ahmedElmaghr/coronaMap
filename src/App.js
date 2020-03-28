@@ -7,8 +7,6 @@ import Container from "./coronadash/container/Container";
 // import covid19 from "./coronadash/data/covid19.json";
 import data from "./scrapping/results_coronavirus.csv";
 import StringUtils from "./Utils/StringUtils";
-import Table from "./Components/table/TableComponent";
-import TableComponent from "./Components/table/TableComponent";
 
 export default class App extends Component {
   constructor() {
@@ -66,7 +64,7 @@ export default class App extends Component {
     return (
       <div
         className="container-fluid"
-        style={{ overflow: "auto", height: window.screen.height }}
+        style={{ overflow: "auto", height: '1500px' }}
       >
         <div id="header" className="row">
           <div className="header">
@@ -91,7 +89,6 @@ export default class App extends Component {
             <div
               className="row statistics"
               style={{
-                resize: "horizontal",
                 overflow: "hidden",
                 width: "auto",
                 height: "auto"
@@ -119,7 +116,7 @@ export default class App extends Component {
                 initGlobalStat={()=>{this.initGlobalStat()}}
               ></Container>
             </div>
-            <TableComponent></TableComponent>
+            {/* <TableComponent></TableComponent> */}
           </div>
         </div>
         <div className="footer">
