@@ -216,6 +216,10 @@ class Region extends Component {
 
   getCy = d => {
     if (StringUtils.isNotEmpty(d)) {
+      if(d.stat.Country == "Morocco"){
+        console.log("Morocco",d)
+      }
+      
       var x = d.coordinate.latitude;
       var y = d.coordinate.longitude;
       var coordinate = [x, y];

@@ -4,7 +4,6 @@ import "./App.css";
 import Card from "./Components/card/Card";
 import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-// import covid19 from "./coronadash/data/covid19.json";
 import data from "./scrapping/results_coronavirus.csv";
 import StringUtils from "./Utils/StringUtils";
 
@@ -41,23 +40,6 @@ export default class App extends Component {
       });
   };
   render() {
-    var currentdate = new Date();
-    var lastupdate =
-      "Last update: " +
-      currentdate.getDate() +
-      "/" +
-      (currentdate.getMonth() + 1) +
-      "/" +
-      currentdate.getFullYear() +
-      ", " +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes() +
-      ":" +
-      currentdate.getSeconds() +
-      " CET";
-
-    // Last update : 22 March 2020, 12:32 CET
     if (!this.state.isLoaded) {
       return "";
     }
@@ -105,8 +87,7 @@ export default class App extends Component {
               ></PieChart>
             </div>
           </div>
-          <div
-            className="col-10"
+          <div className="col-10"
             style={{ height: window.screen.height + "px" }}
           >
             <div id="mapWW" className="col">

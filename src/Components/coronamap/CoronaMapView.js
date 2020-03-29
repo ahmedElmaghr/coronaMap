@@ -51,7 +51,7 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `#65b3d4`)
+      .attr("fill", `#5a9fbc`)
       .on("click", (d) => {
         this.props.clickOnCountry()
       })
