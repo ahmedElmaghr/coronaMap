@@ -158,7 +158,6 @@ export default class App extends Component {
   };
 
   initGlobalStat = ()=>{
-    console.log("init global stat")
     this.setState({
       countryClicked : undefined
     })

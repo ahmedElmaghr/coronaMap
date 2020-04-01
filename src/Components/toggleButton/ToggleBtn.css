@@ -7,11 +7,11 @@
     z-index: 1;
     
 }
-.markdeath{
+.markdeath,.markDesease{
     z-index: 1;
     position: absolute;
     opacity: 0.9;
-    bottom: 0px;
+    top: 0px;
     right: 2%;
     border: solid #16272f;
     border-radius: 1rem;
@@ -21,4 +21,7 @@
     margin: 4px;
     box-shadow: 0 -5px 6px 0 rgba(0, 0, 0, 0.5), 0 17px 46px 0 rgba(0, 0, 0, 0.19);
     width: 11rem;
+}
+.markDesease{
+    top: 10%; 
 }

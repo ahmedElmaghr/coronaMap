@@ -38,7 +38,7 @@ export default class ToggleBtn extends React.Component {
   styling = (bool)=>{
     var styleZoneCase;
     if(bool){
-      styleZoneCase ={marginBottom:'40px',backgroundColor:"brown",border : "solid brown"};
+      styleZoneCase ={marginTop:'40px',backgroundColor:"brown",border : "solid brown"};
     }
     return styleZoneCase;
   }

@@ -19,6 +19,7 @@
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-butterfiles": "^1.3.3",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.11.0",
     "react-file-reader": "^1.1.4",
     "react-scripts": "^3.3.0",

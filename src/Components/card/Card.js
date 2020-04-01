@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import "./Card.css";
+import uihelper from "../../Utils/UIHelper";
 
 export default class Card extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const covid19 = this.props.covid19;
     const countryClicked = this.props.countryClicked;
@@ -35,22 +32,32 @@ export default class Card extends Component {
     return (
       <div style={{ marginLeft: 10 + "px" }}>
         <div className="card">
-          <div className="black-title"> <i class="fa fa-globe" aria-hidden="true"></i> Total Confirmed</div>
-          <div className="black-content">{totalConfirmed}</div>
+          <div className="red-title"> <i class="fa fa-globe" aria-hidden="true"></i> Total Confirmed</div>
+    <div className="red-content">{uihelper.buildCountUpByStringValue(totalConfirmed)}</div>
         </div>
         <div className="card">
           <div className="blue-title"><i class="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
-          <div className="blue-content">{activeCases}</div>
+          <div className="blue-content">{uihelper.buildCountUpByStringValue(activeCases)}</div>
         </div>
         <div className="card">
           <div className="green-title"><i class="fa fa-heart" aria-hidden="true"></i> Recovered</div>
-          <div className="green-content">{recovered}</div>
+          <div className="green-content">{uihelper.buildCountUpByStringValue(recovered)}</div>
         </div>
         <div className="card">
-          <div className="red-title"><i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths</div>
-          <div className="red-content">{totalDeaths ==""?0 : totalDeaths}</div>
+          <div className="black-title"><i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths</div>
+          <div className="black-content">{uihelper.buildCountUpByStringValue(totalDeaths)}</div>
         </div>
       </div>
     );
   }
+  
+  // buildCountUpByStringValue = (valueStr)=>{
+  //   return (
+  //     <CountUp
+  //       separator=","
+  //       end={StringUtils.stringVirSepToNumber(valueStr)}
+  //     ></CountUp>
+  //   );
+  // }
+
 }

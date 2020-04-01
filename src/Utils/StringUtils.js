@@ -12,4 +12,9 @@
     }
     return string.replace(`,`, '');
   }
-export default { isNotEmpty,deleteSpecialChar};
+
+  const stringVirSepToNumber = (string)=>{
+    var stringWithoutSpecChar = deleteSpecialChar(string);
+    return parseInt(stringWithoutSpecChar,10);
+  }
+export default { isNotEmpty,deleteSpecialChar,stringVirSepToNumber};

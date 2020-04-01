@@ -4,12 +4,13 @@ import { merge } from "topojson-client";
 import StringUtils from "../../Utils/StringUtils";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
+import UIHelper from "../../Utils/UIHelper";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
 
-  width = "100%";
-  height = "100%";
+  width = "800px";
+  height = "400px";
   viewBox = `0 0 800 400`;
   borderColor = "blue";
   constructor(props) {
@@ -147,7 +148,15 @@ export default class CoronaMapView extends PureComponent {
 
   //Add zoom
   addZoom = svg => {
-    svg.call(d3.zoom().on("zoom", () => {
+    const map = d3.select(".svg");
+    const width = map.node().getBoundingClientRect().width;
+    const height = width / 2;
+
+    svg.call(d3.zoom()
+    .scaleExtent([1, 40])
+    .translateExtent([[0,0], [width, height]])
+    .extent([[0, 0], [width, height]])
+    .on("zoom", () => {
       this.props.closePanel();
       this.zoomed(svg)
     }));
@@ -155,11 +164,34 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-
+    // console.log(transform.k)
+    // if(.5<transform.k && transform.k<2){
     svg.selectAll("path,circle").attr("transform", transform);
-
+    var markerRed = d3.selectAll(".marker-red");
+    var markersBlack = d3.selectAll(".marker-black");
+    let contextDesease = { checkToggleBTn: false , checkZoneDesease:true}
+    markerRed.attr("r", (d)=>{
+      let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
+      return scaledRadius<2 ? 2 : scaledRadius;
+    } )
+    let contextDeaths = { checkToggleBTn: true , checkZoneDesease:false}
+    markersBlack.attr("r", (d)=>{
+      let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
+      return scaledRadius<2 ? 2 : scaledRadius;
+    } )
+  // }
   };
 
+  /**
+   * d: element data
+   * context : the contxt
+   * k : scale projection [0,1]
+   */
+  scaleRadius = (d,context,k)=>{
+    let calculatedRadius = UIHelper.calculateRadius(d, context);
+    let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
+    return scaledRadius + "px";
+  }
 
   //Projection and path calculator
   projection = () =>{

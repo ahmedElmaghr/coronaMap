@@ -2,22 +2,23 @@ import * as d3 from "d3";
 import { Component } from "react";
 import DataHelper from "../../Utils/DataHelper.js";
 import StringUtils from "../../Utils/StringUtils.js";
+import uihelper from '../../Utils/UIHelper';
 import "./Region.css";
 class Region extends Component {
 
   componentWillUnmount() {
-    d3.selectAll("#markersDeaths,#markersDesease").attr("visibility", "hidden");
+    d3.selectAll("#markersDeaths,#markersDesease").remove();
+    //.attr("visibility", "hidden").style("opacity",0);
   }
 
   render() {
 
     const { countries, covid19, context } = this.props;
-    console.log("call render region",context)
     this.drawCircles(countries, covid19, context);
     //add zoom
-
     return "";
   }
+
 
   //Create the world map
   drawCircles = (countries, covid19, context) => {
@@ -35,9 +36,10 @@ class Region extends Component {
       //Draw Medias
       this.drawZoneByContext(gGlobal, countries, covid19, context);
       this.drawDimondPrincess(gGlobal, countries, covid19);
-    } else {
-      markers.attr("visibility", "visible");
-    }
+    } 
+    // else {
+    //   markers.attr("visibility", "visible").style("opacity",1);
+    // }
   };
 
   drawDimondPrincess = (node, countries, covid19) => {
@@ -77,7 +79,7 @@ class Region extends Component {
           return this.getCy(d);
         })
         .attr("r", d => {
-          return this.getRadius(d, context)  + "px";
+          return uihelper.calculateRadius(d, context)  + "px";
         })
         .attr("class", this.getClassByContext(context))
         .append("title")
@@ -257,6 +259,7 @@ class Region extends Component {
       .precision(0.3);
     return geoMercator;
   }
+  
 }
 
 export default Region;

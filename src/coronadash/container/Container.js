@@ -53,7 +53,6 @@ class Container extends Component {
     let zoneDeaths = "";
 
     if (context && (context.checkToggleBTn || context.checkZoneDesease)) {
-      console.log("Region checkToggleBTn")
       zoneDeaths = (
         <Region
           context = {context}
@@ -66,20 +65,6 @@ class Container extends Component {
         />
       );
     }
-    // else if (context.checkZoneDesease) {
-    //   console.log("Region checkZoneDesease")
-    //   zoneDeaths = (
-    //     <Region
-    //       context = {context}
-    //       worldData={worldData}
-    //       countries={countries}
-    //       covid19={covid19}
-    //       clickOnCircle={d => {
-    //         this.clickOnCircle(d);
-    //       }}
-    //     />
-    //   );
-    // }
     if (jsonData.length != 0 && covid19) {
       return (
         <div>
