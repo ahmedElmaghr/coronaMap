@@ -79,6 +79,7 @@ class Region extends Component {
           return this.getCy(d);
         })
         .attr("r", d => {
+          console.log("ddd",d)
           return uihelper.calculateRadius(d, context)  + "px";
         })
         .attr("class", this.getClassByContext(context))
@@ -242,10 +243,10 @@ class Region extends Component {
   //Projection and path calculator
   projection() {
     var geoMercator = d3
-      .geoMercator()
-      // .center([0, 25])
-      .scale(130)
-      .translate([800 / 2, 650 / 2]);
+    .geoMercator()
+    .center([0,-60])
+    .scale(80)
+    .translate([800 / 2, 650 / 2]);
 
     var projection2 = d3
       .geoOrthographic()

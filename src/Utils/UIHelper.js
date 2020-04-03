@@ -49,17 +49,19 @@ const getRadiusCases = (cases)=>{
 const getRadiusDeath = (cases)=>{
   let rayon = 0;
   if (0 <= cases && cases < 1000) {
-    let r = (cases / 1000) * 10;
+    let r = (cases / 1000) * 5;
     rayon = r;
   } else if (1000 <= cases && cases < 2000) {
-    let r = (cases / 2000) * 30;
+    let r = (cases / 2000) * 20;
     rayon = r;
   } else if (2000 <= cases && cases < 5000) {
-    let r = (cases / 5000) * 40;
+    let r = (cases / 5000) * 22;
     rayon = r;
   } else if (5000 <= cases && cases < 15000) {
-    let r = (cases / 5000) * 45;
+    let r = (cases / 5000) * 25;
     rayon = r;
+  }else{
+    rayon = 30;
   }
   
   return rayon < 1 && rayon > 0 ? 2 : rayon;

@@ -9,8 +9,8 @@ import UIHelper from "../../Utils/UIHelper";
 export default class CoronaMapView extends PureComponent {
   //Constantes
 
-  width = "800px";
-  height = "400px";
+  width = "100%";
+  height = "100%";
   viewBox = `0 0 800 400`;
   borderColor = "blue";
   constructor(props) {
@@ -150,10 +150,10 @@ export default class CoronaMapView extends PureComponent {
   addZoom = svg => {
     const map = d3.select(".svg");
     const width = map.node().getBoundingClientRect().width;
-    const height = width / 2;
+    const height = width / 3;
 
     svg.call(d3.zoom()
-    .scaleExtent([1, 40])
+    .scaleExtent([1, 50])
     .translateExtent([[0,0], [width, height]])
     .extent([[0, 0], [width, height]])
     .on("zoom", () => {
@@ -172,12 +172,12 @@ export default class CoronaMapView extends PureComponent {
     let contextDesease = { checkToggleBTn: false , checkZoneDesease:true}
     markerRed.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
-      return scaledRadius<2 ? 2 : scaledRadius;
+      return scaledRadius<5 ? 5 : scaledRadius;
     } )
     let contextDeaths = { checkToggleBTn: true , checkZoneDesease:false}
     markersBlack.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
-      return scaledRadius<2 ? 2 : scaledRadius;
+      return scaledRadius<5 ? 5 : scaledRadius;
     } )
   // }
   };
@@ -190,6 +190,7 @@ export default class CoronaMapView extends PureComponent {
   scaleRadius = (d,context,k)=>{
     let calculatedRadius = UIHelper.calculateRadius(d, context);
     let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
+    console.log("k",k,"calculatedRadius",calculatedRadius,"scaledRadius",scaledRadius)
     return scaledRadius + "px";
   }
 
@@ -197,8 +198,8 @@ export default class CoronaMapView extends PureComponent {
   projection = () =>{
     var geoMercator = d3
       .geoMercator()
-      // .center([0,25])
-      .scale(130)
+      .center([0,-60])
+      .scale(80)
       .translate([800 / 2, 650 / 2]);
 
     var projection2 = d3

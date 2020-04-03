@@ -1,7 +1,7 @@
 .marker-red{
     fill: rgba(216, 8, 8, 0.5);
     stroke: whitesmoke;
-    stroke-width: 0.5 ;
+    stroke-width: 0.2 ;
     cursor: pointer;
   
   }
