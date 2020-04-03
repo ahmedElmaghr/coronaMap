@@ -40,7 +40,7 @@ df = pd.DataFrame(l, columns=["Country", "TotalCases", "NewCases", "TotalDeaths"
 
 
 df = df.iloc[1:]
-# df
+df
 
 
 # In[7]:

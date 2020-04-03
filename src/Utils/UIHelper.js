@@ -7,7 +7,7 @@ import CountUp from 'react-countup';
 const buildCountUpByStringValue = (valueStr)=>{
     return (
       <CountUp
-        // separator=" "
+        separator=","
         end={StringUtils.stringVirSepToNumber(valueStr)}
       ></CountUp>
     );
