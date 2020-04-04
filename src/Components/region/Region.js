@@ -80,7 +80,7 @@ class Region extends Component {
         })
         .attr("r", d => {
           console.log("ddd",d)
-          return uihelper.calculateRadius(d, context)  + "px";
+          return uihelper.calculateRadius(d, context)/2  + "px";
         })
         .attr("class", this.getClassByContext(context))
         .append("title")

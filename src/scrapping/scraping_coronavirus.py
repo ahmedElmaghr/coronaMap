@@ -34,7 +34,7 @@ for tr in countries:
     td = tr.find_all('td')
     row = [tr.text for tr in td]
     l.append(row)
-df = pd.DataFrame(l, columns=["Country", "TotalCases", "NewCases", "TotalDeaths","NewDeaths","TotalRecovered","ActiveCases","Serious,Critical","Cases/1M pop","Death1m"])
+df = pd.DataFrame(l, columns=["Country", "TotalCases", "NewCases", "TotalDeaths","NewDeaths","TotalRecovered","ActiveCases","Serious,Critical","Cases/1M pop","Death1m","TotalTest","Test1MPeople"])
 
 # In[6]:
 

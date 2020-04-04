@@ -30,13 +30,13 @@
     border-radius: 6px;
     overflow-x: hidden;
     overflow-y: hidden;
-    background: rgba(255,255,255,.9);
+    background: rgba(255,255,255,1);
     box-shadow: 0 30px 90px -20px rgba(0,0,0,.3);
     padding: 0;
     pointer-events: auto;
 }
 .maphub-popup-inner.maphub-popup-text {
-    margin: 15px 0;
+    /* margin: 15px 0; */
 }
 .maphub-popup-inner {
     position: relative;
@@ -47,9 +47,10 @@
     touch-action: auto;
 }
 .nicetext-title{
-    font-weight : 700;
+    font-weight : 900;
     font-size: 15px;
-    color: rgb(60, 60, 124);
+    color:black;
+    background-color: whitesmoke;
 }
 .nicetext {
     font-size: 10px;

@@ -188,7 +188,7 @@ export default class CoronaMapView extends PureComponent {
    * k : scale projection [0,1]
    */
   scaleRadius = (d,context,k)=>{
-    let calculatedRadius = UIHelper.calculateRadius(d, context);
+    let calculatedRadius = UIHelper.calculateRadius(d, context)/2;
     let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
     console.log("k",k,"calculatedRadius",calculatedRadius,"scaledRadius",scaledRadius)
     return scaledRadius + "px";
