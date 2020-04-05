@@ -3,3 +3,4 @@ package-lock.json
 .vscode
 build
 src/scrapping/results_coronavirus.csv
+src/scrapping/results_coronavirus.csv

@@ -19,7 +19,7 @@ export default class App extends Component {
     d3.csv(data)
       .then(data => {
         this.setState({
-          dataset: data,
+          dataset: data.filter((d)=>{ return d.Country !="Western Sahara"}),
           isLoaded: true
         });
       })
