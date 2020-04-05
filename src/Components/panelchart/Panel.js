@@ -50,20 +50,24 @@ export default class Panel extends React.Component {
                   <p
                     style={{
                       color: "green",
-                      borderTop: "solid 1px",
+                      // borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
+                      // borderRadius: 6 + "px",
+                      fontSize: 12+'px',
+                      fontWeight: 'bold'
                     }}
                   >
-                    Recovered cases :{" "}
+                    Recovered :{" "}
                     {stat && stat.TotalRecovered ? stat.TotalRecovered : "0"}{" "}
                   </p>
                   <p
                     style={{
-                      color: "red",
-                      borderTop: "solid 1px",
+                      color: "darkred",
+                      // borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
+                      // borderRadius: 6 + "px"
+                      fontSize: 12+'px',
+                      fontWeight: 'bold'
                     }}
                   >
                     New cases:{" "}
@@ -73,9 +77,11 @@ export default class Panel extends React.Component {
                   <p
                     style={{
                       color: "black",
-                      borderTop: "solid 1px",
+                      // borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
+                      // borderRadius: 6 + "px"
+                      fontSize: 12+'px',
+                      fontWeight: 'bold'
                     }}
                   >
                     New deaths :{" "}
@@ -84,9 +90,11 @@ export default class Panel extends React.Component {
                   <p
                     style={{
                       color: "black",
-                      borderTop: "solid 1px",
+                      // borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
+                      // borderRadius: 6 + "px"
+                      fontSize: 12+'px',
+                      fontWeight: 'bold'
                     }}
                   >
                     Total deaths : {(stat && StringUtils.isNotEmpty(stat.TotalDeaths)) ? stat.TotalDeaths : "0"}
@@ -94,9 +102,11 @@ export default class Panel extends React.Component {
                   <p
                     style={{
                       color: "blue",
-                      borderTop: "solid 1px",
+                      // borderTop: "solid 1px",
                       margin: "2px 2px 2px 2px",
-                      borderRadius: 6 + "px"
+                      // borderRadius: 6 + "px"
+                      fontSize: 12+'px',
+                      fontWeight: 'bold'
                     }}
                   >
                     Total cases :{" "}
