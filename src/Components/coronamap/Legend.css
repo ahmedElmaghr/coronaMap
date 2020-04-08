@@ -1,7 +1,27 @@
 .legend {
   position: absolute;
+  height: 30%;
+  width: 15%;
+  /* z-index: 1; */
+  font-size: 15px;
   /* background-color: rgb(214, 233, 243);
   margin-left: 10px;
   border-radius: 2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+@media( max-width :680px){
+  .legend{
+      font-size: 12px;
+  }
+}
+@media( max-width :580px){
+  .legend{
+    font-size: 9px;
+  }
+}
+@media( max-width :350px){
+  .legend{
+    font-size: 5px;
+  }
 }

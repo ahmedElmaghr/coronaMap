@@ -43,33 +43,31 @@ export default class App extends Component {
     if (!this.state.isLoaded) {
       return "";
     }
+    // let footerDim = d3.selectAll("#header").node().getBoundingClientRect();
+
     return (
-      <div
-        className="container-fluid"
-        style={{ overflow: "auto", height: '1500px' }}
+      <div className="container-fluid" 
+              style={{overflow: "auto", height: window.screen.height*0.9 + "px" }}
       >
         <div id="header" className="row">
-          <div className="header">
+          <div className="header sticky">
             covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i>
           </div>
         </div>
-        <div className="row">
-          <div
-            id="leftside"
-            className="col-2"
-            style={{
-              paddingRight: 0 + "px",
-              height: window.screen.height + "px"
-            }}
-          >
-            <div className="row cards">
-              <Card
-                covid19={this.state.dataset}
-                countryClicked={this.state.countryClicked}
-              ></Card>
-            </div>
-            <div
-              className="row statistics"
+        <div
+          id="leftside"
+          className="row"
+          style={{
+            paddingRight: 0 + "px",
+          }}
+        >
+          <div className="col cards sticky" style={{top:6+'%'}}>
+            <Card
+              covid19={this.state.dataset}
+              countryClicked={this.state.countryClicked}
+            ></Card>
+          </div>
+          {/* <div className="col statistics"
               style={{
                 overflow: "hidden",
                 width: "auto",
@@ -85,21 +83,22 @@ export default class App extends Component {
                 x={85}
                 y={100}
               ></PieChart>
-            </div>
-          </div>
-          <div className="col-10"
-            style={{ height: window.screen.height + "px" }}
-          >
-            <div id="mapWW" className="col">
-              <Container
-                covid19={this.state.dataset}
-                onclick={d => this.onclickCountry(d)}
-                initGlobalStat={()=>{this.initGlobalStat()}}
-              ></Container>
-            </div>
-            {/* <TableComponent></TableComponent> */}
+            </div> */}
+        </div>
+        <div className="row" 
+        // style={{ height: window.screen.height + "px" }}
+        >
+          <div id="mapWW" className="col sticky" style={{top:120+'px'}}>
+            <Container
+              covid19={this.state.dataset}
+              onclick={(d) => this.onclickCountry(d)}
+              initGlobalStat={() => {
+                this.initGlobalStat();
+              }}
+            ></Container>
           </div>
         </div>
+
         <div className="footer">
           {/* {lastupdate}
           <br></br> */}
@@ -129,7 +128,6 @@ export default class App extends Component {
         return elt.Country == d.properties.name;
       })
     }
-    console.log(countryFiltered[0]);
     this.setState({
       countryClicked : countryFiltered[0]
     })

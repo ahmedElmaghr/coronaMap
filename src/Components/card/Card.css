@@ -8,31 +8,43 @@
     /* border: solid 2px rgba(49, 48, 47,.5); */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
+    font-size: 15px;
+    font-weight: bold;
+}
+@media( max-width :680px){
+    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+@media( max-width :580px){
+    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
+        font-size: 9px;
+        font-weight: bold;
+    }
+}
+@media( max-width :350px){
+    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
+        font-size: 5px;
+        font-weight: bold;
+    }
+}
 .black-title, .red-title, .orange-title, .green-title, .blue-title, .orange-title{
    border-bottom: solid 1px rgba(0, 0, 0,.5);
 }
 .black-title,.black-content{
-    font-size: 15px;
-    font-weight: bold;
     color: rgb(0, 0, 0);
 }
 .red-title,.red-content{
-    font-size: 20px;
-    font-weight: bold;
     color: rgb(197, 23, 23);
 }
 .blue-title,.blue-content{
-    font-size: 15px;
-    font-weight: bold;
     color: rgb(35, 51, 194);
 }
 .green-title,.green-content{
-    font-weight: bold;
-    font-size: 15px;
     color: rgb(44, 100, 6);
 }
 .orange-title,.orange-content{
-    font-size: 15px;
-    font-weight: bold;
     color: rgb(201, 93, 22);
 }

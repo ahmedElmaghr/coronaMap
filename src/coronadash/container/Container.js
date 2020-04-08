@@ -20,8 +20,8 @@ class Container extends Component {
       panelOpacity: 0,
 
       context: {
-        checkToggleBTn: false,
-        checkZoneDesease: false
+        checkZoneDeaths: false,
+        checkZoneDesease: true
       }
     };
   }
@@ -51,8 +51,8 @@ class Container extends Component {
     } = this.state;
     const { covid19 } = this.props;
     let zoneDeaths = "";
-
-    if (context && (context.checkToggleBTn || context.checkZoneDesease)) {
+    console.log("render",context,worldData)
+    if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
       zoneDeaths = (
         <Region
           context = {context}
@@ -85,7 +85,7 @@ class Container extends Component {
             name="Zone Deaths"
             id="deaths"
             context={this.state.context}
-            checked={this.state.context.checkToggleBTn}
+            checked={this.state.context.checkZoneDeaths}
             click={() => this.switchToggleBtn()}
           />
           <ToggleBtn
@@ -145,10 +145,11 @@ class Container extends Component {
 
   getPositionPanel = ()=>{
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
-    let leftsideDim = d3.selectAll("#leftside").node().getBoundingClientRect();
+    let cardsDim  = d3.selectAll(".cards").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    let x = d3.event.pageX - leftsideDim.width - (panelStatDim.width / 2) - 15
-    let y = d3.event.pageY - panelStatDim.height -headerDim.height;
+    let x = d3.event.pageX - (panelStatDim.width / 2) - 15
+    let y = d3.event.pageY -cardsDim.height-panelStatDim.height -headerDim.height;
+    
     return {x,y}
   }
   clickOnCircle = d => {
@@ -196,12 +197,11 @@ class Container extends Component {
   };
 
   switchToggleBtn = () => {
-    console.log("call switchToggleBtn")
 
     this.setState(currentState => ({
-      // checkToggleBTn: !currentState.checkToggleBTn,
+      // checkZoneDeaths: !currentState.checkZoneDeaths,
       context :{
-        checkToggleBTn: !currentState.context.checkToggleBTn,
+        checkZoneDeaths: !currentState.context.checkZoneDeaths,
         checkZoneDesease: false
       },
       mapopacity: 0.5
@@ -211,13 +211,11 @@ class Container extends Component {
   };
 
   switchZoneDesease = () => {
-    console.log("call switchZoneDesease")
-    var context = this.state.context;
-    // if(context.checkToggleBTn)
+    // if(context.checkZoneDeaths)
     this.setState(currentState => ({
       // checkZoneDesease: !currentState.checkZoneDesease,
       context :{
-        checkToggleBTn: false,
+        checkZoneDeaths: false,
         checkZoneDesease: !currentState.context.checkZoneDesease
       },
       mapopacity: 0.5

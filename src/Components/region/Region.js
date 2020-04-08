@@ -27,10 +27,11 @@ class Region extends Component {
       markers = d3.selectAll("#markersDesease");
       d3.selectAll("#markersDeaths").attr("visibility", "hidden");
     }
-    if(context.checkToggleBTn){
+    if(context.checkZoneDeaths){
       markers = d3.selectAll("#markersDeaths");
       d3.selectAll("#markersDesease").attr("visibility", "hidden");
     }
+    console.log(markers)
     if (markers.empty()) {
       var gGlobal = d3.select("#gWrapper");
       //Draw Medias
@@ -54,12 +55,11 @@ class Region extends Component {
 
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {
-    console.log("drawZoneByContext")
     let data = DataHelper.constructData(countries, covid19);
     var markers;
     let dataFiltered = this.filterCountriesByContext(data, context);
-    console.log("dataFiltered", context, dataFiltered);
-    if (dataFiltered) {
+    console.log("dataFiltered",dataFiltered)
+    if (dataFiltered && dataFiltered.length !=0) {
       markers = node
         .append("g")
         .attr("id", this.getMarkerId(context))
@@ -79,20 +79,24 @@ class Region extends Component {
           return this.getCy(d);
         })
         .attr("r", d => {
-          console.log("ddd",d)
-          return uihelper.calculateRadius(d, context)/2  + "px";
+          return uihelper.calculateRadius(d, context)/3  + "px";
         })
         .attr("class", this.getClassByContext(context))
         .append("title")
         .text(d => {
-          return `country : ${d.data.name} cases : ${d.stat.TotalCases}`;
+          if(context.checkZoneDeaths){
+            return `${d.data.name} : ${d.stat.NewDeaths ? d.stat.NewDeaths : 0}` + " new deaths";
+          }else if(context.checkZoneDesease){
+            return `${d.data.name} : ${d.stat.NewCases ? d.stat.NewDeaths : 0}` + " new cases";
+          }
+          
         });
     }
     return markers;
   };
 
   getClassByContext = (context)=>{
-    if(context.checkToggleBTn){
+    if(context.checkZoneDeaths){
       return "marker-black"
     }else if(context.checkZoneDesease){
       return "marker-red"
@@ -101,7 +105,7 @@ class Region extends Component {
   }
 
   getMarkerId = (context)=>{
-    if(context.checkToggleBTn){
+    if(context.checkZoneDeaths){
       return "markersDeaths"
     }else if(context.checkZoneDesease){
       return "markersDesease"
@@ -112,7 +116,7 @@ class Region extends Component {
   filterCountriesByContext = (data, context) => {
     let dataFiltered;
     let dataSorted;
-    if (context.checkToggleBTn) {
+    if (context.checkZoneDeaths) {
       dataFiltered = data.filter(
         d =>
           d.stat != null &&
@@ -158,12 +162,11 @@ class Region extends Component {
   getRadius = (d, context) => {
 
     let cases;
-    if (context.checkToggleBTn) {
+    if (context.checkZoneDeaths) {
       cases = StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
       return this.getRadiusDeath(cases)
     } else if (context.checkZoneDesease) {
       cases = StringUtils.deleteSpecialChar(d.stat.ActiveCases);
-      console.log(d.stat.Country,cases)
       return this.getRadiusCases(cases)
     }
   };
@@ -219,10 +222,6 @@ class Region extends Component {
 
   getCy = d => {
     if (StringUtils.isNotEmpty(d)) {
-      if(d.stat.Country == "Morocco"){
-        console.log("Morocco",d)
-      }
-      
       var x = d.coordinate.latitude;
       var y = d.coordinate.longitude;
       var coordinate = [x, y];

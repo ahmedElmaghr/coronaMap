@@ -8,6 +8,7 @@ const buildCountUpByStringValue = (valueStr)=>{
     return (
       <CountUp
         separator=","
+        duration="1"
         end={StringUtils.stringVirSepToNumber(valueStr)}
       ></CountUp>
     );
@@ -15,7 +16,7 @@ const buildCountUpByStringValue = (valueStr)=>{
 
 const   calculateRadius = (d, context) => {
   let cases;
-  if (context.checkToggleBTn) {
+  if (context.checkZoneDeaths) {
     cases = StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
     return getRadiusDeath(cases)
   } else if (context.checkZoneDesease) {

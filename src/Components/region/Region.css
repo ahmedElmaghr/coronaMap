@@ -1,19 +1,19 @@
 .marker-red{
-    fill: rgba(216, 8, 8, 0.5);
-    stroke: whitesmoke;
-    stroke-width: 0.2 ;
+    fill: rgba(105, 15, 15, 0.7);
+    stroke: white;
+    stroke-width: .2 ;
     cursor: pointer;
   
   }
   .marker-red:hover { 
-    stroke: rgb(255, 255, 255);
+    /* stroke: rgb(255, 255, 255); */
     fill: rgba(31, 1, 1, 0.5);
   }
   
   .marker-black{
     fill: rgba(26, 23, 23, 0.7);
     stroke: rgb(185, 144, 144);
-    stroke-width: 0.5 ;
+    stroke-width: 0.2 ;
     cursor: pointer;
   
   }  

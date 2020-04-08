@@ -11,7 +11,9 @@ export default class Card extends Component {
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
-      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
+      totalStatistics = data.filter((elt) => {
+        return elt.Country == "Total:";
+      })[0];
     }
     let totalConfirmed;
     let activeCases;
@@ -30,27 +32,44 @@ export default class Card extends Component {
     }
     //
     return (
-      <div style={{ marginLeft: 10 + "px" }}>
-        <div className="card">
-          <div className="red-title"> <i class="fa fa-globe" aria-hidden="true"></i> Total Confirmed</div>
-    <div className="red-content">{uihelper.buildCountUpByStringValue(totalConfirmed)}</div>
+      <div className="row" style={{ marginLeft: 10 + "px" ,marginRight: 10 + "px" }}>
+        <div className="col card">
+          <div className="red-title">
+            {" "}
+            <i class="fa fa-globe" aria-hidden="true"></i> Total cases
+          </div>
+          <div className="red-content">
+            {uihelper.buildCountUpByStringValue(totalConfirmed)}
+          </div>
         </div>
-        <div className="card">
-          <div className="blue-title"><i class="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
-          <div className="blue-content">{uihelper.buildCountUpByStringValue(activeCases)}</div>
+        <div className="col card">
+          <div className="blue-title">
+            <i class="fa fa-ambulance" aria-hidden="true"></i> Active cases
+          </div>
+          <div className="blue-content">
+            {uihelper.buildCountUpByStringValue(activeCases)}
+          </div>
         </div>
-        <div className="card">
-          <div className="green-title"><i class="fa fa-heart" aria-hidden="true"></i> Recovered</div>
-          <div className="green-content">{uihelper.buildCountUpByStringValue(recovered)}</div>
+        <div className="col card">
+          <div className="green-title">
+            <i class="fa fa-heart" aria-hidden="true"></i> Recovered
+          </div>
+          <div className="green-content">
+            {uihelper.buildCountUpByStringValue(recovered)}
+          </div>
         </div>
-        <div className="card">
-          <div className="black-title"><i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths</div>
-          <div className="black-content">{uihelper.buildCountUpByStringValue(totalDeaths)}</div>
+        <div className="col card">
+          <div className="black-title">
+            <i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths
+          </div>
+          <div className="black-content">
+            {uihelper.buildCountUpByStringValue(totalDeaths)}
+          </div>
         </div>
       </div>
     );
   }
-  
+
   // buildCountUpByStringValue = (valueStr)=>{
   //   return (
   //     <CountUp
@@ -59,5 +78,4 @@ export default class Card extends Component {
   //     ></CountUp>
   //   );
   // }
-
 }

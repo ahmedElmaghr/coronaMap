@@ -9,7 +9,7 @@ export default class ToggleBtn extends React.Component {
   }
 
   render() {
-    const { checked,context,type } = this.props;
+    const { checked} = this.props;
     return (
       <div
         class="custom-control custom-switch markdeath"

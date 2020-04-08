@@ -22,6 +22,18 @@
     box-shadow: 0 -5px 6px 0 rgba(0, 0, 0, 0.5), 0 17px 46px 0 rgba(0, 0, 0, 0.19);
     width: 11rem;
 }
+@media(max-width : 1000px){
+.markdeath,.markDesease{
+    font-size: 10px;
+    width: 8rem;
+}
+}
+@media(max-width : 620px){
+    .markdeath,.markDesease{
+        font-size: 7px;
+        width: 6rem;
+    }
+    }
 .markDesease{
     top: 10%; 
 }

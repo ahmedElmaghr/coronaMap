@@ -9,7 +9,8 @@ import UIHelper from "../../Utils/UIHelper";
 export default class CoronaMapView extends PureComponent {
   //Constantes
 
-  width = "100%";
+  // width = window.screen.width*.9;
+  width="100%"
   height = "100%";
   viewBox = `0 0 800 400`;
   borderColor = "blue";
@@ -20,6 +21,7 @@ export default class CoronaMapView extends PureComponent {
   
 
   componentWillMount() {
+    console.log("componentWillMount")
     if (this.props.jsonData.length != 0) {
       //Draw svg Wrapper
       var svg = this.drawSvgWrapper();
@@ -52,10 +54,14 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `#43778d`)
+      .attr("fill", `#F3BABA`)
       .on("click", (d) => {
         this.props.clickOnCountry()
       })
+      .append("title")
+        .text(d => {
+          return "Morocco" ;
+        })
   };
 
   render() {
@@ -100,9 +106,11 @@ export default class CoronaMapView extends PureComponent {
         .on("click", (d) => {
           this.props.clickOnCountry(d);
         })
-      // .on("mouseout",()=>{
-      //   this.props.closePanel();
-      // })
+        .append("title")
+        .text(d => {
+          console.log(d);
+          return d.properties.name ;
+        })
       return g;
 
   };
@@ -119,7 +127,7 @@ export default class CoronaMapView extends PureComponent {
       return this.getCountryColor(totalCases);
 
     } else {
-      return `rgba(218, 223, 225, 1)`
+      return `#C1AEAE`
     }
   }
 
@@ -127,19 +135,28 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (totalCases) => {
 
     if (0 < totalCases && totalCases <= 100) {
-      return '#71c7ec'
+      return '#F9DCDC'
     } else if (100 <= totalCases && totalCases < 200) {
-      return '#65b3d4'
+      return '#F6CBCB'
     } else if (200 <= totalCases && totalCases < 500) {
-      return '#5a9fbc'
+      return '#EF6C6C'
     } else if (500 <= totalCases && totalCases < 1000) {
-      return '#4f8ba5'
-    } else if (1000 <= totalCases && totalCases < 5000) {
-      return '#43778d'
-    } else if (5000 <= totalCases && totalCases < 30000) {
-      return '#386376'
-    } else if (15000 <= totalCases && totalCases < 100000) {
-      return '#16272f'
+      return '#F6CBCB'
+    } else if (1000 <= totalCases && totalCases < 2000) {
+      return '#F3BABA'
+    } else if (2000 <= totalCases && totalCases < 3000) {
+      return '#F0A8A8'
+    } else if (3000 <= totalCases && totalCases < 5000) {
+      return '#ED9797'
+    }else if(5000 <= totalCases && totalCases< 7000 ) {
+      return '#EA8686'
+    }else if(7000 <= totalCases && totalCases< 50000 ) {
+      return '#BF2222'
+    }
+    else if((50000) <= totalCases && totalCases< 100000 ) {
+      return '#8B1818'
+    }else if(totalCases>100000){
+      return '#230606'
     }
 
   }
@@ -164,20 +181,18 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-    // console.log(transform.k)
-    // if(.5<transform.k && transform.k<2){
     svg.selectAll("path,circle").attr("transform", transform);
     var markerRed = d3.selectAll(".marker-red");
     var markersBlack = d3.selectAll(".marker-black");
-    let contextDesease = { checkToggleBTn: false , checkZoneDesease:true}
+    let contextDesease = { checkZoneDeaths: false , checkZoneDesease:true}
     markerRed.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
-      return scaledRadius<5 ? 5 : scaledRadius;
+      return (scaledRadius<1 && scaledRadius>0) ? 5 : scaledRadius;
     } )
-    let contextDeaths = { checkToggleBTn: true , checkZoneDesease:false}
+    let contextDeaths = { checkZoneDeaths: true , checkZoneDesease:false}
     markersBlack.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
-      return scaledRadius<5 ? 5 : scaledRadius;
+      return (scaledRadius<1 && scaledRadius>0) ? 5 : scaledRadius;
     } )
   // }
   };
@@ -190,7 +205,6 @@ export default class CoronaMapView extends PureComponent {
   scaleRadius = (d,context,k)=>{
     let calculatedRadius = UIHelper.calculateRadius(d, context)/2;
     let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
-    console.log("k",k,"calculatedRadius",calculatedRadius,"scaledRadius",scaledRadius)
     return scaledRadius + "px";
   }
 
