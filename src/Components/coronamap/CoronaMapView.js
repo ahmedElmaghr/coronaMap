@@ -9,16 +9,13 @@ import UIHelper from "../../Utils/UIHelper";
 export default class CoronaMapView extends PureComponent {
   //Constantes
 
-  // width = window.screen.width*.9;
-  width="100%"
-  height = "100%";
+  // width="100%"
+  // height = "100%";
   viewBox = `0 0 800 400`;
   borderColor = "blue";
   constructor(props) {
     super(props);
   }
-
-  
 
   componentWillMount() {
     console.log("componentWillMount")
@@ -81,7 +78,6 @@ export default class CoronaMapView extends PureComponent {
       .attr("class", "svg")
       .attr("id", "content")
       .attr("width", this.width)
-      // .attr("height", window.screen.height +'px')
       .attr("viewBox", this.viewBox)
       ;
     return svg;
@@ -202,7 +198,7 @@ export default class CoronaMapView extends PureComponent {
    * k : scale projection [0,1]
    */
   scaleRadius = (d,context,k)=>{
-    let calculatedRadius = UIHelper.calculateRadius(d, context)/2;
+    let calculatedRadius = UIHelper.calculateRadius(d, context)/4;
     let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
     return scaledRadius + "px";
   }

@@ -11,12 +11,12 @@ export default class PieChart extends PureComponent {
   }
   render() {
     // For a real world project, use something like
-    let width = window.screen.width * 0.15;
-    let height = window.screen.height * 0.25;
-    let minViewportSize = Math.min(width, height);
-    // This sets the radius of the pie chart to fit within
-    // the current window size, with some additional padding
-    let radius = (minViewportSize)/3 ;
+    let screenWidth = window.screen.width ;
+    let screenHeight = window.screen.height ;
+    // let minViewportSize = Math.min(width, height);
+    // // This sets the radius of the pie chart to fit within
+    // // the current window size, with some additional padding
+    let radius = window.screen.width * 0.05;
     // Centers the pie chart
     //
     var data = this.props.data;
@@ -26,15 +26,17 @@ export default class PieChart extends PureComponent {
         <svg
           id="pieStat"
           className="piechart"
-          viewBox={`-`+ width/2 +` -`+height/2 +` `+ width + " " + height}
+          // viewBox={`-`+ width/2 +` -`+height/2 +` `+ width + " " + height}
+          viewBox = {`-80 -80 160 160`}
           style={{
             preserveAspectRatio: "xMidYMid meet",
-            width: "100%",
-            height:"100%"
+            width: 160,
+            height:160,
+            top:screenHeight*0.16
           }}
         >
           <Pie
-            radius={radius}
+            radius={radius>50 ? radius : 50}
             data={countryClicked ? countryClicked : data}
             onMouseMove={(event, value, i) => this.onMouseMove(event, value, i)}
           />

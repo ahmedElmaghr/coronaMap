@@ -43,7 +43,6 @@ export default class App extends Component {
     if (!this.state.isLoaded) {
       return "";
     }
-    // let footerDim = d3.selectAll("#header").node().getBoundingClientRect();
 
     return (
       <div className="container-fluid" 
@@ -96,6 +95,17 @@ export default class App extends Component {
                 this.initGlobalStat();
               }}
             ></Container>
+          </div>
+          <div >
+          <PieChart
+                opacity={1}
+                zIndex={1}
+                data={this.getGlobalStat(this.state.dataset)}
+                countryClicked={this.state.countryClicked}
+                // data={this.getPieData(this.getGlobalStat(this.state.dataset))}
+                x={85}
+                y={100}
+              ></PieChart>
           </div>
         </div>
 
