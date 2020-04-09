@@ -49,7 +49,7 @@ export default class App extends Component {
               style={{overflow: "auto", height: window.screen.height*0.9 + "px" }}
       >
         <div id="header" className="row">
-          <div className="header sticky">
+          <div className="header sticky" style={{height:5+'%'}}>
             covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default class App extends Component {
             paddingRight: 0 + "px",
           }}
         >
-          <div className="col cards sticky" style={{top:6+'%'}}>
+          <div className="col cards sticky" style={{top:6+'%',height:16+'%'}}>
             <Card
               covid19={this.state.dataset}
               countryClicked={this.state.countryClicked}
@@ -87,7 +87,7 @@ export default class App extends Component {
         <div className="row" 
         // style={{ height: window.screen.height + "px" }}
         >
-          <div id="mapWW" className="col sticky" style={{top:120+'px'}}>
+          <div id="mapWW" className="col sticky" style={{top:15+'%'}}>
             <Container
               covid19={this.state.dataset}
               onclick={(d) => this.onclickCountry(d)}
