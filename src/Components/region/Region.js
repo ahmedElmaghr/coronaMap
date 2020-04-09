@@ -7,14 +7,19 @@ import "./Region.css";
 class Region extends Component {
 
   componentWillUnmount() {
-    d3.selectAll("#markersDeaths,#markersDesease").remove();
-    //.attr("visibility", "hidden").style("opacity",0);
+    // d3.selectAll("#markersDeaths,#markersDesease").attr("visibility", "hidden").style("z-index",0);
   }
 
   render() {
 
     const { countries, covid19, context } = this.props;
-    this.drawCircles(countries, covid19, context);
+    if(context.checkZoneDesease || context.checkZoneDeaths){
+      console.log("one of the button is checked")
+      this.drawCircles(countries, covid19, context);
+    }else{
+      console.log("none of the burron are checked")
+      d3.selectAll("#markersDeaths,#markersDesease").attr("visibility", "hidden").style("z-index",0);
+    }
     //add zoom
     return "";
   }
@@ -32,16 +37,21 @@ class Region extends Component {
       d3.selectAll("#markersDesease").attr("visibility", "hidden");
     }
     console.log(markers)
-    if (markers.empty()) {
+    if (!markers || markers.empty()) {
       var gGlobal = d3.select("#gWrapper");
       //Draw Medias
       this.drawZoneByContext(gGlobal, countries, covid19, context);
       this.drawDimondPrincess(gGlobal, countries, covid19);
     } 
-    // else {
-    //   markers.attr("visibility", "visible").style("opacity",1);
-    // }
+    else {
+      if(context.checkZoneDesease){
+        d3.selectAll("#markersDesease").attr("visibility", "visible").style("z-index",1);
+      }else{
+        d3.selectAll("#markersDeaths").attr("visibility", "visible").style("z-index",1);
+      }
+    }
   };
+
 
   drawDimondPrincess = (node, countries, covid19) => {
     let dimondPrincess = countries.filter(e => {
@@ -79,7 +89,7 @@ class Region extends Component {
           return this.getCy(d);
         })
         .attr("r", d => {
-          return uihelper.calculateRadius(d, context)/3  + "px";
+          return uihelper.calculateRadius(d, context)/4  + "px";
         })
         .attr("class", this.getClassByContext(context))
         .append("title")

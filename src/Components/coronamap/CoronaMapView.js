@@ -108,7 +108,6 @@ export default class CoronaMapView extends PureComponent {
         })
         .append("title")
         .text(d => {
-          console.log(d);
           return d.properties.name ;
         })
       return g;
@@ -135,28 +134,28 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (totalCases) => {
 
     if (0 < totalCases && totalCases <= 100) {
-      return '#F9DCDC'
+      return '#FCEEEE'
     } else if (100 <= totalCases && totalCases < 200) {
-      return '#F6CBCB'
+      return '#F8DDDD'
     } else if (200 <= totalCases && totalCases < 500) {
-      return '#EF6C6C'
+      return '#F5CCCC'
     } else if (500 <= totalCases && totalCases < 1000) {
-      return '#F6CBCB'
+      return '#EB9999'
     } else if (1000 <= totalCases && totalCases < 2000) {
-      return '#F3BABA'
+      return '#EB9999'
     } else if (2000 <= totalCases && totalCases < 3000) {
-      return '#F0A8A8'
+      return '#E47777'
     } else if (3000 <= totalCases && totalCases < 5000) {
-      return '#ED9797'
-    }else if(5000 <= totalCases && totalCases< 7000 ) {
-      return '#EA8686'
-    }else if(7000 <= totalCases && totalCases< 50000 ) {
-      return '#BF2222'
+      return '#E16666'
+    }else if(5000 <= totalCases && totalCases< 10000 ) {
+      return '#DA4444'
+    }else if(10000 <= totalCases && totalCases< 50000 ) {
+      return '#AA2222'
     }
     else if((50000) <= totalCases && totalCases< 100000 ) {
-      return '#8B1818'
+      return '#881B1B'
     }else if(totalCases>100000){
-      return '#230606'
+      return '#330A0A'
     }
 
   }

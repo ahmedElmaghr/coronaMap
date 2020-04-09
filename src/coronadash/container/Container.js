@@ -52,7 +52,7 @@ class Container extends Component {
     const { covid19 } = this.props;
     let zoneDeaths = "";
     console.log("render",context,worldData)
-    if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
+    // if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
       zoneDeaths = (
         <Region
           context = {context}
@@ -64,7 +64,7 @@ class Container extends Component {
           }}
         />
       );
-    }
+    // }
     if (jsonData.length != 0 && covid19) {
       return (
         <div>
@@ -147,8 +147,8 @@ class Container extends Component {
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
     let cardsDim  = d3.selectAll(".cards").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    let x = d3.event.pageX - (panelStatDim.width / 2) - 15
-    let y = d3.event.pageY -cardsDim.height-panelStatDim.height -headerDim.height;
+    let x = d3.event.pageX - (panelStatDim.width / 2) 
+    let y = d3.event.pageY -cardsDim.height-panelStatDim.height -headerDim.height - 5;
     
     return {x,y}
   }

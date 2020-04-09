@@ -53,19 +53,19 @@ const getRadiusDeath = (cases)=>{
     let r = (cases / 1000) * 5;
     rayon = r;
   } else if (1000 <= cases && cases < 2000) {
-    let r = (cases / 2000) * 20;
+    let r = (cases / 2000) * 15;
     rayon = r;
   } else if (2000 <= cases && cases < 5000) {
-    let r = (cases / 5000) * 22;
+    let r = (cases / 5000) * 20;
     rayon = r;
-  } else if (5000 <= cases && cases < 15000) {
+  } else if (5000 <= cases && cases < 20000) {
     let r = (cases / 5000) * 25;
     rayon = r;
   }else{
     rayon = 30;
   }
   
-  return rayon < 1 && rayon > 0 ? 2 : rayon;
+  return rayon < 1 && rayon > 0 ? 4 : rayon;
 }
 
 export default{buildCountUpByStringValue,calculateRadius}
