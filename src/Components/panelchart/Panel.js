@@ -104,27 +104,27 @@ export default class Panel extends React.Component {
                       <tbody>
                         <tr className="totalRecovered">
                           <td>recovered</td>
-                          <td className="center">{totalRecovered}</td>
                           <td>
                             {this.calculatePerCent(totalRecovered, totalCases) +
                               "%"}
                           </td>
+                          <td className="center">{totalRecovered}</td>
                         </tr>
                         <tr className="totalDeaths">
                           <td>{"deaths (" + newDeaths + ")"}</td>
-                          <td className="center">{totalDeaths}</td>
                           <td>
                             {this.calculatePerCent(totalDeaths, totalCases) +
                               "%"}
                           </td>
+                          <td className="center">{totalDeaths}</td>
                         </tr>
                         <tr className="activeCases">
                           <td>{"active cases (" + newCases + ")"}</td>
-                          <td className="center">{activeCases}</td>
                           <td>
                             {this.calculatePerCent(activeCases, totalCases) +
                               "%"}
                           </td>
+                          <td className="center">{activeCases}</td>
                         </tr>
                         <tr className="totalCases ">
                           <td>Total cases</td>
