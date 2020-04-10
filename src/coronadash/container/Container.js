@@ -140,7 +140,7 @@ class Container extends Component {
       y: position.y 
     });
     this.sendSvgToBackground();
-    this.props.onclick(d)
+    // this.props.onclick(d)
   };
 
   getPositionPanel = ()=>{

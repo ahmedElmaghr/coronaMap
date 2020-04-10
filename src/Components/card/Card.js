@@ -35,7 +35,6 @@ export default class Card extends Component {
       totalDeaths = totalStatistics.TotalDeaths;
       newDeaths =totalStatistics.NewDeaths;
       newCases = totalStatistics.NewCases;
-
     }
     //
     return (

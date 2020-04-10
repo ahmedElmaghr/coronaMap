@@ -95,9 +95,9 @@ class Region extends Component {
         .append("title")
         .text(d => {
           if(context.checkZoneDeaths){
-            return `${d.data.name} : ${d.stat.NewDeaths ? d.stat.NewDeaths : 0}` + " new deaths";
+            return `${d.data.name} : ${d.stat.TotalDeaths ? d.stat.TotalDeaths : 0}` + " deaths";
           }else if(context.checkZoneDesease){
-            return `${d.data.name} : ${d.stat.NewCases ? d.stat.NewDeaths : 0}` + " new cases";
+            return `${d.data.name} : ${d.stat.TotalCases ? d.stat.TotalCases : 0}` + "  cases";
           }
           
         });

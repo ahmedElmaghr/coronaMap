@@ -67,7 +67,7 @@
     right: 8px;
     z-index : 10;
 }
-.newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.headToday{
+.newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.totalTest,.activeCases,.headToday{
     margin: 2px;
     font-size: 10px;
     /* font-weight: bold; */
@@ -75,22 +75,30 @@
 }
 .newDeaths{
     color: black;
+    /* font-weight: bold;  */
+
 }
-.newCases{
+.newCases,.activeCases{
     color: darkred;
+    /* font-weight: bold;  */
+
 }
 .totalRecovered{
-    font-weight: bold; 
+    /* font-weight: bold;  */
     color: green;
 }
 .totalCases{
     font-weight: bold; 
-    color:blue;
+    color:darkred;
 }
 .totalDeaths{
     color: black;
-    font-weight: bold; 
+    /* font-weight: bold;  */
 
+}
+.totalTest{
+    color: black;
+    font-weight: bold; 
 }
 .rowHead{
     font-size: 12px;

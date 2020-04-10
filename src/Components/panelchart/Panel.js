@@ -26,6 +26,27 @@ export default class Panel extends React.Component {
 
   render() {
     let { stat, opacity, zIndex, x, y } = this.props;
+    // let totalCases = stat.TotalCases;
+    let totalCases = stat && stat.TotalCases;
+    let totalRecovered;
+    let totalDeaths;
+    let activeCases;
+    let newCases;
+    let newDeaths;
+    if (stat) {
+      totalRecovered = StringUtils.isNotEmpty(stat.TotalRecovered)
+        ? stat.TotalRecovered
+        : "0";
+      totalDeaths = StringUtils.isNotEmpty(stat.TotalDeaths)
+        ? stat.TotalDeaths
+        : "0";
+      activeCases = StringUtils.isNotEmpty(stat.ActiveCases)
+        ? stat.ActiveCases
+        : "0";
+      newCases = StringUtils.isNotEmpty(stat.NewCases) ? stat.NewCases : "0";
+      newDeaths = StringUtils.isNotEmpty(stat.NewDeaths) ? stat.NewDeaths : "0";
+    }
+
     return (
       <div ref={(node) => (this.node = node)}>
         <div
@@ -50,14 +71,14 @@ export default class Panel extends React.Component {
                 <div>
                   <div>
                     <table class="table table-bordered  ">
-                      <thead>
+                      {/* <thead>
                         <tr className="table-primary" >
-                          <th colSpan="2" className ="rowHead" >Today's update</th>
+                          <th colSpan="3" className ="rowHead" >Today's update</th>
                         </tr>
                       </thead>{" "}
                       <tbody className="tbody">
                         <tr className="newCases">
-                          <td>New cases</td>
+                          <td colSpan="2">today new cases</td>
                           <td className="center">
                             {stat && StringUtils.isNotEmpty(stat.NewCases)
                               ? stat.NewCases
@@ -65,44 +86,62 @@ export default class Panel extends React.Component {
                           </td>
                         </tr>
                         <tr className="newDeaths">
-                          <td>New deaths</td>
+                          <td colSpan="2">today new deaths</td>
                           <td className="center">
                             {stat && StringUtils.isNotEmpty(stat.NewDeaths)
                               ? stat.NewDeaths
                               : "0"}
                           </td>
                         </tr>
-                      </tbody>
+                      </tbody> */}
                       <thead>
-                        <tr className="table-info" >
-                          <th colSpan="2" className="rowHead">Total update</th>
+                        <tr className="table-info">
+                          <th colSpan="3" className="rowHead">
+                            Today statistics
+                          </th>
                         </tr>
                       </thead>{" "}
                       <tbody>
-                      <tr className="totalRecovered">
-                          <td>Total recovered</td>
-                          <td className="center">
-                            {stat && StringUtils.isNotEmpty(stat.TotalRecovered)
-                              ? stat.TotalRecovered
-                              : "0"}
+                        <tr className="totalRecovered">
+                          <td>recovered</td>
+                          <td className="center">{totalRecovered}</td>
+                          <td>
+                            {this.calculatePerCent(totalRecovered, totalCases) +
+                              "%"}
                           </td>
                         </tr>
                         <tr className="totalDeaths">
-                          <td>Total deaths</td>
-                          <td className="center">
-                            {stat && StringUtils.isNotEmpty(stat.TotalDeaths)
-                              ? stat.TotalDeaths
-                              : "0"}
+                          <td>{"deaths (" + newDeaths + ")"}</td>
+                          <td className="center">{totalDeaths}</td>
+                          <td>
+                            {this.calculatePerCent(totalDeaths, totalCases) +
+                              "%"}
                           </td>
                         </tr>
-                        <tr className="totalCases">
+                        <tr className="activeCases">
+                          <td>{"active cases (" + newCases + ")"}</td>
+                          <td className="center">{activeCases}</td>
+                          <td>
+                            {this.calculatePerCent(activeCases, totalCases) +
+                              "%"}
+                          </td>
+                        </tr>
+                        <tr className="totalCases ">
                           <td>Total cases</td>
-                          <td className="center">
+                          <td colSpan="2" className="center">
                             {stat && StringUtils.isNotEmpty(stat.TotalCases)
                               ? stat.TotalCases
                               : "0"}
                           </td>
-                        </tr>  
+                        </tr>
+                        <tr className="totalTest">
+                          <td>Total tests</td>
+                          <td colSpan="2" className="center">
+                            {stat && StringUtils.isNotEmpty(stat.TotalTest)
+                              ? stat.TotalTest
+                              : "undefined"}
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -141,6 +180,14 @@ export default class Panel extends React.Component {
     );
   }
 
+  calculatePerCent = (partialValue, totalValue) => {
+    if (!partialValue || !totalValue) {
+      return "undefined";
+    }
+    var partialValueAsInt = StringUtils.stringVirSepToNumber(partialValue);
+    var totalValueAsInt = StringUtils.stringVirSepToNumber(totalValue);
+    return ((100 * partialValueAsInt) / totalValueAsInt).toFixed(1);
+  };
   getData = (data) => {
     if (data) {
       return [data.TotalCases, data.TotalDeaths, data.TotalRecovered];
