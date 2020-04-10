@@ -19,16 +19,23 @@ export default class Card extends Component {
     let activeCases;
     let recovered;
     let totalDeaths;
+    let newDeaths;
+    let newCases;
     if (countryClicked) {
       totalConfirmed = countryClicked.TotalCases;
       activeCases = countryClicked.ActiveCases;
       recovered = countryClicked.TotalRecovered;
       totalDeaths = countryClicked.TotalDeaths;
+      newDeaths =countryClicked.NewDeaths;
+      newCases = countryClicked.NewCases;
     } else {
       totalConfirmed = totalStatistics.TotalCases;
       activeCases = totalStatistics.ActiveCases;
       recovered = totalStatistics.TotalRecovered;
       totalDeaths = totalStatistics.TotalDeaths;
+      newDeaths =totalStatistics.NewDeaths;
+      newCases = totalStatistics.NewCases;
+
     }
     //
     return (
@@ -47,7 +54,7 @@ export default class Card extends Component {
             <i class="fa fa-ambulance" aria-hidden="true"></i> Active cases
           </div>
           <div className="blue-content">
-            {uihelper.buildCountUpByStringValue(activeCases)}
+            {uihelper.buildCountUpByStringValue(activeCases)}{" ("+newCases+ ")"}
           </div>
         </div>
         <div className="col card">
@@ -63,7 +70,7 @@ export default class Card extends Component {
             <i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths
           </div>
           <div className="black-content">
-            {uihelper.buildCountUpByStringValue(totalDeaths)}
+            {uihelper.buildCountUpByStringValue(totalDeaths)}{" ("+newDeaths+ ")"}
           </div>
         </div>
       </div>

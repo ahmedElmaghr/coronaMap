@@ -50,7 +50,7 @@ export default class App extends Component {
       >
         <div id="header" className="row">
           <div className="header sticky" style={{height:5+'%'}}>
-            covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i>
+            COVID-19  - Today's news <i class="fa fa-globe" aria-hidden="true"></i>
           </div>
         </div>
         <div
