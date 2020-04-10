@@ -159,7 +159,7 @@ export default class App extends Component {
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
       totalStatistics = data.filter(elt => {
-        return elt.Country == "Total:";
+        return elt.Country == "World";
       })[0];
     }
     return totalStatistics;

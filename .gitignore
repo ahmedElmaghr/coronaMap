@@ -4,3 +4,4 @@ package-lock.json
 build
 src/scrapping/results_coronavirus.csv
 src/scrapping/results_coronavirus.csv
+src/scrapping/results_coronavirus.csv
