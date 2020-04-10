@@ -97,7 +97,7 @@ export default class Panel extends React.Component {
                         </tr>
                         <tr className="totalCases">
                           <td>Total cases</td>
-                          <td>
+                          <td className="center">
                             {stat && StringUtils.isNotEmpty(stat.TotalCases)
                               ? stat.TotalCases
                               : "0"}

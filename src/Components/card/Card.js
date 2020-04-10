@@ -54,7 +54,7 @@ export default class Card extends Component {
             <i class="fa fa-ambulance" aria-hidden="true"></i> Active cases
           </div>
           <div className="blue-content">
-            {uihelper.buildCountUpByStringValue(activeCases)}{" ("+newCases+ ")"}
+            {uihelper.buildCountUpByStringValue(activeCases)}{newCases ? " ("+newCases+ ")" : ""}
           </div>
         </div>
         <div className="col card">
@@ -70,7 +70,7 @@ export default class Card extends Component {
             <i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths
           </div>
           <div className="black-content">
-            {uihelper.buildCountUpByStringValue(totalDeaths)}{" ("+newDeaths+ ")"}
+            {uihelper.buildCountUpByStringValue(totalDeaths)}{newDeaths ? " ("+newDeaths+ ")" : ""}
           </div>
         </div>
       </div>
