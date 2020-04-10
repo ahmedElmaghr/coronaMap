@@ -8,9 +8,7 @@
     text-align: center;
     transition: 0.3s;
 }
-.mapboxgl-popup-anchor-bottom, 
-.mapboxgl-popup-anchor-bottom-left, 
-.mapboxgl-popup-anchor-bottom-right {
+.mapboxgl-popup-anchor-bottom{
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
 }
@@ -34,9 +32,6 @@
     box-shadow: 0 30px 90px -20px rgba(0,0,0,.3);
     padding: 0;
     pointer-events: auto;
-}
-.maphub-popup-inner.maphub-popup-text {
-    /* margin: 15px 0; */
 }
 .maphub-popup-inner {
     position: relative;
@@ -71,4 +66,44 @@
     top: 0;
     right: 8px;
     z-index : 10;
+}
+.newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.headToday{
+    margin: 2px;
+    font-size: 10px;
+    /* font-weight: bold; */
+    text-align: left;
+}
+.newDeaths{
+    color: black;
+}
+.newCases{
+    color: darkred;
+}
+.totalRecovered{
+    font-weight: bold; 
+    color: green;
+}
+.totalCases{
+    font-weight: bold; 
+    color:blue;
+}
+.totalDeaths{
+    color: black;
+    font-weight: bold; 
+
+}
+.rowHead{
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px !important;
+    height: 15px !important;
+}
+.table td{
+    padding: 3px;
+    padding-top: 1px;
+    /* padding-right:4px ;
+    padding-left:4px ; */
+}
+.center{
+    text-align: center;
 }
