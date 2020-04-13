@@ -64,7 +64,8 @@ export default class CoronaMapView extends PureComponent {
 
   render() {
     return (
-      <Legend></Legend>
+      ""
+      // <Legend></Legend>
     );
   }
 
