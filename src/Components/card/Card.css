@@ -1,50 +1,149 @@
-.card{
-    /* height: 5rem; */
-    width: 100%;
-    margin-bottom: 5%;
-    border-radius: 2%;
-    background-color: whitesmoke;
-    text-align: center ;
-    /* border: solid 2px rgba(49, 48, 47,.5); */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.card {
+  /* height: 5rem; */
+  width: 100%;
+  margin-bottom: 5%;
+  border-radius: 2%;
+  background-color: whitesmoke;
+  text-align: center;
+  /* border: solid 2px rgba(49, 48, 47,.5); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
-    font-size: 15px;
+.black-title,
+.black-content,
+.red-title,
+.red-content,
+.blue-title,
+.blue-content,
+.green-title,
+.green-content,
+.orange-title,
+.orange-content {
+  font-size: 15px;
+  font-weight: bold;
+}
+@media (max-width: 680px) {
+  .black-title,
+  .black-content,
+  .red-title,
+  .red-content,
+  .blue-title,
+  .blue-content,
+  .green-title,
+  .green-content,
+  .orange-title,
+  .orange-content {
+    font-size: 12px;
     font-weight: bold;
+  }
 }
-@media( max-width :680px){
-    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
-        font-size: 12px;
-        font-weight: bold;
+@media (max-width: 580px) {
+  .black-title,
+  .black-content,
+  .red-title,
+  .red-content,
+  .blue-title,
+  .blue-content,
+  .green-title,
+  .green-content,
+  .orange-title,
+  .orange-content {
+    font-size: 9px;
+    font-weight: bold;
+  }
+}
+@media (max-width: 350px) {
+  .black-title,
+  .black-content,
+  .red-title,
+  .red-content,
+  .blue-title,
+  .blue-content,
+  .green-title,
+  .green-content,
+  .orange-title,
+  .orange-content {
+    font-size: 5px;
+    font-weight: bold;
+  }
+}
+.black-title,
+.red-title,
+.orange-title,
+.green-title,
+.blue-title,
+.orange-title {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.5);
+}
+.black-title,
+.black-content {
+  color: rgb(0, 0, 0);
+}
+.red-title,
+.red-content {
+  color: rgb(197, 23, 23);
+}
+.blue-title,
+.blue-content {
+  color: rgb(35, 51, 194);
+}
+.green-title,
+.green-content {
+  color: rgb(44, 100, 6);
+}
+.orange-title,
+.orange-content {
+  color: rgb(201, 93, 22);
+}
+/* New panel counters */
+.counters {
+  font-family: Tiempos,Georgia,serif;
+  text-align: center;
+  margin: 2em auto 1em;
+  display: flex;
+  justify-content: center;
+}
+.counter-large{
+    font-size: 2rem;
+}
+@media(max-width:601px){
+    .counter-large{
+        font-size: 1.8rem;
     }
 }
-@media( max-width :580px){
-    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
-        font-size: 9px;
-        font-weight: bold;
+.counter {
+  padding: 0 2em;
+}
+@media(max-width:601px){
+    .counter{
+        font-size: .5rem;
     }
 }
-@media( max-width :350px){
-    .black-title,.black-content,.red-title,.red-content,.blue-title,.blue-content,.green-title,.green-content,.orange-title,.orange-content{
-        font-size: 5px;
-        font-weight: bold;
+.counter-number {
+  font-size: 2.5em;
+  line-height: 1em;
+  margin: 0;
+  font-weight: bolder;
+}
+@media(max-width:601px){
+    .counter-number{
+        font-size: .7rem;
     }
 }
-.black-title, .red-title, .orange-title, .green-title, .blue-title, .orange-title{
-   border-bottom: solid 1px rgba(0, 0, 0,.5);
+.counter-title {
+  margin: 0;
 }
-.black-title,.black-content{
-    color: rgb(0, 0, 0);
+.fp-red {
+  color: #eb1414;
 }
-.red-title,.red-content{
-    color: rgb(197, 23, 23);
+.fp-black {
+  color: black;
 }
-.blue-title,.blue-content{
-    color: rgb(35, 51, 194);
+.fp-green {
+  color: green;
 }
-.green-title,.green-content{
-    color: rgb(44, 100, 6);
-}
-.orange-title,.orange-content{
-    color: rgb(201, 93, 22);
+.fp-blue {
+    color: darkblue;
+  }
+.border-right-black{
+    border-right: solid 1px black;
 }

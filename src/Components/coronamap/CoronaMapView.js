@@ -53,6 +53,7 @@ export default class CoronaMapView extends PureComponent {
       .attr("d", d => this.calculatePath(d))
       .attr("fill", `#F3BABA`)
       .on("click", (d) => {
+        console.log("window.pageYOffset",window.pageYOffset)
         this.props.clickOnCountry()
       })
       .append("title")
@@ -130,9 +131,9 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (totalCases) => {
 
     if (0 < totalCases && totalCases <= 100) {
-      return '#FCEEEE'
+      return '#FFFFC2'
     } else if (100 <= totalCases && totalCases < 200) {
-      return '#F8DDDD'
+      return '#E3E363'
     } else if (200 <= totalCases && totalCases < 500) {
       return '#F5CCCC'
     } else if (500 <= totalCases && totalCases < 1000) {

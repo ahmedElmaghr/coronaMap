@@ -32,7 +32,7 @@ export default class PieChart extends PureComponent {
             preserveAspectRatio: "xMidYMid meet",
             width: 160,
             height:160,
-            top:15+'%'
+            top:15+'rem'
           }}
         >
           <Pie

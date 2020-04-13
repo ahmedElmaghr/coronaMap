@@ -35,4 +35,6 @@ const getStatByPays = (d, covid19) => {
         };
     }
 }
+
+
 export default { constructData, getStatByPays };

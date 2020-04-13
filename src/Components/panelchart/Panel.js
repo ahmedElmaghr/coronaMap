@@ -70,30 +70,7 @@ export default class Panel extends React.Component {
                 </div>
                 <div>
                   <div>
-                    <table class="table table-bordered  ">
-                      {/* <thead>
-                        <tr className="table-primary" >
-                          <th colSpan="3" className ="rowHead" >Today's update</th>
-                        </tr>
-                      </thead>{" "}
-                      <tbody className="tbody">
-                        <tr className="newCases">
-                          <td colSpan="2">today new cases</td>
-                          <td className="center">
-                            {stat && StringUtils.isNotEmpty(stat.NewCases)
-                              ? stat.NewCases
-                              : "0"}
-                          </td>
-                        </tr>
-                        <tr className="newDeaths">
-                          <td colSpan="2">today new deaths</td>
-                          <td className="center">
-                            {stat && StringUtils.isNotEmpty(stat.NewDeaths)
-                              ? stat.NewDeaths
-                              : "0"}
-                          </td>
-                        </tr>
-                      </tbody> */}
+                    <table class="table table-bordered table-hover ">
                       <thead>
                         <tr className="table-info">
                           <th colSpan="3" className="rowHead">
@@ -102,31 +79,31 @@ export default class Panel extends React.Component {
                         </tr>
                       </thead>{" "}
                       <tbody>
-                        <tr className="totalRecovered">
-                          <td>recovered</td>
+                        <tr className="totalRecovered " style={{color:'green'}}>
+                          <td><i class="fa fa-heart" aria-hidden="true" ></i> recovered</td>
                           <td>
                             {this.calculatePerCent(totalRecovered, totalCases) +
                               "%"}
                           </td>
                           <td className="center">{totalRecovered}</td>
                         </tr>
-                        <tr className="totalDeaths">
-                          <td>{"deaths (" + newDeaths + ")"}</td>
+                        <tr className="totalDeaths "style={{color:'black'}}>
+                          <td><i class="fa fa-heartbeat" aria-hidden="true" ></i> {"deaths (" + newDeaths + ")"}</td>
                           <td>
                             {this.calculatePerCent(totalDeaths, totalCases) +
                               "%"}
                           </td>
                           <td className="center">{totalDeaths}</td>
                         </tr>
-                        <tr className="activeCases">
-                          <td>{"active cases (" + newCases + ")"}</td>
+                        <tr className="activeCases " style={{color:'red'}}>
+                          <td><i class="fa fa-ambulance" ></i>{" confirmed (" + newCases + ")"}</td>
                           <td>
                             {this.calculatePerCent(activeCases, totalCases) +
                               "%"}
                           </td>
                           <td className="center">{activeCases}</td>
                         </tr>
-                        <tr className="totalCases ">
+                        <tr className="totalCases table-info ">
                           <td>Total cases</td>
                           <td colSpan="2" className="center">
                             {stat && StringUtils.isNotEmpty(stat.TotalCases)
@@ -134,7 +111,7 @@ export default class Panel extends React.Component {
                               : "0"}
                           </td>
                         </tr>
-                        <tr className="totalTest">
+                        <tr className="totalTest table-info ">
                           <td>Total tests</td>
                           <td colSpan="2" className="center">
                             {stat && StringUtils.isNotEmpty(stat.TotalTest)
@@ -145,32 +122,6 @@ export default class Panel extends React.Component {
                       </tbody>
                     </table>
                   </div>
-                  {/* <p className="newCases">
-                    New cases:{" "}
-                    {stat && StringUtils.isNotEmpty(stat.NewCases)
-                      ? stat.NewCases
-                      : "0"}
-                  </p>
-                  <p className="newDeaths">
-                    New deaths :{" "}
-                    {stat && StringUtils.isNotEmpty(stat.NewDeaths)
-                      ? stat.NewDeaths
-                      : "0"}
-                  </p>
-                  <p className="totalRecovered">
-                    Total recovered :{" "}
-                    {stat && stat.TotalRecovered ? stat.TotalRecovered : "0"}{" "}
-                  </p>
-                  <p className="totalDeaths">
-                    Total deaths :{" "}
-                    {stat && StringUtils.isNotEmpty(stat.TotalDeaths)
-                      ? stat.TotalDeaths
-                      : "0"}
-                  </p>
-                  <p className="totalCases">
-                    Total cases :{" "}
-                    {stat && stat.TotalCases ? stat.TotalCases : "0"}
-                  </p> */}
                 </div>
               </div>
             </div>

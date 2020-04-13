@@ -38,7 +38,30 @@ export default class Card extends Component {
     }
     //
     return (
-      <div className="row" style={{ marginLeft: 10 + "px" ,marginRight: 10 + "px" }}>
+      <div>
+        <div className="counter-large">
+            <p className="counter-number fp-red">{uihelper.buildCountUpByStringValue(totalConfirmed)}</p>
+            <p className="counter-tile fp-red">confirmed cases</p>
+        </div>
+      <div className="counters">
+        <div className="counter border-right-black ">
+            <p className="counter-number fp-black">
+              {uihelper.buildCountUpByStringValue(activeCases)} <span style={{fontSize:15+'px'}}>{newCases ? " ("+newCases+ ")" : ""}</span>
+              </p>
+            <p>active cases</p>
+        </div>
+        <div className="counter border-right-black ">
+            <p className="counter-number fp-green">{uihelper.buildCountUpByStringValue(recovered)}</p>
+            <p>recovered</p>
+        </div>
+        <div className="counter  ">
+            <p className="counter-number fp-black">
+            {uihelper.buildCountUpByStringValue(totalDeaths)}<span style={{fontSize:15+'px'}}>{newDeaths ? " ("+newDeaths+ ")" : ""}</span>
+            </p>
+            <p>deaths</p>
+        </div>
+      </div>
+      {/* <div className="row" style={{ marginLeft: 10 + "px" ,marginRight: 10 + "px" }}>
         <div className="col card">
           <div className="red-title">
             {" "}
@@ -72,6 +95,7 @@ export default class Card extends Component {
             {uihelper.buildCountUpByStringValue(totalDeaths)}{newDeaths ? " ("+newDeaths+ ")" : ""}
           </div>
         </div>
+      </div> */}
       </div>
     );
   }

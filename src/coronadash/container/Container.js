@@ -147,11 +147,14 @@ class Container extends Component {
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
     let cardsDim  = d3.selectAll(".cards").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    let x = d3.event.pageX - (panelStatDim.width / 2) 
-    let y = d3.event.pageY -cardsDim.height-panelStatDim.height -headerDim.height - 5;
-    
+    console.log(headerDim.top, headerDim.right, headerDim.bottom, headerDim.left);
+    console.log(headerDim.height, headerDim.width);
+
+    let x = d3.event.x - (panelStatDim.width / 2) 
+    let y = d3.event.y -cardsDim.height-panelStatDim.height -(headerDim.height+headerDim.top) -20;
     return {x,y}
   }
+
   clickOnCircle = d => {
     
     let positionPanel = this.getPositionPanel();

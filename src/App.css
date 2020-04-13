@@ -1,3 +1,12 @@
+html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+.wrapper {
+    height: 100%;
+    overflow-x: hidden;
+} 
 .header, .footer {
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
@@ -5,6 +14,49 @@
   width: 100%;
   text-align: center;
   height: 5%;
+}
+.header-text{
+  margin: 0 auto;
+    padding: 2em 0;
+    max-width: 900px;
+    text-align: center;
+    width: 80%;
+}
+.title1{
+  background-color: transparent;
+  color: darkred;
+  font-family: Tiempos,Georgia,serif;
+  letter-spacing: -.5px;
+  margin-top: .5em;
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.15em;
+  text-align: center;
+  width: 100%;
+
+}
+.title2{
+  width: 100%;
+  font-family: 'Tiempos Headline',Georgia,serif;
+  font-weight: 200;
+  margin-top: 1em;
+  border-bottom: 1px solid;
+  padding-bottom: .75em;
+  color: #111;
+  font-size: 1.1em;
+  line-height: 1.25em;
+  text-decoration: none;
+}
+@media (max-width: 601px){
+  .title1{
+     font-size: 1.5em;
+  }
+}
+@media (max-width: 520px){
+  .title1{
+     font-size: 1em;
+  }
 }
 .footer{
   position: fixed;
@@ -23,11 +75,18 @@
   color : darkblue !important
 }
 .cards{
+  font-family: 'Tiempos Headline',Georgia,serif;
   text-align: center;
   margin: 0 auto;
-  display: table;
+  margin-top: 1rem;
 }
 .sticky {
   position: fixed;
   width: 100%;
+}
+.legend-elt{
+  width:25%;
+  border-bottom:solid 1px ;
+  display:inline-block;
+  margin-bottom: 1.5em;
 }

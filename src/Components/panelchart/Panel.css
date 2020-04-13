@@ -69,48 +69,44 @@
 }
 .newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.totalTest,.activeCases,.headToday{
     margin: 2px;
-    font-size: 10px;
-    /* font-weight: bold; */
+      font-family: 'Tiempos Headline',Georgia,serif;
+
+    /* color: white; */
+    font-size: 1rem;
     text-align: left;
 }
-.newDeaths{
-    color: black;
-    /* font-weight: bold;  */
 
-}
-.newCases,.activeCases{
-    color: darkred;
-    /* font-weight: bold;  */
-
-}
-.totalRecovered{
-    /* font-weight: bold;  */
-    color: green;
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media (max-width: 601px) {
+        .newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.totalTest,.activeCases,.headToday{
+            font-size: 1.5rem;
+    }
+  }
+  
+  /* If the screen size is 600px or less, set the font-size of <div> to 30px */
+  @media only screen and (max-width: 700px) {
+    .newDeaths,.newCases,.totalRecovered,.totalDeaths,.totalCases,.totalTest,.activeCases,.headToday{
+        font-size: 1rem;
+  }
 }
 .totalCases{
     font-weight: bold; 
-    color:darkred;
-}
-.totalDeaths{
     color: black;
-    /* font-weight: bold;  */
-
 }
 .totalTest{
-    color: black;
     font-weight: bold; 
+    color: black;
 }
 .rowHead{
     font-size: 12px;
     font-weight: bold;
+    color: black;
     padding: 0px !important;
     height: 15px !important;
 }
 .table td{
     padding: 3px;
     padding-top: 1px;
-    /* padding-right:4px ;
-    padding-left:4px ; */
 }
 .center{
     text-align: center;
