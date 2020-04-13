@@ -51,11 +51,11 @@ export default class App extends Component {
     return (
       <div class="myWrapper">
         <div
-          className="container-fluid"
-          style={{
-            overflow: "auto",
-            height: window.screen.height * 0.9 + "px",
-          }}
+          className="container-fluid app-container"
+          // style={{
+          //   overflow: "auto",
+          //   height: window.screen.height + "px",
+          // }}
         >
           <div id="header" className="row header-text">
             <h1 className="title1">Mapping the Coronavirus Outbreak</h1>

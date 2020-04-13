@@ -7,6 +7,10 @@ html, body {
     height: 100%;
     overflow-x: hidden;
 } 
+.app-container{
+    overflow: auto;   
+    height: 100vh;
+}            
 .header, .footer {
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
