@@ -166,7 +166,9 @@ export default class CoronaMapView extends PureComponent {
     const width = map.node().getBoundingClientRect().width;
     const height = width / 3;
 
-    svg.call(d3.zoom()
+    svg.call(d3.zoom().filter(function () {
+      return d3.event.ctrlKey;
+  })
     .scaleExtent([1, 50])
     .translateExtent([[0,0], [width, height]])
     .extent([[0, 0], [width, height]])
