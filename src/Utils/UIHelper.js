@@ -6,9 +6,10 @@ import CountUp from 'react-countup';
 /** example "16.25" -> 16,25 + counter  */
 const buildCountUpByStringValue = (valueStr)=>{
     return (
+       
       <CountUp
         separator=","
-        duration="1"
+        duration=".1"
         end={StringUtils.stringVirSepToNumber(valueStr)}
       ></CountUp>
     );
