@@ -43,9 +43,21 @@ const getRadiusCases = (cases)=>{
   }else if (60000 <= cases && cases < 100000) {
     let r = (cases / 100000) * 60;
     rayon = r;
+  }else if(100000 <= cases && cases < 150000){
+    let r = (cases / 150000) * 70;
+    rayon = r;
+  }else if(150000 <= cases && cases < 200000){
+    let r = (cases / 200000) * 80;
+    rayon = r;
+  }else if(200000 <= cases && cases < 500000){
+    let r = (cases / 500000) * 90;
+    rayon = r;
+  }else if(500000 <= cases && cases < 1000000){
+    let r = (cases / 1000000) * 200;
+    rayon = r;
   }
   
-  return rayon < 1 && rayon > 0 ? 2 : rayon;
+  return rayon < 4 && rayon > 0 ? 4 : rayon;
 }
 
 const getRadiusDeath = (cases)=>{
@@ -57,14 +69,15 @@ const getRadiusDeath = (cases)=>{
     let r = (cases / 2000) * 15;
     rayon = r;
   } else if (2000 <= cases && cases < 5000) {
-    let r = (cases / 5000) * 20;
-    rayon = r;
-  } else if (5000 <= cases && cases < 20000) {
     let r = (cases / 5000) * 25;
     rayon = r;
-  }else{
-    rayon = 30;
-  }
+  } else if (5000 <= cases && cases < 20000) {
+    let r = (cases / 20000) * 30;
+    rayon = r;
+  }else if (20000 <= cases && cases < 30000) {
+    let r = (cases / 30000) * 45;
+    rayon = r;
+    }
   
   return rayon < 1 && rayon > 0 ? 4 : rayon;
 }
