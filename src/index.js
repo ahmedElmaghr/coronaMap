@@ -12,17 +12,22 @@ import GA from './Utils/GoogleAnalytics'
 
 
 const hist = createBrowserHistory();
-ReactDOM.render(<Router history={hist}>
-    <Switch>
-        {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
-        { GA.init() && <GA.RouteTracker /> }
-        {console.log("Google analytics")}
-        <Route exact path={"/"} component={() => {
-            return <App></App>
-        }} />
-    </Switch>
-</Router>
-    , document.getElementById('root'));
+ReactDOM.render(
+// <Router history={hist}>
+//     <Switch>
+//         {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
+//         { GA.init() && <GA.RouteTracker /> }
+//         {console.log("Google analytics")}
+//         <Route exact path={"/"} component={() => {
+//             return <App></App>
+//         }} />
+//     </Switch>
+// </Router>
+
+<App>
+    {GA.init() && <GA.RouteTracker />}
+</App> 
+, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
