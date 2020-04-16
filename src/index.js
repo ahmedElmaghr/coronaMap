@@ -17,7 +17,7 @@ ReactDOM.render(<Router history={hist}>
         {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
         { GA.init() && <GA.RouteTracker /> }
         {console.log("Google analytics")}
-        <Route exact path={process.env.PUBLIC_URL + "/"} component={() => {
+        <Route exact path={"/"} component={() => {
             return <App></App>
         }} />
     </Switch>
