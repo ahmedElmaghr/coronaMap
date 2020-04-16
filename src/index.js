@@ -8,11 +8,15 @@ import { Route, Router, Switch } from "react-router-dom";
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import GA from './Utils/GoogleAnalytics'
+
 
 const hist = createBrowserHistory();
 ReactDOM.render(<Router history={hist}>
     <Switch>
         {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
+        { GA.init() && <GA.RouteTracker /> }
+        {console.log("Google analytics")}
         <Route exact path={process.env.PUBLIC_URL + "/"} component={() => {
             return <App></App>
         }} />
