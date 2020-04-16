@@ -12,8 +12,9 @@ import * as serviceWorker from './serviceWorker';
 const hist = createBrowserHistory();
 ReactDOM.render(<Router history={hist}>
     <Switch>
+        {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
         <Route exact path={process.env.PUBLIC_URL + "/"} component={() => {
-            return <App/>
+            return <App></App>
         }} />
     </Switch>
 </Router>
