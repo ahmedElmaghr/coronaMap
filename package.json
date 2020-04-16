@@ -22,6 +22,8 @@
     "react-countup": "^4.3.3",
     "react-dom": "^16.11.0",
     "react-file-reader": "^1.1.4",
+    "react-ga": "^2.7.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
     "react-simple-maps": "^0.12.1",
     "sheetjs": "^2.0.0",
