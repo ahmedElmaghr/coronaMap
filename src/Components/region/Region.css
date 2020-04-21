@@ -21,3 +21,9 @@
     stroke: rgb(255, 255, 255);
     fill: rgba(78, 19, 19, 0.5);
   }
+  .place-label{
+    /* font-size: 10px; */
+    color: white;
+    font-weight: 600;
+    
+  }

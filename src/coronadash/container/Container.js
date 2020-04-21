@@ -51,7 +51,6 @@ class Container extends Component {
     } = this.state;
     const { covid19 } = this.props;
     let zoneDeaths = "";
-    console.log("render",context,worldData)
     // if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
       zoneDeaths = (
         <Region

@@ -8,7 +8,7 @@ import UIHelper from "../../Utils/UIHelper";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
-
+  
   // width="100%"
   // height = "100%";
   viewBox = `0 0 800 400`;
@@ -51,7 +51,7 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `#F3BABA`)
+      .attr("fill", `#E47777`)
       .on("click", (d) => {
         console.log("window.pageYOffset",window.pageYOffset)
         this.props.clickOnCountry()
@@ -108,10 +108,42 @@ export default class CoronaMapView extends PureComponent {
         .text(d => {
           return d.properties.name ;
         })
+  //       g.selectAll(".place-label")
+  //   .data(worldData)
+  // .enter().append("text")
+  //   .attr("class", "place-label")
+  //   .attr("transform", (d)=> { 
+  //     console.log("d.geometry.coordinates",d.geometry.coordinates);
+  //     return "translate(" + this.projection()(this.getCountryCoordinate(d)) + ")"; })
+  //   .attr("dy", ".35em")
+  //   .text((d)=> { return d.properties.name; });
       return g;
 
   };
 
+  getCountryCoordinate =(d)=>{
+    return [0,0]
+      // return [this.getCx(d),this.getCy(d)]
+  }
+
+  // getCx = d => {
+  //   if (StringUtils.isNotEmpty(d)) {
+  //     var x = d.coordinate.latitude;
+  //     var y = d.coordinate.longitude;
+
+  //     var coordinate = [x, y];
+  //     return this.projection()(coordinate)[0];
+  //   }
+  // };
+
+  // getCy = d => {
+  //   if (StringUtils.isNotEmpty(d)) {
+  //     var x = d.coordinate.latitude;
+  //     var y = d.coordinate.longitude;
+  //     var coordinate = [x, y];
+  //     return this.projection()(coordinate)[1];
+  //   }
+  // };
   //Color land 
   markDesease = (d) => {
     let elt = this.props.covid19.filter((e) => {
@@ -167,9 +199,6 @@ export default class CoronaMapView extends PureComponent {
     const height = width / 3;
 
     svg.call(d3.zoom()
-  //   .filter(function () {
-  //     return d3.event.ctrlKey;
-  // })
     .scaleExtent([1, 50])
     .translateExtent([[0,0], [width, height]])
     .extent([[0, 0], [width, height]])
@@ -181,9 +210,11 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-    svg.selectAll("path,circle").attr("transform", transform);
+    svg.selectAll("path,circle,.place-label").attr("transform", transform);
     var markerRed = d3.selectAll(".marker-red");
     var markersBlack = d3.selectAll(".marker-black");
+    var placeLabel = d3.selectAll(".place-label");
+
     let contextDesease = { checkZoneDeaths: false , checkZoneDesease:true}
     markerRed.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
@@ -194,7 +225,6 @@ export default class CoronaMapView extends PureComponent {
       let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
       return (scaledRadius<1 && scaledRadius>0) ? 5 : scaledRadius;
     } )
-  // }
   };
 
   /**

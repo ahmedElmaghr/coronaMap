@@ -78,11 +78,14 @@ html, body {
 .github-link:hover{
   color : darkblue !important
 }
-.cards{
+.cards,.countryTableTitle{
   font-family: 'Tiempos Headline',Georgia,serif;
   text-align: center;
   margin: 0 auto;
   margin-top: 1rem;
+}
+.countryTableTitle{
+  padding: 1rem;
 }
 .sticky {
   position: fixed;
@@ -90,7 +93,7 @@ html, body {
 }
 .legend-elt{
   width:25%;
-  border-bottom:solid 1px ;
+  border-bottom:solid 5px ;
   display:inline-block;
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
 }

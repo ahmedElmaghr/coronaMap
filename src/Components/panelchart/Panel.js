@@ -25,6 +25,7 @@ export default class Panel extends React.Component {
   };
 
   render() {
+    console.log("render panel")
     let { stat, opacity, zIndex, x, y } = this.props;
     // let totalCases = stat.TotalCases;
     let totalCases = stat && stat.TotalCases;

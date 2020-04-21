@@ -2,11 +2,6 @@ html, body { margin:0; padding:0; overflow:hidden }
 .svg{
   /* background-color:rgb(128, 128, 128,.5); */
 }
-/* @media(max-width:400px){
-.svg{
-  margin-top: 40px;
-}
-} */
 .country{
   stroke : rgb(0, 0, 0);
   stroke-width: 0.1;

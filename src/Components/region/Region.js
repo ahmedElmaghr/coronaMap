@@ -66,9 +66,24 @@ class Region extends Component {
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {
     let data = DataHelper.constructData(countries, covid19);
+    console.log("dataaaaaaaaaaaa",data)
     var markers;
+    var labels;
     let dataFiltered = this.filterCountriesByContext(data, context);
-    console.log("dataFiltered",dataFiltered)
+
+    // var canada = dataFiltered.filter((elt)=>{return elt.id == "124"})
+    // console.log("canada",canada)
+    // labels = node.selectAll(".place-label")
+    // if(labels.empty()){
+    //   labels.data(canada)
+    //   .enter().append("text")
+    //     .attr("class", "place-label")
+    //     .attr("transform", (d)=> { return "translate(" +this.projection()([Number.parseInt(d.coordinate.latitude)+2,Number.parseInt(d.coordinate.longitude)])+ ")"; })
+    //     // .attr("transform", (d)=> { return "translate(" + [this.getCx(d),this.getCy(d)] + ")"; })
+    //     .attr("dy", 1+'px')
+    //     .text((d)=> { return d.data.name; });
+    // }
+    
     if (dataFiltered && dataFiltered.length !=0) {
       markers = node
         .append("g")

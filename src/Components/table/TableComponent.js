@@ -1,43 +1,57 @@
 import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
+import "./TableComponent.css";
 class TableComponent extends Component {
   render() {
+    console.log("render TableComponent");
+    const { data } = this.props;
+    var dataFiltered = data.todayData.slice(8 ,data.todayData.length);
     return (
-      <div>
-        {/* <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map(row => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>{" "} */}
+      <div className="table-container">
+        <h1 className='countryTableTitle'>Reported cases by country</h1>
+        <table class="table" style={{ height: 150 + "px" }}>
+          <thead className="thead-light">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">Cases</th>
+              <th scope="col">Deaths</th>
+              <th scope="col">Recovered</th>
+              <th scope="col">Test</th>
+              <th scope="col">Test/1M People</th>
+              <th scope="col">Deaths/1M People</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataFiltered.map((element, i) => {
+              return (
+                <tr key={i}>
+                  <td>{element.Country}</td>
+                  <td>
+                    {element.TotalCases}
+                    {element.NewCases && (
+                      <h className="counter2">({element.NewCases})</h>
+                    )}
+                  </td>
+                  <td>
+                    {element.TotalDeaths}
+                    {element.NewDeaths && (
+                      <h className="counter2">({element.NewDeaths})</h>
+                    )}
+                  </td>
+                  <td>{element.TotalRecovered}</td>
+                  <td>{element.TotalTest}</td>
+                  <td>{element.Test1MPeople}</td>
+                  <td>{element.Death1m}</td>
+                </tr>
+              );
+            })}
+            {/* <tr>
+            <th scope="row">1</th>
+              <td>Morocco</td>
+              <td>1867</td>
+              <td>143</td>
+            </tr> */}
+          </tbody>
+        </table>
       </div>
     );
   }
