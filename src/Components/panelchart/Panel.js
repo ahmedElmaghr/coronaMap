@@ -1,6 +1,6 @@
 import React from "react";
-import "./Panel.css";
 import StringUtils from "../../Utils/StringUtils";
+import "./Panel.css";
 
 export default class Panel extends React.Component {
   componentWillMount() {
@@ -23,20 +23,31 @@ export default class Panel extends React.Component {
       this.props.closePanel();
     }
   };
-
+  calculateNewRecovered =(totalRecovered,lastDayTotalRecovered)=>{
+      let totalRecoveredNumber = StringUtils.stringVirSepToNumber(totalRecovered);
+      let lastDayTotalRecoveredNumber = StringUtils.stringVirSepToNumber(lastDayTotalRecovered);
+      console.log("totalRecovered",totalRecovered,totalRecoveredNumber)
+      console.log("lastDayTotalRecovered",lastDayTotalRecovered,lastDayTotalRecoveredNumber)
+      return totalRecoveredNumber - lastDayTotalRecoveredNumber;
+  }
   render() {
     console.log("render panel")
-    let { stat, opacity, zIndex, x, y } = this.props;
+    let { stat,lastDayStat, opacity, zIndex, x, y } = this.props;
     // let totalCases = stat.TotalCases;
     let totalCases = stat && stat.TotalCases;
     let totalRecovered;
+    let lastDayTotalRecovered;
     let totalDeaths;
     let activeCases;
+    let newRecovered;
     let newCases;
     let newDeaths;
     if (stat) {
       totalRecovered = StringUtils.isNotEmpty(stat.TotalRecovered)
         ? stat.TotalRecovered
+        : "0";
+      lastDayTotalRecovered = StringUtils.isNotEmpty(lastDayStat.TotalRecovered)
+        ? lastDayStat.TotalRecovered
         : "0";
       totalDeaths = StringUtils.isNotEmpty(stat.TotalDeaths)
         ? stat.TotalDeaths
@@ -44,6 +55,7 @@ export default class Panel extends React.Component {
       activeCases = StringUtils.isNotEmpty(stat.ActiveCases)
         ? stat.ActiveCases
         : "0";
+      newRecovered = this.calculateNewRecovered(totalRecovered,lastDayTotalRecovered);
       newCases = StringUtils.isNotEmpty(stat.NewCases) ? stat.NewCases : "0";
       newDeaths = StringUtils.isNotEmpty(stat.NewDeaths) ? stat.NewDeaths : "0";
     }
@@ -81,7 +93,9 @@ export default class Panel extends React.Component {
                       </thead>{" "}
                       <tbody>
                         <tr className="totalRecovered " style={{color:'green'}}>
-                          <td><i class="fa fa-heart" aria-hidden="true" ></i> recovered</td>
+                          <td><i class="fa fa-heart" aria-hidden="true" ></i> 
+                          {"recovered (+" + newRecovered + ")"}
+                          </td>
                           <td>
                             {this.calculatePerCent(totalRecovered, totalCases) +
                               "%"}
@@ -89,7 +103,8 @@ export default class Panel extends React.Component {
                           <td className="center">{totalRecovered}</td>
                         </tr>
                         <tr className="totalDeaths "style={{color:'black'}}>
-                          <td><i class="fa fa-heartbeat" aria-hidden="true" ></i> {"deaths (" + newDeaths + ")"}</td>
+                          <td><i class="fa fa-heartbeat" aria-hidden="true" ></i> 
+                          {"deaths (" + newDeaths + ")"}</td>
                           <td>
                             {this.calculatePerCent(totalDeaths, totalCases) +
                               "%"}

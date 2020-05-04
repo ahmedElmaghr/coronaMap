@@ -50,6 +50,7 @@ class Container extends Component {
       context
     } = this.state;
     const { covid19 } = this.props;
+    // const todayData = covid19.todayData;
     let zoneDeaths = "";
     // if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
       zoneDeaths = (
@@ -99,6 +100,7 @@ class Container extends Component {
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
             stat={this.state.stat}
+            lastDayStat={this.state.lastDayStat}
             closePanel={() => {
               this.closePanelDetails();
             }}
@@ -123,18 +125,25 @@ class Container extends Component {
   clickOnCountry = d => {
     
 
-    let stat = {};
+    let todayStat = {};
+    let lastDayStat = {};
     let covid19 = this.props.covid19;
+    let covidTodayData = covid19.todayData;
+    let covidLastdayData = covid19.lastDayData;
+
     if (d) {
-      stat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);
+      todayStat = DataHelper.getStatByPays({ name: d.properties.name }, covidTodayData);
+      lastDayStat = DataHelper.getStatByPays({ name: d.properties.name }, covidLastdayData);
     } else {
-      stat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);
+      todayStat = DataHelper.getStatByPays({ name: "Morocco" }, covidTodayData);
+      lastDayStat= DataHelper.getStatByPays({ name: "Morocco" }, covidLastdayData);
     }
     let position = this.getPositionPanel();
     this.setState({
       panelOpacity: 1,
       panelZindex: 1,
-      stat: stat,
+      stat: todayStat,
+      lastDayStat:lastDayStat,
       x: position.x,
       y: position.y 
     });

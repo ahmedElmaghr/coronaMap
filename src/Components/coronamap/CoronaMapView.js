@@ -146,7 +146,8 @@ export default class CoronaMapView extends PureComponent {
   // };
   //Color land 
   markDesease = (d) => {
-    let elt = this.props.covid19.filter((e) => {
+    let todayData = this.props.covid19.todayData;
+    let elt = todayData.filter((e) => {
       let countryTrimmed = e.Country ? e.Country.trim() : "";
 
       return countryTrimmed == d.properties.name

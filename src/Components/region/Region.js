@@ -41,7 +41,6 @@ class Region extends Component {
       var gGlobal = d3.select("#gWrapper");
       //Draw Medias
       this.drawZoneByContext(gGlobal, countries, covid19, context);
-      this.drawDimondPrincess(gGlobal, countries, covid19);
     } 
     else {
       if(context.checkZoneDesease){
@@ -52,16 +51,6 @@ class Region extends Component {
     }
   };
 
-
-  drawDimondPrincess = (node, countries, covid19) => {
-    let dimondPrincess = countries.filter(e => {
-      return e.country == "DP";
-    });
-    let statDP = DataHelper.getStatByPays(
-      { name: "Diamond Princess" },
-      covid19
-    );
-  };
 
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {

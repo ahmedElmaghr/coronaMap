@@ -12,7 +12,9 @@ const constructData = (pays, statCovid19) => {
             id: i,
             coordinate,
             data: d,
-            stat: getStatByPays(d, statCovid19)
+            stat: getStatByPays(d, statCovid19.todayData),
+            lastDayStat: getStatByPays(d, statCovid19.lastDayData)
+
         }
         result.push(object);
         i++;
@@ -21,9 +23,9 @@ const constructData = (pays, statCovid19) => {
     return result;
 }
 
-const getStatByPays = (d, covid19) => {
-    let variable = covid19.filter(word => {
-        let countryTrimmed = word.Country ? word.Country.trim() : "";
+const getStatByPays = (d, data) => {
+    let variable = data.filter(word => {
+        let countryTrimmed = (word && word.Country) ? word.Country.trim() : "";
         return countryTrimmed === d.name
     })
     let countryData = variable[0];
@@ -36,5 +38,4 @@ const getStatByPays = (d, covid19) => {
     }
 }
 
-
-export default { constructData, getStatByPays };
+export default { constructData, getStatByPays: getStatByPays };

@@ -95,7 +95,7 @@ export default class App extends Component {
                              last update : {this.getUpdatedDate()}
                            </h2>
                            <Card
-                             covid19={this.filterTableData(this.state.dataset)}
+                             covid19={this.structureData(this.state.dataset)}
                              countryClicked={this.state.countryClicked}
                            ></Card>
                            <h1>Coronavirus map</h1>
@@ -128,24 +128,16 @@ export default class App extends Component {
                              style={{ top: 15 + "%" }}
                            >
                              <Container
-                               covid19={this.state.dataset}
+                              //  covid19={this.state.dataset}
+                               covid19={this.structureData(this.state.dataset)}
                                onclick={(d) => this.onclickCountry(d)}
                                initGlobalStat={() => {
                                  this.initGlobalStat();
                                }}
                              ></Container>
                            </div>
-                           {/* <div>
-                             <Input
-                               onAddClick={(name, nickname) => {
-                                 this.onAddClick(name, nickname);
-                               }}
-                             />
-                             <Table names={this.state.names} />
-                           </div> */}
-                           {/* <Table></Table> */}
                            <TableComponent
-                             data={this.filterTableData(this.state.dataset)}
+                             data={this.structureData(this.state.dataset)}
                            ></TableComponent>
 
                            {/* <div >
@@ -181,7 +173,7 @@ export default class App extends Component {
                      </div>
                    );
                  }
-                 filterTableData = (data) => {
+                 structureData = (data) => {
                    var allData = [];
                    var todayData = [];
                    var lastDayData = [];
