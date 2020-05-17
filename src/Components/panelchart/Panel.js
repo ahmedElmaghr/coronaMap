@@ -42,7 +42,7 @@ export default class Panel extends React.Component {
     let newRecovered;
     let newCases;
     let newDeaths;
-    if (stat) {
+    if (stat && lastDayStat) {
       totalRecovered = StringUtils.isNotEmpty(stat.TotalRecovered)
         ? stat.TotalRecovered
         : "0";
