@@ -21,7 +21,7 @@ class Container extends Component {
 
       context: {
         checkZoneDeaths: false,
-        checkZoneDesease: true
+        checkZoneDesease: false
       }
     };
   }

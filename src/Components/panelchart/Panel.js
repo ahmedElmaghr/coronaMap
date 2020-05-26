@@ -112,7 +112,7 @@ export default class Panel extends React.Component {
                           <td className="center">{totalDeaths}</td>
                         </tr>
                         <tr className="activeCases " style={{color:'red'}}>
-                          <td><i class="fa fa-ambulance" ></i>{" confirmed (" + newCases + ")"}</td>
+                          <td><i class="fa fa-ambulance" ></i>{" actives (" + newCases + ")"}</td>
                           <td>
                             {this.calculatePerCent(activeCases, totalCases) +
                               "%"}

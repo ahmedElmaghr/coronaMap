@@ -153,7 +153,7 @@ export default class CoronaMapView extends PureComponent {
       return countryTrimmed == d.properties.name
     })
     if (elt[0]) {
-      let totalCases = StringUtils.deleteSpecialChar(elt[0].TotalCases);
+      let totalCases = StringUtils.deleteSpecialChar(elt[0].ActiveCases);
       return this.getCountryColor(totalCases);
 
     } else {
@@ -164,7 +164,7 @@ export default class CoronaMapView extends PureComponent {
   //Get country color range rgba(255,255,255)
   getCountryColor = (totalCases) => {
 
-    if (0 < totalCases && totalCases <= 100) {
+    if (0 <= totalCases && totalCases <= 100) {
       return '#FFFFC2'
     } else if (100 <= totalCases && totalCases < 200) {
       return '#E3E363'
