@@ -26,14 +26,10 @@ export default class Panel extends React.Component {
   calculateNewRecovered =(totalRecovered,lastDayTotalRecovered)=>{
       let totalRecoveredNumber = StringUtils.stringVirSepToNumber(totalRecovered);
       let lastDayTotalRecoveredNumber = StringUtils.stringVirSepToNumber(lastDayTotalRecovered);
-      console.log("totalRecovered",totalRecovered,totalRecoveredNumber)
-      console.log("lastDayTotalRecovered",lastDayTotalRecovered,lastDayTotalRecoveredNumber)
       return totalRecoveredNumber - lastDayTotalRecoveredNumber;
   }
   render() {
-    console.log("render panel")
     let { stat,lastDayStat, opacity, zIndex, x, y } = this.props;
-    // let totalCases = stat.TotalCases;
     let totalCases = stat && stat.TotalCases;
     let totalRecovered;
     let lastDayTotalRecovered;

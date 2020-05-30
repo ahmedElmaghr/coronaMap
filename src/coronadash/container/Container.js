@@ -50,9 +50,7 @@ class Container extends Component {
       context
     } = this.state;
     const { covid19 } = this.props;
-    // const todayData = covid19.todayData;
     let zoneDeaths = "";
-    // if (context && (context.checkZoneDesease ||context.checkZoneDeaths)) {
       zoneDeaths = (
         <Region
           context = {context}
@@ -64,7 +62,6 @@ class Container extends Component {
           }}
         />
       );
-    // }
     if (jsonData.length != 0 && covid19) {
       return (
         <div>
@@ -82,7 +79,7 @@ class Container extends Component {
           />
           {zoneDeaths}
           <ToggleBtn
-            name="Zone Deaths"
+            name="Total Deaths"
             id="deaths"
             context={this.state.context}
             checked={this.state.context.checkZoneDeaths}
@@ -148,15 +145,12 @@ class Container extends Component {
       y: position.y 
     });
     this.sendSvgToBackground();
-    // this.props.onclick(d)
   };
 
   getPositionPanel = ()=>{
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
     let cardsDim  = d3.selectAll(".cards").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    console.log(headerDim.top, headerDim.right, headerDim.bottom, headerDim.left);
-    console.log(headerDim.height, headerDim.width);
 
     let x = d3.event.x - (panelStatDim.width / 2) 
     let y = d3.event.y -cardsDim.height-panelStatDim.height -(headerDim.height+headerDim.top) -20;
@@ -210,29 +204,22 @@ class Container extends Component {
   switchToggleBtn = () => {
 
     this.setState(currentState => ({
-      // checkZoneDeaths: !currentState.checkZoneDeaths,
       context :{
         checkZoneDeaths: !currentState.context.checkZoneDeaths,
         checkZoneDesease: false
       },
       mapopacity: 0.5
     }));
-
-    // d3.selectAll("path").attr("fill","cyan")
   };
 
   switchZoneDesease = () => {
-    // if(context.checkZoneDeaths)
     this.setState(currentState => ({
-      // checkZoneDesease: !currentState.checkZoneDesease,
       context :{
         checkZoneDeaths: false,
         checkZoneDesease: !currentState.context.checkZoneDesease
       },
       mapopacity: 0.5
     }));
-
-    // d3.selectAll("path").attr("fill","cyan")
   };
 }
 

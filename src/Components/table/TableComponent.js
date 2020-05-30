@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import "./TableComponent.css";
 class TableComponent extends Component {
   render() {
-    console.log("render TableComponent");
     const { data } = this.props;
-    var dataFiltered = data.todayData.slice(8 ,data.todayData.length);
+    var dataFiltered = data.todayData.slice(0 ,data.todayData.length);
     return (
       <div className="table-container">
         <h1 className='countryTableTitle'>Reported cases by country</h1>

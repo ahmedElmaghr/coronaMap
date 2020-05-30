@@ -2,14 +2,11 @@ import * as d3 from "d3";
 import React, { Component } from "react";
 import "./App.css";
 import Card from "./Components/card/Card";
-import PieChart from "./Components/piechart/PieChart";
+import TableComponent from "./Components/table/TableComponent";
 import Container from "./coronadash/container/Container";
 import data from "./scrapping/results_coronavirus.csv";
-import StringUtils from "./Utils/StringUtils";
 import DateHelper from "./Utils/DateHelper";
-import Table from "./Components/datatable/Table";
-import Input from "./Components/datatable/Input";
-import TableComponent from "./Components/table/TableComponent";
+import StringUtils from "./Utils/StringUtils";
 
 export default class App extends Component {
                  constructor() {
@@ -41,11 +38,12 @@ export default class App extends Component {
               }
 
                  componentDidMount() {
+                   var todelete = ["\nNorth America\n","\nEurope\n","\nSouth America\n","\nAsia\n","\nAfrica\n","\nOceania\n","\n\n","Western Sahara"]
                    d3.csv(data)
                      .then((data) => {
                        this.setState({
                          dataset: data.filter((d) => {
-                           return d.Country != "Western Sahara";
+                           return !todelete.includes(d.Country);
                          }),
                          isLoaded: true,
                        });
@@ -67,7 +65,6 @@ export default class App extends Component {
                      });
                  };
                  render() {
-                   console.log("render App")
                    if (!this.state.isLoaded) {
                      return "";
                    }
@@ -181,15 +178,7 @@ export default class App extends Component {
                      //Filter data
                      var dataFiltered = data;
                      
-                    //  data.filter((e) => {
-                    //    return (
-                    //      StringUtils.isNotEmpty(e.Country) &&
-                    //      !this.keywords.includes(e.Country)
-                    //    );
-                    //  });
-                     
-                     console.log("dataFiltered",dataFiltered)
-                     //Construct dat
+                     //Construct data
                      dataFiltered.forEach((elt1) => {
                        var countryData = dataFiltered.filter((elt2) => {
                          return elt1.Country == elt2.Country;

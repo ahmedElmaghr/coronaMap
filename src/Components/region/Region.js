@@ -14,10 +14,8 @@ class Region extends Component {
 
     const { countries, covid19, context } = this.props;
     if(context.checkZoneDesease || context.checkZoneDeaths){
-      console.log("one of the button is checked")
       this.drawCircles(countries, covid19, context);
     }else{
-      console.log("none of the burron are checked")
       d3.selectAll("#markersDeaths,#markersDesease").attr("visibility", "hidden").style("z-index",0);
     }
     //add zoom
@@ -36,7 +34,6 @@ class Region extends Component {
       markers = d3.selectAll("#markersDeaths");
       d3.selectAll("#markersDesease").attr("visibility", "hidden");
     }
-    console.log(markers)
     if (!markers || markers.empty()) {
       var gGlobal = d3.select("#gWrapper");
       //Draw Medias
@@ -55,23 +52,9 @@ class Region extends Component {
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {
     let data = DataHelper.constructData(countries, covid19);
-    console.log("dataaaaaaaaaaaa",data)
     var markers;
-    var labels;
     let dataFiltered = this.filterCountriesByContext(data, context);
 
-    // var canada = dataFiltered.filter((elt)=>{return elt.id == "124"})
-    // console.log("canada",canada)
-    // labels = node.selectAll(".place-label")
-    // if(labels.empty()){
-    //   labels.data(canada)
-    //   .enter().append("text")
-    //     .attr("class", "place-label")
-    //     .attr("transform", (d)=> { return "translate(" +this.projection()([Number.parseInt(d.coordinate.latitude)+2,Number.parseInt(d.coordinate.longitude)])+ ")"; })
-    //     // .attr("transform", (d)=> { return "translate(" + [this.getCx(d),this.getCy(d)] + ")"; })
-    //     .attr("dy", 1+'px')
-    //     .text((d)=> { return d.data.name; });
-    // }
     
     if (dataFiltered && dataFiltered.length !=0) {
       markers = node

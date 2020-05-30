@@ -13,16 +13,6 @@ import GA from './Utils/GoogleAnalytics'
 
 const hist = createBrowserHistory();
 ReactDOM.render(
-// <Router history={hist}>
-//     <Switch>
-//         {console.log("PUBLIC URL",process.env.PUBLIC_URL)}
-//         { GA.init() && <GA.RouteTracker /> }
-//         {console.log("Google analytics")}
-//         <Route exact path={"/"} component={() => {
-//             return <App></App>
-//         }} />
-//     </Switch>
-// </Router>
 
 <App>
     {GA.init() && <GA.RouteTracker />}
