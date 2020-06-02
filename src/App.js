@@ -114,7 +114,7 @@ export default class App extends Component {
                                className="legend-elt"
                                style={{ color: "#E3E363" }}
                              >
-                               Less than 100 cases
+                               Less than 1000 cases
                              </div>
                            </div>
                          </div>
