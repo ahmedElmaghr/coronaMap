@@ -26,27 +26,49 @@ export default class CoronaMapView extends PureComponent {
       //Merge morrocan sahara
       this.mergeMorrocanSahara(g);
       //Add text to map
-      this.addCountriesName(g,this.props.worldData);
+      this.addCountriesName(g, this.props.worldData);
       //add zoom
       var wrapper = d3.select("#content");
       this.addZoom(wrapper);
     }
   }
-  addCountriesName = (g,worldData)=>{
+  addCountriesName = (g, worldData) => {
     g.selectAll(".place-label")
-    .data(worldData.filter((d)=>{
-      return ["Morocco","USA","China","Brazil","Australia","Russia","South Africa","Chile","Mexico","Iran","Germany","Nigeria","Egypt","Spain","India","Greenland"]
-      .includes(d.properties.name)
-    }))
-    .enter()
-    .append("text")
-    .attr("class", "place-label")
-    .attr("x",(d)=>{ return  this.path().centroid(d)[0];})
-    .attr("y",(d)=>{ return this.path().centroid(d)[1];})
-    .text((d) => {
-      return d.properties.name;
-    });
-  }
+      .data(
+        worldData.filter((d) => {
+          return [
+            "Morocco",
+            "USA",
+            "China",
+            "Brazil",
+            "Australia",
+            "Russia",
+            "South Africa",
+            "Chile",
+            "Mexico",
+            "Iran",
+            "Germany",
+            "Nigeria",
+            "Egypt",
+            "Spain",
+            "India",
+            "Greenland",
+          ].includes(d.properties.name);
+        })
+      )
+      .enter()
+      .append("text")
+      .attr("class", "place-label")
+      .attr("x", (d) => {
+        return this.path().centroid(d)[0];
+      })
+      .attr("y", (d) => {
+        return this.path().centroid(d)[1];
+      })
+      .text((d) => {
+        return d.properties.name;
+      });
+  };
   mergeMorrocanSahara = (g) => {
     //merge Morocco
     var jsonData = this.props.jsonData;
@@ -63,12 +85,15 @@ export default class CoronaMapView extends PureComponent {
     g.append("path")
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
-      .attr("id","morocco")
+      .attr("id", "morocco")
       .attr("d", (d) => this.calculatePath(d))
-      .attr("fill", `#E47777`)
+      // .attr("fill", `#cccc59`)
+      .attr("fill", (d) => {
+        return this.markDesease();
+      })
       .on("click", (d) => {
         this.props.clickOnCountry();
-      })
+      });
   };
 
   render() {
@@ -113,8 +138,10 @@ export default class CoronaMapView extends PureComponent {
       .text((d) => {
         return d.properties.name;
       });
-      var toDayData = this.props.covid19.todayData;
-      var top10CountryNames = toDayData.slice(1,11).map((d)=>{ return d.Country});
+    var toDayData = this.props.covid19.todayData;
+    var top10CountryNames = toDayData.slice(1, 11).map((d) => {
+      return d.Country;
+    });
     // g.selectAll(".place-label")
     //   .data(worldData.filter((d)=>{
     //     return ["USA","China","Brazil","Australia","Russia","South Africa","Chile","Mexico","Iran","Germany","Nigeria","Egypt","Spain","India","Greenland"]
@@ -133,10 +160,10 @@ export default class CoronaMapView extends PureComponent {
 
   getCountryCoordinate = (d) => {
     // return [0, 0];
-    return [this.getCx(d),this.getCy(d)]
+    return [this.getCx(d), this.getCy(d)];
   };
 
-  getCx = d => {
+  getCx = (d) => {
     if (StringUtils.isNotEmpty(d)) {
       var x = d.coordinate.latitude;
       var y = d.coordinate.longitude;
@@ -146,7 +173,7 @@ export default class CoronaMapView extends PureComponent {
     }
   };
 
-  getCy = d => {
+  getCy = (d) => {
     if (StringUtils.isNotEmpty(d)) {
       var x = d.coordinate.latitude;
       var y = d.coordinate.longitude;
@@ -157,11 +184,19 @@ export default class CoronaMapView extends PureComponent {
   //Color land
   markDesease = (d) => {
     let todayData = this.props.covid19.todayData;
-    let elt = todayData.filter((e) => {
-      let countryTrimmed = e.Country ? e.Country.trim() : "";
-
-      return countryTrimmed == d.properties.name;
-    });
+    let elt;
+    if (d) {
+      elt = todayData.filter((e) => {
+        let countryTrimmed = e.Country ? e.Country.trim() : "";
+        return countryTrimmed == d.properties.name;
+      });
+    } else {
+      console.log("d null Morocco");
+      elt = todayData.filter((e) => {
+        let countryTrimmed = e.Country ? e.Country.trim() : "";
+        return countryTrimmed == "Morocco";
+      });
+    }
     if (elt[0]) {
       let totalCases = StringUtils.deleteSpecialChar(elt[0].ActiveCases);
       return this.getCountryColor(totalCases);
@@ -241,20 +276,21 @@ export default class CoronaMapView extends PureComponent {
     });
 
     //Countries label Transformation
-    console.log("k",transform.k)
-    let k = transform.k
+    console.log("k", transform.k);
+    let k = transform.k;
 
-    if(k>=1 && k<2){
-      placeLabel.style("font-size","10px");
-    }else if(k>=2 && k<3){
-      placeLabel.style("font-size","5px");
-    }else if(k>=3 && k<8){
-      placeLabel.style("font-size","3px").style("stroke-width","0.1px");
-    }else{
-      placeLabel.style("font-size","1px").style("stroke-width","0px").style("letter-spacing","0px");
+    if (k >= 1 && k < 2) {
+      placeLabel.style("font-size", "10px");
+    } else if (k >= 2 && k < 3) {
+      placeLabel.style("font-size", "5px");
+    } else if (k >= 3 && k < 8) {
+      placeLabel.style("font-size", "3px").style("stroke-width", "0.1px");
+    } else {
+      placeLabel
+        .style("font-size", "1px")
+        .style("stroke-width", "0px")
+        .style("letter-spacing", "0px");
     }
-
-
 
     // if (k>2) {
     //   placeLabel.style("font-size","7px");
@@ -278,26 +314,26 @@ export default class CoronaMapView extends PureComponent {
 
   //Projection and path calculator
   projection = () => {
-                 var geoMercator = d3
-                   .geoMercator()
-                   .center([0, -60])
-                   .scale(80)
-                   .translate([800 / 2, 650 / 2]);
+    var geoMercator = d3
+      .geoMercator()
+      .center([0, -60])
+      .scale(80)
+      .translate([800 / 2, 650 / 2]);
 
-                 var projection2 = d3
-                   .geoOrthographic()
-                   .scale(150)
-                   .clipAngle(90)
-                   .precision(0.1)
-                   .rotate([0, 0, 0]);
-                 var projection3 = d3
-                   .geoConicEqualArea()
-                   .scale(150)
-                   .center([0, 33])
-                   //.translate([width / 2, height / 2])
-                   .precision(0.3);
-                 return geoMercator;
-               };;
+    var projection2 = d3
+      .geoOrthographic()
+      .scale(150)
+      .clipAngle(90)
+      .precision(0.1)
+      .rotate([0, 0, 0]);
+    var projection3 = d3
+      .geoConicEqualArea()
+      .scale(150)
+      .center([0, 33])
+      //.translate([width / 2, height / 2])
+      .precision(0.3);
+    return geoMercator;
+  };
 
   calculatePath = (d) => {
     return this.path()(d);
