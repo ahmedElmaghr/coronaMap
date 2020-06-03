@@ -211,11 +211,9 @@ export default class CoronaMapView extends PureComponent {
       return "#FFFFC2";
     } else if (100 <= totalCases && totalCases < 200) {
       return "#E3E363";
-    } else if (200 <= totalCases && totalCases < 500) {
+    } else if (200 <= totalCases && totalCases < 1000) {
       return "#cccc59";
-    } else if (500 <= totalCases && totalCases < 1000) {
-      return "#f5cbcb ";
-    } else if (1000 <= totalCases && totalCases < 2000) {
+    }  else if (1000 <= totalCases && totalCases < 2000) {
       return "#EB9999";
     } else if (2000 <= totalCases && totalCases < 3000) {
       return "#E47777";
