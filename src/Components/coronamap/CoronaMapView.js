@@ -87,7 +87,6 @@ export default class CoronaMapView extends PureComponent {
       .attr("class", "country")
       .attr("id", "morocco")
       .attr("d", (d) => this.calculatePath(d))
-      // .attr("fill", `#cccc59`)
       .attr("fill", (d) => {
         return this.markDesease();
       })
@@ -191,7 +190,7 @@ export default class CoronaMapView extends PureComponent {
         return countryTrimmed == d.properties.name;
       });
     } else {
-      console.log("d null Morocco");
+      //Morocco
       elt = todayData.filter((e) => {
         let countryTrimmed = e.Country ? e.Country.trim() : "";
         return countryTrimmed == "Morocco";
@@ -207,7 +206,10 @@ export default class CoronaMapView extends PureComponent {
 
   //Get country color range rgba(255,255,255)
   getCountryColor = (totalCases) => {
-    if (0 <= totalCases && totalCases <= 100) {
+    if (0 == totalCases) {
+      return "green";
+    }
+    if (0 < totalCases && totalCases <= 100) {
       return "#FFFFC2";
     } else if (100 <= totalCases && totalCases < 200) {
       return "#E3E363";
@@ -290,13 +292,6 @@ export default class CoronaMapView extends PureComponent {
         .style("letter-spacing", "0px");
     }
 
-    // if (k>2) {
-    //   placeLabel.style("font-size","7px");
-    // }else if(k>3){
-    //   placeLabel.style("font-size","5px");
-    // }else {
-    //   placeLabel.style("font-size","3px");
-    // }
   };
 
   /**

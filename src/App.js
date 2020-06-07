@@ -102,19 +102,25 @@ export default class App extends Component {
                                className="legend-elt"
                                style={{ color: "#881B1B" }}
                              >
-                               More than 10,000 cases
+                                active cases &gt; 10,000
                              </div>
                              <div
                                className="legend-elt"
                                style={{ color: "#EB9999" }}
                              >
-                               More than 1,000 cases
+                                active cases &gt; 1,000
                              </div>
                              <div
                                className="legend-elt"
                                style={{ color: "#E3E363" }}
                              >
-                               Less than 1000 cases
+                               active cases &lt; 1000
+                             </div>
+                             <div
+                               className="legend-elt"
+                               style={{ color: "green" }}
+                             >
+                               No infected cases
                              </div>
                            </div>
                          </div>
