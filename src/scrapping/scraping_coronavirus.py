@@ -36,8 +36,8 @@ for tr in countries:
     l.append(row)
 df = pd.DataFrame(l, columns=["#","Country", "TotalCases", "NewCases", "TotalDeaths",
                                 "NewDeaths","TotalRecovered","NewRecovered","ActiveCases","Serious,Critical",
-                                "Cases/1M pop","Death1m","TotalTest","Test1MPeople","population","1CaseEveryXPPL",
-                                    "1DeathEveryXPPL","1TestEveryXPPL","temp"])
+                                "Cases/1M pop","Death1m","TotalTest","Test1MPeople","population","region","1CaseEveryXPPL",
+                                    "1DeathEveryXPPL","1TestEveryXPPL","temp","X","Y"])
 
 # In[6]:
 
