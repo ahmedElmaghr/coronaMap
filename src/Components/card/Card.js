@@ -11,7 +11,7 @@ export default class Card extends Component {
     let totalStatistics;
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
-      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[0]
+      totalStatistics = data.filter((elt) => { return elt.Country == "Total:" })[7]
     }
     let totalConfirmed;
     let activeCases;
