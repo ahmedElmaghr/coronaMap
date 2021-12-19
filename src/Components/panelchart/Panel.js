@@ -101,7 +101,7 @@ export default class Panel extends React.Component {
                   {this.getPanelParagraph(
                     stat,
                     "black",
-                    "Total test",
+                    "Total tests",
                     "TotalTest"
                   )}
                 </div>

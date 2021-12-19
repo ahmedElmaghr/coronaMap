@@ -36,8 +36,8 @@ export default class Card extends Component {
     <div className="red-content">{uihelper.buildCountUpByStringValue(totalConfirmed)}</div>
         </div>
         <div className="card">
-          <div className="blue-title"><i class="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
-          <div className="blue-content">{uihelper.buildCountUpByStringValue(activeCases)}</div>
+          <div className="orange-title"><i class="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
+          <div className="orange-content">{uihelper.buildCountUpByStringValue(activeCases)}</div>
         </div>
         <div className="card">
           <div className="green-title"><i class="fa fa-heart" aria-hidden="true"></i> Recovered</div>

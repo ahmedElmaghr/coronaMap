@@ -81,7 +81,7 @@ class Container extends Component {
             }}
           />
           {zoneDeaths}
-          <ToggleBtn
+          {/* <ToggleBtn
             name="Zone Deaths"
             id="deaths"
             context={this.state.context}
@@ -95,7 +95,7 @@ class Container extends Component {
             context={this.state.context}
             checked={this.state.context.checkZoneDesease}
             click={() => this.switchZoneDesease()}
-          />
+          /> */}
           <Panel
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
