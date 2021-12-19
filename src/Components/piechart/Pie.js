@@ -49,10 +49,10 @@ export default class Pie extends React.Component {
       {
         label: "Active cases",
         value: activeCases,
-        color: "rgba(35, 51, 194,.8)"
+        color: "darkorange"
       },
       { label: "Total recovered", value: totalRecovered, color: "darkgreen" },
-      { label: "Total deaths", value: totalDeaths, color: "rgb(197, 23, 23)" }
+      { label: "Total deaths", value: totalDeaths, color: "black" }
     ];
     return sliceData;
   };

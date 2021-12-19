@@ -65,10 +65,24 @@
     margin-bottom: 0;
 }
 .closePanel{
+    color: snow;
     cursor: pointer;
     font-size: 15px;
     position: absolute;
-    top: 0;
+    top: 3px;
     right: 8px;
     z-index : 10;
+}
+.panelTitle1{
+    color: snow;
+    background-color: black;
+}
+.panelTitle2{
+    color: black;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    margin: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: rgb(228, 228, 228);
 }

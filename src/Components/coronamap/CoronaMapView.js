@@ -115,8 +115,8 @@ export default class CoronaMapView extends PureComponent {
       return countryTrimmed == d.properties.name
     })
     if (elt[0]) {
-      let totalCases = StringUtils.deleteSpecialChar(elt[0].TotalCases);
-      return this.getCountryColor(totalCases);
+      let dailyNewCase = StringUtils.deleteSpecialChar(elt[0].NewCases);
+      return this.getCountryColor(dailyNewCase);
 
     } else {
       return `rgba(218, 223, 225, 1)`
@@ -124,21 +124,22 @@ export default class CoronaMapView extends PureComponent {
   }
 
   //Get country color range rgba(255,255,255)
-  getCountryColor = (totalCases) => {
-
-    if (0 < totalCases && totalCases <= 100) {
+  getCountryColor = (dailyCase) => {
+    if(dailyCase == 0){
+      return '#6f8d43'
+    } else if (0 < dailyCase && dailyCase <= 100) {
       return '#71c7ec'
-    } else if (100 <= totalCases && totalCases < 200) {
+    } else if (100 <= dailyCase && dailyCase < 200) {
       return '#65b3d4'
-    } else if (200 <= totalCases && totalCases < 500) {
+    } else if (200 <= dailyCase && dailyCase < 500) {
       return '#5a9fbc'
-    } else if (500 <= totalCases && totalCases < 1000) {
+    } else if (500 <= dailyCase && dailyCase < 1000) {
       return '#4f8ba5'
-    } else if (1000 <= totalCases && totalCases < 5000) {
+    } else if (1000 <= dailyCase && dailyCase < 5000) {
       return '#43778d'
-    } else if (5000 <= totalCases && totalCases < 30000) {
+    } else if (5000 <= dailyCase && dailyCase < 30000) {
       return '#386376'
-    } else if (15000 <= totalCases && totalCases < 100000) {
+    } else if (15000 <= dailyCase) {
       return '#16272f'
     }
 

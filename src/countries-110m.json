@@ -130,7 +130,7 @@
           "type": "Polygon",
           "arcs": [[-8, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]],
           "id": "180",
-          "properties": { "name": "Dem. Rep. Congo" }
+          "properties": { "name": "DRC" }
         },
         {
           "type": "Polygon",
@@ -497,7 +497,7 @@
           "type": "Polygon",
           "arcs": [[-108, 308, -286, -129, -121, 309]],
           "id": "140",
-          "properties": { "name": "Central African Rep." }
+          "properties": { "name": "CAR" }
         },
         {
           "type": "Polygon",
