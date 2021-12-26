@@ -43,7 +43,6 @@ export default class PieChart extends PureComponent {
   }
 
   onMouseMove = (event, element) => {
-    console.log("value", element);
     var sum;
     if (this.props.countryClicked) {
       sum = parseInt(

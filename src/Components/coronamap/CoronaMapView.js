@@ -165,8 +165,6 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-    // console.log(transform.k)
-    // if(.5<transform.k && transform.k<2){
     svg.selectAll("path,circle").attr("transform", transform);
     var markerRed = d3.selectAll(".marker-red");
     var markersBlack = d3.selectAll(".marker-black");
