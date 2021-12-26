@@ -148,7 +148,6 @@ export default class App extends Component {
         return elt.Country == d.properties.name;
       })
     }
-    console.log(countryFiltered[0]);
     this.setState({
       countryClicked : countryFiltered[0]
     })

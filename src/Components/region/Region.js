@@ -54,11 +54,9 @@ class Region extends Component {
 
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {
-    console.log("drawZoneByContext")
     let data = DataHelper.constructData(countries, covid19);
     var markers;
     let dataFiltered = this.filterCountriesByContext(data, context);
-    console.log("dataFiltered", context, dataFiltered);
     if (dataFiltered) {
       markers = node
         .append("g")
@@ -79,7 +77,6 @@ class Region extends Component {
           return this.getCy(d);
         })
         .attr("r", d => {
-          console.log("ddd",d)
           return uihelper.calculateRadius(d, context)/2  + "px";
         })
         .attr("class", this.getClassByContext(context))
@@ -163,7 +160,6 @@ class Region extends Component {
       return this.getRadiusDeath(cases)
     } else if (context.checkZoneDesease) {
       cases = StringUtils.deleteSpecialChar(d.stat.ActiveCases);
-      console.log(d.stat.Country,cases)
       return this.getRadiusCases(cases)
     }
   };
@@ -220,7 +216,6 @@ class Region extends Component {
   getCy = d => {
     if (StringUtils.isNotEmpty(d)) {
       if(d.stat.Country == "Morocco"){
-        console.log("Morocco",d)
       }
       
       var x = d.coordinate.latitude;

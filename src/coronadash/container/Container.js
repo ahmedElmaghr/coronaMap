@@ -196,8 +196,6 @@ class Container extends Component {
   };
 
   switchToggleBtn = () => {
-    console.log("call switchToggleBtn")
-
     this.setState(currentState => ({
       // checkToggleBTn: !currentState.checkToggleBTn,
       context :{
@@ -207,15 +205,11 @@ class Container extends Component {
       mapopacity: 0.5
     }));
 
-    // d3.selectAll("path").attr("fill","cyan")
   };
 
   switchZoneDesease = () => {
-    console.log("call switchZoneDesease")
     var context = this.state.context;
-    // if(context.checkToggleBTn)
     this.setState(currentState => ({
-      // checkZoneDesease: !currentState.checkZoneDesease,
       context :{
         checkToggleBTn: false,
         checkZoneDesease: !currentState.context.checkZoneDesease
@@ -223,7 +217,6 @@ class Container extends Component {
       mapopacity: 0.5
     }));
 
-    // d3.selectAll("path").attr("fill","cyan")
   };
 }
 
