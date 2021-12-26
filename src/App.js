@@ -1,8 +1,10 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
+import { PieChart } from "react-minimal-pie-chart";
 import "./App.css";
 import Card from "./Components/card/Card";
-import PieChart from "./Components/piechart/PieChart";
+import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
+// import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
 import data from "./scrapping/results_coronavirus.csv";
 import StringUtils from "./Utils/StringUtils";
@@ -43,10 +45,16 @@ export default class App extends Component {
     if (!this.state.isLoaded) {
       return "";
     }
+    let pieData;
+    if(this.state.countryClicked){
+      pieData = this.getPieData(this.state.countryClicked);
+    }else{
+      pieData = this.getPieData(this.getGlobalStat(this.state.dataset));
+    }
     return (
       <div
         className="container-fluid"
-        style={{ overflow: "auto", height: '1500px' }}
+        style={{ overflow: "auto", height: "1500px" }}
       >
         <div id="header" className="row">
           <div className="header">
@@ -59,7 +67,7 @@ export default class App extends Component {
             className="col-2"
             style={{
               paddingRight: 0 + "px",
-              height: window.screen.height + "px"
+              height: window.screen.height + "px",
             }}
           >
             <div className="row cards">
@@ -73,10 +81,10 @@ export default class App extends Component {
               style={{
                 overflow: "hidden",
                 width: "auto",
-                height: "auto"
+                height: "auto",
               }}
             >
-              <PieChart
+              {/* <PieChart
                 opacity={1}
                 zIndex={1}
                 data={this.getGlobalStat(this.state.dataset)}
@@ -84,17 +92,28 @@ export default class App extends Component {
                 // data={this.getPieData(this.getGlobalStat(this.state.dataset))}
                 x={85}
                 y={100}
-              ></PieChart>
+              ></PieChart> */}
+              <PieChartFullOption 
+              data={[
+                { title: "total recovered", value: parseInt(pieData[0]), color: "rgb(44, 100, 6)" },
+                { title: "total cases", value: parseInt(pieData[1]), color: "rgb(201, 93, 22)" },
+                { title: "total deaths", value: parseInt(pieData[2]), color: "rgb(0, 0, 0)" },
+              ]}
+              countryClicked={this.state.countryClicked}
+              />
             </div>
           </div>
-          <div className="col-10"
+          <div
+            className="col-10"
             style={{ height: window.screen.height + "px" }}
           >
             <div id="mapWW" className="col">
               <Container
                 covid19={this.state.dataset}
-                onclick={d => this.onclickCountry(d)}
-                initGlobalStat={()=>{this.initGlobalStat()}}
+                onclick={(d) => this.onclickCountry(d)}
+                initGlobalStat={() => {
+                  this.initGlobalStat();
+                }}
               ></Container>
             </div>
             {/* <TableComponent></TableComponent> */}
