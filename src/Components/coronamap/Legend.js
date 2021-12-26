@@ -9,18 +9,18 @@ export default class Legend extends Component {
     svg.append("circle").attr("cx",10).attr("cy",10).attr("r", 6).style("fill", "#6f8d43")
     svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "#71c7ec")
     svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "#65b3d4")
-    svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "#5a9fbc")
-    svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#4f8ba5")
-    svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "#386376")
-    svg.append("circle").attr("cx",10).attr("cy",130).attr("r", 6).style("fill", "rgba(218, 223, 225, 1)")
+    svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "#386376")
+    svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#16272f")
+    // svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "#386376")
+    svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "rgba(218, 223, 225, 1)")
 
     svg.append("text").attr("x", 30).attr("y", 10).text("no new cases").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 30).text("< 100").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 50).text("100 - 1K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 70).text("1K - 5K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 90).text("5K - 30K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 110).text("30K - 100K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 130).text("infos not available").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 30).text("< 2k").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 50).text("2k - 5K").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 70).text("5K - 15K").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 90).text(">15k").style("font-size", "15px").attr("alignment-baseline","middle")
+    // svg.append("text").attr("x", 30).attr("y", 110).text("30K - 100K").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 110).text("infos not available").style("font-size", "15px").attr("alignment-baseline","middle")
 
     
   }

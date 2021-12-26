@@ -128,7 +128,9 @@ export default class CoronaMapView extends PureComponent {
   getCountryColor = (dailyCase) => {
     if(dailyCase == 0){
       return '#6f8d43'
-    } else if (0 < dailyCase && dailyCase <= 100) {
+    } 
+    
+    /*else if (0 < dailyCase && dailyCase <= 100) {
       return '#71c7ec'
     } else if (100 <= dailyCase && dailyCase < 200) {
       return '#65b3d4'
@@ -138,7 +140,14 @@ export default class CoronaMapView extends PureComponent {
       return '#4f8ba5'
     } else if (1000 <= dailyCase && dailyCase < 5000) {
       return '#43778d'
-    } else if (5000 <= dailyCase && dailyCase < 30000) {
+    } */
+    else if (0 < dailyCase && dailyCase <= 2000) {
+      return '#71c7ec'
+    }
+    else if (2000 < dailyCase && dailyCase <= 5000) {
+      return '#65b3d4'
+    }
+    else if (5000 <= dailyCase && dailyCase < 15000) {
       return '#386376'
     } else if (15000 <= dailyCase) {
       return '#16272f'
