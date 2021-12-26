@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/covid19MapRegion/static/css/main.7f7921b7.chunk.css",
-    "main.js": "/covid19MapRegion/static/js/main.dd029c48.chunk.js",
-    "main.js.map": "/covid19MapRegion/static/js/main.dd029c48.chunk.js.map",
-    "runtime-main.js": "/covid19MapRegion/static/js/runtime-main.51bb4fb3.js",
-    "runtime-main.js.map": "/covid19MapRegion/static/js/runtime-main.51bb4fb3.js.map",
-    "static/css/2.06afed8f.chunk.css": "/covid19MapRegion/static/css/2.06afed8f.chunk.css",
-    "static/js/2.a3b2f6ec.chunk.js": "/covid19MapRegion/static/js/2.a3b2f6ec.chunk.js",
-    "static/js/2.a3b2f6ec.chunk.js.map": "/covid19MapRegion/static/js/2.a3b2f6ec.chunk.js.map",
-    "index.html": "/covid19MapRegion/index.html",
-    "precache-manifest.86546c532ab3682d6e889b3551bfea87.js": "/covid19MapRegion/precache-manifest.86546c532ab3682d6e889b3551bfea87.js",
-    "service-worker.js": "/covid19MapRegion/service-worker.js",
-    "static/css/2.06afed8f.chunk.css.map": "/covid19MapRegion/static/css/2.06afed8f.chunk.css.map",
-    "static/css/main.7f7921b7.chunk.css.map": "/covid19MapRegion/static/css/main.7f7921b7.chunk.css.map",
-    "static/js/2.a3b2f6ec.chunk.js.LICENSE.txt": "/covid19MapRegion/static/js/2.a3b2f6ec.chunk.js.LICENSE.txt",
-    "static/media/countries.tsv": "/covid19MapRegion/static/media/countries.2df50a8c.tsv",
-    "static/media/font-awesome.min.css": "/covid19MapRegion/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/results_coronavirus.csv": "/covid19MapRegion/static/media/results_coronavirus.f521b2f8.csv"
+    "main.css": "/coronaMap/static/css/main.7f7921b7.chunk.css",
+    "main.js": "/coronaMap/static/js/main.070cfd9c.chunk.js",
+    "main.js.map": "/coronaMap/static/js/main.070cfd9c.chunk.js.map",
+    "runtime-main.js": "/coronaMap/static/js/runtime-main.19e69f27.js",
+    "runtime-main.js.map": "/coronaMap/static/js/runtime-main.19e69f27.js.map",
+    "static/css/2.419dc1e3.chunk.css": "/coronaMap/static/css/2.419dc1e3.chunk.css",
+    "static/js/2.a3b2f6ec.chunk.js": "/coronaMap/static/js/2.a3b2f6ec.chunk.js",
+    "static/js/2.a3b2f6ec.chunk.js.map": "/coronaMap/static/js/2.a3b2f6ec.chunk.js.map",
+    "index.html": "/coronaMap/index.html",
+    "precache-manifest.44413699521471833bc56374c5a23c79.js": "/coronaMap/precache-manifest.44413699521471833bc56374c5a23c79.js",
+    "service-worker.js": "/coronaMap/service-worker.js",
+    "static/css/2.419dc1e3.chunk.css.map": "/coronaMap/static/css/2.419dc1e3.chunk.css.map",
+    "static/css/main.7f7921b7.chunk.css.map": "/coronaMap/static/css/main.7f7921b7.chunk.css.map",
+    "static/js/2.a3b2f6ec.chunk.js.LICENSE.txt": "/coronaMap/static/js/2.a3b2f6ec.chunk.js.LICENSE.txt",
+    "static/media/countries.tsv": "/coronaMap/static/media/countries.2df50a8c.tsv",
+    "static/media/font-awesome.min.css": "/coronaMap/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/results_coronavirus.csv": "/coronaMap/static/media/results_coronavirus.f521b2f8.csv"
   },
   "entrypoints": [
-    "static/js/runtime-main.51bb4fb3.js",
-    "static/css/2.06afed8f.chunk.css",
+    "static/js/runtime-main.19e69f27.js",
+    "static/css/2.419dc1e3.chunk.css",
     "static/js/2.a3b2f6ec.chunk.js",
     "static/css/main.7f7921b7.chunk.css",
-    "static/js/main.dd029c48.chunk.js"
+    "static/js/main.070cfd9c.chunk.js"
   ]
 }
