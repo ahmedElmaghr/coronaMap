@@ -17,8 +17,6 @@ export default class CoronaMapView extends PureComponent {
     super(props);
   }
 
-  
-
   componentWillMount() {
     if (this.props.jsonData.length != 0) {
       //Draw svg Wrapper
@@ -52,11 +50,17 @@ export default class CoronaMapView extends PureComponent {
       .datum(merge(jsonData, toBeMerged))
       .attr("class", "country")
       .attr("d", d => this.calculatePath(d))
-      .attr("fill", `#43778d`)
+      .attr("fill", this.getMoroccoCountryColor(this.props.covid19))
       .on("click", (d) => {
         this.props.clickOnCountry()
       })
   };
+
+   getMoroccoCountryColor = (data) => {
+    const moroccoData = data.filter(c => c.Country == "Morocco");
+    let morrocanTotalCases = moroccoData[0].NewCases;
+    return this.getCountryColor(morrocanTotalCases); 
+   }
 
   render() {
     return (
@@ -100,9 +104,6 @@ export default class CoronaMapView extends PureComponent {
         .on("click", (d) => {
           this.props.clickOnCountry(d);
         })
-      // .on("mouseout",()=>{
-      //   this.props.closePanel();
-      // })
       return g;
 
   };
