@@ -12,12 +12,12 @@ export default class ToggleBtn extends React.Component {
     const { checked,context,type } = this.props;
     return (
       <div
-        class="custom-control custom-switch markdeath"
+        className="custom-control custom-switch markdeath"
         style={this.styling(this.props.up)}
       >
         <input
           type="checkbox"
-          class="custom-control-input"
+          className="custom-control-input"
           id={this.props.id}
           checked={checked}
           onClick={() => {
@@ -25,7 +25,7 @@ export default class ToggleBtn extends React.Component {
           }}
         />
         <label
-          class="custom-control-label"
+          className="custom-control-label"
           style={{ color: "white", fontWeight: "bold", fontFamily: "courier" }}
           for={this.props.id}
         >

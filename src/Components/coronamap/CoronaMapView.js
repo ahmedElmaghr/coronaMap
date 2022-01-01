@@ -1,10 +1,9 @@
 import * as d3 from "d3";
 import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
-import StringUtils from "../../Utils/StringUtils";
+import UIHelper from "../../Utils/UIHelper";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
-import UIHelper from "../../Utils/UIHelper";
 
 export default class CoronaMapView extends PureComponent {
   //Constantes
@@ -57,9 +56,9 @@ export default class CoronaMapView extends PureComponent {
   };
 
    getMoroccoCountryColor = (data) => {
-    const moroccoData = data.filter(c => c.Country == "Morocco");
-    let morrocanNewCases = moroccoData[0].NewCases;
-    return this.getCountryColor(parseInt(morrocanNewCases.replace("+","").replace(",",""))); 
+    const moroccoData = data.filter(c => c.country == "Morocco");
+    let morrocanTodayCases = moroccoData[0].todayCases;
+    return this.getCountryColor(morrocanTodayCases); 
    }
 
   render() {
@@ -111,12 +110,12 @@ export default class CoronaMapView extends PureComponent {
   //Color land 
   markDesease = (d) => {
     let elt = this.props.covid19.filter((e) => {
-      let countryTrimmed = e.Country ? e.Country.trim() : "";
+      let countryTrimmed = e.country ? e.country.trim() : "";
 
       return countryTrimmed == d.properties.name
     })
     if (elt[0]) {
-      let dailyNewCase = StringUtils.deleteSpecialChar(elt[0].NewCases);
+      let dailyNewCase = elt[0].todayCases;
       return this.getCountryColor(dailyNewCase);
 
     } else {

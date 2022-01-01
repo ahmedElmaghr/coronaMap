@@ -19,4 +19,9 @@
     var stringWithoutSpecChar = deleteSpecialChar(string);
     return parseInt(stringWithoutSpecChar,10);
   }
-export default { isNotEmpty,deleteSpecialChar,stringVirSepToNumber};
+
+  const formatNumberToString = (num) =>{
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+export default { isNotEmpty,deleteSpecialChar,stringVirSepToNumber,formatNumberToString};

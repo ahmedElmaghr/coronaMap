@@ -1,14 +1,14 @@
 
-import React from 'react'
-import StringUtils from './StringUtils'
+import React from 'react';
 import CountUp from 'react-countup';
+import StringUtils from './StringUtils';
 
 /** example "16.25" -> 16,25 + counter  */
-const buildCountUpByStringValue = (valueStr)=>{
+const buildCountUpByStringValue = (value)=>{
     return (
       <CountUp
-        separator="  "
-        end={StringUtils.stringVirSepToNumber(valueStr)}
+        separator=","
+        end={value}
         duration={0.5}
       ></CountUp>
     );
@@ -17,10 +17,10 @@ const buildCountUpByStringValue = (valueStr)=>{
 const   calculateRadius = (d, context) => {
   let cases;
   if (context.checkToggleBTn) {
-    cases = StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
+    cases = StringUtils.deleteSpecialChar(d.stat.deaths);
     return getRadiusDeath(cases)
   } else if (context.checkZoneDesease) {
-    cases = StringUtils.deleteSpecialChar(d.stat.ActiveCases);
+    cases = StringUtils.deleteSpecialChar(d.stat.cases);
     return getRadiusCases(cases)
   }
 };

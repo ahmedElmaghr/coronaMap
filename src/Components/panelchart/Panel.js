@@ -1,6 +1,6 @@
 import React from "react";
+import StringUtils from "../../Utils/StringUtils";
 import "./Panel.css";
-import  StringUtils  from "../../Utils/StringUtils";
 
 export default class Panel extends React.Component {
   
@@ -56,7 +56,7 @@ export default class Panel extends React.Component {
               <div className="nicetext">
                 <div>
                   <div className="nicetext-title panelTitle1">
-                    <span>{stat ? stat.Country : ""}</span>
+                    <span>{stat ? stat.country : ""}</span>
                   </div>
                 </div>
                 <div>
@@ -65,44 +65,44 @@ export default class Panel extends React.Component {
                     stat,
                     "green",
                     "New recovered",
-                    "NewRecovered"
+                    "todayRecovered"
                   )}
                   {this.getPanelParagraph(
                     stat,
                     "darkorange",
                     "New cases",
-                    "NewCases"
+                    "todayCases"
                   )}
                   {this.getPanelParagraph(
                     stat,
                     "darkred",
                     "New deaths",
-                    "NewDeaths"
+                    "todayDeaths"
                   )}
                   <p className="panelTitle2">Total</p>
                   {this.getPanelParagraph(
                     stat,
                     "green",
                     "Total recovered",
-                    "TotalRecovered"
+                    "recovered"
                   )}
                   {this.getPanelParagraph(
                     stat,
                     "black",
                     "Total deaths",
-                    "TotalDeaths"
+                    "deaths"
                   )}
                   {this.getPanelParagraph(
                     stat,
                     "darkorange",
                     "Total cases",
-                    "TotalCases"
+                    "cases"
                   )}
                   {this.getPanelParagraph(
                     stat,
                     "black",
                     "Total tests",
-                    "TotalTest"
+                    "tests"
                   )}
                 </div>
               </div>
@@ -146,15 +146,8 @@ export default class Panel extends React.Component {
   >
     
     {label + ": "}
-    {(stat && StringUtils.isNotEmpty(stat[field])) ? stat[field] : "0"}
+    {(stat && StringUtils.isNotEmpty(stat[field])) ? StringUtils.formatNumberToString(stat[field]) : "0"}
 
   </p>
   }
-  getData = data => {
-    if (data) {
-      return [data.TotalCases, data.TotalDeaths, data.TotalRecovered];
-    } else {
-      return [0];
-    }
-  };
 }

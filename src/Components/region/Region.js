@@ -82,7 +82,7 @@ class Region extends Component {
         .attr("class", this.getClassByContext(context))
         .append("title")
         .text(d => {
-          return `country : ${d.data.name} cases : ${d.stat.TotalCases}`;
+          return `country : ${d.data.country} cases : ${d.stat.cases}`;
         });
     }
     return markers;
@@ -119,11 +119,11 @@ class Region extends Component {
       );
       dataSorted = dataFiltered.sort((e1, e2) => {
         var totalDeath1Int = parseInt(
-          StringUtils.deleteSpecialChar(e1.stat.TotalDeaths),
+          StringUtils.deleteSpecialChar(e1.stat.deaths),
           10
         );
         var totalDeath2Int = parseInt(
-          StringUtils.deleteSpecialChar(e2.stat.TotalDeaths),
+          StringUtils.deleteSpecialChar(e2.stat.deaths),
           10
         );
         return totalDeath2Int - totalDeath1Int;
@@ -138,11 +138,11 @@ class Region extends Component {
       );
       dataSorted = dataFiltered.sort((e1, e2) => {
         var activeCase1Int = parseInt(
-          StringUtils.deleteSpecialChar(e1.stat.ActiveCases),
+          StringUtils.deleteSpecialChar(e1.stat.cases),
           10
         );
         var activeCase2Int = parseInt(
-          StringUtils.deleteSpecialChar(e2.stat.ActiveCases),
+          StringUtils.deleteSpecialChar(e2.stat.cases),
           10
         );
         return activeCase2Int - activeCase1Int;
@@ -156,10 +156,10 @@ class Region extends Component {
 
     let cases;
     if (context.checkToggleBTn) {
-      cases = StringUtils.deleteSpecialChar(d.stat.TotalDeaths);
+      cases = StringUtils.deleteSpecialChar(d.stat.deaths);
       return this.getRadiusDeath(cases)
     } else if (context.checkZoneDesease) {
-      cases = StringUtils.deleteSpecialChar(d.stat.ActiveCases);
+      cases = StringUtils.deleteSpecialChar(d.stat.cases);
       return this.getRadiusCases(cases)
     }
   };
@@ -215,9 +215,6 @@ class Region extends Component {
 
   getCy = d => {
     if (StringUtils.isNotEmpty(d)) {
-      if(d.stat.Country == "Morocco"){
-      }
-      
       var x = d.coordinate.latitude;
       var y = d.coordinate.longitude;
       var coordinate = [x, y];

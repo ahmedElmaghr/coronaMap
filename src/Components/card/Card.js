@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./Card.css";
 import uihelper from "../../Utils/UIHelper";
+import "./Card.css";
 
 export default class Card extends Component {
   render() {
@@ -18,33 +18,34 @@ export default class Card extends Component {
     let recovered;
     let totalDeaths;
     if (countryClicked) {
-      totalConfirmed = countryClicked.TotalCases;
-      activeCases = countryClicked.ActiveCases;
-      recovered = countryClicked.TotalRecovered;
-      totalDeaths = countryClicked.TotalDeaths;
+      totalConfirmed = countryClicked.cases;
+      activeCases = countryClicked.active;
+      recovered = countryClicked.recovered;
+      totalDeaths = countryClicked.deaths;
     } else {
-      totalConfirmed = totalStatistics.TotalCases;
-      activeCases = totalStatistics.ActiveCases;
-      recovered = totalStatistics.TotalRecovered;
-      totalDeaths = totalStatistics.TotalDeaths;
+      //FIXME
+      totalConfirmed = "9999";
+      activeCases = "9999";
+      recovered = "9999";
+      totalDeaths = "9999";
     }
     //
     return (
       <div style={{ marginLeft: 10 + "px" }}>
         <div className="card">
-          <div className="red-title"> <i class="fa fa-globe" aria-hidden="true"></i> Total Confirmed</div>
+          <div className="red-title"> <i className="fa fa-globe" aria-hidden="true"></i> Total Confirmed</div>
     <div className="red-content">{uihelper.buildCountUpByStringValue(totalConfirmed)}</div>
         </div>
         <div className="card">
-          <div className="orange-title"><i class="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
+          <div className="orange-title"><i className="fa fa-ambulance" aria-hidden="true"></i> Active cases</div>
           <div className="orange-content">{uihelper.buildCountUpByStringValue(activeCases)}</div>
         </div>
         <div className="card">
-          <div className="green-title"><i class="fa fa-heart" aria-hidden="true"></i> Recovered</div>
+          <div className="green-title"><i className="fa fa-heart" aria-hidden="true"></i> Recovered</div>
           <div className="green-content">{uihelper.buildCountUpByStringValue(recovered)}</div>
         </div>
         <div className="card">
-          <div className="black-title"><i class="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths</div>
+          <div className="black-title"><i className="fa fa-heartbeat" aria-hidden="true"></i> Total Deaths</div>
           <div className="black-content">{uihelper.buildCountUpByStringValue(totalDeaths)}</div>
         </div>
       </div>

@@ -1,13 +1,10 @@
-import * as d3 from "d3";
 import React, { Component } from "react";
-import { PieChart } from "react-minimal-pie-chart";
 import "./App.css";
 import Card from "./Components/card/Card";
 import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
 // import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-import data from "./scrapping/results_coronavirus.csv";
-import StringUtils from "./Utils/StringUtils";
+import { getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
 
 export default class App extends Component {
   constructor() {
@@ -18,29 +15,16 @@ export default class App extends Component {
     };
   }
   componentDidMount() {
-    d3.csv(data)
-      .then(data => {
-        this.setState({
-          dataset: data.filter((d)=>{ return d.Country !="Western Sahara"}),
+    //Test
+    getYesterDayCovidData().then(response =>{
+      console.log("response",response)
+          this.setState({
+          dataset: response.filter((d)=>{ return d.country !="Western Sahara"}),
           isLoaded: true
         });
-      })
-      .catch(err => {
-        throw err;
-      });
+    });
   }
 
-  readData = () => {
-    d3.csv(data)
-      .then(data => {
-        this.setState({
-          dataset: data
-        });
-      })
-      .catch(function(err) {
-        throw err;
-      });
-  };
   render() {
     if (!this.state.isLoaded) {
       return "";
@@ -58,7 +42,7 @@ export default class App extends Component {
       >
         <div id="header" className="row">
           <div className="header">
-            covid19 worldwide <i class="fa fa-globe" aria-hidden="true"></i>
+            covid19 worldwide <i className="fa fa-globe" aria-hidden="true"></i>
           </div>
         </div>
         <div className="row">
@@ -122,7 +106,7 @@ export default class App extends Component {
         <div className="footer">
           {/* {lastupdate}
           <br></br> */}
-          <i class="fa fa-github-square" aria-hidden="true"></i>
+          <i className="fa fa-github-square" aria-hidden="true"></i>
           <a
             href="https://github.com/ahmedElmaghr/coronaMap.git"
             className="github-link"
@@ -141,11 +125,11 @@ export default class App extends Component {
     var countryFiltered;
     if(!d){
       countryFiltered = dataset.filter((elt)=>{
-        return elt.Country =="Morocco";
+        return elt.country =="Morocco";
       })
     }else{
       countryFiltered = dataset.filter((elt)=>{
-        return elt.Country == d.properties.name;
+        return elt.country == d.properties.name;
       })
     }
     this.setState({
@@ -155,9 +139,9 @@ export default class App extends Component {
 
   getPieData = data => {
     if (data) {
-      let totalCases = StringUtils.deleteSpecialChar(data.TotalCases);
-      let totalRecovered = StringUtils.deleteSpecialChar(data.TotalRecovered);
-      let totalDeaths = StringUtils.deleteSpecialChar(data.TotalDeaths);
+      let totalCases = data.cases;
+      let totalRecovered = data.recovered;
+      let totalDeaths = data.deaths;
       return [totalRecovered,totalCases, totalDeaths];
     } else {
       return [0];
@@ -169,7 +153,7 @@ export default class App extends Component {
     if (Array.isArray(data) && data.length) {
       //FIXME : refactor this code
       totalStatistics = data.filter(elt => {
-        return elt.Country == "Total:";
+        return elt.country == "Morocco";
       })[0];
     }
     return totalStatistics;
