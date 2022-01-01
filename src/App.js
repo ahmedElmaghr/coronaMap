@@ -4,25 +4,33 @@ import Card from "./Components/card/Card";
 import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
 // import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-import { getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
+import { getTodayTotalCovidData, getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       dataset: {},
+      todayTotal : {},
       isLoaded: false
     };
   }
   componentDidMount() {
     //Test
     getYesterDayCovidData().then(response =>{
-      console.log("response",response)
-          this.setState({
-          dataset: response.filter((d)=>{ return d.country !="Western Sahara"}),
-          isLoaded: true
-        });
+      this.setState({
+        dataset: response.filter((d)=>{ return d.country !="Western Sahara"})
+      });
+
+      getTodayTotalCovidData().then(response =>{
+        console.log("response",response)
+            this.setState({
+            todayTotal: response,
+            isLoaded: true
+          });
+      });
     });
+   
   }
 
   render() {
@@ -57,6 +65,7 @@ export default class App extends Component {
             <div className="row cards">
               <Card
                 covid19={this.state.dataset}
+                todayTotal = {this.state.todayTotal}
                 countryClicked={this.state.countryClicked}
               ></Card>
             </div>

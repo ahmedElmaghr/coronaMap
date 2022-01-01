@@ -4,7 +4,7 @@ import "./Card.css";
 
 export default class Card extends Component {
   render() {
-    const covid19 = this.props.covid19;
+    const {covid19,todayTotal} = this.props;
     const countryClicked = this.props.countryClicked;
 
     let data = covid19;
@@ -24,10 +24,10 @@ export default class Card extends Component {
       totalDeaths = countryClicked.deaths;
     } else {
       //FIXME
-      totalConfirmed = "9999";
-      activeCases = "9999";
-      recovered = "9999";
-      totalDeaths = "9999";
+      totalConfirmed = todayTotal.cases;
+      activeCases = todayTotal.todayCases;
+      recovered = todayTotal.todayRecovered;
+      totalDeaths = todayTotal.todayDeaths;
     }
     //
     return (
