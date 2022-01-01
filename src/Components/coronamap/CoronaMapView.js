@@ -58,8 +58,8 @@ export default class CoronaMapView extends PureComponent {
 
    getMoroccoCountryColor = (data) => {
     const moroccoData = data.filter(c => c.Country == "Morocco");
-    let morrocanTotalCases = moroccoData[0].NewCases;
-    return this.getCountryColor(morrocanTotalCases); 
+    let morrocanNewCases = moroccoData[0].NewCases;
+    return this.getCountryColor(parseInt(morrocanNewCases.replace("+","").replace(",",""))); 
    }
 
   render() {
