@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "642c60930590360f40f4e4ff24e37eff",
+    "revision": "b01d8f775e8a597a1195cd2b082017fd",
     "url": "/coronaMap/index.html"
   },
   {
-    "revision": "b7d81766458d485a550a",
+    "revision": "dc7dfa6d94c0761ba6e3",
     "url": "/coronaMap/static/css/2.419dc1e3.chunk.css"
   },
   {
-    "revision": "fb612309b2393c53c975",
+    "revision": "89580770dccd3ed0b72f",
     "url": "/coronaMap/static/css/main.7f7921b7.chunk.css"
   },
   {
-    "revision": "b7d81766458d485a550a",
-    "url": "/coronaMap/static/js/2.a3b2f6ec.chunk.js"
+    "revision": "dc7dfa6d94c0761ba6e3",
+    "url": "/coronaMap/static/js/2.1c3be619.chunk.js"
   },
   {
     "revision": "86493497955f2c03ad4534f44ae20baa",
-    "url": "/coronaMap/static/js/2.a3b2f6ec.chunk.js.LICENSE.txt"
+    "url": "/coronaMap/static/js/2.1c3be619.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fb612309b2393c53c975",
-    "url": "/coronaMap/static/js/main.8d28d50c.chunk.js"
+    "revision": "89580770dccd3ed0b72f",
+    "url": "/coronaMap/static/js/main.1b6ae1f6.chunk.js"
   },
   {
     "revision": "fc50f006616550c6c637",
@@ -50,9 +50,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fee66e712a8a08eef5805a46892932ad",
     "url": "/coronaMap/static/media/fontawesome-webfont.fee66e71.woff"
-  },
-  {
-    "revision": "c9f7b30fa780031ddf3af41dfb2ad239",
-    "url": "/coronaMap/static/media/results_coronavirus.c9f7b30f.csv"
   }
 ]);
