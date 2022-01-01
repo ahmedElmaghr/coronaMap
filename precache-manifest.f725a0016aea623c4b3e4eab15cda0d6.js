@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ef8dbd6e0dc280e90fd40ee2e618289",
+    "revision": "09137261a043fd3b54303eda93ea7c86",
     "url": "/coronaMap/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coronaMap/static/css/2.419dc1e3.chunk.css"
   },
   {
-    "revision": "98a9508e3fbc92d77121",
+    "revision": "423a2902355225faef1c",
     "url": "/coronaMap/static/css/main.7f7921b7.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coronaMap/static/js/2.a3b2f6ec.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "98a9508e3fbc92d77121",
-    "url": "/coronaMap/static/js/main.7511270c.chunk.js"
+    "revision": "423a2902355225faef1c",
+    "url": "/coronaMap/static/js/main.2a6da7dc.chunk.js"
   },
   {
     "revision": "fc50f006616550c6c637",
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coronaMap/static/media/fontawesome-webfont.fee66e71.woff"
   },
   {
-    "revision": "fb6396d8a55b443ec4010147aa53200a",
-    "url": "/coronaMap/static/media/results_coronavirus.fb6396d8.csv"
+    "revision": "c9f7b30fa780031ddf3af41dfb2ad239",
+    "url": "/coronaMap/static/media/results_coronavirus.c9f7b30f.csv"
   }
 ]);
