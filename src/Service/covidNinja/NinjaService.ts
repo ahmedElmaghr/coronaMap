@@ -10,7 +10,7 @@ const URL_DATA_TODAY_TOTAL : string = "https://corona.lmao.ninja/v2/all?today";
     }
 
     export const getTodayCovidData = ()=>{
-        fetch(URL_DATA_TODAY).then((data)=>{
+        return fetch(URL_DATA_TODAY).then((data)=>{
             return data.json();
         })
     }

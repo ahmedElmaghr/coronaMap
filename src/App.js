@@ -4,7 +4,7 @@ import Card from "./Components/card/Card";
 import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
 // import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-import { getTodayTotalCovidData, getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
+import { getTodayCovidData, getTodayTotalCovidData, getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
 
 export default class App extends Component {
   constructor() {
@@ -17,7 +17,7 @@ export default class App extends Component {
   }
   componentDidMount() {
     //Test
-    getYesterDayCovidData().then(response =>{
+    getTodayCovidData().then(response =>{
       this.setState({
         dataset: response.filter((d)=>{ return d.country !="Western Sahara"})
       });
