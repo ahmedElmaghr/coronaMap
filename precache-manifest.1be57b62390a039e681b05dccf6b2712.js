@@ -1,35 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1e5bb0088dc99ee5efc6cc694d5d1283",
+    "revision": "fa085de4d2df7282033c741fd3d86690",
     "url": "/coronaMap/index.html"
   },
   {
-    "revision": "dc7dfa6d94c0761ba6e3",
+    "revision": "b55be98f6bf5c3b9c0cc",
     "url": "/coronaMap/static/css/2.419dc1e3.chunk.css"
   },
   {
-    "revision": "331bcb9e6a881901b479",
+    "revision": "92d3b5744b55b7d1e750",
     "url": "/coronaMap/static/css/main.7f7921b7.chunk.css"
   },
   {
-    "revision": "dc7dfa6d94c0761ba6e3",
-    "url": "/coronaMap/static/js/2.1c3be619.chunk.js"
+    "revision": "b55be98f6bf5c3b9c0cc",
+    "url": "/coronaMap/static/js/2.4185b87b.chunk.js"
   },
   {
     "revision": "86493497955f2c03ad4534f44ae20baa",
-    "url": "/coronaMap/static/js/2.1c3be619.chunk.js.LICENSE.txt"
+    "url": "/coronaMap/static/js/2.4185b87b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "331bcb9e6a881901b479",
-    "url": "/coronaMap/static/js/main.4455d91a.chunk.js"
+    "revision": "92d3b5744b55b7d1e750",
+    "url": "/coronaMap/static/js/main.96aa546e.chunk.js"
   },
   {
     "revision": "fc50f006616550c6c637",
     "url": "/coronaMap/static/js/runtime-main.19e69f27.js"
   },
   {
-    "revision": "2df50a8c6e605a30370a98fee967de8b",
-    "url": "/coronaMap/static/media/countries.2df50a8c.tsv"
+    "revision": "9d6b49a09bcbc1bcba7d37be546f90d7",
+    "url": "/coronaMap/static/media/countries.9d6b49a0.tsv"
   },
   {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
