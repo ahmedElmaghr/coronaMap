@@ -1,39 +1,59 @@
+import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import "./App.css";
 import Card from "./Components/card/Card";
+import { NextPrevious } from "./Components/nextPrevious/nextPrevious";
 import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
 // import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-import { getTodayCovidData, getTodayTotalCovidData, getYesterDayCovidData } from "./Service/covidNinja/NinjaService";
+import { getTodayCovidData, getTodayTotalCovidData, getYesterDayCovidData, getYesterdayTotalCovidData } from "./Service/covidNinja/NinjaService";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       dataset: {},
-      todayTotal : {},
+      totalInfo : {},
       isLoaded: false
     };
+    this.clickPrevious = this.clickPrevious.bind(this);
+    this.clickNext = this.clickNext.bind(this);
   }
   componentDidMount() {
-    //Test
+    let dataset = {}
     getTodayCovidData().then(response =>{
-      this.setState({
-        dataset: response.filter((d)=>{ return d.country !="Western Sahara"})
-      });
-
+      dataset = response.filter((d)=>{ return d.country !="Western Sahara"})
       getTodayTotalCovidData().then(response =>{
-        console.log("response",response)
             this.setState({
-            todayTotal: response,
+            dataset,
+            totalInfo: response,
             isLoaded: true
           });
       });
     });
    
   }
+  
+  clickPrevious (){
+    console.log("click previous")
+    let dataset = {}
+    getYesterDayCovidData().then(response =>{
+      dataset = response.filter((d)=>{ return d.country !="Western Sahara"})
+      getYesterdayTotalCovidData().then(response =>{
+            this.setState({
+            dataset,
+            totalInfo: response
+          });
+      });
+    });
+  }
+
+  clickNext(){
+    console.log("click next")
+  }
 
   render() {
+    console.log("App render")
     if (!this.state.isLoaded) {
       return "";
     }
@@ -43,6 +63,7 @@ export default class App extends Component {
     }else{
       pieData = this.getPieData(this.getGlobalStat(this.state.dataset));
     }
+
     return (
       <div
         className="container-fluid"
@@ -50,7 +71,8 @@ export default class App extends Component {
       >
         <div id="header" className="row">
           <div className="header">
-            covid19 worldwide <i className="fa fa-globe" aria-hidden="true"></i>
+           <NextPrevious clickPrevious={this.clickPrevious} clickNext={this.clickNext}/> 
+           <div>covid19 worldwide <i className="fa fa-globe" aria-hidden="true"></i></div>
           </div>
         </div>
         <div className="row">
@@ -65,7 +87,7 @@ export default class App extends Component {
             <div className="row cards">
               <Card
                 covid19={this.state.dataset}
-                todayTotal = {this.state.todayTotal}
+                totalInfo = {this.state.totalInfo}
                 countryClicked={this.state.countryClicked}
               ></Card>
             </div>

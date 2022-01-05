@@ -461,7 +461,7 @@
           "type": "Polygon",
           "arcs": [[-270, 296, -295, 297, 298, 299]],
           "id": "384",
-          "properties": { "name": "Ivory Coast" }
+          "properties": { "name": "Côte d'Ivoire" }
         },
         {
           "type": "Polygon",
@@ -497,7 +497,7 @@
           "type": "Polygon",
           "arcs": [[-108, 308, -286, -129, -121, 309]],
           "id": "140",
-          "properties": { "name": "CAR" }
+          "properties": { "name": "Central African Republic" }
         },
         {
           "type": "Polygon",
@@ -515,7 +515,7 @@
           "type": "Polygon",
           "arcs": [[-289, -315, 315]],
           "id": "226",
-          "properties": { "name": "Eq. Guinea" }
+          "properties": { "name": "Equatorial Guinea" }
         },
         {
           "type": "Polygon",
@@ -653,7 +653,7 @@
           "type": "Polygon",
           "arcs": [[-370, -377, 377, 378, 379]],
           "id": "418",
-          "properties": { "name": "Laos" }
+          "properties": { "name": "Lao People's Democratic Republic" }
         },
         {
           "type": "Polygon",
@@ -749,7 +749,7 @@
           "type": "Polygon",
           "arcs": [[-332, -334, 423, 424, -358, -344]],
           "id": "760",
-          "properties": { "name": "Syria" }
+          "properties": { "name": "Syrian Arab Republic" }
         },
         {
           "type": "Polygon",
@@ -911,7 +911,7 @@
           "type": "MultiPolygon",
           "arcs": [[[511]], [[512]], [[513]], [[514]], [[515]]],
           "id": "090",
-          "properties": { "name": "Solomon Is." }
+          "properties": { "name": "Solomon Islands" }
         },
         {
           "type": "MultiPolygon",
@@ -1125,7 +1125,7 @@
           "type": "Polygon",
           "arcs": [[-123, -132, -283, -343, -340, 577, -575]],
           "id": "434",
-          "properties": { "name": "Libya" }
+          "properties": { "name": "Libyan Arab Jamahiriya" }
         },
         {
           "type": "Polygon",
@@ -1160,7 +1160,7 @@
           "type": "Polygon",
           "arcs": [[-496, 586, 587]],
           "id": "070",
-          "properties": { "name": "Bosnia and Herzegovina" }
+          "properties": { "name": "Bosnia" }
         },
         {
           "type": "Polygon",

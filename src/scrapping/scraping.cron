@@ -1,1 +1,0 @@
-*/15 * * * * cd /var/OCP/repos/coronaMap/src/scrapping &&  python3 scraping_coronavirus.py > /tmp/scraping_coronavirus.log && cd ./../../ && npm run build > /tmp/coronamap_build.log
