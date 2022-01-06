@@ -56,7 +56,10 @@ export default class Panel extends React.Component {
               <div className="nicetext">
                 <div>
                   <div className="nicetext-title panelTitle1">
+                    <img className = "impFlag"src={stat?(stat.countryInfo? stat.countryInfo.flag : "") : ""}/>
+                    {" "}
                     <span>{stat ? stat.country : ""}</span>
+                    
                   </div>
                 </div>
                 <div>

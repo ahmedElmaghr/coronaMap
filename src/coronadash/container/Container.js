@@ -165,7 +165,7 @@ class Container extends Component {
   };
 
   sendSvgToBackground = () => {
-    d3.selectAll("#worldMap").style("opacity", 0.7);
+    d3.selectAll("#worldMap").style("opacity", 0.3);
   };
 
   sendSvgToFrontPage = () => {
@@ -178,7 +178,7 @@ class Container extends Component {
       panelZindex: -1
     });
     this.sendSvgToFrontPage();
-    //this.props.initGlobalStat();
+    this.props.initGlobalStat();
   };
 
   constructView = () => {

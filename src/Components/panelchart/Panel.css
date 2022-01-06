@@ -76,6 +76,7 @@
 .panelTitle1{
     color: snow;
     background-color: black;
+    padding-right: 25px;
 }
 .panelTitle2{
     color: black;
@@ -85,4 +86,7 @@
     font-size: 12px;
     font-weight: bold;
     background-color: rgb(228, 228, 228);
+}
+.impFlag{
+    width: 30px;
 }

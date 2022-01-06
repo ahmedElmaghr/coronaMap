@@ -6,7 +6,7 @@ import { NextPrevious } from "./Components/nextPrevious/nextPrevious";
 import PieChartFullOption from "./Components/pieChart2/PieChartFullOption";
 // import PieChart from "./Components/piechart/PieChart";
 import Container from "./coronadash/container/Container";
-import { getTodayCovidData, getTodayTotalCovidData, getYesterDayCovidData, getYesterdayTotalCovidData } from "./Service/covidNinja/NinjaService";
+import { getTodayCovidData, getTodayTotalCovidData} from "./Service/covidNinja/NinjaService";
 
 export default class App extends Component {
   constructor() {
@@ -35,21 +35,9 @@ export default class App extends Component {
   }
   
   clickPrevious (){
-    console.log("click previous")
-    let dataset = {}
-    getYesterDayCovidData().then(response =>{
-      dataset = response.filter((d)=>{ return d.country !="Western Sahara"})
-      getYesterdayTotalCovidData().then(response =>{
-            this.setState({
-            dataset,
-            totalInfo: response
-          });
-      });
-    });
   }
 
   clickNext(){
-    console.log("click next")
   }
 
   render() {
