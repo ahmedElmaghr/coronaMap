@@ -25,7 +25,8 @@ export default class CoronaMapView extends PureComponent {
       var g = this.drawMap(gGlobal, this.props.worldData);
       //Merge morrocan sahara
       this.mergeMorrocanSahara(g);
-      //
+      //country names
+      this.addCountriesName(g,this.props.worldData);
       //add zoom
       var wrapper = d3.select("#content");
       this.addZoom(wrapper);
@@ -60,6 +61,44 @@ export default class CoronaMapView extends PureComponent {
     let morrocanTodayCases = moroccoData[0].todayCases;
     return this.getCountryColor(morrocanTodayCases); 
    }
+
+   addCountriesName = (g, worldData) => {
+    g.selectAll(".place-label")
+      .data(
+        worldData.filter((d) => {
+          return [
+            "Morocco",
+            "USA",
+            "China",
+            "Brazil",
+            "Australia",
+            "Russia",
+            "South Africa",
+            "Chile",
+            "Mexico",
+            "Iran",
+            "Germany",
+            "Nigeria",
+            "Egypt",
+            "India",  
+            "Greenland",
+            "France"
+          ].includes(d.properties.name);
+        })
+      )
+      .enter()
+      .append("text")
+      .attr("class", "place-label")
+      .attr("x", (d) => {
+        return this.path().centroid(d)[0];
+      })
+      .attr("y", (d) => {
+        return this.path().centroid(d)[1];
+      })
+      .text((d) => {
+        return d.properties.name;
+      });
+  };
 
   render() {
     return (
@@ -174,9 +213,11 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-    svg.selectAll("path,circle").attr("transform", transform);
+    svg.selectAll("path,circle,.place-label").attr("transform", transform);
     var markerRed = d3.selectAll(".marker-red");
     var markersBlack = d3.selectAll(".marker-black");
+    var placeLabel = d3.selectAll(".place-label");
+
     let contextDesease = { checkToggleBTn: false , checkZoneDesease:true}
     markerRed.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
@@ -186,10 +227,24 @@ export default class CoronaMapView extends PureComponent {
     markersBlack.attr("r", (d)=>{
       let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
       return scaledRadius<5 ? 5 : scaledRadius;
-    } )
-  // }
-  };
+    } );
+  //Countries label Transformation
+  let k = transform.k;
 
+  if (k >= 1 && k < 2) {
+    placeLabel.style("font-size", "10px");
+  } else if (k >= 2 && k < 3) {
+    placeLabel.style("font-size", "5px");
+  } else if (k >= 3 && k < 8) {
+    placeLabel.style("font-size", "3px").style("stroke-width", "0.1px");
+  } else {
+    placeLabel
+      .style("font-size", "1px")
+      .style("stroke-width", "0px")
+      .style("letter-spacing", "0px");
+  }
+
+};
   /**
    * d: element data
    * context : the contxt
@@ -211,12 +266,13 @@ export default class CoronaMapView extends PureComponent {
 
     var projection2 = d3
       .geoOrthographic()
-      .scale(300)
+      .center([0,-15])
+      .scale(190)
       .precision(0.1);
     var projection3 = d3
       .geoConicEqualArea()
-      .scale(150)
-      .center([0, 33])
+      .scale(100)
+      .center([0, 150])
       //.translate([width / 2, height / 2])
       .precision(0.3);
     return geoMercator;
@@ -224,5 +280,9 @@ export default class CoronaMapView extends PureComponent {
 
   calculatePath = d => {
     return d3.geoPath().projection(this.projection())(d);
+  };
+
+  path = () => {
+    return d3.geoPath().projection(this.projection());
   };
 }
