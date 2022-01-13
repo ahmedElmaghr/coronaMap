@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coronaMap/static/css/main.7f1dcaa4.css",
-    "main.js": "/coronaMap/static/js/main.d78819f8.js",
+    "main.js": "/coronaMap/static/js/main.94c78df0.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/coronaMap/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
@@ -10,10 +10,10 @@
     "static/media/countries.tsv": "/coronaMap/static/media/countries.9e8d431d6090cf8eb936.tsv",
     "index.html": "/coronaMap/index.html",
     "main.7f1dcaa4.css.map": "/coronaMap/static/css/main.7f1dcaa4.css.map",
-    "main.d78819f8.js.map": "/coronaMap/static/js/main.d78819f8.js.map"
+    "main.94c78df0.js.map": "/coronaMap/static/js/main.94c78df0.js.map"
   },
   "entrypoints": [
     "static/css/main.7f1dcaa4.css",
-    "static/js/main.d78819f8.js"
+    "static/js/main.94c78df0.js"
   ]
 }
