@@ -1,27 +1,19 @@
 {
   "files": {
-    "main.css": "/coronaMap/static/css/main.31e3831b.chunk.css",
-    "main.js": "/coronaMap/static/js/main.dd817968.chunk.js",
-    "main.js.map": "/coronaMap/static/js/main.dd817968.chunk.js.map",
-    "runtime-main.js": "/coronaMap/static/js/runtime-main.19e69f27.js",
-    "runtime-main.js.map": "/coronaMap/static/js/runtime-main.19e69f27.js.map",
-    "static/css/2.419dc1e3.chunk.css": "/coronaMap/static/css/2.419dc1e3.chunk.css",
-    "static/js/2.4185b87b.chunk.js": "/coronaMap/static/js/2.4185b87b.chunk.js",
-    "static/js/2.4185b87b.chunk.js.map": "/coronaMap/static/js/2.4185b87b.chunk.js.map",
+    "main.css": "/coronaMap/static/css/main.a5bc8c5c.css",
+    "main.js": "/coronaMap/static/js/main.e25e43da.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/coronaMap/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/countries.tsv": "/coronaMap/static/media/countries.9e8d431d6090cf8eb936.tsv",
     "index.html": "/coronaMap/index.html",
-    "precache-manifest.74210256f5e8e85df558f7b026075bf6.js": "/coronaMap/precache-manifest.74210256f5e8e85df558f7b026075bf6.js",
-    "service-worker.js": "/coronaMap/service-worker.js",
-    "static/css/2.419dc1e3.chunk.css.map": "/coronaMap/static/css/2.419dc1e3.chunk.css.map",
-    "static/css/main.31e3831b.chunk.css.map": "/coronaMap/static/css/main.31e3831b.chunk.css.map",
-    "static/js/2.4185b87b.chunk.js.LICENSE.txt": "/coronaMap/static/js/2.4185b87b.chunk.js.LICENSE.txt",
-    "static/media/countries.tsv": "/coronaMap/static/media/countries.9d6b49a0.tsv",
-    "static/media/font-awesome.min.css": "/coronaMap/static/media/fontawesome-webfont.fee66e71.woff"
+    "main.a5bc8c5c.css.map": "/coronaMap/static/css/main.a5bc8c5c.css.map",
+    "main.e25e43da.js.map": "/coronaMap/static/js/main.e25e43da.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.19e69f27.js",
-    "static/css/2.419dc1e3.chunk.css",
-    "static/js/2.4185b87b.chunk.js",
-    "static/css/main.31e3831b.chunk.css",
-    "static/js/main.dd817968.chunk.js"
+    "static/css/main.a5bc8c5c.css",
+    "static/js/main.e25e43da.js"
   ]
 }
