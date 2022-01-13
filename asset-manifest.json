@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/covid/static/css/main.2738150a.css",
-    "main.js": "/covid/static/js/main.4f232bf5.js",
-    "static/media/fontawesome-webfont.svg?v=4.7.0": "/covid/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
-    "static/media/fontawesome-webfont.eot": "/covid/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
-    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/covid/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
-    "static/media/fontawesome-webfont.woff?v=4.7.0": "/covid/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
-    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/covid/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
-    "static/media/countries.tsv": "/covid/static/media/countries.9e8d431d6090cf8eb936.tsv",
-    "index.html": "/covid/index.html",
-    "main.2738150a.css.map": "/covid/static/css/main.2738150a.css.map",
-    "main.4f232bf5.js.map": "/covid/static/js/main.4f232bf5.js.map"
+    "main.css": "/coronaMap/static/css/main.7f1dcaa4.css",
+    "main.js": "/coronaMap/static/js/main.766d384c.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/coronaMap/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/countries.tsv": "/coronaMap/static/media/countries.9e8d431d6090cf8eb936.tsv",
+    "index.html": "/coronaMap/index.html",
+    "main.7f1dcaa4.css.map": "/coronaMap/static/css/main.7f1dcaa4.css.map",
+    "main.766d384c.js.map": "/coronaMap/static/js/main.766d384c.js.map"
   },
   "entrypoints": [
-    "static/css/main.2738150a.css",
-    "static/js/main.4f232bf5.js"
+    "static/css/main.7f1dcaa4.css",
+    "static/js/main.766d384c.js"
   ]
 }
