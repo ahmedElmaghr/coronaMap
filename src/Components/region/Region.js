@@ -1,8 +1,8 @@
 import * as d3 from "d3";
 import { Component } from "react";
-import DataHelper from "../../Utils/DataHelper.js";
-import StringUtils from "../../Utils/StringUtils.js";
-import uihelper from '../../Utils/UIHelper';
+import DataHelper from "../../utils/DataHelper.js";
+import StringUtils from "../../utils/StringUtils.js";
+import uihelper from '../../utils/UIHelper';
 import "./Region.css";
 class Region extends Component {
 

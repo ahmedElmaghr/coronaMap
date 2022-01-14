@@ -1,13 +1,12 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
 import { feature } from "topojson-client";
-import CoronaMapView from "../../Components/coronamap/CoronaMapView";
-import Panel from "../../Components/panelchart/Panel";
-import Region from "../../Components/region/Region";
-import ToggleBtn from "../../Components/toggleButton/ToggleBtn";
-import DataHelper from "../../Utils/DataHelper.js";
-import countries110 from "./../../../src/countries-110m.json";
-import countries from "./../data/countries.tsv";
+import CoronaMapView from "../mapD3/CoronaMapView";
+import Panel from "../../panelchart/Panel";
+import Region from "../../region/Region";
+import DataHelper from "../../../utils/DataHelper.js";
+import countries110 from "../../../countries-110m.json";
+import countries from "../data/countries.tsv";
 
 class Container extends Component {
   constructor(props) {
@@ -81,21 +80,6 @@ class Container extends Component {
             }}
           />
           {zoneDeaths}
-          {/* <ToggleBtn
-            name="Zone Deaths"
-            id="deaths"
-            context={this.state.context}
-            checked={this.state.context.checkToggleBTn}
-            click={() => this.switchToggleBtn()}
-          />
-          <ToggleBtn
-            up ={true}
-            id="desease"
-            name="Active cases"
-            context={this.state.context}
-            checked={this.state.context.checkZoneDesease}
-            click={() => this.switchZoneDesease()}
-          /> */}
           <Panel
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
@@ -151,18 +135,6 @@ class Container extends Component {
     let y = d3.event.pageY - panelStatDim.height -headerDim.height;
     return {x,y}
   }
-  clickOnCircle = d => {
-    
-    let positionPanel = this.getPositionPanel();
-    this.setState({
-      panelOpacity: 1,
-      panelZindex: 10,
-      stat: d.stat,
-      x: positionPanel.x,
-      y: positionPanel.y
-    });
-    this.sendSvgToBackground();
-  };
 
   sendSvgToBackground = () => {
     d3.selectAll("#worldMap").style("opacity", 0.3);
@@ -179,44 +151,6 @@ class Container extends Component {
     });
     this.sendSvgToFrontPage();
     this.props.initGlobalStat();
-  };
-
-  constructView = () => {
-    const { worldData, jsonData, countries } = this.state;
-    if (jsonData.length != 0) {
-      return (
-        <CoronaMapView
-          worldData={worldData}
-          jsonData={jsonData}
-          countries={countries}
-        ></CoronaMapView>
-      );
-    }
-    return <div></div>;
-  };
-
-  switchToggleBtn = () => {
-    this.setState(currentState => ({
-      // checkToggleBTn: !currentState.checkToggleBTn,
-      context :{
-        checkToggleBTn: !currentState.context.checkToggleBTn,
-        checkZoneDesease: false
-      },
-      mapopacity: 0.5
-    }));
-
-  };
-
-  switchZoneDesease = () => {
-    var context = this.state.context;
-    this.setState(currentState => ({
-      context :{
-        checkToggleBTn: false,
-        checkZoneDesease: !currentState.context.checkZoneDesease
-      },
-      mapopacity: 0.5
-    }));
-
   };
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import uihelper from "../../Utils/UIHelper";
+import uihelper from "../../utils/UIHelper";
 import "./Card.css";
 
 export default class Card extends Component {

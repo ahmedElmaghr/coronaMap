@@ -1,5 +1,5 @@
 import React from "react";
-import StringUtils from "../../Utils/StringUtils";
+import StringUtils from "../../utils/StringUtils";
 import "./Panel.css";
 
 export default class Panel extends React.Component {
