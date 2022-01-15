@@ -1,19 +1,25 @@
 {
   "files": {
-    "main.css": "/coronaMap/static/css/main.368c3f77.css",
-    "main.js": "/coronaMap/static/js/main.3508724d.js",
-    "static/media/fontawesome-webfont.svg?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
-    "static/media/fontawesome-webfont.eot": "/coronaMap/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
-    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
-    "static/media/fontawesome-webfont.woff?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
-    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/coronaMap/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
-    "static/media/countries.tsv": "/coronaMap/static/media/countries.9e8d431d6090cf8eb936.tsv",
+    "main.css": "/coronaMap/static/css/main.945213bf.chunk.css",
+    "main.js": "/coronaMap/static/js/main.159d498e.chunk.js",
+    "main.js.map": "/coronaMap/static/js/main.159d498e.chunk.js.map",
+    "runtime-main.js": "/coronaMap/static/js/runtime-main.5a6b1671.js",
+    "runtime-main.js.map": "/coronaMap/static/js/runtime-main.5a6b1671.js.map",
+    "static/css/2.7b60c931.chunk.css": "/coronaMap/static/css/2.7b60c931.chunk.css",
+    "static/js/2.647326da.chunk.js": "/coronaMap/static/js/2.647326da.chunk.js",
+    "static/js/2.647326da.chunk.js.map": "/coronaMap/static/js/2.647326da.chunk.js.map",
     "index.html": "/coronaMap/index.html",
-    "main.368c3f77.css.map": "/coronaMap/static/css/main.368c3f77.css.map",
-    "main.3508724d.js.map": "/coronaMap/static/js/main.3508724d.js.map"
+    "static/css/2.7b60c931.chunk.css.map": "/coronaMap/static/css/2.7b60c931.chunk.css.map",
+    "static/css/main.945213bf.chunk.css.map": "/coronaMap/static/css/main.945213bf.chunk.css.map",
+    "static/js/2.647326da.chunk.js.LICENSE.txt": "/coronaMap/static/js/2.647326da.chunk.js.LICENSE.txt",
+    "static/media/countries.9e8d431d.tsv": "/coronaMap/static/media/countries.9e8d431d.tsv",
+    "static/media/font-awesome.min.css": "/coronaMap/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
-    "static/css/main.368c3f77.css",
-    "static/js/main.3508724d.js"
+    "static/js/runtime-main.5a6b1671.js",
+    "static/css/2.7b60c931.chunk.css",
+    "static/js/2.647326da.chunk.js",
+    "static/css/main.945213bf.chunk.css",
+    "static/js/main.159d498e.chunk.js"
   ]
 }
