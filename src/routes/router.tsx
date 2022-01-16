@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "../pages/home/Home";
-import { Statistics } from "../pages/statistics/Statistics";
+import { Page1 } from "../pages/page1/Page1";
+import { Page2 } from "../pages/page2/Page2";
 
 interface Props{
     dataset:any;
@@ -19,16 +19,16 @@ export class Router extends React.Component<Props,State> {
                     <Route
                         path={"/"}
                         element={
-                            <Home dataset={this.props.dataset} totalInfo={this.props.totalInfo}/>
+                            <Page1 dataset={this.props.dataset} totalInfo={this.props.totalInfo}/>
                         }
                     />
                     <Route
                         path={"/map"}
                         element={
-                            <Home dataset={this.props.dataset} totalInfo={this.props.totalInfo}/>
+                            <Page1 dataset={this.props.dataset} totalInfo={this.props.totalInfo}/>
                         }
                     />
-                    <Route path={"/stat"} element={<Statistics dataset={this.props.dataset} />} />
+                    <Route path={"/stat"} element={<Page2 dataset={this.props.dataset} />} />
                 </Routes>
             </>
         )

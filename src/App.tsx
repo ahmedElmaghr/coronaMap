@@ -1,39 +1,48 @@
 import React, { Component } from "react";
 import "./App.css";
+import { CountryDailyInfo } from "./models/CountryDailyInfo";
+import { TotalInfo } from "./models/TotalInfo";
 import { Footer } from "./pages/footer/footer";
 import { Header } from "./pages/header/header";
 import { Router } from "./routes/router";
 import { getTodayCovidData, getTodayTotalCovidData } from "./services/covidNinja/NinjaService";
+import { jsonConvert, WS_ISO2 } from "./utils/Constants";
 
-export default class App extends Component {
+interface State {
+  allCoutriesDailyinfo: CountryDailyInfo[];
+  totalInfo: TotalInfo;
+  isDataLoaded: boolean;
+}
+
+export default class App extends Component<Readonly<{}>,State> {
   
-  constructor(props) {
+  constructor(props ) {
     super(props);
     this.state = {
-      dataset: {},
-      totalInfo: {},
-      isDataLoaded:false
+      ...this.state,
+      isDataLoaded: false
     };
   }
 
 
   componentDidMount() {
-    let dataset = {};
     getTodayCovidData().then((response) => {
-      dataset = response.filter((d) => {
-        return d.country != "Western Sahara";
+      let allDataExceptWS = response.filter((d : CountryDailyInfo) => {
+        return d.countryInfo.iso2 !== WS_ISO2;
       });
+      let allCoutriesDailyinfo : CountryDailyInfo[] = jsonConvert().deserializeArray(allDataExceptWS, CountryDailyInfo);
       getTodayTotalCovidData().then((response) => {
+        let totalInfo : TotalInfo = jsonConvert().deserializeObject(response, TotalInfo);
         this.setState({
-          dataset,
-          totalInfo: response,
+          allCoutriesDailyinfo,
+          totalInfo,
           isDataLoaded: true,
         });
       });
     });
   }
 
-  render() {
+  render(){
     if (!this.state.isDataLoaded) {
       return "";
     }
@@ -48,7 +57,7 @@ export default class App extends Component {
           <Header />
         </div>
         <div>
-          <Router dataset={this.state.dataset} totalInfo={this.state.totalInfo}/>
+          <Router dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo}/>
         </div>
         <div className="footer">
           <Footer />

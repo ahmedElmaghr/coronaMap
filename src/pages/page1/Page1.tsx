@@ -12,7 +12,7 @@ interface Props {
 interface State {
   countryClicked: any;
 }
-export class Home extends React.Component<Props, State>{
+export class Page1 extends React.Component<Props, State>{
   
   constructor(props) {
     super(props);
