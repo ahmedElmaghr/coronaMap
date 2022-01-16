@@ -1,7 +1,7 @@
 import * as React from "react";
-import Container from "../../components/coronadash/container/Container";
-import { getTodayCovidData, getTodayTotalCovidData } from "../../services/covidNinja/NinjaService";
+import './page1.css'
 import Card from "../../components/card/Card";
+import Container from "../../components/coronadash/container/Container";
 import PieChartFullOption from "../../components/pieChart/PieChartFullOption";
 
 
@@ -34,7 +34,7 @@ export class Page1 extends React.Component<Props, State>{
       <div className="row">
         <div
           id="leftside"
-          className="col-2"
+          className="col-2 leftside"
           style={{
             paddingRight: 0 + "px",
             height: window.screen.height + "px",
