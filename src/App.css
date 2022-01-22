@@ -5,6 +5,11 @@
   width: 100%;
   text-align: center;
 }
+.main{
+  overflow: scroll;
+  height: 512px;
+  padding:0 16px;
+}
 .footer{
   position: fixed;
   left: 0;

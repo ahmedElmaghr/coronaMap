@@ -22,6 +22,7 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
+    "downlevelIteration": true,
   },
   "include": [
     "src"

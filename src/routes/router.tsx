@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
+import { HistoricalCountry } from "../models/historical/HistoricalCountry";
 import { About } from "../pages/about/About";
 import { Page1 } from "../pages/page1/Page1";
 import { Page2 } from "../pages/page2/Page2";

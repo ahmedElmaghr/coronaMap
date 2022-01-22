@@ -56,7 +56,7 @@ export default class App extends Component<Readonly<{}>,State> {
         <div id="header" className="row">
           <Header />
         </div>
-        <div style={{padding:'0 16px'}}>
+        <div className="main">
           <Router dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo}/>
         </div>
         <div className="footer">
