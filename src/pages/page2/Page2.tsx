@@ -4,7 +4,7 @@ import { CountryDailyInfo } from "../../models/CountryDailyInfo";
 import { DataTable } from "../../components/table/DataTable";
 
 interface Props {
-    dataset : any;
+    dataset : CountryDailyInfo[];
 }
 export class Page2 extends React.Component<Props, Readonly<{}>>{
 

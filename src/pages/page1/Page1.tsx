@@ -1,13 +1,15 @@
 import * as React from "react";
-import './page1.css'
 import Card from "../../components/card/Card";
 import Container from "../../components/coronadash/container/Container";
 import PieChartFullOption from "../../components/pieChart/PieChartFullOption";
+import { CountryDailyInfo } from "../../models/CountryDailyInfo";
+import { TotalInfo } from "../../models/TotalInfo";
+import './page1.css';
 
 
 interface Props {
-  dataset: any;
-  totalInfo: any;
+  dataset: CountryDailyInfo[];
+  totalInfo: TotalInfo;
 }
 interface State {
   countryClicked: any;

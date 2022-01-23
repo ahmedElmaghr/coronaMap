@@ -1,22 +1,24 @@
 import * as React from "react";
 import Select from "react-select";
 import { BarChart } from "../../components/barChart/BarChart";
+import { CountryRef } from "../../dto/countryRef";
 import { HistoricalCountry } from '../../models/historical/HistoricalCountry';
 import { getHistoricalDataByCountryAndPeriod } from '../../services/covidNinja/NinjaService';
 import { jsonConvert } from '../../utils/Constants';
-import { getCountriesAsArrayValueLabel } from "../../utils/countries";
 import './Page3.css';
 interface State {
     countryHistoricalData : HistoricalCountry;
     loaded : boolean;
 }
-
+interface Props{
+    countriesRef : CountryRef[];
+}
 enum DailyNewsTypes{
     DEATHS="deaths",
     CASES="cases",
     RECOVERED = "recovered"
 }
-export class Page3 extends React.Component<Readonly<{}>, State>{
+export class Page3 extends React.Component<Props, State>{
 
     constructor(props) {
         super(props);
@@ -93,7 +95,7 @@ export class Page3 extends React.Component<Readonly<{}>, State>{
         let countryCases = [ ...countryCasesAsMap.values()];
         //TODO
         let countryCasesPerDay = countryCases.map((v,i,array)=>{
-            return i>0 ? v - array[i - 1] : 0;
+            return i>0 ? Math.abs(v - array[i - 1]) : 0;
         })
         
 
@@ -150,7 +152,7 @@ export class Page3 extends React.Component<Readonly<{}>, State>{
                 
                 <div className='row'>
                     <div className="select" >
-                        <Select options={getCountriesAsArrayValueLabel()} onChange={(e)=>this.handleChangeSelect(e)} />
+                        <Select options={this.props.countriesRef} onChange={(e)=>this.handleChangeSelect(e)} />
                     </div>
                 </div>
                 <div className='row'>

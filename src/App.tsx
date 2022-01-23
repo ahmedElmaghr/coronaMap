@@ -4,7 +4,7 @@ import { CountryDailyInfo } from "./models/CountryDailyInfo";
 import { TotalInfo } from "./models/TotalInfo";
 import { Footer } from "./pages/footer/footer";
 import { Header } from "./pages/header/header";
-import { Router } from "./routes/router";
+import { Navigation } from "./routes/navigation";
 import { getTodayCovidData, getTodayTotalCovidData } from "./services/covidNinja/NinjaService";
 import { jsonConvert, WS_ISO2 } from "./utils/Constants";
 
@@ -57,7 +57,7 @@ export default class App extends Component<Readonly<{}>,State> {
           <Header />
         </div>
         <div className="main">
-          <Router dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo}/>
+          <Navigation dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo}/>
         </div>
         <div className="footer">
           <Footer />
