@@ -1,5 +1,6 @@
 import * as React from "react";
 import Select from "react-select";
+import makeAnimated from 'react-select/animated';
 import { BarChart } from "../../components/barChart/BarChart";
 import { CountryRef } from "../../dto/countryRef";
 import { HistoricalCountry } from '../../models/historical/HistoricalCountry';
@@ -89,7 +90,7 @@ export class Page3 extends React.Component<Props, State>{
     }
 
     getCountryCasesData = ()=>{
-        //morocco
+        //country hist data
         let countryHistData : HistoricalCountry = this.state.countryHistoricalData;
         let countryCasesAsMap = new Map(Object.entries(countryHistData.timeline.cases));   
         let countryCases = [ ...countryCasesAsMap.values()];
@@ -123,7 +124,7 @@ export class Page3 extends React.Component<Props, State>{
             labels: this.getLabels(),
             datasets: [
                 {
-                    label: 'country total deaths per day',
+                    label: 'country total '+(_x==DailyNewsTypes.DEATHS?'deaths':'cases')+' per day',
                     data: countryDeathsValues,//maValuePerDay
                     borderColor: 'rgb(53, 162, 235)',
                     backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -132,7 +133,7 @@ export class Page3 extends React.Component<Props, State>{
         };
         return data;
     }
-    handleChangeSelect = (e)=>{
+    handleChangeSelect = (e : CountryRef)=>{
         let interval = 365*3;
         getHistoricalDataByCountryAndPeriod(e.value,interval).then((response)=>{
             let countryHistoricalData : HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
@@ -147,12 +148,19 @@ export class Page3 extends React.Component<Props, State>{
         if(!this.state.loaded){
             return null;
         }
+        const animatedComponents = makeAnimated();
         return (
             <div className='container'>
                 
                 <div className='row'>
                     <div className="select" >
-                        <Select options={this.props.countriesRef} onChange={(e)=>this.handleChangeSelect(e)} />
+                        <Select
+                            closeMenuOnSelect={false}
+                            components={animatedComponents}
+                            //defaultValue={[colourOptions[4], colourOptions[5]]}
+                            // isMulti
+                            options={this.props.countriesRef}
+                            onChange={(e) => this.handleChangeSelect(e as CountryRef)} />
                     </div>
                 </div>
                 <div className='row'>
