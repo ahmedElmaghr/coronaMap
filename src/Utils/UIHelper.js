@@ -7,7 +7,7 @@ import StringUtils from './StringUtils';
 const buildCountUpByStringValue = (value)=>{
     return (
       <CountUp
-        separator=","
+        separator=" "
         end={value}
         duration={1.5}
       ></CountUp>
