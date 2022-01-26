@@ -1,8 +1,7 @@
 import * as React from "react";
-import Select from "react-select";
-import makeAnimated from 'react-select/animated';
 import { BarChart } from "../../components/barChart/BarChart";
-import { CountryRef } from "../../dto/countryRef";
+import { SelectRange } from "../../components/select/Select";
+import { SelectOptions } from "../../dto/selectOptions";
 import { HistoricalCountry } from '../../models/historical/HistoricalCountry';
 import { getHistoricalDataByCountryAndPeriod } from '../../services/covidNinja/NinjaService';
 import { jsonConvert } from '../../utils/Constants';
@@ -12,7 +11,7 @@ interface State {
     loaded : boolean;
 }
 interface Props{
-    countriesRef : CountryRef[];
+    countriesRef : SelectOptions[];
 }
 enum DailyNewsTypes{
     DEATHS="deaths",
@@ -133,7 +132,7 @@ export class Page3 extends React.Component<Props, State>{
         };
         return data;
     }
-    handleChangeSelect = (e : CountryRef)=>{
+    handleChangeSelect = (e : SelectOptions)=>{
         let interval = 365*3;
         getHistoricalDataByCountryAndPeriod(e.value,interval).then((response)=>{
             let countryHistoricalData : HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
@@ -148,19 +147,15 @@ export class Page3 extends React.Component<Props, State>{
         if(!this.state.loaded){
             return null;
         }
-        const animatedComponents = makeAnimated();
         return (
             <div className='container'>
                 
                 <div className='row'>
                     <div className="select" >
-                        <Select
-                            closeMenuOnSelect={false}
-                            components={animatedComponents}
-                            //defaultValue={[colourOptions[4], colourOptions[5]]}
-                            // isMulti
+                        <SelectRange
                             options={this.props.countriesRef}
-                            onChange={(e) => this.handleChangeSelect(e as CountryRef)} />
+                            onChange={(e) => this.handleChangeSelect(e as SelectOptions)} 
+                        />
                     </div>
                 </div>
                 <div className='row'>

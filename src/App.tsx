@@ -51,7 +51,6 @@ export default class App extends Component<Readonly<{}>,State> {
     return (
       <div
         className="container-fluid"
-        style={{ overflow: "auto", height: "1500px" }}
       >
         <div id="header" className="row">
           <Header />

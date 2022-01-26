@@ -1,4 +1,6 @@
 .data-table {
   height: 500px;
   width: 100%;
+  background-color: whitesmoke;
+  opacity: 0.97;
 }

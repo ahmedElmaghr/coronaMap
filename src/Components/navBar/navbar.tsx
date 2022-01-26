@@ -6,9 +6,9 @@ const Navbar = () => {
         <div className=''>
                     <ul className="topnav">
                         <li className='active'>
-                            <Link to="/map">
-                            <i className="fa fa-map" aria-hidden="true"></i>
-                            {" "} Map 
+                            <Link to="/">
+                            <i className="fa fa-home" aria-hidden="true"></i>
+                            {" "} Home 
                                 </Link>
                         </li>
                         <li>
@@ -21,6 +21,12 @@ const Navbar = () => {
                             <Link to="/charts">
                             <i className="fa fa-line-chart" aria-hidden="true"></i>
                             {" "} Charts 
+                                </Link>
+                        </li>
+                        <li>
+                            <Link to="/map">
+                            <i className="fa fa-map" aria-hidden="true"></i>
+                            {" "} Map 
                                 </Link>
                         </li>
                         <li className='about'>

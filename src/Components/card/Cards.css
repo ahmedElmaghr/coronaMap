@@ -9,17 +9,23 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .black-title, .red-title, .orange-title, .green-title, .blue-title, .orange-title{
-   border-bottom: solid 1px rgba(0, 0, 0,.5);
+   /*border-bottom: solid 1px rgba(0, 0, 0,.5);*/
 }
 .black-title,.black-content{
-    font-size: 15px;
-    font-weight: bold;
+    /* font-size: 15px; */
+    /* font-weight: bold; */
     color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: 18px;
+    padding-top: 8px;
 }
 .red-title,.red-content{
-    font-size: 20px;
-    font-weight: bold;
+    /* font-size: 15px; */
+    /* font-weight: bold; */
     color: rgb(197, 23, 23);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 36px
 }
 .blue-title,.blue-content{
     font-size: 15px;
@@ -35,4 +41,12 @@
     font-size: 15px;
     font-weight: bold;
     color: rgb(201, 93, 22);
+}
+.card-updated{
+    font-size: 12px;
+    line-height: 20px;
+    padding-bottom: 0px;
+    padding-top: 8px;
+    min-height: 28px;
+    color: #4d4d4d;
 }

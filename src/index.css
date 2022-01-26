@@ -2,9 +2,15 @@
 html, body {
   height: 100%;
 }
+#root{
+  height: 100%;
+}
 .container-fluid {
   height: 100%;
   overflow-y: hidden; /* don't show content that exceeds my height */
+  background-image: url(/src/assets/images/pages-background.jpg);/*background-image.jpg*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .body-film {
   min-height: 100%;

@@ -129,9 +129,8 @@ class Container extends Component {
 
   getPositionPanel = ()=>{
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
-    let leftsideDim = d3.selectAll("#leftside").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    let x = d3.event.pageX - leftsideDim.width - (panelStatDim.width / 2) - 15
+    let x = d3.event.pageX - (panelStatDim.width / 2) - 15
     let y = d3.event.pageY - panelStatDim.height -headerDim.height;
     return {x,y}
   }

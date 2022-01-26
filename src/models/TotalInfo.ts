@@ -3,29 +3,29 @@ import { JsonObject, JsonProperty } from "json2typescript";
 @JsonObject("TotalInfo")
 export class TotalInfo {
   @JsonProperty("updated", Number)
-  private updated: number;
+  updated: number;
   @JsonProperty("affectedCountries", Number)
-  private affectedCountries: number;
+  affectedCountries: number;
   @JsonProperty("cases", Number)
-  private cases: number;
+  cases: number;
   @JsonProperty("todayCases", Number)
-  private todayCases: number;
+  todayCases: number;
   @JsonProperty("deaths", Number)
-  private deaths: number;
+  deaths: number;
   @JsonProperty("todayDeaths", Number)
-  private todayDeaths: number;
+  todayDeaths: number;
   @JsonProperty("recovered", Number)
-  private recovered: number;
+  recovered: number;
   @JsonProperty("todayRecovered", Number)
-  private todayRecovered: number;
+  todayRecovered: number;
   @JsonProperty("active", Number)
-  private active: number;
+  active: number;
   @JsonProperty("critical", Number)
-  private critical: number;
+  critical: number;
   @JsonProperty("tests", Number)
-  private tests: number;
+  tests: number;
   @JsonProperty("population", Number)
-  private population: number;
+  population: number;
 
   constructor() {
     this.updated = 0;

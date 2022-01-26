@@ -9,7 +9,7 @@ const buildCountUpByStringValue = (value)=>{
       <CountUp
         separator=","
         end={value}
-        duration={0.5}
+        duration={1.5}
       ></CountUp>
     );
   }

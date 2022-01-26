@@ -4,7 +4,7 @@ import { PieChart } from "react-minimal-pie-chart";
 
 type Props = {
   data: ComponentProps<typeof PieChart>['data'];
-  countryClicked : {};
+  countryClicked? : {};
 };
 
 function PieChartFullOption(props: Props) {

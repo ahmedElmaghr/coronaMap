@@ -1,0 +1,50 @@
+.home{
+  display:flow-root;
+}
+.home .row{
+  display:flow-root;
+  padding-top: 20px;
+}
+.panels{
+  /* text-align: center; */
+  margin: 0 auto;
+  display: flex;
+  /* width: 90%; */
+  margin-top: 10px;
+  float: right;
+}
+.pie-container{
+  display: flow-root;
+  margin: 0 auto;
+}
+.pie-container .pie{
+  float: right;
+  margin-right: 20%;
+}
+.panels .card{
+  margin-right: 15px;
+  flex: 1;
+  border-bottom: 2px solid rgb(197, 23, 23);
+}
+.panels .group-card-left{
+  flex: 1;
+}
+.panels .group-card-right{
+  flex: 1;
+}
+.panels .orange-title{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.panels .red-title{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.panels .black-title{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.panels .green-title{
+  margin-right: 10px;
+  margin-left: 10px;
+}

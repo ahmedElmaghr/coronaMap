@@ -1,3 +1,7 @@
+body {
+  height: 100%;
+  margin: 0;
+}
 .header, .footer {
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
@@ -6,9 +10,9 @@
   text-align: center;
 }
 .main{
-  overflow: scroll;
-  height: 512px;
-  padding:0 16px;
+  /* overflow: scroll; */
+  height: 100%;
+  /* padding:0 16px; */
 }
 .footer{
   position: fixed;

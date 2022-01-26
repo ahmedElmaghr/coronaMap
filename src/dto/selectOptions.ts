@@ -1,4 +1,4 @@
-export class CountryRef {
+export class SelectOptions {
   value: string;
   label: string;
 
