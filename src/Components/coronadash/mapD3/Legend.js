@@ -6,21 +6,21 @@ export default class Legend extends Component {
   componentDidMount() {
     var svg = d3.select("#legend")
     // Handmade legend
-    svg.append("circle").attr("cx",10).attr("cy",10).attr("r", 6).style("fill", "#6f8d43")
-    svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "#71c7ec")
-    svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "#65b3d4")
-    svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "#386376")
-    svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#16272f")
-    // svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "#386376")
-    svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "rgba(218, 223, 225, 1)")
+    svg.append("rect").attr("x",4).attr("y",0).attr('width', 12).attr('height', 20).style("fill", "#ffedc1")
+    svg.append("rect").attr("x",4).attr("y",20).attr('width', 12).attr('height', 20).style("fill", "#95DCF4")
+    svg.append("rect").attr("x",4).attr("y",40).attr('width', 12).attr('height', 20).style("fill", "#54CBF2")
+    svg.append("rect").attr("x",4).attr("y",60).attr('width', 12).attr('height', 20).style("fill", "#00ACE3")
+    svg.append("rect").attr("x",4).attr("y",80).attr('width', 12).attr('height', 20).style("fill", "#008EBC")
+    svg.append("rect").attr("x",4).attr("y",100).attr('width', 12).attr('height', 20).style("fill", "#007092")
+    svg.append("rect").attr("x",4).attr("y",120).attr('width', 12).attr('height', 15).style("fill", "#B6B6B6")
 
-    svg.append("text").attr("x", 30).attr("y", 10).text("no new cases").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 30).text("< 2k").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 50).text("2k - 5K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 70).text("5K - 15K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 90).text(">15k").style("font-size", "15px").attr("alignment-baseline","middle")
-    // svg.append("text").attr("x", 30).attr("y", 110).text("30K - 100K").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 30).attr("y", 110).text("infos not available").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 10).text("0").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 30).text("1 - 10").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 50).text("11 - 100").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 70).text("101 - 1000").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 90).text("1 001 - 10 000").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 110).text("> 10 000").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 30).attr("y", 130).text("Not Applicable").style("font-size", "15px").attr("alignment-baseline","middle")
 
     
   }

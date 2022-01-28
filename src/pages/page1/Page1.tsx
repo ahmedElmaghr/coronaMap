@@ -28,7 +28,7 @@ export class Page1 extends React.Component<Props, State>{
         <div id="mapWW" className="col" style={{ height: window.screen.height + "px" }}>
           <Container
             covid19={this.props.dataset}
-            onclick={(d) => this.onclickCountry(d)}
+            onMouseMoveOverCountry={(d) => this.onMouseMoveOverCountry(d)}
             initGlobalStat={() => {
               this.initGlobalStat();
             }}
@@ -38,7 +38,7 @@ export class Page1 extends React.Component<Props, State>{
     )
   }
 
-  onclickCountry = (d) => {
+  onMouseMoveOverCountry = (d) => {
     var dataset = this.props.dataset;
     var countryFiltered;
     if (!d) {

@@ -1,19 +1,19 @@
 html, body { margin:0; padding:0; overflow:hidden }
 .svg{
   border-style:ridge;
-  background-color:azure;
+  background-color:gainsboro;
   /* position:fixed; top:0; bottom:0; left:0; right:0 */
   position: relative;
 }
 
 .country{
-  stroke : blue;
-  stroke-width: 0.1;
+  stroke: gray;
+  stroke-width: 0.5;
   cursor: pointer;
 }
 .country:hover{
-  stroke-width: 0.5;
-  stroke: black;
+  stroke-width: 1;
+  stroke: gray;
 }
 .place-label{
   font-size: 10px;
@@ -24,4 +24,5 @@ html, body { margin:0; padding:0; overflow:hidden }
   stroke: white;
   fill: black;
   stroke-width: 0.3px;
+  visibility: hidden;
 }

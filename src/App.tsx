@@ -47,7 +47,6 @@ export default class App extends Component<Readonly<{}>,State> {
       return "";
     }
     console.log("App render");
-    console.log("v104");
     return (
       <div
         className="container-fluid"
@@ -58,9 +57,9 @@ export default class App extends Component<Readonly<{}>,State> {
         <div className="main">
           <Navigation dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo}/>
         </div>
-        <div className="footer">
+        <footer className="footer">
           <Footer />
-        </div>
+        </footer>
       </div>
     );
   }

@@ -39,7 +39,9 @@ class Container extends Component {
       });
     });
   }
-
+  handleMouseOut = ()=>{
+    this.closePanelDetails();
+  }
   render() {
     const {
       worldData,
@@ -76,8 +78,9 @@ class Container extends Component {
             countries={countries}
             covid19={covid19}
             clickOnCountry={d => {
-              this.clickOnCountry(d);
+              this.mouseOverCountry(d);
             }}
+            handleMouseOut = {()=>this.handleMouseOut()}
           />
           {zoneDeaths}
           <Panel
@@ -97,15 +100,7 @@ class Container extends Component {
     }
   }
 
-  getData = data => {
-    if (data) {
-      return [data.ActiveCases, data.TotalDeaths, data.TotalRecovered];
-    } else {
-      return [0];
-    }
-  };
-
-  clickOnCountry = d => {
+  mouseOverCountry = d => {
     
 
     let stat = {};
@@ -117,26 +112,26 @@ class Container extends Component {
     }
     let position = this.getPositionPanel();
     this.setState({
-      panelOpacity: 1,
+      panelOpacity: 0.9,
       panelZindex: 1,
       stat: stat,
       x: position.x,
       y: position.y 
     });
-    this.sendSvgToBackground();
-    this.props.onclick(d)
+    // this.sendSvgToBackground();
+    this.props.onMouseMoveOverCountry(d)
   };
 
   getPositionPanel = ()=>{
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
-    let x = d3.event.pageX - (panelStatDim.width / 2) - 15
+    let x = d3.event.pageX - (panelStatDim.width / 2);
     let y = d3.event.pageY - panelStatDim.height -headerDim.height;
     return {x,y}
   }
 
   sendSvgToBackground = () => {
-    d3.selectAll("#worldMap").style("opacity", 0.3);
+    d3.selectAll("#worldMap").style("opacity", 0.7);
   };
 
   sendSvgToFrontPage = () => {

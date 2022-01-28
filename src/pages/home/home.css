@@ -48,3 +48,32 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 6px rgb(197, 23, 23);
+  
+}
+.fill img {
+  flex-shrink: 0;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  border-radius: 10px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.fill i{
+  cursor: pointer;
+  /* color: gray; */
+}
+.link{
+  min-width: 150px;
+  color: #008dc9;
+  text-align: right;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: normal;
+}

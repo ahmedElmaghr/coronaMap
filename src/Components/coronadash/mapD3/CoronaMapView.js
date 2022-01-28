@@ -54,6 +54,9 @@ export default class CoronaMapView extends PureComponent {
       .on("click", (d) => {
         this.props.clickOnCountry()
       })
+      .on("mouseout", (d) => {
+        // this.props.handleMouseOut()
+      })
   };
 
    getMoroccoCountryColor = (data) => {
@@ -82,7 +85,8 @@ export default class CoronaMapView extends PureComponent {
             "Egypt",
             "India",  
             "Greenland",
-            "France"
+            "France",
+            "Senegal"
           ].includes(d.properties.name);
         })
       )
@@ -142,6 +146,9 @@ export default class CoronaMapView extends PureComponent {
         .on("click", (d) => {
           this.props.clickOnCountry(d);
         })
+        .on("mouseout", (d) => {
+          // this.props.handleMouseOut()
+        })
       return g;
 
   };
@@ -165,30 +172,22 @@ export default class CoronaMapView extends PureComponent {
   //Get country color range rgba(255,255,255)
   getCountryColor = (dailyCase) => {
     if(dailyCase == 0){
-      return '#6f8d43'
+      return '#ffedc1'
     } 
-    
-    /*else if (0 < dailyCase && dailyCase <= 100) {
-      return '#71c7ec'
-    } else if (100 <= dailyCase && dailyCase < 200) {
-      return '#65b3d4'
-    } else if (200 <= dailyCase && dailyCase < 500) {
-      return '#5a9fbc'
-    } else if (500 <= dailyCase && dailyCase < 1000) {
-      return '#4f8ba5'
-    } else if (1000 <= dailyCase && dailyCase < 5000) {
-      return '#43778d'
-    } */
-    else if (0 < dailyCase && dailyCase <= 2000) {
-      return '#71c7ec'
+    else if (1 < dailyCase && dailyCase <= 10) {
+      return '#95DCF4'
     }
-    else if (2000 < dailyCase && dailyCase <= 5000) {
-      return '#65b3d4'
+    else if (11 < dailyCase && dailyCase <= 100) {
+      return '#54CBF2'
     }
-    else if (5000 <= dailyCase && dailyCase < 15000) {
-      return '#386376'
-    } else if (15000 <= dailyCase) {
-      return '#16272f'
+    else if (101 <= dailyCase && dailyCase < 1000) {
+      return '#00ACE3'
+    }
+    else if (1001 <= dailyCase && dailyCase < 10000) {
+      return '#008EBC'
+    }
+     else if (dailyCase >=10000 ) {
+      return '#007092'
     }
 
   }
@@ -213,21 +212,9 @@ export default class CoronaMapView extends PureComponent {
 
   zoomed = svg => {
     var transform = d3.event.transform;
-    svg.selectAll("path,circle,.place-label").attr("transform", transform);
-    var markerRed = d3.selectAll(".marker-red");
-    var markersBlack = d3.selectAll(".marker-black");
+    svg.selectAll("path,.place-label").attr("transform", transform);
     var placeLabel = d3.selectAll(".place-label");
 
-    let contextDesease = { checkToggleBTn: false , checkZoneDesease:true}
-    markerRed.attr("r", (d)=>{
-      let scaledRadius =this.scaleRadius(d,contextDesease,transform.k)
-      return scaledRadius<5 ? 5 : scaledRadius;
-    } )
-    let contextDeaths = { checkToggleBTn: true , checkZoneDesease:false}
-    markersBlack.attr("r", (d)=>{
-      let scaledRadius =this.scaleRadius(d,contextDeaths,transform.k)
-      return scaledRadius<5 ? 5 : scaledRadius;
-    } );
   //Countries label Transformation
   let k = transform.k;
 
@@ -245,16 +232,6 @@ export default class CoronaMapView extends PureComponent {
   }
 
 };
-  /**
-   * d: element data
-   * context : the contxt
-   * k : scale projection [0,1]
-   */
-  scaleRadius = (d,context,k)=>{
-    let calculatedRadius = UIHelper.calculateRadius(d, context)/2;
-    let scaledRadius = k> .5 ? calculatedRadius/k : calculatedRadius
-    return scaledRadius + "px";
-  }
 
   //Projection and path calculator
   projection = () =>{
