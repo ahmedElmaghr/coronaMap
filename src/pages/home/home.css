@@ -5,12 +5,13 @@
   display:flow-root;
   padding-top: 20px;
 }
+.home a:hover{
+  color: #008dc9;
+  text-decoration: none;
+}
 .panels{
-  /* text-align: center; */
   margin: 0 auto;
   display: flex;
-  /* width: 90%; */
-  margin-top: 10px;
   float: right;
 }
 .pie-container{
@@ -70,7 +71,7 @@
 }
 .link{
   min-width: 150px;
-  color: #008dc9;/*008dc9*/
+  color: ivory;/*008dc9*/
   text-align: right;
   transition: all 0.3s ease;
   font-weight: 700;

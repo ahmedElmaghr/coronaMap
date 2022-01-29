@@ -52,6 +52,12 @@ export class Home extends React.Component<Props, State>{
     return (
       <>
         <div className="home">
+          <div className="row" style={{display:"flex"}}>
+            <div className="col-8" style={{ flex: 1, textAlign: "center" }}></div>
+            <div className="col-8" style={{ flex: 1, textAlign: "center" }}>
+            <Link to="/stat" className="link">Dasboard view →</Link>
+            </div>
+          </div>
           <div className="row">
             <div className="col-6 panels">
               <Cards
@@ -63,11 +69,11 @@ export class Home extends React.Component<Props, State>{
             <div className="col-8" style={{ flex: 1 }}>
             </div>
             <div className="col-8" style={{ flex: 1, textAlign: "center" }}>
-              <Link to="/map" className="link">Interactive maps →</Link>
+              <Link to="/map" className="link">Interactive maps view →</Link>
               <div className="fill" onMouseEnter={() => this.handleMapShotcutMouseEnter()} onMouseLeave={() => this.handleMapShotcutMouseLeave()} >
-              <Link to="/map">
-                <img src={mapImage} alt="" style={{opacity:this.state.display ? 1 : 0.6}}/>
-              </Link>
+                <Link to="/map">
+                  <img src={mapImage} alt="" style={{ opacity: this.state.display ? 1 : 0.6 }} />
+                </Link>
                 {/* <i className="fa fa-share fa-5x" aria-hidden="true" style={{ position: "absolute", opacity: this.state.display ? 1 : 0 }}></i> */}
               </div>
             </div>
