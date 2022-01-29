@@ -67,34 +67,13 @@ export default class CoronaMapView extends PureComponent {
 
    addCountriesName = (g, worldData) => {
     g.selectAll(".place-label")
-      .data(
-        worldData.filter((d) => {
-          return [
-            "Morocco",
-            "USA",
-            "China",
-            "Brazil",
-            "Australia",
-            "Russia",
-            "South Africa",
-            "Chile",
-            "Mexico",
-            "Iran",
-            "Germany",
-            "Nigeria",
-            "Egypt",
-            "India",  
-            "Greenland",
-            "France",
-            "Senegal"
-          ].includes(d.properties.name);
-        })
-      )
+      .data(worldData)
       .enter()
       .append("text")
       .attr("class", "place-label")
       .attr("x", (d) => {
-        return this.path().centroid(d)[0];
+        console.log(this.path().centroid(d))
+        return this.path().centroid(d)[0] - 5;
       })
       .attr("y", (d) => {
         return this.path().centroid(d)[1];
@@ -218,17 +197,15 @@ export default class CoronaMapView extends PureComponent {
   //Countries label Transformation
   let k = transform.k;
 
-  if (k >= 1 && k < 2) {
-    placeLabel.style("font-size", "10px");
-  } else if (k >= 2 && k < 3) {
-    placeLabel.style("font-size", "5px");
-  } else if (k >= 3 && k < 8) {
-    placeLabel.style("font-size", "3px").style("stroke-width", "0.1px");
-  } else {
+  if(k>=7){
     placeLabel
-      .style("font-size", "1px")
-      .style("stroke-width", "0px")
-      .style("letter-spacing", "0px");
+    .style("font-size", "2px")
+    .style("stroke-width", "0.05px")
+    // .style("letter-spacing", "0px")
+    .style("visibility","visible");
+  }else{
+    placeLabel
+    .style("visibility","hidden");
   }
 
 };

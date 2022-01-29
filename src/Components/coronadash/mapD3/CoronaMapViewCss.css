@@ -16,11 +16,11 @@ html, body { margin:0; padding:0; overflow:hidden }
   stroke: gray;
 }
 .place-label{
-  font-size: 10px;
-  font-weight: 600;
+  /* font-size: 10px;
+  font-weight: 600; */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  letter-spacing: -.5px;
-  margin-top: .5em;
+  /* letter-spacing: -.5px;
+  margin-top: .5em; */
   stroke: white;
   fill: black;
   stroke-width: 0.3px;

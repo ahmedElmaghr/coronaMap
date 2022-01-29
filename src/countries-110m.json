@@ -20,7 +20,7 @@
           "type": "Polygon",
           "arcs": [[11, 12, 13, 14]],
           "id": "732",
-          "properties": { "name": "W. Sahara" }
+          "properties": { "name": "" }
         },
         {
           "type": "MultiPolygon",
