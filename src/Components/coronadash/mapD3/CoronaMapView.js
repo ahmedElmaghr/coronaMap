@@ -72,8 +72,7 @@ export default class CoronaMapView extends PureComponent {
       .append("text")
       .attr("class", "place-label")
       .attr("x", (d) => {
-        console.log(this.path().centroid(d))
-        return this.path().centroid(d)[0] - 5;
+        return this.path().centroid(d)[0];
       })
       .attr("y", (d) => {
         return this.path().centroid(d)[1];
@@ -197,13 +196,20 @@ export default class CoronaMapView extends PureComponent {
   //Countries label Transformation
   let k = transform.k;
 
-  if(k>=7){
+  if(k>=7 && k<10){
     placeLabel
     .style("font-size", "2px")
     .style("stroke-width", "0.05px")
     // .style("letter-spacing", "0px")
     .style("visibility","visible");
-  }else{
+  }else if(k>=10){
+    placeLabel
+    .style("font-size", "1px")
+    .style("stroke-width", "0.005px")
+    // .style("letter-spacing", "0px")
+    .style("visibility","visible");
+  }
+  else{
     placeLabel
     .style("visibility","hidden");
   }
