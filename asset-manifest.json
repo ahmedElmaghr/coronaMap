@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/coronaMap/static/css/main.d871e7f9.chunk.css",
-    "main.js": "/coronaMap/static/js/main.0651e226.chunk.js",
-    "main.js.map": "/coronaMap/static/js/main.0651e226.chunk.js.map",
+    "main.css": "/coronaMap/static/css/main.df2c7386.chunk.css",
+    "main.js": "/coronaMap/static/js/main.92bef5c4.chunk.js",
+    "main.js.map": "/coronaMap/static/js/main.92bef5c4.chunk.js.map",
     "runtime-main.js": "/coronaMap/static/js/runtime-main.5a6b1671.js",
     "runtime-main.js.map": "/coronaMap/static/js/runtime-main.5a6b1671.js.map",
     "static/css/2.7b60c931.chunk.css": "/coronaMap/static/css/2.7b60c931.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.2ba44e59.chunk.js.map": "/coronaMap/static/js/2.2ba44e59.chunk.js.map",
     "index.html": "/coronaMap/index.html",
     "static/css/2.7b60c931.chunk.css.map": "/coronaMap/static/css/2.7b60c931.chunk.css.map",
-    "static/css/main.d871e7f9.chunk.css.map": "/coronaMap/static/css/main.d871e7f9.chunk.css.map",
+    "static/css/main.df2c7386.chunk.css.map": "/coronaMap/static/css/main.df2c7386.chunk.css.map",
     "static/js/2.2ba44e59.chunk.js.LICENSE.txt": "/coronaMap/static/js/2.2ba44e59.chunk.js.LICENSE.txt",
     "static/media/index.css": "/coronaMap/static/media/background.0bd0b6ca.jpg",
     "static/media/countries.9e8d431d.tsv": "/coronaMap/static/media/countries.9e8d431d.tsv",
@@ -21,7 +21,7 @@
     "static/js/runtime-main.5a6b1671.js",
     "static/css/2.7b60c931.chunk.css",
     "static/js/2.2ba44e59.chunk.js",
-    "static/css/main.d871e7f9.chunk.css",
-    "static/js/main.0651e226.chunk.js"
+    "static/css/main.df2c7386.chunk.css",
+    "static/js/main.92bef5c4.chunk.js"
   ]
 }
