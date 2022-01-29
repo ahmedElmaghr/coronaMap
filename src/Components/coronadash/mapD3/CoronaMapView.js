@@ -174,10 +174,10 @@ export default class CoronaMapView extends PureComponent {
     if(dailyCase == 0){
       return '#ffedc1'
     } 
-    else if (1 < dailyCase && dailyCase <= 10) {
+    else if (1 <= dailyCase && dailyCase <= 10) {
       return '#95DCF4'
     }
-    else if (11 < dailyCase && dailyCase <= 100) {
+    else if (11 <= dailyCase && dailyCase <= 100) {
       return '#54CBF2'
     }
     else if (101 <= dailyCase && dailyCase < 1000) {

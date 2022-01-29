@@ -70,7 +70,7 @@
 }
 .link{
   min-width: 150px;
-  color: #008dc9;
+  color: #008dc9;/*008dc9*/
   text-align: right;
   transition: all 0.3s ease;
   font-weight: 700;

@@ -53,7 +53,6 @@ export class Home extends React.Component<Props, State>{
       <>
         <div className="home">
           <div className="row">
-            
             <div className="col-6 panels">
               <Cards
                 totalInfo={this.props.totalInfo}
@@ -64,7 +63,7 @@ export class Home extends React.Component<Props, State>{
             <div className="col-8" style={{ flex: 1 }}>
             </div>
             <div className="col-8" style={{ flex: 1, textAlign: "center" }}>
-              <Link to="/map" className="link">View dashboard →</Link>
+              <Link to="/map" className="link">Interactive maps →</Link>
               <div className="fill" onMouseEnter={() => this.handleMapShotcutMouseEnter()} onMouseLeave={() => this.handleMapShotcutMouseLeave()} >
               <Link to="/map">
                 <img src={mapImage} alt="" style={{opacity:this.state.display ? 1 : 0.6}}/>

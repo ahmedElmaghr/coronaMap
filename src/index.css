@@ -8,7 +8,7 @@ html, body {
 .container-fluid {
   height: 100%;
   overflow-y: hidden; /* don't show content that exceeds my height */
-  background-image: url(/src/assets/images/pages-background.jpg);/*background-image.jpg*/
+  background-image: url(/src/assets/images/background.jpg);/*background-image.jpg*/
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

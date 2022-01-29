@@ -133,7 +133,7 @@ export class Page3 extends React.Component<Props, State>{
         return data;
     }
     handleChangeSelect = (e : SelectOptions)=>{
-        let interval = 365*3;
+        let interval = 365*2;
         getHistoricalDataByCountryAndPeriod(e.value,interval).then((response)=>{
             let countryHistoricalData : HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
                     this.setState({
