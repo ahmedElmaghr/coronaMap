@@ -1,0 +1,17 @@
+.react_time_range__time_range_container {
+  padding: 30px 1% 0;
+  height: 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.react_time_range__tick_label {
+  transform: rotate(-50deg);
+  color: aliceblue;
+  margin-top: 41px;
+  width: 7% !important;
+}
+.selected-interval{
+    color: whitesmoke;
+    margin-top: 37px;
+    float: right;
+}

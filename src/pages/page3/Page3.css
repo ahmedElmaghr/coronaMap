@@ -6,6 +6,7 @@
     /* float: right; */
     margin: 0 auto;
     padding-bottom: 10px;
+    z-index: 9999;
 }
 .graph{
     background-color: whitesmoke;

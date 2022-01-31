@@ -20,7 +20,7 @@ export class SelectRange extends React.Component<Props, Readonly<{}>>{
     render() {
         return (
             <Select
-            closeMenuOnSelect={false}
+            closeMenuOnSelect={true}
             components={animatedComponents}
             //defaultValue={[colourOptions[4], colourOptions[5]]}
             // isMulti
