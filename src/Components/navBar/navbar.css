@@ -22,11 +22,11 @@ ul.topnav li a {
   text-decoration: none;
 }
 
-ul.topnav li a:hover:not(.active) {
+ul.topnav a:hover:not(.active) {
   background-color: #111;
 }
 
-ul.topnav li.active {
+ul.topnav a.active {
   background-color: #111;
 }
 

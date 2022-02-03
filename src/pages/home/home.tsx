@@ -3,7 +3,7 @@ import Cards from "../../components/card/Cards";
 import { TotalInfo } from "../../models/TotalInfo";
 import './home.css';
 import mapImage from '../../assets/images/world-map-covid19.jpg';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 interface Props {
   totalInfo: TotalInfo;
@@ -30,15 +30,13 @@ export class Home extends React.Component<Props, State>{
       return [0];
     }
   };
-  handleMapShotcutMouseEnter = () => {
-    console.log("mouse enter")
+  handleMapLinkMouseEnter = () => {
     this.setState({
       ...this.state,
       display: true
     })
   }
-  handleMapShotcutMouseLeave = () => {
-    console.log("mouse leave")
+  handleMapLinkMouseLeave = () => {
     this.setState({
       ...this.state,
       display: false
@@ -69,12 +67,11 @@ export class Home extends React.Component<Props, State>{
             <div className="col-8" style={{ flex: 1 }}>
             </div>
             <div className="col-8" style={{ flex: 1, textAlign: "center" }}>
-              <Link to="/map" className="link">Interactive maps view →</Link>
-              <div className="fill" onMouseEnter={() => this.handleMapShotcutMouseEnter()} onMouseLeave={() => this.handleMapShotcutMouseLeave()} >
-                <Link to="/map">
+              <NavLink to="/map" className="link">Interactive maps view →</NavLink>
+              <div className="fill" onMouseEnter={() => this.handleMapLinkMouseEnter()} onMouseLeave={() => this.handleMapLinkMouseLeave()} >
+                <NavLink to="/map">
                   <img src={mapImage} alt="" style={{ opacity: this.state.display ? 1 : 0.6 }} />
-                </Link>
-                {/* <i className="fa fa-share fa-5x" aria-hidden="true" style={{ position: "absolute", opacity: this.state.display ? 1 : 0 }}></i> */}
+                </NavLink>
               </div>
             </div>
           </div>

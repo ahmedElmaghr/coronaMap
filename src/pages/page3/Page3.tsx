@@ -8,10 +8,24 @@ import { HistoricalCountry } from '../../models/historical/HistoricalCountry';
 import { getHistoricalDataByCountryAndPeriod } from '../../services/covidNinja/NinjaService';
 import { jsonConvert } from '../../utils/Constants';
 import './Page3.css';
+import Loading from "../../components/loading/loading";
+
+//TODO to be exported in an external ts util file
+const firstCovidDate = new Date(2019, 10, 1, 0, 0, 0, 0);
+const now = new Date()
+const getTodayAtSpecificHour = (hour = 12) =>
+    set(now, { hours: hour, minutes: 0, seconds: 0, milliseconds: 0 });
+
+const selectedStartInit = new Date(2021, 0, 25, 0, 0, 0, 0);
+const selectedEndInit = new Date();
+
+const startTime = firstCovidDate;
+const endTime = new Date();
+//
 interface State {
     countryHistoricalData: HistoricalCountry;
-    loaded: boolean;
-    selectedInterval: [Date, Date]
+    selectedInterval: [Date, Date];
+    isDataLoaded: boolean;
 }
 interface Props {
     countriesRef: SelectOptions[];
@@ -21,35 +35,27 @@ enum DailyNewsTypes {
     CASES = "cases",
     RECOVERED = "recovered"
 }
-const firstCovidDate = new Date(2019, 10, 1, 0, 0, 0, 0);
-const now = new Date()
-const getTodayAtSpecificHour = (hour = 12) =>
-    set(now, { hours: hour, minutes: 0, seconds: 0, milliseconds: 0 });
-
-const selectedStartInit = new Date(2021, 0, 25, 0, 0, 0, 0);//getTodayAtSpecificHour(8);
-const selectedEndInit = new Date();//getTodayAtSpecificHour(16);
-
-const startTime = firstCovidDate;//getTodayAtSpecificHour(7)
-const endTime = new Date();//endOfToday()
 export class Page3 extends React.Component<Props, State>{
 
     constructor(props) {
         super(props);
         this.state = {
-            ...this.state,
-            loaded: false,
+            countryHistoricalData: new HistoricalCountry(),
+            isDataLoaded: false,
             selectedInterval: [selectedStartInit, selectedEndInit]
         }
     }
 
     componentDidMount() {
         let interval = 365 * 3;
-        getHistoricalDataByCountryAndPeriod('ma', interval).then((response) => {
-            let countryHistoricalData: HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
-            this.setState({
-                ...this.state,
-                countryHistoricalData: countryHistoricalData,
-                loaded: true
+        this.setState({ isDataLoaded: false }, () => {
+            getHistoricalDataByCountryAndPeriod('ma', interval).then((response) => {
+                let countryHistoricalData: HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
+                this.setState({
+                    ...this.state,
+                    countryHistoricalData: countryHistoricalData,
+                    isDataLoaded: true
+                })
             })
         })
     }
@@ -96,7 +102,7 @@ export class Page3 extends React.Component<Props, State>{
             let itAsDate = new Date(it[0]);
             return (itAsDate >= startDate && itAsDate <= endDate)
         })
-        let countryDailyData = countryDailyDataByPeriod.map((it)=> it[1]);
+        let countryDailyData = countryDailyDataByPeriod.map((it) => it[1]);
         //TODO
         let countryDataPerDay = countryDailyData.map((v, i, array) => {
             return i > 0 ? Math.abs(v - array[i - 1]) : 0;
@@ -118,7 +124,6 @@ export class Page3 extends React.Component<Props, State>{
     }
 
     getTotalDataByType = (_x: DailyNewsTypes) => {
-        //morocco
         let countryHistData: HistoricalCountry = this.state.countryHistoricalData;
         let countryDeathsAsMap = new Map(Object.entries(countryHistData.timeline[_x]));
         let countryDeathsValues = [...countryDeathsAsMap.values()];
@@ -138,12 +143,14 @@ export class Page3 extends React.Component<Props, State>{
     }
     handleChangeSelect = (e: SelectOptions) => {
         let interval = 365 * 3;
-        getHistoricalDataByCountryAndPeriod(e.value, interval).then((response) => {
-            let countryHistoricalData: HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
-            this.setState({
-                ...this.state,
-                countryHistoricalData,
-                loaded: true
+        this.setState({ isDataLoaded: false }, () => {
+            getHistoricalDataByCountryAndPeriod(e.value, interval).then((response) => {
+                let countryHistoricalData: HistoricalCountry = jsonConvert().deserializeObject(response, HistoricalCountry);
+                this.setState({
+                    ...this.state,
+                    countryHistoricalData,
+                    isDataLoaded: true
+                })
             })
         })
     }
@@ -163,12 +170,12 @@ export class Page3 extends React.Component<Props, State>{
     }
 
     render() {
-        if (!this.state.loaded) {
-            return null;
-        }
+        console.log("call render ",this.state.isDataLoaded)
+        
         return (
+            
             <div className='container'>
-
+                <Loading active={!this.state.isDataLoaded}/>
                 <div className='row'>
                     <div className="select" >
                         <SelectRange
