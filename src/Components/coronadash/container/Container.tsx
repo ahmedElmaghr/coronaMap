@@ -1,72 +1,58 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
 import { feature } from "topojson-client";
-import CoronaMapView from "../mapD3/CoronaMapView";
-import Panel from "../../panelchart/Panel";
-import Region from "../../region/Region";
-import DataHelper from "../../../utils/DataHelper.js";
 import countries110 from "../../../countries-110m.json";
-import countries from "../data/countries.tsv";
+import { CountryDailyInfo } from "../../../models/CountryDailyInfo";
+import DataHelper from "../../../utils/DataHelper.js";
+import Panel from "../../panelchart/Panel";
+import CoronaMapView from "../mapD3/CoronaMapView";
 
-class Container extends Component {
+interface Props {
+  covid19: CountryDailyInfo[];
+  onMouseMoveOverCountry: any;
+  initGlobalStat: any;
+}
+interface State {
+  worldData: [];
+  jsonData: {};
+  pieOpacity: number;
+  panelOpacity: number;
+  panelZindex: number;
+  panel_X: number;
+  panel_Y: number;
+  stat: {};
+}
+class Container extends Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
+      ...this.state,
       worldData: [],
       jsonData: [],
-      countries: [],
       pieOpacity: 0,
-      panelOpacity: 0,
-
-      context: {
-        checkToggleBTn: false,
-        checkZoneDesease: false
-      }
+      panelOpacity: 0
     };
   }
 
   componentDidMount() {
-    let worldData = countries110;
-
     this.setState({
-      worldData: feature(worldData, worldData.objects.countries).features,
-      jsonData: worldData
-    });
-
-    d3.tsv(countries).then((response, error) => {
-      this.setState({
-        countries: response
-      });
+      worldData: feature(countries110, countries110.objects.countries).features,
+      jsonData: countries110
     });
   }
-  handleMouseOut = ()=>{
+
+  handleMouseOut = () => {
     this.closePanelDetails();
   }
+  
   render() {
     const {
       worldData,
       jsonData,
-      countries,
-      panelOpacity,
-      context
+      panelOpacity
     } = this.state;
-    const { covid19 } = this.props;
-    let zoneDeaths = "";
 
-    if (context && (context.checkToggleBTn || context.checkZoneDesease)) {
-      zoneDeaths = (
-        <Region
-          context = {context}
-          worldData={worldData}
-          countries={countries}
-          covid19={covid19}
-          clickOnCircle={d => {
-            this.clickOnCircle(d);
-          }}
-        />
-      );
-    }
-    if (jsonData.length != 0 && covid19) {
+    if (Object.keys(jsonData).length != 0 && this.props.covid19) {
       return (
         <div>
           <CoronaMapView
@@ -75,14 +61,12 @@ class Container extends Component {
             closePanel={() => {
               this.closePanelDetails();
             }}
-            countries={countries}
-            covid19={covid19}
+            covid19={this.props.covid19}
             clickOnCountry={d => {
               this.mouseOverCountry(d);
             }}
-            handleMouseOut = {()=>this.handleMouseOut()}
+            handleMouseOut={() => this.handleMouseOut()}
           />
-          {zoneDeaths}
           <Panel
             opacity={panelOpacity}
             zIndex={this.state.panelZindex}
@@ -90,8 +74,8 @@ class Container extends Component {
             closePanel={() => {
               this.closePanelDetails();
             }}
-            x={this.state.x}
-            y={this.state.y}
+            x={this.state.panel_X}
+            y={this.state.panel_Y}
           />
         </div>
       );
@@ -101,7 +85,7 @@ class Container extends Component {
   }
 
   mouseOverCountry = d => {
-    
+
 
     let stat = {};
     let covid19 = this.props.covid19;
@@ -115,19 +99,19 @@ class Container extends Component {
       panelOpacity: 0.9,
       panelZindex: 1,
       stat: stat,
-      x: position.x,
-      y: position.y 
+      panel_X: position.x,
+      panel_Y: position.y
     });
     // this.sendSvgToBackground();
     this.props.onMouseMoveOverCountry(d)
   };
 
-  getPositionPanel = ()=>{
+  getPositionPanel = () => {
     let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
     let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
     let x = d3.event.pageX - (panelStatDim.width / 2);
-    let y = d3.event.pageY - panelStatDim.height -headerDim.height;
-    return {x,y}
+    let y = d3.event.pageY - panelStatDim.height - headerDim.height;
+    return { x, y }
   }
 
   sendSvgToBackground = () => {

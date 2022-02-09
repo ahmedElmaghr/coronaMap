@@ -1,7 +1,6 @@
 import * as d3 from "d3";
 import React, { PureComponent } from "react";
 import { merge } from "topojson-client";
-import UIHelper from "../../../utils/UIHelper";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
 
@@ -60,6 +59,7 @@ export default class CoronaMapView extends PureComponent {
   };
 
    getMoroccoCountryColor = (data) => {
+     console.log("data",data)
     const moroccoData = data.filter(c => c.country == "Morocco");
     let morrocanTodayCases = moroccoData[0].todayCases;
     return this.getCountryColor(morrocanTodayCases); 

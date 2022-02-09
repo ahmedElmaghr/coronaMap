@@ -1,7 +1,7 @@
 import * as React from "react";
 import { format, endOfToday, set } from "date-fns";
 import { BarChart } from "../../components/barChart/BarChart";
-import { TimeRangePicker } from "../../components/coronadash/timeRange/TimeRangePicker";
+import { TimeRangePicker } from "../../components/timeRange/TimeRangePicker";
 import { SelectRange } from "../../components/select/Select";
 import { SelectOptions } from "../../dto/selectOptions";
 import { HistoricalCountry } from '../../models/historical/HistoricalCountry';

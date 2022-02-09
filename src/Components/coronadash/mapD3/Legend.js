@@ -28,7 +28,7 @@ export default class Legend extends Component {
   render() {
     let svgMap = d3.selectAll('#content').node().getBoundingClientRect();
     return (
-      <div className="legend" style = {{height:'30%',width:'15%',top : svgMap.height*.6,zIndex:1}}>
+      <div className="legend" style = {{height:'30%',width:'15%',zIndex:1}}>
         <svg  id = "legend" style = {{height:'100%',width:'100%'}}/>
       </div>
     );

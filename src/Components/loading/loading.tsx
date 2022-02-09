@@ -1,18 +1,18 @@
 import React from 'react';
 import { FaSpinner } from 'react-icons/fa';
-import './loading.css'
-const Loading = (props : {active:boolean}) => {
-    console.log("call spinner")
-    if(props.active){
+import './loading.css';
+
+const Loading = (props: { active: boolean }) => {
+    if (props.active) {
         return (
             <div className='loading'>
                 <FaSpinner className='spinner' />
             </div>
         )
-    }else{
+    } else {
         return null;
     }
-    
+
 }
 
 export default Loading;
