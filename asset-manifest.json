@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/coronaMap/static/css/main.e28cdbeb.chunk.css",
+    "main.css": "/coronaMap/static/css/main.e2f517b1.chunk.css",
     "main.js": "/coronaMap/static/js/main.641c49ae.chunk.js",
     "main.js.map": "/coronaMap/static/js/main.641c49ae.chunk.js.map",
     "runtime-main.js": "/coronaMap/static/js/runtime-main.5a6b1671.js",
@@ -10,7 +10,7 @@
     "static/js/2.db570bca.chunk.js.map": "/coronaMap/static/js/2.db570bca.chunk.js.map",
     "index.html": "/coronaMap/index.html",
     "static/css/2.7b60c931.chunk.css.map": "/coronaMap/static/css/2.7b60c931.chunk.css.map",
-    "static/css/main.e28cdbeb.chunk.css.map": "/coronaMap/static/css/main.e28cdbeb.chunk.css.map",
+    "static/css/main.e2f517b1.chunk.css.map": "/coronaMap/static/css/main.e2f517b1.chunk.css.map",
     "static/js/2.db570bca.chunk.js.LICENSE.txt": "/coronaMap/static/js/2.db570bca.chunk.js.LICENSE.txt",
     "static/media/index.css": "/coronaMap/static/media/background.0bd0b6ca.jpg",
     "static/media/font-awesome.min.css": "/coronaMap/static/media/fontawesome-webfont.f691f37e.woff",
@@ -20,7 +20,7 @@
     "static/js/runtime-main.5a6b1671.js",
     "static/css/2.7b60c931.chunk.css",
     "static/js/2.db570bca.chunk.js",
-    "static/css/main.e28cdbeb.chunk.css",
+    "static/css/main.e2f517b1.chunk.css",
     "static/js/main.641c49ae.chunk.js"
   ]
 }
