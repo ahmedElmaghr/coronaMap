@@ -10,11 +10,19 @@ interface Props{
 interface State{
   
 }
+
+const getTableHeight = () =>{
+  //TODO not a reactjs way to get element
+  var element = document.getElementById("header");
+  console.log("height",element? element.offsetHeight : 0)
+  return element? element.offsetHeight : 0;
+}
+const style = { height: `calc(95vh - ${getTableHeight()}px)`}
 export class DataTable extends React.Component<Props,State>{
 
   render(){
     return (
-      <div className='data-table'>
+      <div className='data-table' style={style}>
         <DataGrid
           rows={this.props.data}
           columns={columnsSchema}

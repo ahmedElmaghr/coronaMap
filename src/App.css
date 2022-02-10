@@ -2,12 +2,21 @@ body {
   height: 100%;
   margin: 0;
 }
-.header, .footer {
+.header{
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
   color: white;
   width: 100%;
   text-align: center;
+  height: 100%;
+}
+.footer {
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  width: 100%;
+  text-align: center;
+  height: 5vh;
 }
 .main{
   /* overflow: scroll; */

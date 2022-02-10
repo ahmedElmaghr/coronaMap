@@ -26,7 +26,7 @@ interface Props{
       <div
         className="container-fluid"
       >
-        <div id="header" className="row">
+        <div id="header" className="row" style={{margin:0}}>
           <Header />
         </div>
         <div className="main">

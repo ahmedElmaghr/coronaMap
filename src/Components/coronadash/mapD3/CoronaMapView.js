@@ -99,7 +99,6 @@ export default class CoronaMapView extends PureComponent {
       .attr("class", "svg")
       .attr("id", "content")
       .attr("width", this.width)
-      // .attr("height", window.screen.height +'px')
       .attr("viewBox", this.viewBox)
       ;
     return svg;
