@@ -1,48 +1,23 @@
 import React, { Component } from "react";
+import Loading from './../src/components/loading/loading';
 import "./App.css";
+import { withDataLoader } from "./components/hoc/withDataLoader";
 import { CountryDailyInfo } from "./models/CountryDailyInfo";
 import { TotalInfo } from "./models/TotalInfo";
 import { Footer } from "./pages/footer/footer";
 import { Header } from "./pages/header/header";
 import { Navigation } from "./routes/navigation";
-import { getTodayCovidData, getTodayTotalCovidData } from "./services/covidNinja/NinjaService";
-import { jsonConvert, WS_ISO2 } from "./utils/Constants";
-import Loading from './../src/components/loading/loading';
-interface State {
-  allCoutriesDailyinfo: CountryDailyInfo[];
-  totalInfo: TotalInfo;
-  isDataLoaded: boolean;
+
+interface Props{
+  active : boolean;
+  allCoutriesDailyinfo : CountryDailyInfo[];
+  totalInfo : TotalInfo;
 }
 
-export default class App extends Component<Readonly<{}>, State> {
+ class App extends Component<Props,Readonly<{}>> {
 
   constructor(props) {
     super(props);
-    this.state = {
-      allCoutriesDailyinfo: [],
-      totalInfo: new TotalInfo(),
-      isDataLoaded: false
-    };
-  }
-
-
-  componentDidMount() {
-    this.setState({ isDataLoaded: false }, () => {
-      getTodayCovidData().then((response) => {
-        let allDataExceptWS = response.filter((d: CountryDailyInfo) => {
-          return d.countryInfo.iso2 !== WS_ISO2;
-        });
-        let allCoutriesDailyinfo: CountryDailyInfo[] = jsonConvert().deserializeArray(allDataExceptWS, CountryDailyInfo);
-        getTodayTotalCovidData().then((response) => {
-          let totalInfo: TotalInfo = jsonConvert().deserializeObject(response, TotalInfo);
-          this.setState({
-            allCoutriesDailyinfo,
-            totalInfo,
-            isDataLoaded: true,
-          });
-        });
-      })
-    })
   }
 
   render() {
@@ -55,8 +30,8 @@ export default class App extends Component<Readonly<{}>, State> {
           <Header />
         </div>
         <div className="main">
-          <Loading active={!this.state.isDataLoaded} />
-          <Navigation dataset={this.state.allCoutriesDailyinfo} totalInfo={this.state.totalInfo} />
+          <Loading active={this.props.active} />
+          <Navigation dataset={this.props.allCoutriesDailyinfo} totalInfo={this.props.totalInfo} />
         </div>
         <footer className="footer">
           <Footer />
@@ -65,3 +40,4 @@ export default class App extends Component<Readonly<{}>, State> {
     );
   }
 }
+export default withDataLoader(App);
