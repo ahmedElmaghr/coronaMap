@@ -10,6 +10,7 @@ export const withDataLoader = (Component) => (props) => {
   const [allCoutriesDailyinfo, setAllCoutriesDailyinfo] = useState(new Array<CountryDailyInfo>());
   const [totalInfo, setTotalInfo] = useState(new TotalInfo());
   
+  
   //add logic
   useEffect(() => {
     getTodayCovidData().then((response) => {
