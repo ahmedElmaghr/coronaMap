@@ -8,21 +8,29 @@ interface Props{
   data: CountryDailyInfo[];
 }
 interface State{
-  
+  headerHeight : any;
 }
 
-const getTableHeight = () =>{
-  //TODO not a reactjs way to get element
-  var element = document.getElementById("header");
-  console.log("height",element? element.offsetHeight : 0)
-  return element? element.offsetHeight : 0;
-}
-const style = { height: `calc(95vh - ${getTableHeight()}px)`}
+
+
 export class DataTable extends React.Component<Props,State>{
 
+  constructor(props){
+    super(props);
+    this.state={
+      headerHeight : 0
+    }
+  }
+  componentDidMount(){
+      //TODO not a reactjs way to get element
+      var element = document.getElementById("header");
+      console.log("height",element? element.offsetHeight : 0)
+      let headerHeight =  element? element.offsetHeight : 0;
+    this.setState({ headerHeight: `calc(95vh - ${headerHeight}px)`})
+  }
   render(){
     return (
-      <div className='data-table' style={style}>
+      <div className='data-table' style={{height: this.state.headerHeight}}>
         <DataGrid
           rows={this.props.data}
           columns={columnsSchema}
