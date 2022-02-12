@@ -1,5 +1,5 @@
 import * as React from "react";
-import Container from "../../components/coronadash/container/Container";
+import CoronaMapView from "../../components/coronadash/mapD3/CoronaMapView";
 import { CountryDailyInfo } from "../../models/CountryDailyInfo";
 import { TotalInfo } from "../../models/TotalInfo";
 import './page1.css';
@@ -22,18 +22,24 @@ export class Page1 extends React.Component<Props, State>{
   }
 
   render() {
-
     return (
       <div className="row">
-        <div id="mapWW" className="col" style={{ height: window.screen.height + "px" }}>
-          <Container
+
+        <CoronaMapView
+          covid19={this.props.dataset}
+          onMouseMoveOverCountry={(d) => this.onMouseMoveOverCountry(d)}
+          initGlobalStat={() => {
+            this.initGlobalStat();
+          }}
+        />
+
+        {/* <Container
             covid19={this.props.dataset}
             onMouseMoveOverCountry={(d) => this.onMouseMoveOverCountry(d)}
             initGlobalStat={() => {
               this.initGlobalStat();
             }}
-          ></Container>
-        </div>
+          ></Container> */}
       </div>
     )
   }

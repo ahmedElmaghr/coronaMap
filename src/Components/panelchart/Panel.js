@@ -26,6 +26,8 @@ export default class Panel extends React.Component {
   }
 
   render() {
+    console.log("render panel")
+    console.log(this.props);
     let { stat, opacity,zIndex, x, y } = this.props;
     return (
       <div ref={(node) => (this.node = node)}>

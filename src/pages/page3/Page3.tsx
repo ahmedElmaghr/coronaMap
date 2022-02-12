@@ -170,8 +170,6 @@ export class Page3 extends React.Component<Props, State>{
     }
 
     render() {
-        console.log("call render ",this.state.isDataLoaded)
-        
         return (
             
             <div className='container'>

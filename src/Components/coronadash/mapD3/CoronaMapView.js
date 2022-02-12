@@ -1,10 +1,13 @@
 import * as d3 from "d3";
-import React, { PureComponent } from "react";
+import React, { Component, PureComponent } from "react";
 import { merge } from "topojson-client";
+import withTopologicalData from "../../hoc/withTopologicalData";
 import "./CoronaMapViewCss.css";
 import Legend from "./Legend.js";
+import Panel from "../../panelchart/Panel";
+import DataHelper from "../../../utils/DataHelper";
 
-export default class CoronaMapView extends PureComponent {
+class CoronaMapView extends Component {
   //Constantes
 
   width = "100%";
@@ -13,9 +16,19 @@ export default class CoronaMapView extends PureComponent {
   borderColor = "blue";
   constructor(props) {
     super(props);
+    this.state= 
+                { panelInfo: 
+                  {
+                    opacity:0,
+                    zIndex:0,
+                    stat:{},
+                    x:0,
+                    y:0
+                  } 
+                };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.jsonData.length != 0) {
       //Draw svg Wrapper
       var svg = this.drawSvgWrapper();
@@ -51,15 +64,11 @@ export default class CoronaMapView extends PureComponent {
       .attr("d", d => this.calculatePath(d))
       .attr("fill", this.getMoroccoCountryColor(this.props.covid19))
       .on("click", (d) => {
-        this.props.clickOnCountry()
-      })
-      .on("mouseout", (d) => {
-        // this.props.handleMouseOut()
+        this.clickOnCountry()
       })
   };
 
    getMoroccoCountryColor = (data) => {
-     console.log("data",data)
     const moroccoData = data.filter(c => c.country == "Morocco");
     let morrocanTodayCases = moroccoData[0].todayCases;
     return this.getCountryColor(morrocanTodayCases); 
@@ -82,9 +91,68 @@ export default class CoronaMapView extends PureComponent {
       });
   };
 
+  clickOnCountry = d => {
+    let panelStat = {};
+    let covid19 = this.props.covid19;
+    if (d) {
+      panelStat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);
+    } else {
+      panelStat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);
+    }
+    let panelPosition = this.getPositionPanel();
+    this.setState((prevState) => {
+      return {
+        panelInfo: {
+          opacity: 0.9,
+          zIndex: 1,
+          stat: panelStat,
+          x: panelPosition.x,
+          y: panelPosition.y,
+        },
+      };
+    });
+  };
+
+  getPositionPanel = () => {
+    let panelStatDim = d3.selectAll("#panelStat").node().getBoundingClientRect();
+    let headerDim = d3.selectAll("#header").node().getBoundingClientRect();
+    let x = d3.event.pageX - (panelStatDim.width / 2);
+    let y = d3.event.pageY - panelStatDim.height - headerDim.height;
+    return { x, y };
+  }
+  handleMouseOut = () => {
+    this.closePanelDetails();
+  }
+
+  closePanelDetails = () => {
+    this.setState(prevState =>{
+      return {
+        panelInfo: {
+          ...prevState.panelInfo,
+          opacity: 0,
+          zIndex: -1,
+        },
+      }
+    });
+    this.props.initGlobalStat();
+  };
+
   render() {
     return (
-      <Legend></Legend>
+      //map is drew by d3 using id mapWW (map World wide)
+      <div id="mapWW" className="col" style={{ height: window.screen.height + "px" }}>
+      <Legend/>
+      <Panel
+            opacity={this.state.panelInfo.opacity}
+            zIndex={this.state.panelInfo.zIndex}
+            stat={this.state.panelInfo.stat}
+            x={this.state.panelInfo.x}
+            y={this.state.panelInfo.y}
+            closePanel={() => {
+              this.closePanelDetails();
+            }}
+        />
+      </div>
     );
   }
 
@@ -121,10 +189,7 @@ export default class CoronaMapView extends PureComponent {
           return this.markDesease(d)
         })
         .on("click", (d) => {
-          this.props.clickOnCountry(d);
-        })
-        .on("mouseout", (d) => {
-          // this.props.handleMouseOut()
+          this.clickOnCountry(d);
         })
       return g;
 
@@ -182,7 +247,7 @@ export default class CoronaMapView extends PureComponent {
     .translateExtent([[0,0], [width, height]])
     .extent([[0, 0], [width, height]])
     .on("zoom", () => {
-      this.props.closePanel();
+      // this.closePanelDetails();
       this.zoomed(svg)
     }));
   };
@@ -245,3 +310,4 @@ export default class CoronaMapView extends PureComponent {
     return d3.geoPath().projection(this.projection());
   };
 }
+export default withTopologicalData(CoronaMapView);

@@ -24,7 +24,6 @@ export class DataTable extends React.Component<Props,State>{
   componentDidMount(){
       //TODO not a reactjs way to get element
       var element = document.getElementById("header");
-      console.log("height",element? element.offsetHeight : 0)
       let headerHeight =  element? element.offsetHeight : 0;
     this.setState({ headerHeight: `calc(95vh - ${headerHeight}px)`})
   }
