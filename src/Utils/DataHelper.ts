@@ -1,6 +1,6 @@
 
-const constructData = (pays, statCovid19) => {
-    var result = [];
+export const constructData = (pays, statCovid19) => {
+    var result = new Array();
     var i = 0;
     pays.forEach((d) => {
         var coordinate = {
@@ -12,7 +12,7 @@ const constructData = (pays, statCovid19) => {
             id: i,
             coordinate,
             data: d,
-            stat: getStatByPays(d, statCovid19)
+            stat: getStatByCountry(d, statCovid19)
         }
         result.push(object);
         i++;
@@ -21,7 +21,7 @@ const constructData = (pays, statCovid19) => {
     return result;
 }
 
-const getStatByPays = (d, covid19) => {
+export const getStatByCountry = (d, covid19) => {
     let variable = covid19.filter(world => {
         let countryTrimmed = world.country ? world.country.trim() : "";
         return countryTrimmed === d.name
@@ -35,4 +35,3 @@ const getStatByPays = (d, covid19) => {
         };
     }
 }
-export default { constructData, getStatByPays };

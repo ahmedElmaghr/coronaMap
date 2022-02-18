@@ -1,7 +1,7 @@
 import * as d3 from "d3";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { merge } from "topojson-client";
-import DataHelper from "../../../utils/DataHelper";
+import {getStatByCountry} from "../../../utils/DataHelper";
 import withTopologicalData from "../../hoc/withTopologicalData";
 import Panel from "../../panelchart/Panel";
 import "./CoronaMapViewCss.css";
@@ -11,9 +11,7 @@ const CoronaMapView = (props) => {
   //Constantes
 
   const width = "100%";
-  const height = "100%";
   const viewBox = `0 0 800 400`;
-  const borderColor = "blue";
 
   const [panelInfo, setPanelInfo] = useState(
 
@@ -93,9 +91,9 @@ const CoronaMapView = (props) => {
     let panelStat = {};
     let covid19 = props.covid19;
     if (d) {
-      panelStat = DataHelper.getStatByPays({ name: d.properties.name }, covid19);
+      panelStat = getStatByCountry({ name: d.properties.name }, covid19);
     } else {
-      panelStat = DataHelper.getStatByPays({ name: "Morocco" }, covid19);
+      panelStat = getStatByCountry({ name: "Morocco" }, covid19);
     }
     let panelPosition = getPositionPanel();
     setPanelInfo({
@@ -114,9 +112,6 @@ const CoronaMapView = (props) => {
     let y = d3.event.pageY - panelStatDim.height - headerDim.height;
     return { x, y };
   }
-  const handleMouseOut = () => {
-    closePanelDetails();
-  }
 
   const closePanelDetails = () => {
     setPanelInfo((prevState) => ({
@@ -124,7 +119,7 @@ const CoronaMapView = (props) => {
       opacity: 0,
       zIndex: -1,
     }));
-    props.initGlobalStat();
+    // props.initGlobalStat();
   };
 
   //Draw svg wrapper for map
@@ -204,9 +199,6 @@ const CoronaMapView = (props) => {
     }
 
   }
-
-
-
   //Add zoom
   const addZoom = svg => {
     const map = d3.select(".svg");
@@ -296,9 +288,5 @@ const CoronaMapView = (props) => {
       />
     </div>
   );
-
-
-
-
 }
 export default withTopologicalData(CoronaMapView);

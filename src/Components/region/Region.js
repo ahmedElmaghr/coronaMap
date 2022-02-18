@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { Component } from "react";
-import DataHelper from "../../utils/DataHelper.js";
 import StringUtils from "../../utils/StringUtils.js";
+import { getStatByCountry,constructData } from "../../utils/DataHelper.js";
 import uihelper from '../../utils/UIHelper';
 import "./Region.css";
 class Region extends Component {
@@ -46,7 +46,7 @@ class Region extends Component {
     let dimondPrincess = countries.filter(e => {
       return e.country == "DP";
     });
-    let statDP = DataHelper.getStatByPays(
+    let statDP = getStatByCountry(
       { name: "Diamond Princess" },
       covid19
     );
@@ -54,7 +54,7 @@ class Region extends Component {
 
   //Add Markers Function
   drawZoneByContext = (node, countries, covid19, context) => {
-    let data = DataHelper.constructData(countries, covid19);
+    let data = constructData(countries, covid19);
     var markers;
     let dataFiltered = this.filterCountriesByContext(data, context);
     if (dataFiltered) {
