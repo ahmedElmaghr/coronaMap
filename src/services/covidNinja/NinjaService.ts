@@ -1,7 +1,7 @@
-
-const URL_DATA_TODAY : string = "https://corona.lmao.ninja/v2/countries?today&sort";
-const URL_DATA_TODAY_TOTAL : string = "https://corona.lmao.ninja/v2/all?today";
-const URL_HIST_DATA : string = 'https://corona.lmao.ninja/v3/covid-19/historical';//ma?lastdays=1
+const URL_HOST = 'https://disease.sh';
+const URL_DATA_TODAY : string = URL_HOST+"/v2/countries?today&sort";
+const URL_DATA_TODAY_TOTAL : string = URL_HOST+"/v2/all?today";
+const URL_HIST_DATA : string = URL_HOST+'/v3/covid-19/historical';//ma?lastdays=1
 
 
     export const getTodayCovidData = ()=>{
